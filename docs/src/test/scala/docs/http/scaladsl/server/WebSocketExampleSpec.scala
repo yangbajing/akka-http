@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger
 import akka.{ Done, NotUsed }
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.model.ws.*
+import akka.http.scaladsl.model.ws._
 import akka.http.scaladsl.settings.{ ClientConnectionSettings, ServerSettings }
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.{ CoupledTerminationFlow, Flow, Sink }

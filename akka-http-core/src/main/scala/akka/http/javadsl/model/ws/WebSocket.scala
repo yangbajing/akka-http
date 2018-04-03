@@ -9,9 +9,8 @@ import java.util.concurrent.CompletionStage
 import akka.Done
 import akka.http.impl.util.JavaMapping.Implicits._
 import akka.http.javadsl.model._
-import akka.stream.{ Materializer, javadsl }
 import akka.stream.javadsl.{ CoupledTerminationFlow, Flow, Sink, Source }
-import akka.stream.scaladsl.Keep
+import akka.stream.scaladsl
 
 import scala.compat.java8.FutureConverters._
 
@@ -41,8 +40,8 @@ object WebSocket {
    *
    * If the request wasn't a WebSocket request a response with status code 400 is returned.
    */
-  def handleWebSocketRequestWithSource(request: HttpRequest, source: Source[Message, _], mat: Materializer): HttpResponse =
-    handleWebSocketRequestWith(request, CoupledTerminationFlow.fromSinkAndSource(ignoreSink(mat), source))
+  def handleWebSocketRequestWithSource(request: HttpRequest, source: Source[Message, _]): HttpResponse =
+    handleWebSocketRequestWith(request, CoupledTerminationFlow.fromSinkAndSource(ignoreSink, source))
 
   /**
    * If a given request is a WebSocket request a response accepting the request is returned using the given sink to
@@ -60,10 +59,10 @@ object WebSocket {
    * use this Sink instead of `Sink.ignore` since this one will also properly drain incoming `BinaryMessage.Streamed`
    * and `TextMessage.Streamed` messages.
    */
-  def ignoreSink(implicit materializer: Materializer): javadsl.Sink[Message, CompletionStage[Done]] =
+  val ignoreSink: Sink[Message, CompletionStage[Done]] =
     Flow.of(classOf[Message])
       .asScala.map(m ⇒ m.asScala)
-      .toMat(akka.http.scaladsl.model.ws.WebSocket.ignoreSink.mapMaterializedValue(f ⇒ f.toJava).asJava)(Keep.right)
+      .toMat(akka.http.scaladsl.model.ws.WebSocket.ignoreSink.mapMaterializedValue(f ⇒ f.toJava).asJava)(scaladsl.Keep.right)
       .asJava
 
 }

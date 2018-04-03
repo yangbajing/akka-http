@@ -96,8 +96,8 @@ trait UpgradeToWebSocket extends jm.ws.UpgradeToWebSocket {
   override def handleMessagesWithSink(sink: Graph[SinkShape[jm.ws.Message], _ <: Any]): HttpResponse =
     handleMessages(createScalaCoupledFlow(sink, Source.maybe))
 
-  override def handleMessagesWithSource(source: Graph[SourceShape[jm.ws.Message], _ <: Any])(implicit mat: Materializer): HttpResponse =
-    handleMessages(createScalaCoupledFlow(akka.http.javadsl.model.ws.WebSocket.ignoreSink(mat), scaladsl.Source.fromGraph(source)))
+  override def handleMessagesWithSource(source: Graph[SourceShape[jm.ws.Message], _ <: Any]): HttpResponse =
+    handleMessages(createScalaCoupledFlow(akka.http.javadsl.model.ws.WebSocket.ignoreSink, scaladsl.Source.fromGraph(source)))
 
   private[this] def createScalaFlow(inSink: Graph[SinkShape[jm.ws.Message], _ <: Any], outSource: Graph[SourceShape[jm.ws.Message], _ <: Any]): Graph[FlowShape[Message, Message], NotUsed] = {
     val graph: Graph[FlowShape[jm.ws.Message, jm.ws.Message], NotUsed] = scaladsl.Flow.fromSinkAndSourceMat(inSink, outSource)(scaladsl.Keep.none)

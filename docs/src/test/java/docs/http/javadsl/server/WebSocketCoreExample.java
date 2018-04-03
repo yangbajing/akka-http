@@ -64,7 +64,7 @@ public class WebSocketCoreExample {
     switch (path) {
       case "/source":
         Source<Message, NotUsed> source = Source.single("Hello").map(txt -> TextMessage.create(txt));
-        return WebSocket.handleWebSocketRequestWithSource(request, source, materializer);
+        return WebSocket.handleWebSocketRequestWithSource(request, source);
 
       case "/sink":
         Sink<Message, NotUsed> sink = Sink.actorRef(system.deadLetters(), "COMPLETED");

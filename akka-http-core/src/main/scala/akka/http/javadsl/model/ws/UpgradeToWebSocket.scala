@@ -50,7 +50,7 @@ trait UpgradeToWebSocket extends sm.HttpHeader {
    * Returns a response that can be used to answer a WebSocket handshake request. The connection will afterwards
    * drain incoming messages and use the given source to produce messages for the client.
    */
-  def handleMessagesWithSource(source: Graph[SourceShape[Message], _ <: Any])(implicit mat: Materializer): HttpResponse
+  def handleMessagesWithSource(source: Graph[SourceShape[Message], _ <: Any]): HttpResponse
 
   /**
    * Convenience API for (safely, including Streamed ones) ignoring all incoming messages from the client-side and
