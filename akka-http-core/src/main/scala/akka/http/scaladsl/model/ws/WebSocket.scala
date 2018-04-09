@@ -9,11 +9,11 @@ import java.util.concurrent.atomic.AtomicInteger
 import akka.Done
 import akka.http.scaladsl.model.ws
 import akka.stream._
-import akka.stream.scaladsl.{Flow, Keep, Sink}
+import akka.stream.scaladsl.{ Flow, Keep, Sink }
 import akka.stream.stage._
 
-import scala.concurrent.{ExecutionContext, Future, Promise}
-import scala.util.{Failure, Success, Try}
+import scala.concurrent.{ ExecutionContext, Future, Promise }
+import scala.util.{ Failure, Success, Try }
 
 object WebSocket {
 
@@ -59,13 +59,13 @@ object WebSocket {
                 pendingStreams.incrementAndGet()
                 s.dataStream.runWith(Sink.ignore)(interpreter.subFusingMaterializer).onComplete(onSubstreamComplete)
               case _ ⇒
-                // otherwise it is a Strict message, so we don't need to drain it
+              // otherwise it is a Strict message, so we don't need to drain it
             }
             pull(in)
           }
 
           /** Called whenever draining a streamed message completes */
-          def onSubstreamComplete(result: Try[Done]): Unit =  result match {
+          def onSubstreamComplete(result: Try[Done]): Unit = result match {
             case Success(_) ⇒ onStreamFinish()
             case Failure(e) ⇒ failCb.invoke(e)
           }
