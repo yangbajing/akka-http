@@ -383,7 +383,7 @@ lazy val docs = project("docs")
   .settings(ParadoxSupport.paradoxWithCustomDirectives)
 
 lazy val docsZh = project("docs-zh")
-  .enablePlugins(ParadoxSitePlugin, GhpagesPlugin)
+  .enablePlugins(ParadoxSitePlugin)
   .enablePlugins(AkkaParadoxPlugin, NoPublish, DeployRsync)
   .disablePlugins(BintrayPlugin, MimaPlugin)
   .addAkkaModuleDependency("akka-stream", "provided")
@@ -394,12 +394,12 @@ lazy val docsZh = project("docs-zh")
   )
   .settings(Dependencies.docs)
   .settings(
-    name := "akka-http-docs",
+    name := "akka-http-docs-zh",
     resolvers += Resolver.jcenterRepo,
     paradoxGroups := Map("Language" -> Seq("Scala", "Java")),
     paradoxProperties in Compile ++= Map(
-      "project.name" -> "Akka HTTP",
-      "canonical.base_url" -> "https://doc.akka.io/docs/akka-http/current",
+      "project.name" -> s"Akka HTTP ${version.value} Chinese edition",
+      "canonical.base_url" -> "https://yangbajing.github.io/akka-http/",
       "akka.version" -> AkkaDependency.akkaVersion,
       "alpn-agent.version" -> Dependencies.alpnAgentVersion,
       "scala.binary_version" -> scalaBinaryVersion.value, // to be consistent with Akka build
@@ -439,9 +439,11 @@ lazy val docsZh = project("docs-zh")
     add212CrossDirs(Test)
   )
   .settings(ParadoxSupport.paradoxWithCustomDirectives)
+  .enablePlugins(GhpagesPlugin)
   .settings(
     git.remoteRepo := "https://github.com/yangbajing/akka-http.git",
     ThisProject / GitKeys.gitReader := baseDirectory(base => new DefaultReadableGit(base)).value,
+    paradoxRoots := List()
   )
 
 
