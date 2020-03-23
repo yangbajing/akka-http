@@ -9,6 +9,8 @@ import java.nio.file.attribute.{ PosixFileAttributeView, PosixFilePermission }
 import sbtdynver.GitDescribeOutput
 import spray.boilerplate.BoilerplatePlugin
 import com.lightbend.paradox.apidoc.ApidocPlugin.autoImport.apidocRootPackage
+import com.typesafe.sbt.SbtGit.GitKeys
+import com.typesafe.sbt.git.DefaultReadableGit
 
 inThisBuild(Def.settings(
   organization := "com.typesafe.akka",
@@ -78,6 +80,7 @@ lazy val root = Project(
     httpMarshallersScala,
     httpMarshallersJava,
     docs,
+    docsZh,
     compatibilityTests
   )
 
@@ -378,6 +381,69 @@ lazy val docs = project("docs")
     add212CrossDirs(Test)
   )
   .settings(ParadoxSupport.paradoxWithCustomDirectives)
+
+lazy val docsZh = project("docs-zh")
+  .enablePlugins(ParadoxSitePlugin, GhpagesPlugin)
+  .enablePlugins(AkkaParadoxPlugin, NoPublish, DeployRsync)
+  .disablePlugins(BintrayPlugin, MimaPlugin)
+  .addAkkaModuleDependency("akka-stream", "provided")
+  .addAkkaModuleDependency("akka-actor-typed", "provided", includeIfScalaVersionMatches = _ != "2.11") // no akka-actor-typed in 2.11 any more
+  .dependsOn(
+    httpCore, http, httpXml, http2Support, httpMarshallersJava, httpMarshallersScala, httpCaching,
+    httpTests % "compile;test->test", httpTestkit % "compile;test->test"
+  )
+  .settings(Dependencies.docs)
+  .settings(
+    name := "akka-http-docs",
+    resolvers += Resolver.jcenterRepo,
+    paradoxGroups := Map("Language" -> Seq("Scala", "Java")),
+    paradoxProperties in Compile ++= Map(
+      "project.name" -> "Akka HTTP",
+      "canonical.base_url" -> "https://doc.akka.io/docs/akka-http/current",
+      "akka.version" -> AkkaDependency.akkaVersion,
+      "alpn-agent.version" -> Dependencies.alpnAgentVersion,
+      "scala.binary_version" -> scalaBinaryVersion.value, // to be consistent with Akka build
+      "scala.binaryVersion" -> scalaBinaryVersion.value,
+      "scaladoc.version" -> scalaVersion.value,
+      "crossString" -> (scalaVersion.value match {
+        case akka.Doc.BinVer(_) => ""
+        case _                  => "cross CrossVersion.full"
+      }),
+      "jackson.version" -> Dependencies.jacksonXmlVersion,
+      "extref.akka-docs.base_url" -> s"https://doc.akka.io/docs/akka/${AkkaDependency.akkaVersion}/%s",
+      "extref.akka25-docs.base_url" -> s"https://doc.akka.io/docs/akka/2.5/%s",
+      "javadoc.akka.http.base_url" -> {
+        val v = if (isSnapshot.value) "current" else version.value
+        s"https://doc.akka.io/japi/akka-http/$v"
+      },
+      "javadoc.akka.base_url" -> s"https://doc.akka.io/japi/akka/${AkkaDependency.akkaVersion}",
+      "scaladoc.akka.http.base_url" -> {
+        val v = if (isSnapshot.value) "current" else version.value
+        s"https://doc.akka.io/api/akka-http/$v"
+      },
+      "scaladoc.akka.base_url" -> s"https://doc.akka.io/api/akka/${AkkaDependency.akkaVersion}",
+      "algolia.docsearch.api_key" -> "0ccbb8bf5148554a406fbf07df0a93b9",
+      "algolia.docsearch.index_name" -> "akka-http",
+      "google.analytics.account" -> "UA-21117439-1",
+      "google.analytics.domain.name" -> "akka.io",
+      "github.base_url" -> GitHub.url(version.value),
+      "snip.test.base_dir" -> (sourceDirectory in Test).value.getAbsolutePath,
+      "snip.akka-http.base_dir" -> (baseDirectory in ThisBuild).value.getAbsolutePath,
+      "signature.test.base_dir" -> (sourceDirectory in Test).value.getAbsolutePath,
+      "signature.akka-http.base_dir" -> (baseDirectory in ThisBuild).value.getAbsolutePath
+    ),
+    apidocRootPackage := "akka",
+    Formatting.docFormatSettings,
+    additionalTasks in ValidatePR += paradox in Compile,
+    deployRsyncArtifact := List((paradox in Compile).value -> gustavDir("docs").value),
+    add212CrossDirs(Test)
+  )
+  .settings(ParadoxSupport.paradoxWithCustomDirectives)
+  .settings(
+    git.remoteRepo := "https://github.com/yangbajing/akka-http.git",
+    ThisProject / GitKeys.gitReader := baseDirectory(base => new DefaultReadableGit(base)).value,
+  )
+
 
 lazy val compatibilityTests = Project("akka-http-compatibility-tests", file("akka-http-compatibility-tests"))
   .enablePlugins(NoPublish)

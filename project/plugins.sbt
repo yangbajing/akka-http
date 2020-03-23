@@ -27,3 +27,6 @@ libraryDependencies += "org.kohsuke" % "github-api" % "1.101"
 
 // used for @unidoc directive
 libraryDependencies += "io.github.lukehutch" % "fast-classpath-scanner" % "3.1.15"
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "1.3.2")
+addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.6.3")
