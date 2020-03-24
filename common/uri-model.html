@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
-<link rel="canonical" href="https://yangbajing.github.io/akka-http//common/uri-model.html"/>
+<link rel="canonical" href="https://www.yangbajing.me/akka-http//common/uri-model.html"/>
 <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../lib/foundation/dist/js/foundation.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../lib/normalize.css/normalize.css"/>
@@ -33,8 +33,8 @@ function OptanonWrapper() { }
 <!--Google Analytics-->
 <script type="text/plain" class="optanon-category-2">
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-21117439-1']);
-_gaq.push(['_setDomainName', 'akka.io']);
+_gaq.push(['_setAccount', '']);
+_gaq.push(['_setDomainName', '']);
 _gaq.push(['_trackPageview']);
 (function() {
 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -342,7 +342,9 @@ Version 10.1.11
 <article class="page-content row">
 <div class="small-12 column" id="docs">
 <h2><a href="#the-uri-model" name="the-uri-model" class="anchor"><span class="anchor-link"></span></a>The URI model</h2>
+<p><strong>URI 模型</strong></p>
 <p>Akka HTTP offers its own specialised <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> model class which is tuned for both performance and idiomatic usage within other types of the HTTP model. For example, an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span>&rsquo;s target URI is parsed into this type, where all character escaping and other URI specific semantics are applied.</p>
+<p>Akka HTTP 提供了自己的一套特制的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> 模型，为了性能以及更好的于 HTTP 模型里的其它类型进行互动。例如， <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> 的目标 URI 会解析成这个类型，并在解析过程中应用到所有字符转码和 URI 特殊语义等处理。</p>
 <h3><a href="#parsing-a-uri-string" name="parsing-a-uri-string" class="anchor"><span class="anchor-link"></span></a>Parsing a URI string</h3>
 <p>We follow <a href="https://tools.ietf.org/html/rfc3986#section-1.1.2">RFC 3986</a> to implement the URI parsing rules. When you try to parse a URI string, Akka HTTP internally creates an instance of the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> class, which holds the modeled URI components inside.</p>
 <p>For example, the following creates an instance of a simple valid URI:</p>
