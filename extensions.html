@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>6. Extensions &bull; Akka HTTP Chinese edition</title>
+<title>6. 扩展 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -255,8 +255,8 @@ Version 10.1.11
   <li><a href="common/index.html" class="page">3. 数据类型 &amp; 抽像</a></li>
   <li><a href="server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="client-side/index.html" class="page">5. Client API</a></li>
-  <li><a href="extensions.html#6-extensions" class="active page">6. Extensions</a></li>
-  <li><a href="technologies.html" class="page">7. Supported Technologies</a></li>
+  <li><a href="extensions.html#6-扩展" class="active page">6. 扩展</a></li>
+  <li><a href="technologies.html" class="page">7. 支持的技术</a></li>
   <li><a href="tipsandtricks.html" class="page">8. 提示和技巧</a></li>
   <li><a href="contributing.html" class="page">9. Contributing</a></li>
   <li><a href="reference.html" class="page">10. Reference</a></li>
@@ -290,8 +290,8 @@ Version 10.1.11
   <li><a href="common/index.html" class="page">3. 数据类型 &amp; 抽像</a></li>
   <li><a href="server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="client-side/index.html" class="page">5. Client API</a></li>
-  <li><a href="extensions.html#6-extensions" class="active page">6. Extensions</a></li>
-  <li><a href="technologies.html" class="page">7. Supported Technologies</a></li>
+  <li><a href="extensions.html#6-扩展" class="active page">6. 扩展</a></li>
+  <li><a href="technologies.html" class="page">7. 支持的技术</a></li>
   <li><a href="tipsandtricks.html" class="page">8. 提示和技巧</a></li>
   <li><a href="contributing.html" class="page">9. Contributing</a></li>
   <li><a href="reference.html" class="page">10. Reference</a></li>
@@ -307,18 +307,20 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#6-extensions" name="6-extensions" class="anchor"><span class="anchor-link"></span></a>6. Extensions</h1>
+<h1><a href="#6-扩展" name="6-扩展" class="anchor"><span class="anchor-link"></span></a>6. 扩展</h1>
 <p>There are several third party libraries that expand the functionality of Akka Http.</p>
+<p>有一些第三方库，它们扩展了 Akka HTTP 的功能。</p>
 <p>Among those, we want to highlight the following:</p>
+<p>其中，我们要强调下面这些：</p>
 <ul>
-  <li><a href="https://github.com/hseeberger/akka-http-json">akka-http-json</a>: Integrate some of the best JSON libs in Scala with Akka HTTP</li>
-  <li><a href="https://github.com/jtownson/swakka">Swakka</a>: A Scala library for creating Swagger definitions in a type-safe fashion wth Akka-Http. Generates Open API (a.k.a. Swagger) from code</li>
-  <li><a href="https://github.com/twilio/guardrail">Guardrail</a>: Guardrail is a code generation tool, capable of reading from OpenAPI/Swagger specification files and generating Akka HTTP code</li>
-  <li><a href="https://github.com/lomigmegard/akka-http-cors">akka-http-cors</a>: Akka Http directives implementing the CORS specifications defined by W3C</li>
-  <li><a href="https://github.com/softwaremill/akka-http-session">akka-http-session</a>: Web &amp; mobile client-side akka-http sessions, with optional JWT support</li>
-  <li><a href="https://github.com/softwaremill/sttp">sttp</a>: Library that provides a clean, programmer-friendly API to define HTTP requests and execute them using one of the wrapped backends, akka-http among them.</li>
+  <li><a href="https://github.com/hseeberger/akka-http-json">akka-http-json</a>: Integrate some of the best JSON libs in Scala with Akka HTTP 将一些 Scala 里最好的 JSON 库与 Akka HTTP 集成</li>
+  <li><a href="https://github.com/jtownson/swakka">Swakka</a>: A Scala library for creating Swagger definitions in a type-safe fashion wth Akka-Http. Generates Open API (a.k.a. Swagger) from code 一个 Scala 库，通过 Akka-Http 以类型安全的方式创建 Swapper 定义。从代码生成开放 API（又称为 Swagger）</li>
+  <li><a href="https://github.com/twilio/guardrail">Guardrail</a>: Guardrail is a code generation tool, capable of reading from OpenAPI/Swagger specification files and generating Akka HTTP code Guardrail 是一个代码生成工具，能从 OpenAPi/Swagger 定义文件阅读并生成 Akka HTTP 代码</li>
+  <li><a href="https://github.com/lomigmegard/akka-http-cors">akka-http-cors</a>: Akka Http directives implementing the CORS specifications defined by W3C 实现了 W3C 定义的 CORS 规范的 Akka HTTP 指令</li>
+  <li><a href="https://github.com/softwaremill/akka-http-session">akka-http-session</a>: Web &amp; mobile client-side akka-http sessions, with optional JWT support 网页 &amp; 移动客户端 Akka HTTP 会话（管理），可选使用 JWT 支持</li>
+  <li><a href="https://github.com/softwaremill/sttp">sttp</a>: Library that provides a clean, programmer-friendly API to define HTTP requests and execute them using one of the wrapped backends, akka-http among them. 该库提供了清晰的、程序员友好的 API 来定义 HTTP 请求，并使用其中一个包装的后端，akka-http 来执行它们。</li>
 </ul>
-<p>See the Scala Index for a more in-depth list of them. <a href="https://index.scala-lang.org/search?topics=akka-http"><img src="https://index.scala-lang.org/count.svg?q=topics:akka-http&subject=akka-http&color=orange&style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTggMTkwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNTggMTkwIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBvcGFjaXR5PSIuNSIgZD0iTTIxMC41IDE3Mi44YzM1LjkgMjguNyA1OC45LTU3IDEuNy03Mi44LTQ4LTEzLjMtOTYuMyA5LjUtMTQ0LjcgNjIuNy4xIDAgODkuNC0zMi43IDE0MyAxMC4xeiIvPjxwYXRoIGQ9Ik02OC40IDE2MmMzNC40LTM1LjcgOTEuNi03NS41IDE0NC45LTYwLjggMTIuNCAzLjUgMjEuMiAxMC43IDI2LjkgMTkuM2wtNTAuNC0xMDEuN2MtNy4yLTExLjUtMjUuNi05LjEtMzYtLjNsLTEzMy4yIDExMS42Yy0xMi4xIDEwLjQtMTIuOSAyOC44LTEuNiA0MC4xIDkuOSA5LjkgMjUuNiAxMC44IDM2LjUgMmwxMi45LTEwLjJ6Ii8+PC9nPjwvc3ZnPg" alt="Modules with the subject akka-http" /></a></p>
+<p>请参阅 Scala 索引以获取更详细的列表。<a href="https://index.scala-lang.org/search?topics=akka-http"><img src="https://index.scala-lang.org/count.svg?q=topics:akka-http&subject=akka-http&color=orange&style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTggMTkwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNTggMTkwIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBvcGFjaXR5PSIuNSIgZD0iTTIxMC41IDE3Mi44YzM1LjkgMjguNyA1OC45LTU3IDEuNy03Mi44LTQ4LTEzLjMtOTYuMyA5LjUtMTQ0LjcgNjIuNy4xIDAgODkuNC0zMi43IDE0MyAxMC4xeiIvPjxwYXRoIGQ9Ik02OC40IDE2MmMzNC40LTM1LjcgOTEuNi03NS41IDE0NC45LTYwLjggMTIuNCAzLjUgMjEuMiAxMC43IDI2LjkgMTkuM2wtNTAuNC0xMDEuN2MtNy4yLTExLjUtMjUuNi05LjEtMzYtLjNsLTEzMy4yIDExMS42Yy0xMi4xIDEwLjQtMTIuOSAyOC44LTEuNiA0MC4xIDkuOSA5LjkgMjUuNiAxMC44IDM2LjUgMmwxMi45LTEwLjJ6Ii8+PC9nPjwvc3ZnPg" alt="主题为 akka-http 的模块" /></a></p>
 </div>
 </article>
 <div class="row">
@@ -328,7 +330,7 @@ Version 10.1.11
 <a href="client-side/websocket-support.html"><i class="icon-prev"></i> <span class="link-prev">Client-Side WebSocket Support</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="technologies.html">7. Supported Technologies <i class="icon-next"></i></a>
+<a class="float-right" href="technologies.html">7. 支持的技术 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

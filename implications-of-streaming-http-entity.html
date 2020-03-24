@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Implications of the streaming nature of Request/Response Entities &bull; Akka HTTP Chinese edition</title>
+<title>请求/响应实体的流性质的含义 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -255,12 +255,12 @@ Version 10.1.11
   <li><a href="common/index.html" class="page">3. 数据类型 &amp; 抽像</a></li>
   <li><a href="server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="client-side/index.html" class="page">5. Client API</a></li>
-  <li><a href="extensions.html" class="page">6. Extensions</a></li>
-  <li><a href="technologies.html" class="page">7. Supported Technologies</a></li>
+  <li><a href="extensions.html" class="page">6. 扩展</a></li>
+  <li><a href="technologies.html" class="page">7. 支持的技术</a></li>
   <li><a href="tipsandtricks.html" class="page">8. 提示和技巧</a>
   <ul>
     <li><a href="handling-blocking-operations-in-akka-http-routes.html" class="page">在 Akka HTTP 中处理阻塞操作</a></li>
-    <li><a href="implications-of-streaming-http-entity.html#implications-of-the-streaming-nature-of-request-response-entities" class="active page">Implications of the streaming nature of Request/Response Entities</a>
+    <li><a href="implications-of-streaming-http-entity.html#请求-响应实体的流性质的含义" class="active page">请求/响应实体的流性质的含义</a>
     <ul>
       <li><a href="implications-of-streaming-http-entity.html#client-side-handling-of-streaming-http-entities" class="header">Client-Side handling of streaming HTTP Entities</a></li>
       <li><a href="implications-of-streaming-http-entity.html#server-side-handling-of-streaming-http-entities" class="header">Server-Side handling of streaming HTTP Entities</a></li>
@@ -298,12 +298,12 @@ Version 10.1.11
   <li><a href="common/index.html" class="page">3. 数据类型 &amp; 抽像</a></li>
   <li><a href="server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="client-side/index.html" class="page">5. Client API</a></li>
-  <li><a href="extensions.html" class="page">6. Extensions</a></li>
-  <li><a href="technologies.html" class="page">7. Supported Technologies</a></li>
+  <li><a href="extensions.html" class="page">6. 扩展</a></li>
+  <li><a href="technologies.html" class="page">7. 支持的技术</a></li>
   <li><a href="tipsandtricks.html" class="page">8. 提示和技巧</a>
   <ul>
     <li><a href="handling-blocking-operations-in-akka-http-routes.html" class="page">在 Akka HTTP 中处理阻塞操作</a></li>
-    <li><a href="implications-of-streaming-http-entity.html#implications-of-the-streaming-nature-of-request-response-entities" class="active page">Implications of the streaming nature of Request/Response Entities</a>
+    <li><a href="implications-of-streaming-http-entity.html#请求-响应实体的流性质的含义" class="active page">请求/响应实体的流性质的含义</a>
     <ul>
       <li><a href="implications-of-streaming-http-entity.html#client-side-handling-of-streaming-http-entities" class="header">Client-Side handling of streaming HTTP Entities</a></li>
       <li><a href="implications-of-streaming-http-entity.html#server-side-handling-of-streaming-http-entities" class="header">Server-Side handling of streaming HTTP Entities</a></li>
@@ -323,9 +323,12 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#implications-of-the-streaming-nature-of-request-response-entities" name="implications-of-the-streaming-nature-of-request-response-entities" class="anchor"><span class="anchor-link"></span></a>Implications of the streaming nature of Request/Response Entities</h1>
+<h1><a href="#请求-响应实体的流性质的含义" name="请求-响应实体的流性质的含义" class="anchor"><span class="anchor-link"></span></a>请求/响应实体的流性质的含义</h1>
+<p><em>Implications of the streaming nature of Request/Response Entities</em></p>
 <p>Akka HTTP is streaming <em>all the way through</em>, which means that the back-pressure mechanisms enabled by Akka Streams are exposed through all layers–from the TCP layer, through the HTTP server, all the way up to the user-facing <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> and <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> and their <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpEntity.html" title="akka.http.javadsl.model.HttpEntity"><code>HttpEntity</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpEntity.html" title="akka.http.scaladsl.model.HttpEntity"><code>HttpEntity</code></a></span> APIs.</p>
-<p>This has surprising implications if you are used to non-streaming / not-reactive HTTP clients. Specifically it means that: &ldquo;<em>lack of consumption of the HTTP Entity, is signaled as back-pressure to the other side of the connection</em>&rdquo;. This is a feature, as it allows one only to consume the entity, and back-pressure servers/clients from overwhelming our application, possibly causing un-necessary buffering of the entity in memory.</p><div class="callout warning "><div class="callout-title">Warning</div>
+<p>Akka HTTP 是 <em>一直</em> 流式传输的，这意味着 Akka Streams 启用的回压机制在所有层暴露 - 从 TCP 层到 HTTP 服务器，一直到面向用户的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> 和 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> 以及它们的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpEntity.html" title="akka.http.javadsl.model.HttpEntity"><code>HttpEntity</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpEntity.html" title="akka.http.scaladsl.model.HttpEntity"><code>HttpEntity</code></a></span> API。</p>
+<p>This has surprising implications if you are used to non-streaming / not-reactive HTTP clients. Specifically it means that: &ldquo;<em>lack of consumption of the HTTP Entity, is signaled as back-pressure to the other side of the connection</em>&rdquo;. This is a feature, as it allows one only to consume the entity, and back-pressure servers/clients from overwhelming our application, possibly causing un-necessary buffering of the entity in memory.</p>
+<p>如果你使用非流式的/非反应式的 HTTP 客户端，这将产生令人惊讶的含义。特别是，它意味着：“HTTP 实体的消费不足，作为回压向连接的另一端发出信号”。 这是一项功能，因为它只允许消费实体，而回压服务器/客户端使我们的应用程序不堪重负，可能导致对内存中的实体进行不必要的缓冲。</p><div class="callout warning "><div class="callout-title">Warning</div>
 <p>Consuming (or discarding) the Entity of a request is mandatory! If <em>accidentally</em> left neither consumed or discarded Akka HTTP will assume the incoming data should remain back-pressured, and will stall the incoming data via TCP back-pressure mechanisms. A client should consume the Entity regardless of the status of the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span>.</p></div>
 <h2><a href="#client-side-handling-of-streaming-http-entities" name="client-side-handling-of-streaming-http-entities" class="anchor"><span class="anchor-link"></span></a>Client-Side handling of streaming HTTP Entities</h2>
 <h3><a href="#consuming-the-http-response-entity-client-" name="consuming-the-http-response-entity-client-" class="anchor"><span class="anchor-link"></span></a>Consuming the HTTP Response Entity (Client)</h3>

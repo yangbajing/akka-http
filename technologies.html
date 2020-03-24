@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>7. Supported Technologies &bull; Akka HTTP Chinese edition</title>
+<title>7. 支持的技术 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -255,8 +255,8 @@ Version 10.1.11
   <li><a href="common/index.html" class="page">3. 数据类型 &amp; 抽像</a></li>
   <li><a href="server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="client-side/index.html" class="page">5. Client API</a></li>
-  <li><a href="extensions.html" class="page">6. Extensions</a></li>
-  <li><a href="technologies.html#7-supported-technologies" class="active page">7. Supported Technologies</a>
+  <li><a href="extensions.html" class="page">6. 扩展</a></li>
+  <li><a href="technologies.html#7-支持的技术" class="active page">7. 支持的技术</a>
   <ul>
     <li><a href="technologies.html#http" class="header">HTTP</a></li>
     <li><a href="technologies.html#https" class="header">HTTPS</a></li>
@@ -301,8 +301,8 @@ Version 10.1.11
   <li><a href="common/index.html" class="page">3. 数据类型 &amp; 抽像</a></li>
   <li><a href="server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="client-side/index.html" class="page">5. Client API</a></li>
-  <li><a href="extensions.html" class="page">6. Extensions</a></li>
-  <li><a href="technologies.html#7-supported-technologies" class="active page">7. Supported Technologies</a>
+  <li><a href="extensions.html" class="page">6. 扩展</a></li>
+  <li><a href="technologies.html#7-支持的技术" class="active page">7. 支持的技术</a>
   <ul>
     <li><a href="technologies.html#http" class="header">HTTP</a></li>
     <li><a href="technologies.html#https" class="header">HTTPS</a></li>
@@ -329,39 +329,54 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#7-supported-technologies" name="7-supported-technologies" class="anchor"><span class="anchor-link"></span></a>7. Supported Technologies</h1>
+<h1><a href="#7-支持的技术" name="7-支持的技术" class="anchor"><span class="anchor-link"></span></a>7. 支持的技术</h1>
 <p>This page gives an overview over the technologies that Akka HTTP implements, supports, and integrates with. The page is still quite new. If you are looking for support of some technology and found information somewhere else, please help us fill out this page using the link at the bottom.</p>
+<p>这个页面概述了 Akka HTTP 实现、支持和集成的技术。该页面还很新。如果你正在寻找某种技术的支持并在其它地方找到了信息，请使用底部的链接来帮助我们完善这个页面。</p>
 <h2><a href="#http" name="http" class="anchor"><span class="anchor-link"></span></a>HTTP</h2>
 <p>Akka HTTP implements HTTP/1.1 including these features (non-exclusive list):</p>
+<p>Akka HTTP 实现的 HTTP/1.1 包含这些功能（非完整性清单）</p>
 <ul>
   <li>Persistent connections</li>
   <li>HTTP Pipelining (currently not supported on the client-side)</li>
   <li>100-Continue</li>
   <li><a href="client-side/request-level.html">Client Connection Pooling</a></li>
+  <li>
+  <p>持久化连接</p></li>
+  <li>HTTP 管道（当前不支持客户端）</li>
+  <li>100-Continue</li>
+  <li><a href="client-side/request-level.html">Client 连接池</a></li>
 </ul>
 <h2><a href="#https" name="https" class="anchor"><span class="anchor-link"></span></a>HTTPS</h2>
 <p>HTTPS is supported through the facilities that Java provides. See <a href="server-side/server-https-support.html">Server HTTPS Support</a> and <a href="client-side/client-https-support.html">Client HTTPS Support</a> for more information.</p>
+<p>通过 Java 提供的功能支持 HTTPS。有关更多信息见 <a href="server-side/server-https-support.html">服务器 HTTPS 支持</a> 和 <a href="client-side/client-https-support.html">客户端 HTTPS 支持</a> 。</p>
 <h2><a href="#websocket" name="websocket" class="anchor"><span class="anchor-link"></span></a>WebSocket</h2>
 <p>Akka HTTP implements WebSocket on both the server side and the client side. See <a href="server-side/websocket-support.html">Server Websocket Support</a> and <a href="client-side/websocket-support.html">Client Websocket Support</a> for more information.</p>
+<p>Akka HTTP 在服务器端和客户端都实现了 WebSocket。有关更多信息见 <a href="server-side/websocket-support.html">服务器 Websocket 支持</a> 和and <a href="client-side/websocket-support.html">客户端 Websocket 支持</a> 。</p>
 <h2><a href="#http-2" name="http-2" class="anchor"><span class="anchor-link"></span></a>HTTP/2</h2>
 <p>Akka HTTP provides server-side HTTP/2 support currently in a preview version. See <a href="server-side/http2.html">Server HTTP/2 Support</a> for more information.</p>
+<p>Akka HTTP 提供了服务器端 HTTP/2 支持，当前为预览版本。有关更多信息见 <a href="server-side/http2.html">服务器 HTTP/2 支持</a> 。</p>
 <h2><a href="#multipart" name="multipart" class="anchor"><span class="anchor-link"></span></a>Multipart</h2>
 <p>Akka HTTP has modeled multipart/* payloads. It provides streaming multipart parsers and renderers e.g. for parsing file uploads and provides a typed model to access details of such a payload.</p>
+<p>Akka HTTP 已对 multipart/* 负荷建模。提供流式 multipart 解析和渲染，例如：用于文件上传解析并提供类型化模型来访问此负荷的详细信息。</p>
 <h2><a href="#server-sent-events-sse-" name="server-sent-events-sse-" class="anchor"><span class="anchor-link"></span></a>Server-sent Events (SSE)</h2>
 <p>Server-sent Events (SSE) are supported through marshalling that will provide or consume an (Akka Stream based) stream of events. See <a href="common/sse-support.html">SSE Support</a> for more information.</p>
+<p>通过编组提供或消费事件流（基于 Akka Stream）支持服务器-发送事件（SSE）。有关更多信息见 <a href="common/sse-support.html">SSE 支持</a> 。</p>
 <h2><a href="#json" name="json" class="anchor"><span class="anchor-link"></span></a>JSON</h2>
 <p>Marshalling to and from JSON is supported out of the box for spray-json-based model in Scala and Jackson-based models in Java. See <a href="common/json-support.html">JSON Support</a> for more information.</p>
+<p>Scala 中基于 spary-json，Java 中基于 Jackson ，为编组到 JSON，从 JSON 解组提供了开箱即用的支持。 有送更多信息见 <a href="common/json-support.html">JSON Support</a> 。</p>
 <h2><a href="#xml" name="xml" class="anchor"><span class="anchor-link"></span></a>XML</h2>
 <p>Marshalling to and from XML is supported Scala XML literals. See <a href="common/xml-support.html">XML Support</a> for more information.</p>
+<p>支持 Scala XML 字面量解组到 XML，从 XML 解组。有关更多信息见 <a href="common/xml-support.html">XML Support</a> 。</p>
 <h2><a href="#gzip-and-deflate-content-encoding" name="gzip-and-deflate-content-encoding" class="anchor"><span class="anchor-link"></span></a>Gzip and Deflate Content-Encoding</h2>
 <p>GZIP and Deflate content-encodings for automatic encoding / decoding of HTTP payloads are supported through directives. See <a href="routing-dsl/directives/coding-directives/index.html">CodingDirectives</a> for more information.</p>
+<p>通过指令支持用于 HTTP 负荷的 GZIP 和 Deflate 内容编码格式的自动编码 / 解码。有关更多信息见 <a href="routing-dsl/directives/coding-directives/index.html">CodingDirectives</a> 。</p>
 </div>
 </article>
 <div class="row">
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="extensions.html"><i class="icon-prev"></i> <span class="link-prev">6. Extensions</span></a>
+<a href="extensions.html"><i class="icon-prev"></i> <span class="link-prev">6. 扩展</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
 <a class="float-right" href="tipsandtricks.html">8. 提示和技巧 <i class="icon-next"></i></a>
