@@ -1,13 +1,20 @@
-# Implications of the streaming nature of Request/Response Entities
+# 请求/响应实体的流性质的含义
+*Implications of the streaming nature of Request/Response Entities*
 
 Akka HTTP is streaming *all the way through*, which means that the back-pressure mechanisms enabled by Akka Streams
 are exposed through all layers–from the TCP layer, through the HTTP server, all the way up to the user-facing @apidoc[HttpRequest]
 and @apidoc[HttpResponse] and their @apidoc[HttpEntity] APIs.
 
+Akka HTTP 是 *一直* 流式传输的，这意味着 Akka Streams 启用的回压机制在所有层暴露 - 从 TCP 层到 HTTP 服务器，一直到面向用户的
+@apidoc[HttpRequest] 和 @apidoc[HttpResponse] 以及它们的 @apidoc[HttpEntity] API。
+
 This has surprising implications if you are used to non-streaming / not-reactive HTTP clients.
 Specifically it means that: "*lack of consumption of the HTTP Entity, is signaled as back-pressure to the other
 side of the connection*". This is a feature, as it allows one only to consume the entity, and back-pressure servers/clients
 from overwhelming our application, possibly causing un-necessary buffering of the entity in memory.
+
+如果你使用非流式的/非反应式的 HTTP 客户端，这将产生令人惊讶的含义。特别是，它意味着：“HTTP 实体的消费不足，作为回压向连接的另一端发出信号”。
+这是一项功能，因为它只允许消费实体，而回压服务器/客户端使我们的应用程序不堪重负，可能导致对内存中的实体进行不必要的缓冲。
 
 @@@ warning
 
