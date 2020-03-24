@@ -1,5 +1,4 @@
-# 1. Introduction
-**1. 导读**
+# 1. 导读
 
 @@project-info{ projectId="akka-http" }
 
@@ -325,19 +324,19 @@ akka-http-core
 : A complete, mostly low-level, server- and client-side implementation of HTTP (incl. WebSockets)
 Details can be found in sections @ref[Core Server API](server-side/low-level-api.md) and @ref[Consuming HTTP-based Services (Client-Side)](client-side/index.md)
 
-: 一个完整的、大多数低级的、服务器-和客户端 HTTP 实现（包括 WebSocket）。详细内容能在 @ref[核心服务 API](server-side/low-level-api.md) 和 @ref[消费基于 HTTP 的服务 (客户端)](client-side/index.md) 部分找到。
+: 一个完整的、大多数低级的、服务器-和客户端 HTTP 实现（包括 WebSocket）。详细内容能在 @ref[核心服务器 API](server-side/low-level-api.md) 和 @ref[消费基于 HTTP 的服务 (客户端)](client-side/index.md) 部分找到。
 
 akka-http-testkit
 : A test harness and set of utilities for verifying server-side service implementations
 
-: 测试套件以及工具集，用以验证服务器端服务的实现
+测试套件以及工具集，用以验证服务器端服务的实现
 
 @@@ div { .group-scala }
 akka-http-spray-json
 : Predefined glue-code for (de)serializing custom types from/to JSON with [spray-json](https://github.com/spray/spray-json)
-Details can be found here: @ref[JSON Support](common/json-support.md)
+Details can be found here:  @ref[JSON Support](common/json-support.md)
 
-: 预设好的胶水代码用于自定义类型与 JSON 之间的（反）序列化，使用 [spary-json](https://github.com/spray/spray-json)。详细内容能在这里找到：@ref[JSON Support](common/json-support.md) 
+预设好的胶水代码用于自定义类型与 JSON 之间的（反）序列化，使用 [spary-json](https://github.com/spray/spray-json)。详细内容能在这里找到： @ref[JSON Support](common/json-support.md) 
 @@@
 
 @@@ div { .group-scala }
@@ -345,11 +344,11 @@ akka-http-xml
 : Predefined glue-code for (de)serializing custom types from/to XML with [scala-xml](https://github.com/scala/scala-xml)
 Details can be found here: @ref[XML Support](common/xml-support.md)
 
-: 预设好的胶水代码用于自定义类型与 XML 之间的（反）序列化，使用 [scala-xml](https://github.com/scala/scala-xml)。详细内容能在这里找到：@ref[XML Support](common/xml-support.md)
+预设好的胶水代码用于自定义类型与 XML 之间的（反）序列化，使用 [scala-xml](https://github.com/scala/scala-xml)。详细内容能在这里找到： @ref[XML Support](common/xml-support.md)
 @@@
 @@@ div { .group-java }
 akka-http-jackson
 : Predefined glue-code for (de)serializing custom types from/to JSON with [jackson](https://github.com/FasterXML/jackson)
 
-: 预设好的胶水代码用户自定义类型与 JSON 之间的（反）序列化，使用 [jackson](https://github.com/FasterXML/jackson)
+预设好的胶水代码用户自定义类型与 JSON 之间的（反）序列化，使用 [jackson](https://github.com/FasterXML/jackson)
 @@@

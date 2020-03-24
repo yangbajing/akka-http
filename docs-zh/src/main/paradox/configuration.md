@@ -1,5 +1,4 @@
-# Configuration
-**配置**
+# 配置
 
 Before configuring Akka HTTP it must be added to your project as described in
 @ref[the introduction](introduction.md#using-akka-http).

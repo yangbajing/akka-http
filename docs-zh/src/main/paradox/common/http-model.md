@@ -1,5 +1,4 @@
-# HTTP Model
-**HTTP 模型**
+# HTTP 模型
 
 Akka HTTP model contains a deeply structured, fully immutable, case-class based model of all the major HTTP data
 structures, like HTTP requests, responses and common headers.
@@ -429,8 +428,7 @@ The `Content-Type` header therefore doesn't appear in the `headers` sequence of 
 Also, a `Content-Type` header instance that is explicitly added to the `headers` of a request or response will
 not be rendered onto the wire and trigger a warning being logged instead!
 
-: HTTP 消息的 Content-Type 建模为 @apidoc[HttpEntity] 的 `contentType` 字段。`Content-Type` 头因此不会出现在消息的 `headers` 列表里。
-即使一个 `Content-Type` 头实例被显示地添加到请求或响应的 `headers` 字段里，它也不会被生成到最终的通讯线路上，而是生成一个警告信息并记录日志。
+: HTTP 消息的 Content-Type 建模为 @apidoc[HttpEntity] 的 `contentType` 字段。`Content-Type` 头因此不会出现在消息的 `headers` 列表里。即使一个 `Content-Type` 头实例被显示地添加到请求或响应的 `headers` 字段里，它也不会被生成到最终的通讯线路上，而是生成一个警告信息并记录日志。
 
 Transfer-Encoding
 : Messages with `Transfer-Encoding: chunked` are represented @scala[via the `HttpEntity.Chunked`]@java[as a `HttpEntityChunked`] entity.
@@ -439,24 +437,36 @@ header in their `headers` @scala[sequence]@java[list].
 Similarly, a `Transfer-Encoding` header instance that is explicitly added to the `headers` of a request or
 response will not be rendered onto the wire and trigger a warning being logged instead!
 
+: 带有 `Transfer-Encoding: chunked` 的消息由 @scala[`HttpEntity.Chunked`]@java[`HttpEntityChunked`] 实体表示。
+因此，分块信息里，如果没有更深层次嵌套传输编码的，将不会在其头域列 `headers` 里带有 Transfer-Encoding 类型的头域。即使一个 `Transfer-Encoding` 类型的实例被强制加到头域列 `headers` 中，其内容也不会被生成到最终通讯渠道上，而是生成一个警告信息并记录在日志里。
+
 Content-Length
 : The content length of a message is modelled via its [HttpEntity](#httpentity). As such no `Content-Length` header will ever
 be part of a message's `header` sequence.
 Similarly, a `Content-Length` header instance that is explicitly added to the `headers` of a request or
 response will not be rendered onto the wire and trigger a warning being logged instead!
 
+: 一个消息的内容长度由它的 [HttpEntity](#httpentity) 定义。因此，`Content-Length` 头域永远不会成为消息头域串的一部分。
+同样的，一个 `Content-Length` 头实例被强制添加到请求的或响应的 `headers` ，也不会被生成到最终的通讯渠道上，而是生成一个警告信息并记录在日志里。
+
 Server
 : A `Server` header is usually added automatically to any response and its value can be configured via the
 `akka.http.server.server-header` setting. Additionally an application can override the configured header with a
 custom one by adding it to the response's `header` sequence.
+
+: 一个 `Server` 头通常自动添加到响应，它的值可通过 `akka.http.server.server-header` 设置。另外，应用程序可以通过增加一个自定义的新实例到响应信息的 `headers` 串中以覆盖之前设置的值。
 
 User-Agent
 : A `User-Agent` header is usually added automatically to any request and its value can be configured via the
 `akka.http.client.user-agent-header` setting. Additionally an application can override the configured header with a
 custom one by adding it to the request's `header` sequence.
 
+: 一个 `User-Agent` 头通常自动添加到请求，它的值可通过 `akka.http.client.user-agent-header` 设置。另外，应用程序可以通过增加一个自定义的新实例到请求信息的 `headers` 串中以覆盖之前设置的值。
+
 Date
 : The @apidoc[Date] response header is added automatically but can be overridden by supplying it manually.
+
+: @apidoc[Date] 响应头自动添加，但也可以手动加入以覆盖它。
 
 Connection
 : On the server-side Akka HTTP watches for explicitly added `Connection: close` response headers and as such honors
@@ -464,6 +474,10 @@ the potential wish of the application to close the connection after the respecti
 The actual logic for determining whether to close the connection is quite involved. It takes into account the
 request's method, protocol and potential @apidoc[Connection] header as well as the response's protocol, entity and
 potential @apidoc[Connection] header. See @github[this test](/akka-http-core/src/test/scala/akka/http/impl/engine/rendering/ResponseRendererSpec.scala) { #connection-header-table } for a full table of what happens when.
+
+: 在服务器端，Akka HTTP 监视器强制添加 `Connection: close` 响应头，以便程序在送出响应后希望断开相关连接的愿望。
+确定是否决定关闭连接的逻辑相当的复杂。要考虑到请求的方法、协议类型和相关的 @apidoc[Connection] 头以及响应的协议类型、实体和相关的
+@apidoc[Connection] 头。有这些情况发生的完整列表，参见 @github[这个测试](/akka-http-core/src/test/scala/akka/http/impl/engine/rendering/ResponseRendererSpec.scala) { #connection-header-table } 。
 
 Strict-Transport-Security
 : HTTP Strict Transport Security (HSTS) is a web security policy mechanism which is communicated by the
@@ -473,16 +487,25 @@ plain HTTP connection. The user can see that the connection is insecure, but cru
 whether the connection should be secure. HSTS addresses this problem by informing the browser that connections to the
 site should always use TLS/SSL. See also [RFC 6797](https://tools.ietf.org/html/rfc6797).
 
+: HTTP 严格传输安全（HSTS，HTTP Strict Transport Security）是一套网页安全策略机制，它通过 `Strict-Transport-Security` 头交互。
+HSTS 能修复的安全漏洞中最重要的是 SSL 剥离攻击（中间人攻击的一种）。SSL 剥离攻击的主要原理是通过把一个 安全的 HTTPS 连接 无痕迹地转化成 明文的 HTTP 连接。用户能看到连接是不安全的，但是没有任何方式去验证该连接是否应该安全。HSTS 尝试通过知会浏览器该网站必须始终使用 TLS/SSL 来解决这个问题。参考 [RFC 6797](https://tools.ietf.org/html/rfc6797) 。
 
 <a id="custom-headers"></a>
 ## Custom Headers
+**自定义头域**
 
 Sometimes you may need to model a custom header type which is not part of HTTP and still be able to use it
 as convenient as is possible with the built-in types.
 
+有时你需要建立自定义的头域类型，即使它们不是 HTTP 的一部分，又希望像内置类型一样方便使用。
+
 Because of the number of ways one may interact with headers (i.e. try to @scala[match]@java[convert] a @apidoc[CustomHeader] @scala[against]@java[to] a @apidoc[RawHeader]
 or the other way around etc), a helper @scala[trait]@java[classes] for custom Header types @scala[and their companions classes ]are provided by Akka HTTP.
 Thanks to extending @apidoc[ModeledCustomHeader] instead of the plain @apidoc[CustomHeader] @scala[such header can be matched]@java[the following methods are at your disposal]:
+
+因为可能有各种与头域类型的互动（例如：尝试 @scala[模式匹配]@java[转换] 一个 @apidoc[CustomHeader] 到 @apidoc[RawHeader] 类型，
+或者倒过来），Akka HTTP 提供了用于自定义 Header 类型 @scala[及其伴身类] 的辅助 @scala[trait]@java[类]。
+由于扩展了 @apidoc[ModeledCustomHeader] 而不是普通的 @apidoc[CustomHeader]，@scala[因此可以模式匹配此类头域]@java[你可以使用以下方法]： 
 
 Scala
 :   @@snip [ModeledCustomHeaderSpec.scala]($akka-http$/akka-http-tests/src/test/scala/akka/http/scaladsl/server/ModeledCustomHeaderSpec.scala) { #modeled-api-key-custom-header }
@@ -492,6 +515,8 @@ Java
 
 Which allows this @scala[CustomHeader]@java[modeled custom header] to be used in the following scenarios:
 
+使得 @scala[CustomHeader]@java[建立的自定义头域] 可以在以下场景使用。
+
 Scala
 :   @@snip [ModeledCustomHeaderSpec.scala]($akka-http$/akka-http-tests/src/test/scala/akka/http/scaladsl/server/ModeledCustomHeaderSpec.scala) { #matching-examples }
 
@@ -499,6 +524,8 @@ Java
 :   @@snip [CustomHeaderExampleTest.java]($test$/java/docs/http/javadsl/CustomHeaderExampleTest.java) { #conversion-creation-custom-header }
 
 Including usage within the header directives like in the following @ref[headerValuePF](../routing-dsl/directives/header-directives/headerValuePF.md) example:
+
+包括用于头域指令，就像以面的 @ref[headerValuePF](../routing-dsl/directives/header-directives/headerValuePF.md) 示例：
 
 Scala
 :   @@snip [ModeledCustomHeaderSpec.scala]($akka-http$/akka-http-tests/src/test/scala/akka/http/scaladsl/server/ModeledCustomHeaderSpec.scala) { #matching-in-routes }
@@ -510,6 +537,9 @@ Java
 When defining custom headers, it is better to extend @apidoc[ModeledCustomHeader] instead of its parent @apidoc[CustomHeader].
 Custom headers that extend @apidoc[ModeledCustomHeader] automatically comply with the pattern matching semantics that usually apply to built-in
 types (such as matching a custom header against a @apidoc[RawHeader] in routing layers of Akka HTTP applications).
+
+当定义自定义头域时，最好扩展 @apidoc[ModeledCustomHeader] 而不是父类型 @apidoc[CustomHeader] 。
+自定义头扩展 @apidoc[ModeledCustomHeader] 会自动遵循通常用于内置类型的模式匹配语义（例如，在 Akka HTTP 应用程序的路由层对自定义头与 @apidoc[RawHeader] 进行匹配）。
 @@@
 
 @@@ note { .group-java }
@@ -518,33 +548,52 @@ able to use the convenience methods that allow parsing the custom user-defined h
 @@@
 
 ## Parsing / Rendering
+**解析 / 渲染**
 
 Parsing and rendering of HTTP data structures is heavily optimized and for most types there's currently no public API
 provided to parse (or render to) Strings or byte arrays.
+
+解析和渲染 HTTP 数据结构已经被重试优化过了，而且对于大部分类型并没有公开 API 用于 解析（或渲染到）字符串或字节数组。
 
 @@@ note
 Various parsing and rendering settings are available to tweak in the configuration under `akka.http.client[.parsing]`,
 `akka.http.server[.parsing]` and `akka.http.host-connection-pool[.client.parsing]`, with defaults for all of these
 being defined in the `akka.http.parsing` configuration section.
 
+在配置 `akka.http.client[.parsing]`、`akka.http.server[.parsing]` 和 `akka.http.host-connection-pool[.client.parsing]`
+有各种解析和渲染设置可用于调整，它们所有的预设值都在 `akka.http.parsing` 部分定义好了。
+
 For example, if you want to change a parsing setting for all components, you can set the `akka.http.parsing.illegal-header-warnings = off`
 value. However this setting can be still overridden by the more specific sections, like for example `akka.http.server.parsing.illegal-header-warnings = on`.
 
+例如：如果你想改变所有组件的解析设置，你可以设置 `akka.http.parsing.illegal-header-warnings = off`。然而，这个设置能被更特殊的部分覆盖，
+例如 `akka.http.server.parsing.illegal-header-warnings = on`。
+
 In this case both `client` and `host-connection-pool` APIs will see the setting `off`, however the server will see `on`.
+
+这种情况下 `client` 和 `host-connection-pool` API将看见设置 `off`，而服务器端将看见设置 `on`。
 
 In the case of `akka.http.host-connection-pool.client` settings, they default to settings set in `akka.http.client`,
 and can override them if needed. This is useful, since both `client` and `host-connection-pool` APIs,
 such as the Client API @scala[`Http().outgoingConnection`]@java[`Http.get(sys).outgoingConnection`] or the Host Connection Pool APIs @scala[`Http().singleRequest`]@java[`Http.get(sys).singleRequest`]
 or @scala[`Http().superPool`]@java[`Http.get(sys).superPool`], usually need the same settings, however the `server` most likely has a very different set of settings.
+
+对于 `akka.http.host-connection-pool.client` 的设置，它们的预设值在 `akka.http.client`，如果需要可以覆盖它们。既然 `client` 和
+`host-connection-pool` 的 API，例如 @scala[`Http().outgoingConnection`]@java[`Http.get(sys).outgoingConnection`] 或者基于主机的连接池 API，例如 @scala[`Http().superPool`]@java[`Http.get(sys).superPool`] 通常共享某些参数设置，而服务器端则很大可能用一套不同的设置，这样的设计就很有用了。
 @@@
 
 <a id="registeringcustommediatypes"></a>
 ## Registering Custom Media Types
+**注册自定义媒体类型**
 
 Akka HTTP @scala[@scaladoc[predefines](akka.http.scaladsl.model.MediaTypes$)]@java[@javadoc[predefines](akka.http.javadsl.model.MediaTypes)] most commonly encountered media types and emits them in their well-typed form while parsing http messages.
 Sometimes you may want to define a custom media type and inform the parser infrastructure about how to handle these custom
 media types, e.g. that `application/custom` is to be treated as `NonBinary` with `WithFixedCharset`. To achieve this you
 need to register the custom media type in the server's settings by configuring @apidoc[ParserSettings] like this:
+
+Akka HTTP @scala[@scaladoc[预定义](akka.http.scaladsl.model.MediaTypes$)]@java[@javadoc[预定义](akka.http.javadsl.model.MediaTypes)] 了最常用的媒体类型，并在解析 http 消息时以正确的类型提取它们。
+有时你也许想定义一个自定义媒体类型并指引语法分析工具如何处理这些新的媒体类型。例如，`application/custom` 被看作 `NonBinary`
+以及 `WithFixedCharset` 的类型。你需要在服务器的 @apidoc[ParserSettings] 中注册这些自定义类型：
 
 Scala
 :   @@snip [CustomMediaTypesSpec.scala]($akka-http$/akka-http-tests/src/test/scala/akka/http/scaladsl/CustomMediaTypesSpec.scala) { #application-custom }
@@ -555,12 +604,19 @@ Java
 You may also want to read about MediaType [Registration trees](https://en.wikipedia.org/wiki/Media_type#Registration_trees), in order to register your vendor specific media types
 in the right style / place.
 
+你也许也想读下 MediaType 的 [注册树](https://en.wikipedia.org/wiki/Media_type#Registration_trees)，以便正确的注册开发商专属的媒体类型。
+
 <a id="registeringcustomstatuscodes"></a>
 ## Registering Custom Status Codes
+**注册自定义状态码**
 
 Similarly to media types, Akka HTTP @scala[@scaladoc:[predefines](akka.http.scaladsl.model.StatusCodes$)]@java[@javadoc:[predefines](akka.http.javadsl.model.StatusCodes)]
 well-known status codes, however sometimes you may need to use a custom one (or are forced to use an API which returns custom status codes).
 Similarly to the media types registration, you can register custom status codes by configuring @apidoc[ParserSettings] like this:
+
+类似媒体类型，Akka HTTP @scala[@scaladoc:[预定义](akka.http.scaladsl.model.StatusCodes$)]@java[@javadoc:[预定义](akka.http.javadsl.model.StatusCodes)]
+了已知的状态码，然而，有时你也需要使用自定义的状态码（或被迫使用返回自定义状态码的 API）。
+类似于媒体类型的注册，你能通过配置 @apidoc[ParserSettings] 来注册自定状态码：
 
 Scala
 :   @@snip [CustomStatusCodesSpec.scala]($akka-http$/akka-http-tests/src/test/scala/akka/http/scaladsl/CustomStatusCodesSpec.scala) { #application-custom }
@@ -570,9 +626,12 @@ Java
 
 <a id="registeringcustommethod"></a>
 ## Registering Custom HTTP Method
+**注册自定义 HTTP 方法**
 
 Akka HTTP also allows you to define custom HTTP methods, other than the well-known methods @scala[@scaladoc[predefined](akka.http.scaladsl.model.HttpMethods$)]@java[@javadoc[predefined](akka.http.javadsl.model.HttpMethods)] in Akka HTTP.
 To use a custom HTTP method, you need to define it, and then add it to parser settings like below:
+
+Akka HTTP 也允许你自定义 HTTP 方法，既除了 Akka HTTP 里 @scala[@scaladoc[预定义](akka.http.scaladsl.model.HttpMethods$)]@java[@javadoc[预定义](akka.http.javadsl.model.HttpMethods)] 了的已知的方法。要使用自定义 HTTP 方法，你需要定义它，并向下面一样添加到解析设置里：
 
 Scala
 :   @@snip [CustomHttpMethodSpec.scala]($test$/scala/docs/http/scaladsl/server/directives/CustomHttpMethodSpec.scala) { #application-custom }

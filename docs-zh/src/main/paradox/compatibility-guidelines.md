@@ -1,5 +1,4 @@
-# Compatibility Guidelines
-**兼容性指导方针**
+# 兼容性指导方针
 
 ## Binary Compatibility Rules
 **二进制兼容性规则**

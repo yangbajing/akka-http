@@ -1,5 +1,4 @@
-# Migration Guides
-**迁移指导**
+# 迁移指导
 
 @@toc { depth=3 }
 

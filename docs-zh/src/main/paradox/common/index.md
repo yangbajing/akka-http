@@ -1,5 +1,4 @@
-# 3. Data Types & Abstractions
-**3. 数据类型 & 抽像**
+# 3. 数据类型 & 抽像
 
 HTTP and related specifications define a great number of concepts and functionality that is not specific to either
 HTTP's client- or server-side since they are meaningful on both end of an HTTP connection.

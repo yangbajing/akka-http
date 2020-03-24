@@ -383,7 +383,6 @@ lazy val docs = project("docs")
   .settings(ParadoxSupport.paradoxWithCustomDirectives)
 
 lazy val docsZh = project("docs-zh")
-  .enablePlugins(ParadoxSitePlugin)
   .enablePlugins(AkkaParadoxPlugin, NoPublish, DeployRsync)
   .disablePlugins(BintrayPlugin, MimaPlugin)
   .addAkkaModuleDependency("akka-stream", "provided")
@@ -399,7 +398,7 @@ lazy val docsZh = project("docs-zh")
     paradoxGroups := Map("Language" -> Seq("Scala", "Java")),
     paradoxProperties in Compile ++= Map(
       "project.name" -> s"Akka HTTP ${version.value} Chinese edition",
-      "canonical.base_url" -> "https://yangbajing.github.io/akka-http/",
+      "canonical.base_url" -> "https://www.yangbajing.me/akka-http/",
       "akka.version" -> AkkaDependency.akkaVersion,
       "alpn-agent.version" -> Dependencies.alpnAgentVersion,
       "scala.binary_version" -> scalaBinaryVersion.value, // to be consistent with Akka build
@@ -424,8 +423,8 @@ lazy val docsZh = project("docs-zh")
       "scaladoc.akka.base_url" -> s"https://doc.akka.io/api/akka/${AkkaDependency.akkaVersion}",
       "algolia.docsearch.api_key" -> "0ccbb8bf5148554a406fbf07df0a93b9",
       "algolia.docsearch.index_name" -> "akka-http",
-      "google.analytics.account" -> "UA-21117439-1",
-      "google.analytics.domain.name" -> "akka.io",
+      //"google.analytics.account" -> "UA-21117439-1",
+      //"google.analytics.domain.name" -> "yangbajing.me",
       "github.base_url" -> GitHub.url(version.value),
       "snip.test.base_dir" -> (sourceDirectory in Test).value.getAbsolutePath,
       "snip.akka-http.base_dir" -> (baseDirectory in ThisBuild).value.getAbsolutePath,
@@ -443,8 +442,9 @@ lazy val docsZh = project("docs-zh")
   .settings(
     git.remoteRepo := "https://github.com/yangbajing/akka-http.git",
     ThisProject / GitKeys.gitReader := baseDirectory(base => new DefaultReadableGit(base)).value,
-    paradoxRoots := List()
-  )
+    siteSourceDirectory := target.value / "paradox" / "site" / "main",
+    ghpagesNoJekyll := true
+)
 
 
 lazy val compatibilityTests = Project("akka-http-compatibility-tests", file("akka-http-compatibility-tests"))
