@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>The URI model &bull; Akka HTTP</title>
+<title>URI 模型 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP</a></h1>
+<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -250,18 +250,18 @@ Version 10.1.11
 <ul>
   <li><a href="../security.html" class="page">! Security Announcements !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
-  <li><a href="../introduction.html" class="page">1. Introduction</a></li>
-  <li><a href="../usage.html" class="page">2. Usage</a></li>
-  <li><a href="../common/index.html" class="page">3. Data Types &amp; Abstractions</a>
+  <li><a href="../introduction.html" class="page">1. 导读</a></li>
+  <li><a href="../usage.html" class="page">2. 使用</a></li>
+  <li><a href="../common/index.html" class="page">3. 数据类型 &amp; 抽像</a>
   <ul>
-    <li><a href="../common/http-model.html" class="page">HTTP Model</a></li>
-    <li><a href="../common/uri-model.html#the-uri-model" class="active page">The URI model</a>
+    <li><a href="../common/http-model.html" class="page">HTTP 模型</a></li>
+    <li><a href="../common/uri-model.html#uri-模型" class="active page">URI 模型</a>
     <ul>
       <li><a href="../common/uri-model.html#parsing-a-uri-string" class="header">Parsing a URI string</a></li>
       <li><a href="../common/uri-model.html#obtaining-the-raw-request-uri" class="header">Obtaining the raw request URI</a></li>
       <li><a href="../common/uri-model.html#query-string-in-uri" class="header">Query string in URI</a></li>
     </ul></li>
-    <li><a href="../common/marshalling.html" class="page">Marshalling</a></li>
+    <li><a href="../common/marshalling.html" class="page">Marshalling 编组</a></li>
     <li><a href="../common/unmarshalling.html" class="page">Unmarshalling</a></li>
     <li><a href="../common/encoding.html" class="page">Encoding / Decoding</a></li>
     <li><a href="../common/json-support.html" class="page">JSON Support</a></li>
@@ -285,7 +285,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP</a></h1>
+<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -302,18 +302,18 @@ Version 10.1.11
 <ul>
   <li><a href="../security.html" class="page">! Security Announcements !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
-  <li><a href="../introduction.html" class="page">1. Introduction</a></li>
-  <li><a href="../usage.html" class="page">2. Usage</a></li>
-  <li><a href="../common/index.html" class="page">3. Data Types &amp; Abstractions</a>
+  <li><a href="../introduction.html" class="page">1. 导读</a></li>
+  <li><a href="../usage.html" class="page">2. 使用</a></li>
+  <li><a href="../common/index.html" class="page">3. 数据类型 &amp; 抽像</a>
   <ul>
-    <li><a href="../common/http-model.html" class="page">HTTP Model</a></li>
-    <li><a href="../common/uri-model.html#the-uri-model" class="active page">The URI model</a>
+    <li><a href="../common/http-model.html" class="page">HTTP 模型</a></li>
+    <li><a href="../common/uri-model.html#uri-模型" class="active page">URI 模型</a>
     <ul>
       <li><a href="../common/uri-model.html#parsing-a-uri-string" class="header">Parsing a URI string</a></li>
       <li><a href="../common/uri-model.html#obtaining-the-raw-request-uri" class="header">Obtaining the raw request URI</a></li>
       <li><a href="../common/uri-model.html#query-string-in-uri" class="header">Query string in URI</a></li>
     </ul></li>
-    <li><a href="../common/marshalling.html" class="page">Marshalling</a></li>
+    <li><a href="../common/marshalling.html" class="page">Marshalling 编组</a></li>
     <li><a href="../common/unmarshalling.html" class="page">Unmarshalling</a></li>
     <li><a href="../common/encoding.html" class="page">Encoding / Decoding</a></li>
     <li><a href="../common/json-support.html" class="page">JSON Support</a></li>
@@ -341,13 +341,15 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h2><a href="#the-uri-model" name="the-uri-model" class="anchor"><span class="anchor-link"></span></a>The URI model</h2>
-<p><strong>URI 模型</strong></p>
+<h2><a href="#uri-模型" name="uri-模型" class="anchor"><span class="anchor-link"></span></a>URI 模型</h2>
 <p>Akka HTTP offers its own specialised <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> model class which is tuned for both performance and idiomatic usage within other types of the HTTP model. For example, an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span>&rsquo;s target URI is parsed into this type, where all character escaping and other URI specific semantics are applied.</p>
 <p>Akka HTTP 提供了自己的一套特制的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> 模型，为了性能以及更好的于 HTTP 模型里的其它类型进行互动。例如， <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> 的目标 URI 会解析成这个类型，并在解析过程中应用到所有字符转码和 URI 特殊语义等处理。</p>
 <h3><a href="#parsing-a-uri-string" name="parsing-a-uri-string" class="anchor"><span class="anchor-link"></span></a>Parsing a URI string</h3>
+<p><strong>一个 URI 字符串的语法分析</strong></p>
 <p>We follow <a href="https://tools.ietf.org/html/rfc3986#section-1.1.2">RFC 3986</a> to implement the URI parsing rules. When you try to parse a URI string, Akka HTTP internally creates an instance of the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> class, which holds the modeled URI components inside.</p>
+<p>我们按 <a href="https://tools.ietf.org/html/rfc3986#section-1.1.2">RFC 3986</a> 实现了 URI 的语法分析规则。当你尝试解析一个 URI 字符串时， Akka HTTP 内部分创建一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> 类的实例，其中保存建立的 URI 组件。</p>
 <p>For example, the following creates an instance of a simple valid URI:</p>
+<p>例如，下面创建了一个简单有效的 URI 实例：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -359,6 +361,7 @@ Version 10.1.11
 </code></pre></dd>
 </dl>
 <p>Below are some more examples of valid URI strings, and how you can construct a <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> model class instances <span class="group-scala">,using <code>Uri.from()</code> method by passing <code>scheme</code>, <code>host</code>, <code>path</code> and <code>query</code> parameters</span>.</p>
+<p>以下再给出几个怎样构造 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> 模型实例的例子，它们都是有效 URI 字符串@scala[，使用 <code>Uri.from()</code> 方法和相关参数 <code>scheme</code>、<code>host</code>、<code>path</code> 和 <code>query</code>]。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -427,6 +430,7 @@ assertEquals(&quot;urn&quot;, uri8.getScheme());
 assertEquals(&quot;oasis:names:specification:docbook:dtd:xml:4.1.2&quot;, uri8.getPathString());</code></pre></dd>
 </dl>
 <p>For exact definitions of the parts of a URI, like <code>scheme</code>, <code>path</code> and <code>query</code> refer to <a href="https://tools.ietf.org/html/rfc3986#section-1.1.2">RFC 3986</a>. Here&rsquo;s a little overview:</p>
+<p>对于一个 URI 的精确定义，例如 <code>scheme</code>、<code>path</code> 和 <code>query</code> ，参考 <a href="https://tools.ietf.org/html/rfc3986#section-1.1.2">RFC 3986</a> 。 这是一个简短描述：</p>
 <pre><code>  foo://example.com:8042/over/there?name=ferret#nose
   \_/   \______________/\_________/ \_________/ \__/
    |           |            |            |        |
@@ -436,6 +440,7 @@ scheme     authority       path        query   fragment
   urn:example:animal:ferret:nose
 </code></pre>
 <p>For &ldquo;special&rdquo; characters in URI, you typically use percent encoding like below. Percent encoding is discussed in more detail in the <a href="uri-model.html#query-string-in-uri">Query String in URI</a> section.</p>
+<p>对于 URI 里的“特殊”字符，一般使用如下的百分号编码。有关编码细节的更多讨论在 <a href="uri-model.html#query-string-in-uri">URI 里的查询字符串</a> 部分。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -450,7 +455,9 @@ Uri uri2 = Uri.create(&quot;http://foo.com?foo=%2F%5C&quot;);
 assertEquals(Optional.of(&quot;/\\&quot;), uri2.query().get(&quot;foo&quot;));</code></pre></dd>
 </dl>
 <h4><a href="#invalid-uri-strings-and-illegaluriexception" name="invalid-uri-strings-and-illegaluriexception" class="anchor"><span class="anchor-link"></span></a>Invalid URI strings and IllegalUriException</h4>
+<p><strong>无效 URI 字符串以及 IllegalUriException</strong></p>
 <p>When an invalid URI string is passed to <code>Uri()</code> as below, an <code>IllegalUriException</code> is thrown.</p>
+<p>当如下一个无效的 URI 字符串被传给 <code>Uri()</code> ，一个 <code>IllegalUriException</code> 异常会抛出。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -550,7 +557,8 @@ public void testIllegalPathWithControlCharacter() {
 }</code></pre></dd>
 </dl>
 <h4><a href="#directives-to-extract-uri-components" name="directives-to-extract-uri-components" class="anchor"><span class="anchor-link"></span></a>Directives to extract URI components</h4>
-<p>To extract URI components with directives, see following references:</p>
+<p><strong>抽取 URI 组件的指令</strong></p>
+<p>To extract URI components with directives, see following references: 要使用指令抽取 URI 组件，可参考下列资料：</p>
 <ul>
   <li><a href="../routing-dsl/directives/basic-directives/extractUri.html">extractUri</a></li>
   <li><a href="../routing-dsl/directives/scheme-directives/extractScheme.html">extractScheme</a></li>
@@ -559,12 +567,19 @@ public void testIllegalPathWithControlCharacter() {
   <li><a href="../routing-dsl/directives/parameter-directives/index.html">ParameterDirectives</a></li>
 </ul>
 <h3><a href="#obtaining-the-raw-request-uri" name="obtaining-the-raw-request-uri" class="anchor"><span class="anchor-link"></span></a>Obtaining the raw request URI</h3>
+<p><strong>获取原始请求 URI</strong></p>
 <p>Sometimes it may be needed to obtain the &ldquo;raw&rdquo; value of an incoming URI, without applying any escaping or parsing to it. While this use case is rare, it comes up every once in a while. It is possible to obtain the &ldquo;raw&rdquo; request URI in Akka HTTP Server side by turning on the <code>akka.http.server.raw-request-uri-header</code> flag. When enabled, a <code>Raw-Request-URI</code> header will be added to each request. This header will hold the original raw request&rsquo;s URI that was used. For an example check the reference configuration.</p>
+<p>有时需要获取“原始”的 URI 值，原始 URI 不做转码和解析。虽然这种情况比较少，但也偶尔会遇到。在 Akka HTTP 服务器端打开 <code>akka.http.server.raw-request-uri-header</code> 标记就可获取”原始“请求URI。当标记被打开，一个 <code>Raw-Request-URI</code> 头将被添加到每个请求。这个头域将保存外部的原始请求 URI 以供使用。</p>
 <h3><a href="#query-string-in-uri" name="query-string-in-uri" class="anchor"><span class="anchor-link"></span></a>Query string in URI</h3>
+<p><strong>URI 里的查询字符串</strong></p>
 <p>Although any part of URI can have special characters, it is more common for the query string in URI to have special characters, which are typically <a href="https://en.wikipedia.org/wiki/Percent-encoding">percent encoded</a>.</p>
+<p>虽然 URI 的任何部分都可能有特殊字符，但 URI 的查询字符串里有特殊字符更常见。</p>
 <p><span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> class&rsquo;s <code>query()</code> method</span><span class="group-java">The method <code>Uri::query()</code></span> returns the query string of the URI, which is modeled in an instance of the <code>Query</code> class. When you instantiate a <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> class by passing a URI string, the query string is stored in its raw string form. Then, when you call the <code>query()</code> method, the query string is parsed from the raw string.</p>
-<p>The below code illustrates how valid query strings are parsed. Especially, you can check how percent encoding is used and how special characters like <code>+</code> and <code>;</code> are parsed.</p><div class="callout note "><div class="callout-title">Note</div>
-<p>The <code>mode</code> parameter to <code>Query()</code> and <code>Uri.query()</code> is discussed in <a href="uri-model.html#strict-and-relaxed-mode">Strict and Relaxed Mode</a>.</p></div>
+<p><span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> 类的 <code>query()</code> 方法</span><span class="group-java">方法 <code>Uri::query()</code></span> 返回一个 <code>Query</code> 类实例的 URI 查询字符串。 当你传一个 URI 字符串生成一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> 类实例时，查询字符串将以原始字符串的形式保存。直到你调用 <code>query</code> 方法时才解析。 </p>
+<p>The below code illustrates how valid query strings are parsed. Especially, you can check how percent encoding is used and how special characters like <code>+</code> and <code>;</code> are parsed.</p>
+<p>下面的代码展示了怎样解析有效的查询字符串。特别是，可以留意下百分比编码的应用和怎样解析特殊字符串，如：<code>+</code> 和 <code>;</code> 。</p><div class="callout note "><div class="callout-title">Note</div>
+<p>The <code>mode</code> parameter to <code>Query()</code> and <code>Uri.query()</code> is discussed in <a href="uri-model.html#strict-and-relaxed-mode">Strict and Relaxed Mode</a>.</p>
+<p><a href="uri-model.html#strict-and-relaxed-mode">严格和宽松模式</a> 讨论了 <code>Query</code> 和 <code>Uri.query()</code> 的 <code>mode</code> 参数。</p></div>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -630,16 +645,21 @@ assertEquals(Query.create(Pair.create(&quot;a b&quot;, &quot;c&quot;)), strict(&
 assertEquals(Query.create(Pair.create(&quot;a&quot;, &quot;b c&quot;)), strict(&quot;a=b+c&quot;)); //&#39;+&#39; is parsed to &#39; &#39;</code></pre></dd>
 </dl>
 <p>Note that:</p>
+<p>注意：</p>
 <pre><code>  Uri(&quot;http://localhost?a=b&quot;).query()
 </code></pre>
 <p>is equivalent to:</p>
+<p>等价于：</p>
 <pre><code>  Query(&quot;a=b&quot;)
 </code></pre>
 <p>As in the <a href="https://tools.ietf.org/html/rfc3986#section-3.4">section 3.4 of RFC 3986</a>, some special characters like &ldquo;/&rdquo; and &ldquo;?&rdquo; are allowed inside a query string, without escaping them using (&ldquo;%&rdquo;) signs.</p>
+<p>在 <a href="https://tools.ietf.org/html/rfc3986#section-3.4">RFC 3986 的 3.4 部分</a> 里，一些特殊字符被允许在查询字符串里，例如：<code>&#39;</code> 和 <code>?</code>， 它们不需要使用（&ldquo;%&rdquo;）标记。</p>
 <blockquote>
   <p>The characters slash (&ldquo;/&rdquo;) and question mark (&ldquo;?&rdquo;) may represent data within the query component.</p>
+  <p>字符斜杠（<code>/</code>）和问号（<code>?</code>）可以表示查询组件中的数据。</p>
 </blockquote>
 <p>&ldquo;/&rdquo; and &ldquo;?&rdquo; are commonly used when you have a URI whose query parameter has another URI.</p>
+<p>当 URI 中的查询参数有另一个 URI 时，<code>/</code> 和 <code>?</code> 常被用的。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -657,6 +677,7 @@ assertEquals(Query.create(Pair.create(&quot;a&quot;, &quot;b?c&quot;)), strict(&
 assertEquals(Query.create(Pair.create(&quot;a&quot;, &quot;b/c&quot;)), strict(&quot;a=b/c&quot;));</code></pre></dd>
 </dl>
 <p>However, some other special characters can cause <code>IllegalUriException</code> without percent encoding as follows.</p>
+<p>但是，有些其它的特殊字符不使用百分比编码的话会抛出 <code>IllegalUriException</code> 异常，如下。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -712,7 +733,9 @@ public void testStrictModeException2() {
 }</code></pre></dd>
 </dl>
 <h4><a href="#strict-and-relaxed-mode" name="strict-and-relaxed-mode" class="anchor"><span class="anchor-link"></span></a>Strict and Relaxed Mode</h4>
+<p><strong>严格和宽松模式</strong></p>
 <p>The <code>Uri.query()</code> method and <code>Query()</code> take a parameter <code>mode</code>, which is either <code>Uri.ParsingMode.Strict</code> or <code>Uri.ParsingMode.Relaxed</code>. Switching the mode gives different behavior on parsing some special characters in URI.</p>
+<p><code>Uri.query()</code> 函数和 <code>Query()</code> 构造函数都可以读入一个参数 <code>mode</code>， 这个参数的类型可以是 <code>Uri.ParsingMode.Strict</code> 或 <code>Uri.ParsingMode.Relaxed</code>。模式不同的选择也会带来不同的字符串解析行为。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -724,6 +747,7 @@ public void testStrictModeException2() {
 }</code></pre></dd>
 </dl>
 <p>The below two cases threw <code>IllegalUriException</code> when you specified the <code>Strict</code> mode,</p>
+<p>当你指定 <code>Strict</code> 模式时，以下两种情况抛出 <code>IllegalUriException</code> 异常，</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -759,6 +783,7 @@ public void testStrictModeException2() {
 }</code></pre></dd>
 </dl>
 <p>but the <code>Relaxed</code> mode parses them as they are.</p>
+<p>但 <code>Relaxed</code> 模式下解析正常。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -772,6 +797,7 @@ assertEquals(Query.create(Pair.create(&quot;a;&quot;, &quot;b&quot;)), relaxed(&
 assertEquals(Query.create(Pair.create(&quot;a&quot;, &quot;b=c&quot;)), relaxed(&quot;a=b=c&quot;));</code></pre></dd>
 </dl>
 <p>However, even with the <code>Relaxed</code> mode, there are still invalid special characters which require percent encoding.</p>
+<p>然而，即使在 <code>Relaxed</code> 模式，也存在一些无效的特殊字符需要进行百分比编码。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -797,6 +823,7 @@ public void testRelaxedModeException1() {
 }</code></pre></dd>
 </dl>
 <p>Other than specifying the <code>mode</code> in the parameters, like when using directives, you can specify the <code>mode</code> in your configuration as follows.</p>
+<p><code>mode</code> 除了可以作为一个参数设定，像使用指令时，你还可以在配置里设置，如下：</p>
 <pre><code>    # Sets the strictness mode for parsing request target URIs.
     # The following values are defined:
     #
@@ -808,8 +835,11 @@ public void testRelaxedModeException1() {
     uri-parsing-mode = strict
 </code></pre>
 <p>To access the raw, unparsed representation of the query part of a URI use the <code>rawQueryString</code> member of the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> class.</p>
+<p>要一个 URI 的访问原始的、未解析过的查询部分，使用 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/Uri.html" title="akka.http.javadsl.model.Uri"><code>Uri</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/Uri.html" title="akka.http.scaladsl.model.Uri"><code>Uri</code></a></span> 的 <code>rawQueryString</code> 成员。</p>
 <h4><a href="#directives-to-extract-query-parameters" name="directives-to-extract-query-parameters" class="anchor"><span class="anchor-link"></span></a>Directives to extract query parameters</h4>
+<p><strong>抽取查询参数的指令</strong></p>
 <p>If you want to use directives to extract query parameters, see below pages.</p>
+<p>如果你想使用指令抽取查询参数，见以下页面：</p>
 <ul>
   <li><a href="../routing-dsl/directives/parameter-directives/parameters.html">parameters</a></li>
   <li><a href="../routing-dsl/directives/parameter-directives/parameter.html">parameter</a></li>
@@ -820,10 +850,10 @@ public void testRelaxedModeException1() {
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="../common/http-model.html"><i class="icon-prev"></i> <span class="link-prev">HTTP Model</span></a>
+<a href="../common/http-model.html"><i class="icon-prev"></i> <span class="link-prev">HTTP 模型</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../common/marshalling.html">Marshalling <i class="icon-next"></i></a>
+<a class="float-right" href="../common/marshalling.html">Marshalling 编组 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
