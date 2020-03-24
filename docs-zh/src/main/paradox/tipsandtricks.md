@@ -1,6 +1,8 @@
-# 8. Tips And Tricks
+# 8. 提示和技巧
 
 There are few recurring questions that we want to answer in more depth.
+
+我们想更深入的回答一些反复出现的问题。
 
 @@toc { depth=2 }
 
