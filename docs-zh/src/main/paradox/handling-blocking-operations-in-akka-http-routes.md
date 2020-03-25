@@ -50,7 +50,7 @@ In the thread state diagrams below the colours have the following meaning:
  * Green - Runnable state
 
  * 绿松石 - 休眠状态
- * 橙色 - 休眠状态
+ * 橙色 - 等待状态
  * 绿色 - 运行状态
 
 The thread information was recorded using the YourKit profiler, however any good JVM profiler 
