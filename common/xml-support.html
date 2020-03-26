@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>XML Support &bull; Akka HTTP Chinese edition</title>
+<title>XML 支持 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -258,23 +258,23 @@ Version 10.1.11
     <li><a href="../common/uri-model.html" class="page">URI 模型</a></li>
     <li><a href="../common/marshalling.html" class="page">Marshalling/编组</a></li>
     <li><a href="../common/unmarshalling.html" class="page">Unmarshalling/解组</a></li>
-    <li><a href="../common/encoding.html" class="page">Encoding / Decoding</a></li>
-    <li><a href="../common/json-support.html" class="page">JSON Support</a></li>
-    <li><a href="../common/xml-support.html#xml-support" class="active page">XML Support</a>
+    <li><a href="../common/encoding.html" class="page">编码 / 解码</a></li>
+    <li><a href="../common/json-support.html" class="page">JSON 支持</a></li>
+    <li><a href="../common/xml-support.html#xml-支持" class="active page">XML 支持</a>
     <ul>
       <li><a href="../common/xml-support.html#scala-xml-support" class="header group-scala">Scala XML Support</a></li>
     </ul></li>
-    <li><a href="../common/sse-support.html" class="page">Server-Sent Events Support</a></li>
-    <li><a href="../common/timeouts.html" class="page">Timeouts</a></li>
-    <li><a href="../common/caching.html" class="page">Caching</a></li>
+    <li><a href="../common/sse-support.html" class="page">服务器-发送事件支持</a></li>
+    <li><a href="../common/timeouts.html" class="page">超时</a></li>
+    <li><a href="../common/caching.html" class="page">缓存</a></li>
   </ul></li>
   <li><a href="../server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="../client-side/index.html" class="page">5. Client API</a></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
   <li><a href="../technologies.html" class="page">7. 支持的技术</a></li>
   <li><a href="../tipsandtricks.html" class="page">8. 提示和技巧</a></li>
-  <li><a href="../contributing.html" class="page">9. Contributing</a></li>
-  <li><a href="../reference.html" class="page">10. Reference</a></li>
+  <li><a href="../contributing.html" class="page">9. 进行贡献</a></li>
+  <li><a href="../reference.html" class="page">10. 参考</a></li>
 </ul>
 </nav>
 </div>
@@ -308,23 +308,23 @@ Version 10.1.11
     <li><a href="../common/uri-model.html" class="page">URI 模型</a></li>
     <li><a href="../common/marshalling.html" class="page">Marshalling/编组</a></li>
     <li><a href="../common/unmarshalling.html" class="page">Unmarshalling/解组</a></li>
-    <li><a href="../common/encoding.html" class="page">Encoding / Decoding</a></li>
-    <li><a href="../common/json-support.html" class="page">JSON Support</a></li>
-    <li><a href="../common/xml-support.html#xml-support" class="active page">XML Support</a>
+    <li><a href="../common/encoding.html" class="page">编码 / 解码</a></li>
+    <li><a href="../common/json-support.html" class="page">JSON 支持</a></li>
+    <li><a href="../common/xml-support.html#xml-支持" class="active page">XML 支持</a>
     <ul>
       <li><a href="../common/xml-support.html#scala-xml-support" class="header group-scala">Scala XML Support</a></li>
     </ul></li>
-    <li><a href="../common/sse-support.html" class="page">Server-Sent Events Support</a></li>
-    <li><a href="../common/timeouts.html" class="page">Timeouts</a></li>
-    <li><a href="../common/caching.html" class="page">Caching</a></li>
+    <li><a href="../common/sse-support.html" class="page">服务器-发送事件支持</a></li>
+    <li><a href="../common/timeouts.html" class="page">超时</a></li>
+    <li><a href="../common/caching.html" class="page">缓存</a></li>
   </ul></li>
   <li><a href="../server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="../client-side/index.html" class="page">5. Client API</a></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
   <li><a href="../technologies.html" class="page">7. 支持的技术</a></li>
   <li><a href="../tipsandtricks.html" class="page">8. 提示和技巧</a></li>
-  <li><a href="../contributing.html" class="page">9. Contributing</a></li>
-  <li><a href="../reference.html" class="page">10. Reference</a></li>
+  <li><a href="../contributing.html" class="page">9. 进行贡献</a></li>
+  <li><a href="../reference.html" class="page">10. 参考</a></li>
 </ul>
 </div>
 </nav>
@@ -337,8 +337,10 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#xml-support" name="xml-support" class="anchor"><span class="anchor-link"></span></a>XML Support</h1>
-<p>Akka HTTP&rsquo;s <a href="marshalling.html">marshalling</a> and <a href="unmarshalling.html">unmarshalling</a> infrastructure makes it rather easy to seamlessly support specific wire representations of your data objects, like JSON, XML or even binary encodings.</p><div class="group-java">
+<h1><a href="#xml-支持" name="xml-支持" class="anchor"><span class="anchor-link"></span></a>XML 支持</h1>
+<p><em>XML Support</em></p>
+<p>Akka HTTP&rsquo;s <a href="marshalling.html">marshalling</a> and <a href="unmarshalling.html">unmarshalling</a> infrastructure makes it rather easy to seamlessly support specific wire representations of your data objects, like JSON, XML or even binary encodings.</p>
+<p>Akka HTTP 的 <a href="marshalling.html">编组</a> 和 <a href="unmarshalling.html">解组</a> 基础设施使得无缝支持对象的线上表示变得相当容易，例如：JSON、XML或二进制编码。 </p><div class="group-java">
 <p>Akka HTTP does not currently provide a Java API for XML support. If you need to produce and consume XML, you can write a <a href="marshalling.html#custom-marshallers">custom marshaller</a> using <a href="https://github.com/FasterXML/jackson">Jackson</a>, which is also the library used for providing <a href="json-support.html#jackson-support">JSON support</a>.</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/JacksonXmlSupport.java#L8-L51" target="_blank" title="Go to snippet source"></a><code class="language-java">import java.io.IOException;
 import java.util.List;
@@ -392,26 +394,31 @@ public class JacksonXmlSupport {
   &lt;version&gt;2.10.1&lt;/version&gt;
 &lt;/dependency&gt;</code></pre></dd></dl></div><div class="group-scala">
 <p>For XML Akka HTTP currently provides support for <a href="https://github.com/scala/scala-xml">Scala XML</a> right out of the box through it&rsquo;s <code>akka-http-xml</code> module.</p>
+<p>对于 XML，Akka HTTP 当前通过 <code>akka-http-xml</code> 模块对 <a href="https://github.com/scala/scala-xml">Scala XML</a> 提供了开箱即用的支持 。</p>
 <h2><a href="#scala-xml-support" name="scala-xml-support" class="anchor"><span class="anchor-link"></span></a>Scala XML Support</h2>
+<p><strong>Scala XML 支持</strong></p>
 <p>The <a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshallers/xml/ScalaXmlSupport.html" title="akka.http.scaladsl.marshallers.xml.ScalaXmlSupport"><code>ScalaXmlSupport</code></a> trait provides a <code>FromEntityUnmarshaller[NodeSeq]</code> and <code>ToEntityMarshaller[NodeSeq]</code> that you can use directly or build upon.</p>
-<p>In order to enable support for (un)marshalling from and to XML with <a href="https://github.com/scala/scala-xml">Scala XML</a> <code>NodeSeq</code> you must add the following dependency:</p><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.typesafe.akka" %% "akka-http-xml" % "10.1.11"</code></pre></dd><dt>Gradle</dt><dd><pre class="prettyprint"><code class="language-gradle">dependencies {
+<p><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshallers/xml/ScalaXmlSupport.html" title="akka.http.scaladsl.marshallers.xml.ScalaXmlSupport"><code>ScalaXmlSupport</code></a> trait 提供了 <code>FromEntityUnmarshaller[NodeSeq]</code> 和 <code>ToEntityMarshaller[NodeSeq]</code>，你可以直接使用或者在它基础之上构建自己的。</p>
+<p>In order to enable support for (un)marshalling from and to XML with <a href="https://github.com/scala/scala-xml">Scala XML</a> <code>NodeSeq</code> you must add the following dependency:</p>
+<p>为了启用 XML 和 <a href="https://github.com/scala/scala-xml">Scala XML</a> <code>NodeSeq</code> 的(解)编组支持，你必须添加下面的依赖：</p><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.typesafe.akka" %% "akka-http-xml" % "10.1.11"</code></pre></dd><dt>Gradle</dt><dd><pre class="prettyprint"><code class="language-gradle">dependencies {
   compile group: 'com.typesafe.akka', name: 'akka-http-xml_2.12', version: '10.1.11'
 }</code></pre></dd><dt>Maven</dt><dd><pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
   &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
   &lt;artifactId&gt;akka-http-xml_2.12&lt;/artifactId&gt;
   &lt;version&gt;10.1.11&lt;/version&gt;
 &lt;/dependency&gt;</code></pre></dd></dl>
-<p>Once you have done this (un)marshalling between XML and <code>NodeSeq</code> instances should work nicely and transparently, by either using <code>import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._</code> or mixing in the <code>akka.http.scaladsl.marshallers.xml.ScalaXmlSupport</code> trait.</p></div>
+<p>Once you have done this (un)marshalling between XML and <code>NodeSeq</code> instances should work nicely and transparently, by either using <code>import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._</code> or mixing in the <code>akka.http.scaladsl.marshallers.xml.ScalaXmlSupport</code> trait.</p>
+<p>一旦你完成 XML 和 <code>NodeSeq</code> 实例之间的(解)编组功能，它就可以很好的、透明的工作。 使用 <code>import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._</code> （导入隐式转换）或者混入 <code>akka.http.scaladsl.marshallers.xml.ScalaXmlSupport</code> trait。</p></div>
 </div>
 </article>
 <div class="row">
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="../common/json-support.html"><i class="icon-prev"></i> <span class="link-prev">JSON Support</span></a>
+<a href="../common/json-support.html"><i class="icon-prev"></i> <span class="link-prev">JSON 支持</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../common/sse-support.html">Server-Sent Events Support <i class="icon-next"></i></a>
+<a class="float-right" href="../common/sse-support.html">服务器-发送事件支持 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

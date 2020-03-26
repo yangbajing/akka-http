@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Encoding / Decoding &bull; Akka HTTP Chinese edition</title>
+<title>编码 / 解码 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -258,24 +258,24 @@ Version 10.1.11
     <li><a href="../common/uri-model.html" class="page">URI 模型</a></li>
     <li><a href="../common/marshalling.html" class="page">Marshalling/编组</a></li>
     <li><a href="../common/unmarshalling.html" class="page">Unmarshalling/解组</a></li>
-    <li><a href="../common/encoding.html#encoding-decoding" class="active page">Encoding / Decoding</a>
+    <li><a href="../common/encoding.html#编码-解码" class="active page">编码 / 解码</a>
     <ul>
       <li><a href="../common/encoding.html#server-side" class="header">Server side</a></li>
       <li><a href="../common/encoding.html#client-side" class="header">Client side</a></li>
     </ul></li>
-    <li><a href="../common/json-support.html" class="page">JSON Support</a></li>
-    <li><a href="../common/xml-support.html" class="page">XML Support</a></li>
-    <li><a href="../common/sse-support.html" class="page">Server-Sent Events Support</a></li>
-    <li><a href="../common/timeouts.html" class="page">Timeouts</a></li>
-    <li><a href="../common/caching.html" class="page">Caching</a></li>
+    <li><a href="../common/json-support.html" class="page">JSON 支持</a></li>
+    <li><a href="../common/xml-support.html" class="page">XML 支持</a></li>
+    <li><a href="../common/sse-support.html" class="page">服务器-发送事件支持</a></li>
+    <li><a href="../common/timeouts.html" class="page">超时</a></li>
+    <li><a href="../common/caching.html" class="page">缓存</a></li>
   </ul></li>
   <li><a href="../server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="../client-side/index.html" class="page">5. Client API</a></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
   <li><a href="../technologies.html" class="page">7. 支持的技术</a></li>
   <li><a href="../tipsandtricks.html" class="page">8. 提示和技巧</a></li>
-  <li><a href="../contributing.html" class="page">9. Contributing</a></li>
-  <li><a href="../reference.html" class="page">10. Reference</a></li>
+  <li><a href="../contributing.html" class="page">9. 进行贡献</a></li>
+  <li><a href="../reference.html" class="page">10. 参考</a></li>
 </ul>
 </nav>
 </div>
@@ -309,24 +309,24 @@ Version 10.1.11
     <li><a href="../common/uri-model.html" class="page">URI 模型</a></li>
     <li><a href="../common/marshalling.html" class="page">Marshalling/编组</a></li>
     <li><a href="../common/unmarshalling.html" class="page">Unmarshalling/解组</a></li>
-    <li><a href="../common/encoding.html#encoding-decoding" class="active page">Encoding / Decoding</a>
+    <li><a href="../common/encoding.html#编码-解码" class="active page">编码 / 解码</a>
     <ul>
       <li><a href="../common/encoding.html#server-side" class="header">Server side</a></li>
       <li><a href="../common/encoding.html#client-side" class="header">Client side</a></li>
     </ul></li>
-    <li><a href="../common/json-support.html" class="page">JSON Support</a></li>
-    <li><a href="../common/xml-support.html" class="page">XML Support</a></li>
-    <li><a href="../common/sse-support.html" class="page">Server-Sent Events Support</a></li>
-    <li><a href="../common/timeouts.html" class="page">Timeouts</a></li>
-    <li><a href="../common/caching.html" class="page">Caching</a></li>
+    <li><a href="../common/json-support.html" class="page">JSON 支持</a></li>
+    <li><a href="../common/xml-support.html" class="page">XML 支持</a></li>
+    <li><a href="../common/sse-support.html" class="page">服务器-发送事件支持</a></li>
+    <li><a href="../common/timeouts.html" class="page">超时</a></li>
+    <li><a href="../common/caching.html" class="page">缓存</a></li>
   </ul></li>
   <li><a href="../server-side/index.html" class="page">4. Server API</a></li>
   <li><a href="../client-side/index.html" class="page">5. Client API</a></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
   <li><a href="../technologies.html" class="page">7. 支持的技术</a></li>
   <li><a href="../tipsandtricks.html" class="page">8. 提示和技巧</a></li>
-  <li><a href="../contributing.html" class="page">9. Contributing</a></li>
-  <li><a href="../reference.html" class="page">10. Reference</a></li>
+  <li><a href="../contributing.html" class="page">9. 进行贡献</a></li>
+  <li><a href="../reference.html" class="page">10. 参考</a></li>
 </ul>
 </div>
 </nav>
@@ -339,14 +339,22 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#encoding-decoding" name="encoding-decoding" class="anchor"><span class="anchor-link"></span></a>Encoding / Decoding</h1>
+<h1><a href="#编码-解码" name="编码-解码" class="anchor"><span class="anchor-link"></span></a>编码 / 解码</h1>
+<p><em>Encoding / Decoding</em></p>
 <p>The <a href="https://tools.ietf.org/html/rfc7231#section-3.1.2.1">HTTP spec</a> defines a <code>Content-Encoding</code> header, which signifies whether the entity body of an HTTP message is &ldquo;encoded&rdquo; and, if so, by which algorithm. The only commonly used content encodings are compression algorithms.</p>
+<p><a href="https://tools.ietf.org/html/rfc7231#section-3.1.2.1">HTTP 规范</a> 定义了一个 <code>Content-Encoding</code> 头域，表示一个 HTTP 消息的实体正文是否已“编码”，如果是的话，用的哪种算法。常用的内容编码是压缩算法。</p>
 <p>Currently, Akka HTTP supports the compression and decompression of HTTP requests and responses with the <code>gzip</code> or <code>deflate</code> encodings. The core logic for this lives in the <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/coding/index.html" title="akka.http.scaladsl.coding"><code>akka.http.scaladsl.coding</code></a> package.</span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/coding/Coder.html" title="akka.http.javadsl.coding.Coder"><code>akka.http.javadsl.coding.Coder</code></a> enum class.</span></p>
+<p>当前，Akka HTTP 支持使用 <code>gzip</code> 或 <code>deflate</code> 编码对 HTTP 请求和响应进行压缩和解压缩。 核心逻辑在 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/coding/index.html" title="akka.http.scaladsl.coding"><code>akka.http.scaladsl.coding</code></a> 包</span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/coding/Coder.html" title="akka.http.javadsl.coding.Coder"><code>akka.http.javadsl.coding.Coder</code></a> 枚举</span> 里。</p>
 <h2><a href="#server-side" name="server-side" class="anchor"><span class="anchor-link"></span></a>Server side</h2>
+<p><strong>服务器端</strong></p>
 <p>The support is not enabled automatically, but must be explicitly requested. For enabling message encoding/decoding with <a href="../routing-dsl/index.html">Routing DSL</a> see the <a href="../routing-dsl/directives/coding-directives/index.html">CodingDirectives</a>.</p>
+<p>该支持不是自动启用的，必须明确地请求。使用 <a href="../routing-dsl/index.html">Routing DSL</a> 启用消息编码/解码，请见 <a href="../routing-dsl/directives/coding-directives/index.html">CodingDirectives</a> 。</p>
 <h2><a href="#client-side" name="client-side" class="anchor"><span class="anchor-link"></span></a>Client side</h2>
+<p><strong>客户端</strong></p>
 <p>There is currently no high-level or automatic support for decoding responses on the client-side.</p>
+<p>当前，对于客户端响应解码没有高级或自动支持。</p>
 <p>The following example shows how to decode responses manually based on the <code>Content-Encoding</code> header:</p>
+<p>下面的例子显示了怎样基于 <code>Content-Encoding</code> 头域手动解码响应：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -468,7 +476,7 @@ public class HttpClientDecodingExampleTest {
 <a href="../common/unmarshalling.html"><i class="icon-prev"></i> <span class="link-prev">Unmarshalling/解组</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../common/json-support.html">JSON Support <i class="icon-next"></i></a>
+<a class="float-right" href="../common/json-support.html">JSON 支持 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
