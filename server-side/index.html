@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>4. Server API &bull; Akka HTTP Chinese edition</title>
+<title>4. 服务器 API &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -253,9 +253,9 @@ Version 10.1.11
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
   <li><a href="../common/index.html" class="page">3. 数据类型 &amp; 抽像</a></li>
-  <li><a href="../server-side/index.html#4-server-api" class="active page">4. Server API</a>
+  <li><a href="../server-side/index.html#4-服务器-api" class="active page">4. 服务器 API</a>
   <ul>
-    <li><a href="../server-side/low-level-api.html" class="page">Core Server API</a></li>
+    <li><a href="../server-side/low-level-api.html" class="page">核心服务器 API</a></li>
     <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
     <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
     <li><a href="../server-side/server-https-support.html" class="page">Server HTTPS Support</a></li>
@@ -296,9 +296,9 @@ Version 10.1.11
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
   <li><a href="../common/index.html" class="page">3. 数据类型 &amp; 抽像</a></li>
-  <li><a href="../server-side/index.html#4-server-api" class="active page">4. Server API</a>
+  <li><a href="../server-side/index.html#4-服务器-api" class="active page">4. 服务器 API</a>
   <ul>
-    <li><a href="../server-side/low-level-api.html" class="page">Core Server API</a></li>
+    <li><a href="../server-side/low-level-api.html" class="page">核心服务器 API</a></li>
     <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
     <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
     <li><a href="../server-side/server-https-support.html" class="page">Server HTTPS Support</a></li>
@@ -323,28 +323,44 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#4-server-api" name="4-server-api" class="anchor"><span class="anchor-link"></span></a>4. Server API</h1>
+<h1><a href="#4-服务器-api" name="4-服务器-api" class="anchor"><span class="anchor-link"></span></a>4. 服务器 API</h1>
+<p><strong>Server API</strong></p>
 <p>Apart from the <a href="../client-side/index.html">HTTP Client</a> Akka HTTP also provides an embedded, <a href="https://www.reactive-streams.org/">Reactive-Streams</a>-based, fully asynchronous HTTP/1.1 server implemented on top of <span class="group-scala"><a href="https://doc.akka.io/docs/akka/2.5.26/scala/stream/index.html">Streams</a></span><span class="group-java"><a href="https://doc.akka.io/docs/akka/2.5.26/java/stream/index.html">Streams</a></span>.</p>
+<p>除了 <a href="../client-side/index.html">HTTP 客户端</a>，Akka HTTP 也提供了嵌入式的、基于 <a href="https://www.reactive-streams.org/">反应式-流</a>-based、 完全异步的 HTTP/1.1 服务器，它在 <span class="group-scala"><a href="https://doc.akka.io/docs/akka/2.5.26/scala/stream/index.html">流</a></span><span class="group-java"><a href="https://doc.akka.io/docs/akka/2.5.26/java/stream/index.html">流</a></span> 之上实现。</p>
 <p>It supports the following features:</p>
+<p>支持下列特性：</p>
 <ul>
   <li>Full support for <a href="https://en.wikipedia.org/wiki/HTTP_persistent_connection">HTTP persistent connections</a></li>
   <li>Full support for <a href="https://en.wikipedia.org/wiki/HTTP_pipelining">HTTP pipelining</a></li>
   <li>Full support for asynchronous HTTP streaming including &ldquo;chunked&rdquo; transfer encoding accessible through an idiomatic API</li>
   <li>Optional SSL/TLS encryption</li>
   <li>WebSocket support</li>
+  <li>
+  <p>完全支持 <a href="https://en.wikipedia.org/wiki/HTTP_persistent_connection">HTTP 持久化连接</a></p></li>
+  <li>完全支持 <a href="https://en.wikipedia.org/wiki/HTTP_pipelining">HTTP 管线化</a></li>
+  <li>完全支持异步 HTTP 流，包括通过惯用 API 访问的 &ldquo;分块&rdquo; 传输编码</li>
+  <li>可选的 SSL/TLS 加密</li>
+  <li>WebSocket 支持</li>
 </ul>
 <p>The server-side components of Akka HTTP are split into two layers:</p>
+<p>Akka HTTP 的服务器端组件分为两层：</p>
 <dl>
   <dt><a href="low-level-api.html">Core Server API</a></dt>
   <dd>The basic low-level server implementation in the <code>akka-http-core</code> module.</dd>
+  <dt><a href="low-level-api.html">核心服务器API</a></dt>
+  <dd>基础的低级服务器，实现在 <code>akka-http-core</code> 模块。</dd>
   <dt><a href="../routing-dsl/index.html">High-level Server-Side API</a></dt>
   <dd>Higher-level functionality in the <code>akka-http</code> module which offers a very flexible &ldquo;Routing DSL&rdquo; for elegantly defining RESTful web services as well as  functionality of typical web servers or frameworks, like deconstruction of URIs, content negotiation or  static content serving.</dd>
+  <dt><a href="../routing-dsl/index.html">高级服务器端 API</a></dt>
+  <dd><code>akka-http</code> 模块里的高级功能，提供了一个很灵活的“路由 DSL”来优雅地定义 RESTful Web 服务，以及实现典型的 Web 服务器或框架的功能， 比如：解构 URI、内容协商或者静态内容服务。</dd>
 </dl>
-<p>Depending on your needs you can either use the low-level API directly or rely on the high-level <a href="../routing-dsl/index.html">Routing DSL</a> which can make the definition of more complex service logic much easier. You can also interact with different API levels at the same time and, independently of which API level you choose Akka HTTP will happily serve many thousand concurrent connections to a single or many different clients.</p><div class="callout note "><div class="callout-title">Note</div>
-<p>It is recommended to read the <a href="../implications-of-streaming-http-entity.html">Implications of the streaming nature of Request/Response Entities</a> section, as it explains the underlying full-stack streaming concepts, which may be unexpected when coming from a background with non-&ldquo;streaming first&rdquo; HTTP Servers.</p></div>
+<p>Depending on your needs you can either use the low-level API directly or rely on the high-level <a href="../routing-dsl/index.html">Routing DSL</a> which can make the definition of more complex service logic much easier. You can also interact with different API levels at the same time and, independently of which API level you choose Akka HTTP will happily serve many thousand concurrent connections to a single or many different clients.</p>
+<p>根据你的需要，你可以选择直接使用低级 API 或者依赖高级 <a href="../routing-dsl/index.md">路由 API</a> ，高级 API 可以使定义复杂的服务逻辑更容易。 你也可以同时使用不同级别的 API，依赖于这些你选择的 API，单个 Akka HTTP （服务）可以很好的服务成千上万的并发请求或者很多不同的客户端。</p><div class="callout note "><div class="callout-title">Note</div>
+<p>It is recommended to read the <a href="../implications-of-streaming-http-entity.html">Implications of the streaming nature of Request/Response Entities</a> section, as it explains the underlying full-stack streaming concepts, which may be unexpected when coming from a background with non-&ldquo;streaming first&rdquo; HTTP Servers.</p>
+<p>推荐阅读 <a href="../implications-of-streaming-http-entity.html">请求/响应实体流的实质含义</a> 部分，它阐明了（Akka HTTP）底层的全栈流的概念。 因为对于没有“流式优先” HTTP 服务器概念背景的人来说，它们也许会感到难以理解。</p></div>
 <div class="toc ">
 <ul>
-  <li><a href="../server-side/low-level-api.html" class="page">Core Server API</a>
+  <li><a href="../server-side/low-level-api.html" class="page">核心服务器 API</a>
   <ul>
     <li><a href="../server-side/low-level-api.html#streams-and-http" class="header">Streams and HTTP</a></li>
     <li><a href="../server-side/low-level-api.html#starting-and-stopping" class="header">Starting and Stopping</a></li>
@@ -499,7 +515,7 @@ Version 10.1.11
 <a href="../common/caching.html"><i class="icon-prev"></i> <span class="link-prev">缓存</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../server-side/low-level-api.html">Core Server API <i class="icon-next"></i></a>
+<a class="float-right" href="../server-side/low-level-api.html">核心服务器 API <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
