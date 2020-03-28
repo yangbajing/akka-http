@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Graceful termination &bull; Akka HTTP Chinese edition</title>
+<title>优雅的终止 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -258,13 +258,13 @@ Version 10.1.11
     <li><a href="../server-side/low-level-api.html" class="page">核心服务器 API</a></li>
     <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
     <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
-    <li><a href="../server-side/server-https-support.html" class="page">Server HTTPS Support</a></li>
-    <li><a href="../server-side/graceful-termination.html#graceful-termination" class="active page">Graceful termination</a>
+    <li><a href="../server-side/server-https-support.html" class="page">服务器 HTTPS 支持</a></li>
+    <li><a href="../server-side/graceful-termination.html#优雅的终止" class="active page">优雅的终止</a>
     <ul>
       <li><a href="../server-side/graceful-termination.html#graceful-termination-using-serverterminator" class="header">Graceful termination using <code>ServerTerminator</code></a></li>
       <li><a href="../server-side/graceful-termination.html#akka-coordinated-shutdown" class="header">Akka Coordinated Shutdown</a></li>
     </ul></li>
-    <li><a href="../server-side/http2.html" class="page">Server-Side HTTP/2 (Preview)</a></li>
+    <li><a href="../server-side/http2.html" class="page">服务器端 HTTP/2 (预览)</a></li>
   </ul></li>
   <li><a href="../client-side/index.html" class="page">5. Client API</a></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
@@ -305,13 +305,13 @@ Version 10.1.11
     <li><a href="../server-side/low-level-api.html" class="page">核心服务器 API</a></li>
     <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
     <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
-    <li><a href="../server-side/server-https-support.html" class="page">Server HTTPS Support</a></li>
-    <li><a href="../server-side/graceful-termination.html#graceful-termination" class="active page">Graceful termination</a>
+    <li><a href="../server-side/server-https-support.html" class="page">服务器 HTTPS 支持</a></li>
+    <li><a href="../server-side/graceful-termination.html#优雅的终止" class="active page">优雅的终止</a>
     <ul>
       <li><a href="../server-side/graceful-termination.html#graceful-termination-using-serverterminator" class="header">Graceful termination using <code>ServerTerminator</code></a></li>
       <li><a href="../server-side/graceful-termination.html#akka-coordinated-shutdown" class="header">Akka Coordinated Shutdown</a></li>
     </ul></li>
-    <li><a href="../server-side/http2.html" class="page">Server-Side HTTP/2 (Preview)</a></li>
+    <li><a href="../server-side/http2.html" class="page">服务器端 HTTP/2 (预览)</a></li>
   </ul></li>
   <li><a href="../client-side/index.html" class="page">5. Client API</a></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
@@ -331,13 +331,20 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#graceful-termination" name="graceful-termination" class="anchor"><span class="anchor-link"></span></a>Graceful termination</h1>
+<h1><a href="#优雅的终止" name="优雅的终止" class="anchor"><span class="anchor-link"></span></a>优雅的终止</h1>
+<p><em>Graceful termination</em></p>
 <h2><a href="#graceful-termination-using-serverterminator" name="graceful-termination-using-serverterminator" class="anchor"><span class="anchor-link"></span></a>Graceful termination using <code>ServerTerminator</code></h2>
+<p><strong>使用 <code>ServerTerminator</code> 来优雅的终止</strong></p>
 <p>Akka HTTP provides two APIs to &ldquo;stop&rdquo; the server, either of them are available via the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ServerBinding.html" title="akka.http.javadsl.ServerBinding"><code>ServerBinding</code></a></span> <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$$ServerBinding.html" title="akka.http.scaladsl.Http$$ServerBinding"><code>ServerBinding</code></a></span> obtained from starting the server (by using any of the <code>bind...</code> methods on the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpExt.html" title="akka.http.scaladsl.HttpExt"><code>Http</code></a></span> extension).</p>
+<p>Akka HTTP 提供了两个 API 来“停止”服务器，其中任何一个都可以通过从启动服务器 （使用在 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpExt.html" title="akka.http.scaladsl.HttpExt"><code>Http</code></a></span> 扩展上的任何 <code>bind...</code> 方法） 获得的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ServerBinding.html" title="akka.http.javadsl.ServerBinding"><code>ServerBinding</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$$ServerBinding.html" title="akka.http.scaladsl.Http$$ServerBinding"><code>ServerBinding</code></a></span> 得到。</p>
 <p>The first method, called <code>unbind()</code> causes the server to <em>stop accepting new connections</em>, however any existing connections that are still being used will remain active until the client chooses to close them. It only unbinds the port on which the http server has been listening. This allows HTTP server to finish streaming any responses that might be still in flight and eventually terminate the entire system. If your application uses long-lived connections, this does mean that these can delay the termination of your system indefinitely.</p>
+<p>第一个方法，调用 <code>unbind()</code> 导致服务器 <em>停止接受新的连接</em>，但是任何已存在连接将保持活动状态直到客户端选择关闭它们。 如果只是解绑HTTP 服务器兼听的端口。这允许 HTTP 服务器完成流式传输（任何还在运行的响应继续）并最终终止整个系统。 如果你的应用程序使用长-生命连接，这意味着这些可能无限期地延迟终止你的系统。</p>
 <p>A better and more graceful solution to terminate an Akka HTTP server is to use the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ServerBinding.html#terminate-java.time.Duration-" title="akka.http.javadsl.ServerBinding"><code>ServerBinding.terminate(Duration)</code></a></span> <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$$ServerBinding.html#terminate(FiniteDuration):Future[HttpTerminated]" title="akka.http.scaladsl.Http$$ServerBinding"><code>ServerBinding.terminate(FiniteDuration)</code></a></span> method, which not only performs the unbinding, but also handles replying to new incoming requests with (configurable) &ldquo;terminating&rdquo; HTTP responses. It also allows setting a deadline after which any connections that are still alive will be shut down forcefully. More precisely, termination works by following these steps:</p>
+<p>终止 Akka HTTP 服务器的一个更好、更优雅的解决方案是使用 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ServerBinding.html#terminate-java.time.Duration-" title="akka.http.javadsl.ServerBinding"><code>ServerBinding.terminate(Duration)</code></a></span> <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$$ServerBinding.html#terminate(FiniteDuration):Future[HttpTerminated]" title="akka.http.scaladsl.Http$$ServerBinding"><code>ServerBinding.terminate(FiniteDuration)</code></a></span> 方法，该方法不仅执行端口解绑，还处理回复，对新传入请求使用“terminating”（可配置）HTTP 响应。 它还允许设置一个最后期限，此后期限之后，任何还存活的连接都将被强制关闭。 更准确的说，终止通过下面这些步骤：</p>
 <p>First, the server port is unbound and no new connections will be accepted (same as invoking <code>unbind()</code>). Immediately the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ServerBinding.html#whenTerminationSignalIssued--" title="akka.http.javadsl.ServerBinding"><code>ServerBinding#whenTerminationSignalIssued</code></a> <code>CompletionStage</code></span> <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$$ServerBinding.html#whenTerminationSignalIssued:Future[Deadline]" title="akka.http.scaladsl.Http$$ServerBinding"><code>ServerBinding#whenTerminationSignalIssued</code></a> <code>Future</code></span> is completed. This can be used to signal parts of the application that the HTTP server is shutting down and they should clean up as well. Note also that for more advanced shut down scenarios you may want to use the <a href="https://doc.akka.io/docs/akka/2.5.26/actors.html#coordinated-shutdown">Coordinated Shutdown</a> capabilities of Akka.</p>
+<p>第一，服务器端口被解绑，并且没有新的连接被接受（同调用 <code>unbind()</code>）。 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ServerBinding.html#whenTerminationSignalIssued--" title="akka.http.javadsl.ServerBinding"><code>ServerBinding#whenTerminationSignalIssued</code></a> <code>CompletionStage</code></span> <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$$ServerBinding.html#whenTerminationSignalIssued:Future[Deadline]" title="akka.http.scaladsl.Http$$ServerBinding"><code>ServerBinding#whenTerminationSignalIssued</code></a> <code>Future</code></span> 完成时（解绑也立即完成）。 这可以用于通知应用程序的其它部分，HTTP 服务器正在关闭，它们也应该清理。 注意，对于更高级的关闭场景，你也许想要使用 Akka 的 <a href="https://doc.akka.io/docs/akka/2.5.26/actors.html#coordinated-shutdown">协调关闭</a> 功能。 </p>
 <p>Next, all in flight requests will be handled. If a request is &ldquo;in-flight&rdquo; (being handled by user code), it is given <code>hardDeadline</code> time to complete.</p>
+<p>第二，所以飞行中（已接受的请求，但还未被处理）的请求将被处理。如果一个请求是“在-飞行中”（由用户代码处理），则给它一个“硬截止”时间来完成。</p>
 <ul>
   <li>if a connection has no &ldquo;in-flight&rdquo; request, it is terminated immediately</li>
   <li>if user code emits a response within the timeout, then this response is sent to the client with a <code>Connection: close</code> header and connection is closed.</li>
@@ -346,12 +353,27 @@ Version 10.1.11
       <li>existing streaming responses must complete before the deadline as well.  When the deadline is reached the connection will be terminated regardless of status of the streaming responses.</li>
     </ul>
   </li>
-  <li>if user code does not reply with a response within the deadline we produce a special <span class="group-java"><code>akka.http.javadsl.settings.ServerSettings.getTerminationDeadlineExceededResponse</code></span><span class="group-scala"><code>akka.http.scaladsl.settings.ServerSettings.terminationDeadlineExceededResponse</code></span> HTTP response (e.g. <code>503 Service Unavailable</code>) with a <code>Connection: close</code> header and close connection.</li>
+  <li>if user code does not reply with a response within the deadline we produce a special <span class="group-java"><code>akka.http.javadsl.settings.ServerSettings.getTerminationDeadlineExceededResponse</code></span><span class="group-scala"><code>akka.http.scaladsl.settings.ServerSettings.terminationDeadlineExceededResponse</code></span></li>
+  <li>
+  <p>如果一个连接没有“在-飞行中”的请求，它将被立即终止</p></li>
+  <li>如果用户代码在超时内发出一个响应，则该响应带一个 <code>Connection: close</code> 头发送到客户端后，连接被关闭</li>
+  <li>如果是一个流式响应，需在截止期限（deadline）内完成，如果没有，连接被终止，而不管流式响应的状态为何。这是因为这样的响应可能是无限的，  这可能使服务器陷入这样一种情况，如果它一直等待响应“完成”，那么服务器将不能终止。
+    <ul>
+      <li>在截止期限（deadline）内，存在的流式响应必须完成。当截止期限到达，连接被终止，而不管流式响应的状态为何。</li>
+    </ul>
+  </li>
+  <li>如果用户代码在截止期限内没有回复响应，系统生成一个特定的 <span class="group-java"><code>akka.http.javadsl.settings.ServerSettings.getTerminationDeadlineExceededResponse</code></span><span class="group-scala"><code>akka.http.scaladsl.settings.ServerSettings.terminationDeadlineExceededResponse</code></span> 响应。</li>
 </ul>
+<p>HTTP response (e.g. <code>503 Service Unavailable</code>) with a <code>Connection: close</code> header and close connection.</p>
+<p>HTTP 响应（例如：<code>503 Service Unavailable</code>）具有一个 <code>Connection: close</code> 头并关闭连接。</p>
 <p>During that time incoming requests continue to be served. The existing connections will remain alive until the <code>hardDeadline</code> is exceeded, yet no new requests will be delivered to the user handler. All such drained responses will be replied to with an termination response (as explained in step 2).</p>
+<p>在此期间，继续为传入请求提供服务。已存在的连接将保持活动状态到超过“硬截止期”（hardDealine）为止，但是没有新的请求被送达用户处理程序。 所以这些耗尽的响应都将以终止响应回复（如步骤2阐述的那样）。</p>
 <p>Finally, all remaining alive connections are forcefully terminated once the <code>hardDeadline</code> is exceeded. The <code>whenTerminated</code> (exposed by <code>ServerBinding</code>) <span class="group-java">CompletionStage</span><span class="group-scala">future</span> is completed as well, so the graceful termination (of the <code>ActorSystem</code> or entire JVM itself can be safely performed, as by then it is known that no connections remain alive to this server).</p>
+<p>最后，所有剩余活动连接在超过“硬截止期”时被强制终止。<code>whenTerminated</code>（由 <code>ServerBinding</code> 暴露）返回的 <span class="group-java">CompletionStage</span><span class="group-scala">Future</span> 也完成， 既优雅终止（<code>ActorSystem</code> 或整个 JVM 自身都能够安全地执行（终止），因为知道没有到服务器的活动连接）。</p>
 <p>Note that the termination response is configurable in <code>ServerSettings</code>, and by default is an <code>503 Service Unavailable</code>, with an empty response entity.</p>
+<p>注意，终止响应可在 <code>ServerSettings</code> 里配置，默认是以空响应实体返回 <code>503 Service Unavailable</code>。</p>
 <p>Starting a graceful termination is as simple as invoking the terminate() method on the server binding:</p>
+<p>启优雅终止简单就像在绑定服务器上调用 <code>terminate()</code> 方法一样简单。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -406,20 +428,24 @@ onceAllConnectionsTerminated.toCompletableFuture().
     thenAccept(terminated -&gt; system.terminate());
 </code></pre></dd>
 </dl>
-<h2><a href="#akka-coordinated-shutdown" name="akka-coordinated-shutdown" class="anchor"><span class="anchor-link"></span></a>Akka Coordinated Shutdown</h2><div class="callout note "><div class="callout-title">Note</div>
+<h2><a href="#akka-coordinated-shutdown" name="akka-coordinated-shutdown" class="anchor"><span class="anchor-link"></span></a>Akka Coordinated Shutdown</h2>
+<p><strong>Akka 协调关闭</strong></p><div class="callout note "><div class="callout-title">Note</div>
 <p>NOT IMPLEMENTED YET.</p>
-<p>Coordinated shutdown support is not yet implemented in Akka HTTP;  The goal is for it to invoke the graceful termination process as described above automatically when shutdown is requested.  See the issue <a href="https://github.com/akka/akka-http/issues/1210">#1210</a> for more details.</p></div>
+<p>没有实现。</p>
+<p>Coordinated shutdown support is not yet implemented in Akka HTTP;  The goal is for it to invoke the graceful termination process as described above automatically when shutdown is requested.  See the issue <a href="https://github.com/akka/akka-http/issues/1210">#1210</a> for more details.</p>
+<p>Akka HTTP 里的协调关闭支持还未实现；  目标是，当请求被关闭时如上述描述般自动的调用优雅终止过程。  更名详细信息见问题 <a href="https://github.com/akka/akka-http/issues/1210">#1210</a>。</p></div>
 <p>Coordinated shutdown is Akka&rsquo;s managed way of shutting down multiple modules / sub-systems (persistence, cluster, http etc) in a predictable and ordered fashion. For example, in a typical Akka application you will want to stop accepting new HTTP connections, and then shut down the cluster etc. </p>
+<p>协调关闭是 Akka 以可预测和有序的方式关闭多个模块 / 子系统（持久化、集群、HTTP 等）的管理方式。</p>
 </div>
 </article>
 <div class="row">
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="../server-side/server-https-support.html"><i class="icon-prev"></i> <span class="link-prev">Server HTTPS Support</span></a>
+<a href="../server-side/server-https-support.html"><i class="icon-prev"></i> <span class="link-prev">服务器 HTTPS 支持</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../server-side/http2.html">Server-Side HTTP/2 (Preview) <i class="icon-next"></i></a>
+<a class="float-right" href="../server-side/http2.html">服务器端 HTTP/2 (预览) <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

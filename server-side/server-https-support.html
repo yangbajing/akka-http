@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Server HTTPS Support &bull; Akka HTTP Chinese edition</title>
+<title>服务器 HTTPS 支持 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -258,7 +258,7 @@ Version 10.1.11
     <li><a href="../server-side/low-level-api.html" class="page">核心服务器 API</a></li>
     <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
     <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
-    <li><a href="../server-side/server-https-support.html#server-https-support" class="active page">Server HTTPS Support</a>
+    <li><a href="../server-side/server-https-support.html#服务器-https-支持" class="active page">服务器 HTTPS 支持</a>
     <ul>
       <li><a href="../server-side/server-https-support.html#obtaining-ssl-tls-certificates" class="header">Obtaining SSL/TLS Certificates</a></li>
       <li><a href="../server-side/server-https-support.html#using-https" class="header">Using HTTPS</a></li>
@@ -266,8 +266,8 @@ Version 10.1.11
       <li><a href="../server-side/server-https-support.html#mutual-authentication" class="header">Mutual authentication</a></li>
       <li><a href="../server-side/server-https-support.html#further-reading" class="header">Further reading</a></li>
     </ul></li>
-    <li><a href="../server-side/graceful-termination.html" class="page">Graceful termination</a></li>
-    <li><a href="../server-side/http2.html" class="page">Server-Side HTTP/2 (Preview)</a></li>
+    <li><a href="../server-side/graceful-termination.html" class="page">优雅的终止</a></li>
+    <li><a href="../server-side/http2.html" class="page">服务器端 HTTP/2 (预览)</a></li>
   </ul></li>
   <li><a href="../client-side/index.html" class="page">5. Client API</a></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
@@ -308,7 +308,7 @@ Version 10.1.11
     <li><a href="../server-side/low-level-api.html" class="page">核心服务器 API</a></li>
     <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
     <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
-    <li><a href="../server-side/server-https-support.html#server-https-support" class="active page">Server HTTPS Support</a>
+    <li><a href="../server-side/server-https-support.html#服务器-https-支持" class="active page">服务器 HTTPS 支持</a>
     <ul>
       <li><a href="../server-side/server-https-support.html#obtaining-ssl-tls-certificates" class="header">Obtaining SSL/TLS Certificates</a></li>
       <li><a href="../server-side/server-https-support.html#using-https" class="header">Using HTTPS</a></li>
@@ -316,8 +316,8 @@ Version 10.1.11
       <li><a href="../server-side/server-https-support.html#mutual-authentication" class="header">Mutual authentication</a></li>
       <li><a href="../server-side/server-https-support.html#further-reading" class="header">Further reading</a></li>
     </ul></li>
-    <li><a href="../server-side/graceful-termination.html" class="page">Graceful termination</a></li>
-    <li><a href="../server-side/http2.html" class="page">Server-Side HTTP/2 (Preview)</a></li>
+    <li><a href="../server-side/graceful-termination.html" class="page">优雅的终止</a></li>
+    <li><a href="../server-side/http2.html" class="page">服务器端 HTTP/2 (预览)</a></li>
   </ul></li>
   <li><a href="../client-side/index.html" class="page">5. Client API</a></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
@@ -337,9 +337,12 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#server-https-support" name="server-https-support" class="anchor"><span class="anchor-link"></span></a>Server HTTPS Support</h1>
+<h1><a href="#服务器-https-支持" name="服务器-https-支持" class="anchor"><span class="anchor-link"></span></a>服务器 HTTPS 支持</h1>
+<p><strong>Server HTTPS Support</strong></p>
 <p>Akka HTTP supports TLS encryption on the server-side as well as on the <a href="../client-side/client-https-support.html">client-side</a>.</p>
+<p>Akka HTTP 支持在服务器端以及 <a href="../client-side/client-https-support.html">客户端</a> 上的 TLS 加密。</p>
 <p>The central vehicle for configuring encryption is the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span>, which can be created using the static method <code>ConnectionContext.https</code> which is defined like this:</p>
+<p>配置加密的主要工具是 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span> ，它通过使用静态方法 <code>ConnectionContext.https</code> 创建，定义看起来像这样：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -367,15 +370,24 @@ def https(
   sslParameters:       Optional[SSLParameters]) = // ...</code></pre></dd>
 </dl>
 <p>On the server-side the <code>bind</code>, and <code>bindAndHandleXXX</code> methods of the <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span> extension define an optional <code>httpsContext</code> parameter, which can receive the HTTPS configuration in the form of an <code>HttpsContext</code> instance. If defined encryption is enabled on all accepted connections. Otherwise it is disabled (which is the default).</p>
+<p>在 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span> 扩展上的 <code>bind</code> 和 <code>bindAndHandleXXX</code> 方法定义了一个可选 <code>httpsContext</code> 参数，它可以以一个 <code>HttpsContext</code> 实例的形式接收 HTTPS 配置。</p>
 <p>For detailed documentation for client-side HTTPS support refer to <a href="../client-side/client-https-support.html">Client-Side HTTPS Support</a>.</p>
+<p>对于客户端 HTTPS 支持的详细文件参考 <a href="../client-side/client-https-support.html">客户端 HTTPS 支持</a> 。</p>
 <h2><a href="#obtaining-ssl-tls-certificates" name="obtaining-ssl-tls-certificates" class="anchor"><span class="anchor-link"></span></a>Obtaining SSL/TLS Certificates</h2>
+<p><strong>获得 SSL/TLS 证书</strong></p>
 <p>In order to run an HTTPS server a certificate has to be provided, which usually is either obtained from a signing authority or created by yourself for local or staging environment purposes.</p>
+<p>为了运行 HTTPS 服务器，必须提供证书。证书通常从签名机构获得，或者用于本地或临时环境目的自己创建。</p>
 <p>Signing authorities often provide instructions on how to create a Java keystore (typically with reference to Tomcat configuration). If you want to generate your own certificates, the official Oracle documentation on how to generate keystores using the JDK keytool utility can be found <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html">here</a>.</p>
+<p>签名机构通常提供怎样创建一个 Java 密钥库的说明（通常参考 Tomcat 配置）。 如果你想生成自己的证书，怎样使用 JDK keytool 工具生成密钥库可以在 <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html">这里</a> 找到 Oracle 官方文档。</p>
 <p>SSL-Config provides a more targeted guide on generating certificates, so we recommend you start with the guide titled <a href="https://lightbend.github.io/ssl-config/CertificateGeneration.html">Generating X.509 Certificates</a>.</p>
+<p>因为 SSL-Config 提供生成证书的更多目录指南，所以我们推荐从指南 <a href="https://lightbend.github.io/ssl-config/CertificateGeneration.html">生成 X.509 证书</a> 开始。</p>
 <a id="using-https"></a>
 <h2><a href="#using-https" name="using-https" class="anchor"><span class="anchor-link"></span></a>Using HTTPS</h2>
+<p><strong>使用 HTTPS</strong></p>
 <p>Once you have obtained the server certificate, using it is as simple as preparing an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span> and either setting it as the default one to be used by all servers started by the given <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span> extension or passing it in explicitly when binding the server.</p>
+<p>一旦你获得了服务器证书，使用它就像 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span> 一样简单。设置它作为默认 HTTPS，被用于通过 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span> 扩展启动的所有服务器，或者在绑定服务器时显示传递。</p>
 <p>The below example shows how setting up HTTPS works. First, you create and configure an instance of <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span> :</p>
+<p>下面示例演示怎样设置 HTTPS 。首先，创建并配置一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span> 的实例：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -460,6 +472,7 @@ public static HttpsConnectionContext useHttps(ActorSystem system) {
 }</code></pre></dd>
 </dl>
 <p><span class="group-scala">Once you configured the HTTPS context, you can set it as default:</span> <span class="group-java">Then pass it to the <code>akka.http.javadsl.Http</code> class&rsquo;s <code>setDefaultServerHttpContext</code> method, like in the below <code>main</code> method.</span></p>
+<p><span class="group-scala">一旦你配置了 HTTPS 上下文，你可以设置它为默认的：</span> <span class="group-java">把它传到 <code>akka.http.javadsl.Http</code> 类的 <code>setDefaultServerHttpContext</code> 方法，像下面 <code>main</code> 方法里面做的一样。</span></p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -548,14 +561,18 @@ public static void main(String[] args) throws IOException {
 }</code></pre></dd>
 </dl><div class="group-scala">
 <p>It is also possible to pass in the context to specific <code>bind...</code> (or client) calls, like displayed below:</p>
+<p>也可以在上下文中传递到特定的 <code>bind...</code> （或客户端）调用，像下面显示的一样：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L67-L71" target="_blank" title="Go to snippet source"></a><code class="language-scala">Http().bind(&quot;127.0.0.1&quot;, connectionContext = https)
 
 // or using the high level routing DSL:
 val routes: Route = get { complete(&quot;Hello world!&quot;) }
 Http().bindAndHandle(routes, &quot;127.0.0.1&quot;, 8080, connectionContext = https)</code></pre></div>
 <h2><a href="#running-both-http-and-https" name="running-both-http-and-https" class="anchor"><span class="anchor-link"></span></a>Running both HTTP and HTTPS</h2>
+<p><strong>同时运行 HTTP 和 HTTPS</strong></p>
 <p>If you want to run HTTP and HTTPS servers in a single application, you can call <code>bind...</code> methods twice, one for HTTPS, and the other for HTTP.</p>
+<p>如果你想在单个程序里同时运行 HTTP 和 HTTPS 服务器，你可以调用 <code>bind...</code> 方法两次，一个用于 HTTPS，另一个用于 HTTP。</p>
 <p>When configuring HTTPS, you can do it up like explained in the above <a href="#using-https">Using HTTPS</a> section,</p>
+<p>配置 HTTPS 时，你可以像上面 <a href="#using-https">使用 HTTPS</a> 部分描述的那样进行配置，</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -631,6 +648,7 @@ public static HttpsConnectionContext useHttps(ActorSystem system) {
 }</code></pre></dd>
 </dl>
 <p>Then, call <code>bind...</code> methods twice like below. <span class="group-scala">The passed <code>https</code> context is from the above code snippet.</span> <span class="group-java"><code>SimpleServerApp.useHttps(system)</code> is calling the above defined <code>public static HttpsConnectionContext useHttps(ActorSystem system)</code> method.</span></p>
+<p>然后，启用 <code>bind...</code> 方法两次，如下所示。 <span class="group-scala">传递的 <code>https</code> 来自上面的代码片段。</span> <span class="group-java"><code>SimpleServerApp.useHttps(system)</code> 调用上面定义的 <code>public static HttpsConnectionContext useHttps(ActorSystem system)</code> 方法。</span></p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -654,12 +672,20 @@ http.setDefaultServerHttpContext(https);
 http.bindAndHandle(flow, ConnectHttp.toHost(&quot;localhost&quot;, 443), materializer);</code></pre></dd>
 </dl>
 <h2><a href="#mutual-authentication" name="mutual-authentication" class="anchor"><span class="anchor-link"></span></a>Mutual authentication</h2>
+<p><strong>相互认证</strong></p>
 <p>To require clients to authenticate themselves when connecting, pass in <span class="group-scala"><code>Some(TLSClientAuth.Need)</code></span><span class="group-java"><code>Optional.of(TLSClientAuth.need)</code></span> as the <code>clientAuth</code> parameter of the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span> and make sure the truststore is populated accordingly. For further (custom) certificate checks you can use the <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Tls$minusSession$minusInfo.html" title="akka.http.scaladsl.model.headers.Tls$minusSession$minusInfo"><code>`Tls-Session-Info`</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/TlsSessionInfo.html" title="akka.http.javadsl.model.headers.TlsSessionInfo"><code>`TlsSessionInfo`</code></a></span> synthetic header.</p>
+<p>在进行连接时要求客户端认证身份，传递 <span class="group-scala"><code>Some(TLSClientAuth.Need)</code></span><span class="group-java"><code>Optional.of(TLSClientAuth.need)</code></span> 作为 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span> 的 <code>clientAuth</code> 参数，并确保信任库被相应地填充。 为了进一步（自定义）证书检查，你可以使用 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Tls$minusSession$minusInfo.html" title="akka.http.scaladsl.model.headers.Tls$minusSession$minusInfo"><code>`Tls-Session-Info`</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/TlsSessionInfo.html" title="akka.http.javadsl.model.headers.TlsSessionInfo"><code>`TlsSessionInfo`</code></a></span> 合成头。</p>
 <p>At this point dynamic renegotiation of the certificates to be used is not implemented. For details see <a href="https://github.com/akka/akka/issues/18351">issue #18351</a> and some preliminary work in <a href="https://github.com/akka/akka/pull/19787">PR #19787</a>.</p>
+<p>此时，证书的动态重新协商还没有实现。有关详细信息见 <a href="https://github.com/akka/akka/issues/18351">问题 #18351</a> 和 <a href="https://github.com/akka/akka/pull/19787">PR #19787</a> 里的一先初步工作。</p>
 <h2><a href="#further-reading" name="further-reading" class="anchor"><span class="anchor-link"></span></a>Further reading</h2>
+<p><strong>进一步阅读</strong></p>
 <p>The topic of properly configuring HTTPS for your web server is an always changing one, thus we recommend staying up to date with various security breach news and of course keep your JVM at the latest version possible, as the default settings are often updated by Oracle in reaction to various security updates and known issues.</p>
+<p>为你的 WEB 服务器正确配置 HTTPS 是一个不断变化的主题，因此我们建议随时了解各种安全漏洞的最新消息，当然还应尽可能保持你的 JVM 为最新版本， 作为默认设置，因为默认设置经常被 Oracle 更新，以对大量安全更新和已经问题作出反应。 </p>
 <p>We also recommend having a look at the <a href="https://www.playframework.com/documentation/2.5.x/ConfiguringHttps#ssl-certificates">Play documentation about securing your app</a>, as well as the techniques described in the Play documentation about setting up a <a href="https://www.playframework.com/documentation/2.5.x/HTTPServer">reverse proxy to terminate TLS in front of your application</a> instead of terminating TLS inside the JVM, and therefore Akka HTTP, itself.</p>
+<p>我们还建议看一看 <a href="https://www.playframework.com/documentation/2.5.x/ConfiguringHttps#ssl-certificates">关于保护你的应用程序的 Play 文档</a>， 以及在 Play 文档里关于设置 <a href="https://www.playframework.com/documentation/2.5.x/HTTPServer">在你的应用程序前面反向代理终止 TLS</a> 描述的技术来替代在 JVM 内部终止 TLS。</p>
+<p><em>译注：意思就是使用专门的 HTTP 服务器（如 Nginx、Apache 等）来管理 TLS（HTTPS）。</em></p>
 <p>Other excellent articles on the subject:</p>
+<p>其它优秀文章：</p>
 <ul>
   <li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html#CreateKeystore">Oracle Java SE 8: Creating a Keystore using JSSE</a></li>
   <li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/certpath/CertPathProgGuide.html">Java PKI Programmer&rsquo;s Guide</a></li>
@@ -674,7 +700,7 @@ http.bindAndHandle(flow, ConnectHttp.toHost(&quot;localhost&quot;, 443), materia
 <a href="../server-side/websocket-support.html"><i class="icon-prev"></i> <span class="link-prev">Server WebSocket Support</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../server-side/graceful-termination.html">Graceful termination <i class="icon-next"></i></a>
+<a class="float-right" href="../server-side/graceful-termination.html">优雅的终止 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

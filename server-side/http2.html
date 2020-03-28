@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Server-Side HTTP/2 (Preview) &bull; Akka HTTP Chinese edition</title>
+<title>服务器端 HTTP/2 (预览) &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -258,9 +258,9 @@ Version 10.1.11
     <li><a href="../server-side/low-level-api.html" class="page">核心服务器 API</a></li>
     <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
     <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
-    <li><a href="../server-side/server-https-support.html" class="page">Server HTTPS Support</a></li>
-    <li><a href="../server-side/graceful-termination.html" class="page">Graceful termination</a></li>
-    <li><a href="../server-side/http2.html#server-side-http-2-preview-" class="active page">Server-Side HTTP/2 (Preview)</a>
+    <li><a href="../server-side/server-https-support.html" class="page">服务器 HTTPS 支持</a></li>
+    <li><a href="../server-side/graceful-termination.html" class="page">优雅的终止</a></li>
+    <li><a href="../server-side/http2.html#服务器端-http-2-预览-" class="active page">服务器端 HTTP/2 (预览)</a>
     <ul>
       <li><a href="../server-side/http2.html#dependency" class="header">Dependency</a></li>
       <li><a href="../server-side/http2.html#enable-http-2-support" class="header">Enable HTTP/2 support</a></li>
@@ -308,9 +308,9 @@ Version 10.1.11
     <li><a href="../server-side/low-level-api.html" class="page">核心服务器 API</a></li>
     <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
     <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
-    <li><a href="../server-side/server-https-support.html" class="page">Server HTTPS Support</a></li>
-    <li><a href="../server-side/graceful-termination.html" class="page">Graceful termination</a></li>
-    <li><a href="../server-side/http2.html#server-side-http-2-preview-" class="active page">Server-Side HTTP/2 (Preview)</a>
+    <li><a href="../server-side/server-https-support.html" class="page">服务器 HTTPS 支持</a></li>
+    <li><a href="../server-side/graceful-termination.html" class="page">优雅的终止</a></li>
+    <li><a href="../server-side/http2.html#服务器端-http-2-预览-" class="active page">服务器端 HTTP/2 (预览)</a>
     <ul>
       <li><a href="../server-side/http2.html#dependency" class="header">Dependency</a></li>
       <li><a href="../server-side/http2.html#enable-http-2-support" class="header">Enable HTTP/2 support</a></li>
@@ -337,10 +337,14 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#server-side-http-2-preview-" name="server-side-http-2-preview-" class="anchor"><span class="anchor-link"></span></a>Server-Side HTTP/2 (Preview)</h1><div class="callout warning "><div class="callout-title">Warning</div>
-<p>Server-Side HTTP/2 support in akka-http is currently available as a preview. This means it is ready to be evaluated, but the APIs and behavior are likely to change.</p></div>
+<h1><a href="#服务器端-http-2-预览-" name="服务器端-http-2-预览-" class="anchor"><span class="anchor-link"></span></a>服务器端 HTTP/2 (预览)</h1>
+<p><em>Server-Side HTTP/2 (Preview)</em></p><div class="callout warning "><div class="callout-title">Warning</div>
+<p>Server-Side HTTP/2 support in akka-http is currently available as a preview. This means it is ready to be evaluated, but the APIs and behavior are likely to change.</p>
+<p>akka-http 的服务器端 HTTP/2 支持当前作为预览版可用。 这意味着已通过评估，但是 API 和行为可能会改变。</p></div>
 <h2><a href="#dependency" name="dependency" class="anchor"><span class="anchor-link"></span></a>Dependency</h2>
-<p>To use Akka HTTP2 Support, add the module to your project:</p><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.typesafe.akka" %% "akka-http2-support" % "10.1.11"</code></pre></dd><dt>Gradle</dt><dd><pre class="prettyprint"><code class="language-gradle">dependencies {
+<p><strong>依赖</strong></p>
+<p>To use Akka HTTP2 Support, add the module to your project:</p>
+<p>要使用 Akka HTTP2 支持，添加下面模块到你的项目：</p><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.typesafe.akka" %% "akka-http2-support" % "10.1.11"</code></pre></dd><dt>Gradle</dt><dd><pre class="prettyprint"><code class="language-gradle">dependencies {
   compile group: 'com.typesafe.akka', name: 'akka-http2-support_2.12', version: '10.1.11'
 }</code></pre></dd><dt>Maven</dt><dd><pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
   &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;
@@ -348,12 +352,17 @@ Version 10.1.11
   &lt;version&gt;10.1.11&lt;/version&gt;
 &lt;/dependency&gt;</code></pre></dd></dl>
 <h2><a href="#enable-http-2-support" name="enable-http-2-support" class="anchor"><span class="anchor-link"></span></a>Enable HTTP/2 support</h2>
+<p><strong>启用 HTTP/2 支持</strong></p>
 <p>HTTP/2 can then be enabled through configuration:</p>
+<p>HTTP/2 能够通过配置启用：</p>
 <pre><code>akka.http.server.preview.enable-http2 = on
 </code></pre>
 <h2><a href="#use-bindandhandleasync-and-https" name="use-bindandhandleasync-and-https" class="anchor"><span class="anchor-link"></span></a>Use <code>bindAndHandleAsync</code> and HTTPS</h2>
+<p><strong>使用 <code>bindAndHandleAsync</code> 和 HTTPS</strong></p>
 <p>HTTP/2 is primarily used over a secure connection (known as &ldquo;over HTTPS&rdquo; or &ldquo;with TLS&rdquo;), which also takes care of protocol negotiation and falling back to plain HTTPS when the client does not support HTTP/2. See the <a href="server-https-support.html">HTTPS section</a> for how to set up HTTPS.</p>
+<p>HTTP/2 主要用于安全连接（称为“HTTPS”或“使用 TLS”），Akka HTTP/2 还负责协议协商，当客户端不支持 HTTP/2 时回退到纯 HTTPS。有关怎样设置 HTTPS，见 <a href="server-https-support.html">HTTPS section</a> 。</p>
 <p>You can use <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpExt.html" title="akka.http.scaladsl.HttpExt"><code>Http().bindAndHandleAsync</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpExt.html" title="akka.http.javadsl.HttpExt"><code>Http().get(system).bindAndHandleAsync()</code></a></span> as long as you followed the above steps:</p>
+<p>你可以使用 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpExt.html" title="akka.http.scaladsl.HttpExt"><code>Http().bindAndHandleAsync</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpExt.html" title="akka.http.javadsl.HttpExt"><code>Http().get(system).bindAndHandleAsync()</code></a></span> ，只要遵循以上步骤：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -379,10 +388,16 @@ Http.get(system)
     materializer);</code></pre></dd>
 </dl>
 <p>Note that <code>bindAndHandle</code> currently does not support HTTP/2, you must use <code>bindAndHandleAsync</code>.</p>
+<p>注意，<code>bindAndHandle</code> 当前不支持 HTTP/2，必须使用 <code>bindAndHandleAsync</code> 。</p>
 <h3><a href="#http-2-without-https" name="http-2-without-https" class="anchor"><span class="anchor-link"></span></a>HTTP/2 without HTTPS</h3>
+<p><strong>HTTP/2 不使用 HTTPS</strong></p>
 <p>While un-encrypted connections are allowed by HTTP/2, this is <a href="https://http2.github.io/faq/#does-http2-require-encryption">sometimes discouraged</a>.</p>
+<p>虽然 HTTP/2 允许使用非加密连接，但这是 <a href="https://http2.github.io/faq/#does-http2-require-encryption">不推荐的</a> 。</p>
 <p>There are 2 ways to implement un-encrypted HTTP/2 connections: by using the <a href="http://httpwg.org/specs/rfc7540.html#discover-http">HTTP Upgrade mechanism</a> or by starting communication in HTTP/2 directly which requires the client to have <a href="https://httpwg.org/specs/rfc7540.html#known-http">Prior Knowledge</a> of HTTP/2 support.</p>
+<p>有2种方式实现非加密的 HTTP/2 连接：使用 <a href="http://httpwg.org/specs/rfc7540.html#discover-http">HTTP 升级机制</a> ，或者，支持启动 HTTP/2 通信，这要求客户端有HTTP/2 支持的 <a href="https://httpwg.org/specs/rfc7540.html#known-http">先验知识</a> 。</p>
+<p><em>译注：第2种方式可理解为需要客户端直接以 HTTP/2 协议发起请求</em></p>
 <p>We support both approaches transparently on the same port. This feature is automatically enabled when HTTP/2 is enabled:</p>
+<p>我们在相同端口上透明地上面两种方式。当 HTTP/2 启用时这个特性被自动启用：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -405,18 +420,28 @@ Http.get(system)
     materializer);</code></pre></dd>
 </dl>
 <h4><a href="#h2c-upgrade" name="h2c-upgrade" class="anchor"><span class="anchor-link"></span></a>h2c Upgrade</h4>
+<p><strong>h2c 升级</strong></p>
+<p><em>译注：h2c 指 HTTP/2 的明文版本，既不建立在 TLS 之上</em></p>
 <p>The advantage of switching from HTTP/1.1 to HTTP/2 using the <a href="http://httpwg.org/specs/rfc7540.html#discover-http">HTTP Upgrade mechanism</a> is that both HTTP/1.1 and HTTP/2 clients can connect to the server on the same port, without being aware beforehand which protocol the server supports.</p>
+<p>使用 <a href="http://httpwg.org/specs/rfc7540.html#discover-http">HTTP 升级机制</a> 切换 HTTP/1.1 到 HTTP/2 的优势是，在事先不知道服务器支持哪种协议的情况下，HTTP/1.1 和 HTTP/2 客户都可以连接到服务器的相同端口，</p>
 <p>The disadvantage is that relatively few clients support switching to HTTP/2 in this way. Additionally, HTTP/2 communication cannot start until the first request has been completely sent. This means if your first request may be large, it might be worth it to start with an empty OPTIONS request to switch to HTTP/2 before sending your first &lsquo;real&rsquo; request, at the cost of a roundtrip.</p>
+<p>劣势是相对较少的客户端支持这种方式切换到 HTTP/2。另外，直到第一个请求完成发送，HTTP/2 通信不能启动。这意味着，如果你的第一个请求很大，那么在发送你的第一个“真实”请求之前从一个空的 OPTIONS 请求开始，然后切换到 HTTP/2 是值得的，代价是多了一个往返请求。</p>
 <h4><a href="#h2c-with-prior-knowledge" name="h2c-with-prior-knowledge" class="anchor"><span class="anchor-link"></span></a>h2c with prior knowledge</h4>
+<p><strong>具有先验知识的 h2c</strong></p>
 <p>The other option is to connect and start communicating in HTTP/2 immediately. The downside of this approach is the client must know beforehand that the server supports HTTP/2. For the reason this approach is known as h2c with Prior Knowledge](<a href="http://httpwg.org/specs/rfc7540.html#known-http">http://httpwg.org/specs/rfc7540.html#known-http</a>) of HTTP/2 support.</p>
+<p>另一种选择是在 HTTP/2 中立即连接并启动通信。这种方法的缺点是客户端必须事先知道服务器支持 HTTP/2。由于这个原因，这种方式称为具有 HTTP/2 支持的 <a href="http://httpwg.org/specs/rfc7540.html#known-http">先验知识</a> 的 h2c。</p>
 <h2><a href="#testing-with-curl" name="testing-with-curl" class="anchor"><span class="anchor-link"></span></a>Testing with cURL</h2>
+<p><strong>使用 cURL 进行测试</strong></p>
 <p>At this point you should be able to connect, but HTTP/2 may still not be available.</p>
+<p>此时你应用能够连接，但 HTTP/2 可能仍然不可用。</p>
 <p>You&rsquo;ll need a recent version of <a href="https://curl.haxx.se/">cURL</a> compiled with HTTP/2 support (for OSX see <a href="https://simonecarletti.com/blog/2016/01/http2-curl-macosx/">this article</a>). You can check whether your version supports HTTP2 with <code>curl --version</code>, look for the nghttp2 extension and the HTTP2 feature:</p>
+<p>你需要编译了 HTTP/2 支持的 <a href="https://curl.haxx.se/">cURL</a> 的最近版本（对于 OSX 见 <a href="https://simonecarletti.com/blog/2016/01/http2-curl-macosx/">这篇文章</a>）。你可以使用 <code>curl --version</code> 检测你的版本是否支持 HTTP2，寻找 nghttp2 扩展和 HTTP2 特性：</p>
 <pre><code>curl 7.52.1 (x86_64-pc-linux-gnu) libcurl/7.52.1 OpenSSL/1.0.2l zlib/1.2.8 libidn2/0.16 libpsl/0.17.0 (+libidn2/0.16) libssh2/1.8.0 nghttp2/1.23.1 librtmp/2.3
 Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s rtmp rtsp scp sftp smb smbs smtp smtps telnet tftp
 Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL libz TLS-SRP HTTP2 UnixSockets HTTPS-proxy PSL
 </code></pre>
 <p>When you connect to your service you may now see something like:</p>
+<p>当你连接到你的服务时，现在你可能看到这样的东西：</p>
 <pre><code>$ curl -k -v https://localhost:8443
 (...)
 * ALPN, offering h2
@@ -430,6 +455,7 @@ Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL 
 (...)
 </code></pre>
 <p>If your curl output looks like above, you have successfully configured HTTP/2. However, on JDKs up to version 9, it is likely to look like this instead:</p>
+<p>如果你的 curl 输出类似上面，那代表你的服务器成功的配置了 HTTP/2。但是，在 JDK 9 之前，它的输出看起来是这样的：</p>
 <pre><code>$ curl -k -v https://localhost:8443
 (...)
 * ALPN, offering h2
@@ -443,23 +469,32 @@ Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL 
 (...)
 </code></pre>
 <p>This shows <code>curl</code> declaring it is ready to speak <code>h2</code> (the shorthand name of HTTP/2), but could not determine whether the server is ready to, so it fell back to HTTP/1.1. To make this negotiation work you&rsquo;ll have to configure ALPN as described below.</p>
+<p>这显示 <code>curl</code> 声明它已准备好讲 <code>h2</code>（HTTP/2 的简称），但无法决定服务器是否已准备好，所以回退到 HTTP/1.1。要使此协商工作，你需要按下面描述配置 ALPN。 </p>
 <h2><a href="#application-layer-protocol-negotiation-alpn-" name="application-layer-protocol-negotiation-alpn-" class="anchor"><span class="anchor-link"></span></a>Application-Layer Protocol Negotiation (ALPN)</h2>
+<p><strong>应用层协议协商（ALPN）</strong></p>
 <p><a href="https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation">Application-Layer Protocol Negotiation (ALPN)</a> is used to negotiate whether both client and server support HTTP/2.</p>
+<p><a href="https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation">应用层协议协商（ALPN）</a> 用于协商客户端和服务器是否都支持 HTTP/2。</p>
 <p>ALPN support comes with the JVM starting from version 9. If you&rsquo;re on a previous version of the JVM, you&rsquo;ll have to load a Java Agent to provide this functionality. We recommend the agent from the <a href="http://www.eclipse.org/jetty/">Jetty</a> project, <code>jetty-alpn-agent</code>.</p>
+<p>从版本 9 开始，ALPN 支持进入 JVM。如果你使用 JVM 的之前版本，你需要加载一个 Java 代理提供这个功能。我们推荐来自 <a href="http://www.eclipse.org/jetty/">Jetty</a> 项目的代理，<code>jetty-alpn-agent</code>。</p>
 <h3><a href="#manually" name="manually" class="anchor"><span class="anchor-link"></span></a>manually</h3>
+<p><strong>手动</strong></p>
 <p>This agent can be loaded with the <code>-javaagent</code> JVM option:</p>
+<p>该代理可以通过使用 <code>-javaagent</code> JVM 选项加载：</p>
 <pre><code>  java -javaagent:/path/to/jetty-alpn-agent-2.0.9.jar -jar app.jar
 </code></pre>
 <h3><a href="#sbt" name="sbt" class="anchor"><span class="anchor-link"></span></a>sbt</h3>
 <p>sbt can be configured to load the agent with the <a href="https://github.com/sbt/sbt-javaagent">sbt-javaagent plugin</a>:</p>
+<p>sbt 可能配置 <a href="https://github.com/sbt/sbt-javaagent">sbt-javaagent 插件</a> 加载代理：</p>
 <pre><code>  .enablePlugins(JavaAgent)
   .settings(
     javaAgents += &quot;org.mortbay.jetty.alpn&quot; % &quot;jetty-alpn-agent&quot; % &quot;2.0.9&quot; % &quot;runtime&quot;
   )
 </code></pre>
-<p>This should automatically load the agent when running, testing, or even in distributions made with <a href="https://github.com/sbt/sbt-native-packager">sbt-native-package</a>.</p><div class="group-java">
+<p>This should automatically load the agent when running, testing, or even in distributions made with <a href="https://github.com/sbt/sbt-native-packager">sbt-native-package</a>.</p>
+<p>这将在运行、测试时自动加载代理，甚至使用 <a href="https://github.com/sbt/sbt-native-packager">sbt-native-package</a> 制作的发行版中也是如此。</p><div class="group-java">
 <h3><a href="#maven" name="maven" class="anchor"><span class="anchor-link"></span></a>maven</h3>
 <p>To configure maven to load the agent when running <code>mvn exec:exec</code>, add it as a &lsquo;runtime&rsquo; dependency:</p>
+<p>要配置 maven 在运行 <code>mvn exec:exec</code> 时加载代理，添加它的 &lsquo;runtime&rsquo; 依赖范围：</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.mortbay.jetty.alpn&lt;/groupId&gt;
     &lt;artifactId&gt;jetty-alpn-agent&lt;/artifactId&gt;
@@ -468,6 +503,7 @@ Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL 
 &lt;/dependency&gt;
 </code></pre>
 <p>and use the <code>maven-dependency-plugin</code>:</p>
+<p>并使用 <code>maven-dependency-plugin</code>：</p>
 <pre><code>&lt;plugin&gt;
     &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
     &lt;version&gt;2.5.1&lt;/version&gt;
@@ -482,6 +518,7 @@ Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL 
 &lt;/plugin&gt;
 </code></pre>
 <p>to add it to the <code>exec-maven-plugin</code> arguments:</p>
+<p>再添加 <code>exec-maven-plugin</code> 参数：</p>
 <pre><code>&lt;plugin&gt;
     &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
     &lt;artifactId&gt;exec-maven-plugin&lt;/artifactId&gt;
@@ -503,7 +540,7 @@ Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL 
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="../server-side/graceful-termination.html"><i class="icon-prev"></i> <span class="link-prev">Graceful termination</span></a>
+<a href="../server-side/graceful-termination.html"><i class="icon-prev"></i> <span class="link-prev">优雅的终止</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
 <a class="float-right" href="../client-side/index.html">5. Client API <i class="icon-next"></i></a>
