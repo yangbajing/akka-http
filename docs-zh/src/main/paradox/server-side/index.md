@@ -56,7 +56,7 @@ as it explains the underlying full-stack streaming concepts, which may be unexpe
 from a background with non-"streaming first" HTTP Servers.
 
 推荐阅读 @ref[请求/响应实体流的实质含义](../implications-of-streaming-http-entity.md) 部分，它阐明了（Akka HTTP）底层的全栈流的概念。
-因为对于没有“流式优先” HTTP 服务器概念背景的人来说，它们也许会感到难以理解。
+因为对于没有“流式优先” HTTP 服务器概念背景的人来说，也许会感到难以理解。
 @@@
 
 @@toc { depth=3 }

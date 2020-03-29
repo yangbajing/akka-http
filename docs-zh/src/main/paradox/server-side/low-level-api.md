@@ -303,7 +303,7 @@ is already taken by another application, or if the port is privileged (i.e. only
 In this case the "binding future" will fail immediately, and we can react to it by listening on the @scala[Future's]@java[CompletionStage’s] completion:
 
 第一类失败是服务器无法绑定到指定的端口。比如当端口已经用于另一个应用程序，或者端口是特权端口（例如：只能 `root` 使用）。
-这种情况下，“绑定 Future”将立即失败，我们可以通过监听 @scala[Future]@java[CompletionStage] 的完成作出反应： 
+这种情况下，“绑定 Future”会立即失败，我们可以通过监听 @scala[Future]@java[CompletionStage] 的完成作出反应： 
 
 Scala
 :   @@snip [HttpServerExampleSpec.scala]($test$/scala/docs/http/scaladsl/HttpServerExampleSpec.scala) { #binding-failure-handling }
