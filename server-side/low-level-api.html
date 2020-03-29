@@ -265,8 +265,8 @@ Version 10.1.11
       <li><a href="../server-side/low-level-api.html#controlling-server-parallelism" class="header">Controlling server parallelism</a></li>
       <li><a href="../server-side/low-level-api.html#handling-http-server-failures-in-the-low-level-api" class="header">Handling HTTP Server failures in the Low-Level API</a></li>
     </ul></li>
-    <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
-    <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
+    <li><a href="../routing-dsl/index.html" class="page">路由 DSL</a></li>
+    <li><a href="../server-side/websocket-support.html" class="page">服务器 WebSocket 支持</a></li>
     <li><a href="../server-side/server-https-support.html" class="page">服务器 HTTPS 支持</a></li>
     <li><a href="../server-side/graceful-termination.html" class="page">优雅的终止</a></li>
     <li><a href="../server-side/http2.html" class="page">服务器端 HTTP/2 (预览)</a></li>
@@ -317,8 +317,8 @@ Version 10.1.11
       <li><a href="../server-side/low-level-api.html#controlling-server-parallelism" class="header">Controlling server parallelism</a></li>
       <li><a href="../server-side/low-level-api.html#handling-http-server-failures-in-the-low-level-api" class="header">Handling HTTP Server failures in the Low-Level API</a></li>
     </ul></li>
-    <li><a href="../routing-dsl/index.html" class="page">Routing DSL</a></li>
-    <li><a href="../server-side/websocket-support.html" class="page">Server WebSocket Support</a></li>
+    <li><a href="../routing-dsl/index.html" class="page">路由 DSL</a></li>
+    <li><a href="../server-side/websocket-support.html" class="page">服务器 WebSocket 支持</a></li>
     <li><a href="../server-side/server-https-support.html" class="page">服务器 HTTPS 支持</a></li>
     <li><a href="../server-side/graceful-termination.html" class="page">优雅的终止</a></li>
     <li><a href="../server-side/http2.html" class="page">服务器端 HTTP/2 (预览)</a></li>
@@ -599,7 +599,7 @@ type ServerLayer = BidiFlow[HttpResponse, SslTlsOutbound, SslTlsInbound, HttpReq
 <h4><a href="#bind-failures" name="bind-failures" class="anchor"><span class="anchor-link"></span></a>Bind failures</h4>
 <p><strong>绑定失败</strong></p>
 <p>The first type of failure is when the server is unable to bind to the given port. For example when the port is already taken by another application, or if the port is privileged (i.e. only usable by <code>root</code>). In this case the &ldquo;binding future&rdquo; will fail immediately, and we can react to it by listening on the <span class="group-scala">Future&rsquo;s</span><span class="group-java">CompletionStage’s</span> completion:</p>
-<p>第一类失败是服务器无法绑定到指定的端口。比如当端口已经用于另一个应用程序，或者端口是特权端口（例如：只能 <code>root</code> 使用）。 这种情况下，“绑定 Future”将立即失败，我们可以通过监听 <span class="group-scala">Future</span><span class="group-java">CompletionStage</span> 的完成作出反应： </p>
+<p>第一类失败是服务器无法绑定到指定的端口。比如当端口已经用于另一个应用程序，或者端口是特权端口（例如：只能 <code>root</code> 使用）。 这种情况下，“绑定 Future”会立即失败，我们可以通过监听 <span class="group-scala">Future</span><span class="group-java">CompletionStage</span> 的完成作出反应： </p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -798,7 +798,7 @@ CompletionStage&lt;ServerBinding&gt; serverBindingFuture =
 <a href="../server-side/index.html"><i class="icon-prev"></i> <span class="link-prev">4. 服务器 API</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../routing-dsl/index.html">Routing DSL <i class="icon-next"></i></a>
+<a class="float-right" href="../routing-dsl/index.html">路由 DSL <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
