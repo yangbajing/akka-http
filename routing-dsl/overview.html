@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Routing DSL Overview &bull; Akka HTTP Chinese edition</title>
+<title>路由 DSL 概述 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -265,8 +265,8 @@ Version 10.1.11
       <li><a href="../routing-dsl/index.html#handling-http-server-failures-in-the-high-level-api" class="header">Handling HTTP Server failures in the High-Level API</a></li>
       <li><a href="../routing-dsl/index.html#file-uploads" class="header">File uploads</a></li>
       <li><a href="../routing-dsl/index.html#configuring-server-side-https" class="header">Configuring Server-side HTTPS</a></li>
-      <li><a href="../routing-dsl/overview.html#routing-dsl-overview" class="active page">Routing DSL Overview</a></li>
-      <li><a href="../routing-dsl/routes.html" class="page">Routes</a></li>
+      <li><a href="../routing-dsl/overview.html#路由-dsl-概述" class="active page">路由 DSL 概述</a></li>
+      <li><a href="../routing-dsl/routes.html" class="page">路由</a></li>
       <li><a href="../routing-dsl/directives/index.html" class="page">Directives</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">Rejections</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
@@ -326,8 +326,8 @@ Version 10.1.11
       <li><a href="../routing-dsl/index.html#handling-http-server-failures-in-the-high-level-api" class="header">Handling HTTP Server failures in the High-Level API</a></li>
       <li><a href="../routing-dsl/index.html#file-uploads" class="header">File uploads</a></li>
       <li><a href="../routing-dsl/index.html#configuring-server-side-https" class="header">Configuring Server-side HTTPS</a></li>
-      <li><a href="../routing-dsl/overview.html#routing-dsl-overview" class="active page">Routing DSL Overview</a></li>
-      <li><a href="../routing-dsl/routes.html" class="page">Routes</a></li>
+      <li><a href="../routing-dsl/overview.html#路由-dsl-概述" class="active page">路由 DSL 概述</a></li>
+      <li><a href="../routing-dsl/routes.html" class="page">路由</a></li>
       <li><a href="../routing-dsl/directives/index.html" class="page">Directives</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">Rejections</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
@@ -359,8 +359,10 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#routing-dsl-overview" name="routing-dsl-overview" class="anchor"><span class="anchor-link"></span></a>Routing DSL Overview</h1>
+<h1><a href="#路由-dsl-概述" name="路由-dsl-概述" class="anchor"><span class="anchor-link"></span></a>路由 DSL 概述</h1>
+<p><em>Routing DSL Overview</em></p>
 <p>The Akka HTTP <a href="../server-side/low-level-api.html">Core Server API</a> provides a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span>- or <code>Function</code>-level interface that allows an application to respond to incoming HTTP requests by simply mapping requests to responses (excerpt from <a href="../server-side/low-level-api.html#http-low-level-server-side-example">Low-level server side example</a>):</p>
+<p>Akka HTTP <a href="../server-side/low-level-api.html">核心服务器 API</a> 提供 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span>- 或 <code>Function</code>-级的接口， 允许应用程序通过简单的把请求映射到响应来回应传入的 HTTP 请求（节选自 <a href="../server-side/low-level-api.html#http-low-level-server-side-example">低级服务器端示例</a>）：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -442,8 +444,11 @@ object WebServer {
   };</code></pre></dd>
 </dl>
 <p>While it&rsquo;d be perfectly possible to define a complete REST API service purely by <span class="group-scala">pattern-matching against</span><span class="group-java">inspecting</span> the incoming <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> <span class="group-scala">(maybe with the help of a few extractors in the way of <a href="https://unfiltered.ws/">Unfiltered</a>)</span> this approach becomes somewhat unwieldy for larger services due to the amount of syntax &ldquo;ceremony&rdquo; required. Also, it doesn&rsquo;t help in keeping your service definition as <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a> as you might like.</p>
+<p>虽然完全可以通过 <span class="group-scala">模式匹配</span><span class="group-java">检查</span> 传入的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> <span class="group-scala">(允许，在一此抽取器的帮助下以 <a href="https://unfiltered.ws/">Unfiltered</a> 的方式)</span> 来定义一个完整、纯粹的 REST API 服务， 但由于所需语法“仪式”的数量，该方法对于大量服务显得笨重。 而且，它不能帮助服务定义保持 <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a> 。</p>
 <p>As an alternative Akka HTTP provides a flexible DSL for expressing your service behavior as a structure of composable elements (called <a href="directives/index.html">Directives</a>) in a concise and readable way. Directives are assembled into a so called <em>route structure</em> which, at its top-level, can be used to create a handler <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> or async handler function that can be directly supplied to a <code>bind</code> call. <span class="group-scala">The conversion from <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> to flow can either be invoked explicitly using <code>Route.handlerFlow</code> or, otherwise, the conversion is also provided implicitly by <code>RouteResult.route2HandlerFlow</code> <a id="^1" href="#1">[1]</a>.</span></p>
+<p>作为替代，Akka HTTP 提供了一种灵活的 DSL 以简洁易读的方式表达服务行为表示为可组合元素（称为 <a href="directives/index.html">指令</a> ）的结构。 指令被组装成 <em>路由结构</em> ，在它的顶层可用于创建处理程序 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> 或异步处理函数，该处理函数可以直接提供给 <code>bind</code> 调用。 @scala[从 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a> 转换</span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 到 flow 可以显示调用 <code>Route.handlerFlow</code> ，或者也可以由 <code>RouteResult.route2HandlerFlow</code> 隐式提供。</p>
 <p>Here&rsquo;s the complete example rewritten using the composable high-level API:</p>
+<p>这里是使用可组合的高级 API 重写的完整示例：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -556,6 +561,7 @@ public class HighLevelServerExample extends AllDirectives {
 }</code></pre></dd>
 </dl>
 <p>The core of the Routing DSL becomes available with a single import:</p>
+<p>路由 DSL 的核心可用单个导入语句：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -567,17 +573,23 @@ public class HighLevelServerExample extends AllDirectives {
 </code></pre></dd>
 </dl><div class="group-java">
 <p>Or by extending the <code>akka.http.javadsl.server.AllDirectives</code> class which brings together all directives into a single class for easier access:</p>
+<p>或者继承 <code>akka.http.javadsl.server.AllDirectives</code> 类，它将所有指令一起放入单个类中，以便于访问：</p>
 <pre class="prettyprint"><code class="language-java">extends AllDirectives
 </code></pre>
-<p>Of course it is possible to directly import only the directives you need (i.e. <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/directives/WebSocketDirectives.html" title="akka.http.javadsl.server.directives.WebSocketDirectives"><code>WebSocketDirectives</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/directives/WebSocketDirectives.html" title="akka.http.scaladsl.server.directives.WebSocketDirectives"><code>WebSocketDirectives</code></a></span> etc).</p></div><div class="group-scala">
+<p>Of course it is possible to directly import only the directives you need (i.e. <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/directives/WebSocketDirectives.html" title="akka.http.javadsl.server.directives.WebSocketDirectives"><code>WebSocketDirectives</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/directives/WebSocketDirectives.html" title="akka.http.scaladsl.server.directives.WebSocketDirectives"><code>WebSocketDirectives</code></a></span> etc).</p>
+<p>当然，可以直接导入只需要的指令（例如： <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/directives/WebSocketDirectives.html" title="akka.http.javadsl.server.directives.WebSocketDirectives"><code>WebSocketDirectives</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/directives/WebSocketDirectives.html" title="akka.http.scaladsl.server.directives.WebSocketDirectives"><code>WebSocketDirectives</code></a></span> 等）。</p></div><div class="group-scala">
 <p>This example also relies on the pre-defined support for Scala XML with:</p>
+<p>这个示例还依赖预定义的 Scala XML 支持：</p>
 <pre class="prettyprint"><code class="language-scala">import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._
 </code></pre></div>
 <p>The very short example shown here is certainly not the best for illustrating the savings in &ldquo;ceremony&rdquo; and improvements in conciseness and readability that the Routing DSL promises. The <a href="index.html#longer-example">Long Example</a> might do a better job in this regard.</p>
-<p>For learning how to work with the Routing DSL you should first understand the concept of <a href="routes.html">Routes</a>.</p><div class="group-scala">
+<p>这里显示的非常简短的例子当然不是路由 DSL 所承诺节省“仪式”、提高简洁性和可读性的最好的说明。 <a href="index.html#longer-example">长的示例</a> 在这方面也放做的更好。</p>
+<p>For learning how to work with the Routing DSL you should first understand the concept of <a href="routes.html">Routes</a>.</p>
+<p>要学习如何使用路由 DSL，你应该首先了解 <a href="routes.html">路由</a> 的概念。</p><div class="group-scala">
 <blockquote>
   <p><a id="1" href="#^1">[1]</a> To be picked up automatically, the implicit conversion needs to be provided in the companion object of the source type. However, as <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> is just a type alias for <code>RequestContext =&gt; Future[RouteResult]</code>, there&rsquo;s no companion object for <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span>. Fortunately, the <a href="https://www.scala-lang.org/files/archive/spec/2.11/07-implicits.html#implicit-parameters">implicit scope</a> for finding an implicit conversion also includes all types that are &ldquo;associated with any part&rdquo; of the source type which in this case means that the implicit conversion will also be picked up from <code>RouteResult.route2HandlerFlow</code> automatically.</p>
-</blockquote></div>
+</blockquote>
+<p>为了自动获取，隐式转换需要在源类型的伴身对象里提供。但是，因为 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java">@apidocRoute</span> 只是 <code>RequestContext =&gt; Future[RouteResult]</code> 的类型别名，所以不存在 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java">@apidocRoute</span> 伴身对象。 好在，查找隐式转换的 <a href="https://www.scala-lang.org/files/archive/spec/2.11/07-implicits.html#implicit-parameters">隐式范围</a> 也包含在与源类型“任何部分相关”所有类型，在这种情况下，这意味着隐式转换将自动从 <code>RouteResult.route2HandlerFlow</code> 获取。</p></div>
 </div>
 </article>
 <div class="row">
@@ -587,7 +599,7 @@ public class HighLevelServerExample extends AllDirectives {
 <a href="../routing-dsl/index.html"><i class="icon-prev"></i> <span class="link-prev">路由 DSL</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../routing-dsl/routes.html">Routes <i class="icon-next"></i></a>
+<a class="float-right" href="../routing-dsl/routes.html">路由 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

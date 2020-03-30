@@ -265,8 +265,8 @@ Version 10.1.11
       <li><a href="../routing-dsl/index.html#handling-http-server-failures-in-the-high-level-api" class="header">Handling HTTP Server failures in the High-Level API</a></li>
       <li><a href="../routing-dsl/index.html#file-uploads" class="header">File uploads</a></li>
       <li><a href="../routing-dsl/index.html#configuring-server-side-https" class="header">Configuring Server-side HTTPS</a></li>
-      <li><a href="../routing-dsl/overview.html" class="page">Routing DSL Overview</a></li>
-      <li><a href="../routing-dsl/routes.html" class="page">Routes</a></li>
+      <li><a href="../routing-dsl/overview.html" class="page">路由 DSL 概述</a></li>
+      <li><a href="../routing-dsl/routes.html" class="page">路由</a></li>
       <li><a href="../routing-dsl/directives/index.html" class="page">Directives</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">Rejections</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
@@ -326,8 +326,8 @@ Version 10.1.11
       <li><a href="../routing-dsl/index.html#handling-http-server-failures-in-the-high-level-api" class="header">Handling HTTP Server failures in the High-Level API</a></li>
       <li><a href="../routing-dsl/index.html#file-uploads" class="header">File uploads</a></li>
       <li><a href="../routing-dsl/index.html#configuring-server-side-https" class="header">Configuring Server-side HTTPS</a></li>
-      <li><a href="../routing-dsl/overview.html" class="page">Routing DSL Overview</a></li>
-      <li><a href="../routing-dsl/routes.html" class="page">Routes</a></li>
+      <li><a href="../routing-dsl/overview.html" class="page">路由 DSL 概述</a></li>
+      <li><a href="../routing-dsl/routes.html" class="page">路由</a></li>
       <li><a href="../routing-dsl/directives/index.html" class="page">Directives</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">Rejections</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
@@ -374,8 +374,8 @@ Version 10.1.11
   <li><a href="../routing-dsl/index.html#handling-http-server-failures-in-the-high-level-api" class="header">Handling HTTP Server failures in the High-Level API</a></li>
   <li><a href="../routing-dsl/index.html#file-uploads" class="header">File uploads</a></li>
   <li><a href="../routing-dsl/index.html#configuring-server-side-https" class="header">Configuring Server-side HTTPS</a></li>
-  <li><a href="../routing-dsl/overview.html" class="page">Routing DSL Overview</a></li>
-  <li><a href="../routing-dsl/routes.html" class="page">Routes</a></li>
+  <li><a href="../routing-dsl/overview.html" class="page">路由 DSL 概述</a></li>
+  <li><a href="../routing-dsl/routes.html" class="page">路由</a></li>
   <li><a href="../routing-dsl/directives/index.html" class="page">Directives</a></li>
   <li><a href="../routing-dsl/rejections.html" class="page">Rejections</a></li>
   <li><a href="../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
@@ -1062,10 +1062,13 @@ public class HighLevelServerBindFailureExample {
 <p>Exception handling within the Routing DSL is done by providing <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> s which are documented in-depth in the <a href="exception-handling.html">Exception Handling</a> section of the documentation. You can use them to transform exceptions into <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> s with appropriate error codes and human-readable failure descriptions.</p>
 <p>路由 DSL 中的异常处理是通过提供 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> 来完成的，在文档的 <a href="exception-handling.html">Exception Handling</a> 部分对此进入了深入介绍。 你可以使用 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> 以合适的错误代码和人类可读的失败描述来转换异常为 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> 。</p>
 <h2><a href="#file-uploads" name="file-uploads" class="anchor"><span class="anchor-link"></span></a>File uploads</h2>
+<p><strong>文件上传</strong></p>
 <p>For high level directives to handle uploads see the <a href="directives/file-upload-directives/index.html">FileUploadDirectives</a>.</p>
 <p>用于处理上传的高级指令见 <a href="directives/file-upload-directives/index.html">FileUploadDirectives</a> 。</p>
 <p>Handling a simple file upload from for example a browser form with a <em>file</em> input can be done by accepting a <em>Multipart.FormData</em> entity, note that the body parts are <em>Source</em> rather than all available right away, and so is the individual body part payload so you will need to consume those streams both for the file and for the form fields.</p>
+<p>处理简单文件上传（form）表单，例如带有一个 <em>file</em> 输入框的浏览器（form）表单可以通过接受 <em>Multipart.FormData</em> 实体来完成。 注意，正文部分是 <em>Source</em> 而不是立即可用，因此，单个正文部分载荷也是如此，所以你需要同时对文件和表单字段消费这些流。</p>
 <p>Here is a simple example which just dumps the uploaded file into a temporary file on disk, collects some form fields and saves an entry to a fictive database:</p>
+<p>这里是一个简单的示例，只是转储上传文件到磁盘上的临时文件里面，收集一些表单字段，并保存条目到一个虚构的数据库：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -1154,6 +1157,7 @@ import static akka.http.javadsl.server.Directives.path;
 );</code></pre></dd>
 </dl>
 <p>You can transform the uploaded files as they arrive rather than storing them in a temporary file as in the previous example. In this example we accept any number of <code>.csv</code> files, parse those into lines and split each line before we send it to an actor for further processing:</p>
+<p>你可以在上传文件到达时转换，而不是上前面例子里存储到一个临时文件里。在这个例子里，我们接受任意数量的 <code>.csv</code> 文件， 将其按行解析并分割每一行，然后发送到 actor 里进行进一步处理。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -1214,7 +1218,9 @@ Route csvUploads() {
 }</code></pre></dd>
 </dl>
 <h2><a href="#configuring-server-side-https" name="configuring-server-side-https" class="anchor"><span class="anchor-link"></span></a>Configuring Server-side HTTPS</h2>
+<p><strong>配置服务器端 HTTPS</strong></p>
 <p>For detailed documentation about configuring and using HTTPS on the server-side refer to <a href="../server-side/server-https-support.html">Server-Side HTTPS Support</a>.</p>
+<p>有关在服务器端配置和使用 HTTPS 的详细文档，参考 <a href="../server-side/server-https-support.html">服务器端 HTTPS 支持</a> 。</p>
 </div>
 </article>
 <div class="row">
@@ -1224,7 +1230,7 @@ Route csvUploads() {
 <a href="../server-side/low-level-api.html"><i class="icon-prev"></i> <span class="link-prev">核心服务器 API</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../routing-dsl/overview.html">Routing DSL Overview <i class="icon-next"></i></a>
+<a class="float-right" href="../routing-dsl/overview.html">路由 DSL 概述 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
