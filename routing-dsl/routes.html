@@ -274,7 +274,7 @@ Version 10.1.11
         <li><a href="../routing-dsl/routes.html#the-routing-tree" class="header">The Routing Tree</a></li>
         <li><a href="../routing-dsl/routes.html#sealing-a-route" class="header">Sealing a Route</a></li>
       </ul></li>
-      <li><a href="../routing-dsl/directives/index.html" class="page">Directives</a></li>
+      <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">Rejections</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
       <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
@@ -342,7 +342,7 @@ Version 10.1.11
         <li><a href="../routing-dsl/routes.html#the-routing-tree" class="header">The Routing Tree</a></li>
         <li><a href="../routing-dsl/routes.html#sealing-a-route" class="header">Sealing a Route</a></li>
       </ul></li>
-      <li><a href="../routing-dsl/directives/index.html" class="page">Directives</a></li>
+      <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">Rejections</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
       <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
@@ -395,7 +395,7 @@ Version 10.1.11
   <p>通过返回 <code>requestContext.complete(...)</code> 的值完成请求</p></li>
   <li>通过返回 <code>requestContext.reject(...)</code> 的值拒绝请求（见 <a href="rejections.html#rejections">Rejections</a> ）</li>
   <li>通过返回 <code>requestContext.fail(...)</code> 的值或通过抛出一个异常使请求失败（见 <a href="exception-handling.html#exception-handling">Exception Handling</a>）</li>
-  <li>做任何类型的异步处理，并即刻返回 <span class="group-scala"><code>Future[RouteResult]</code></span><span class="group-java"><code>CompletionStage&lt;RouteResult&gt;</code></span>，以便最终在以后完成</li>
+  <li>进行任何类型的异步处理，并即刻返回 <span class="group-scala"><code>Future[RouteResult]</code></span><span class="group-java"><code>CompletionStage&lt;RouteResult&gt;</code></span>，以便最终在以后完成</li>
 </ul>
 <p>The first case is pretty clear, by calling <code>complete</code> a given response is sent to the client as reaction to the request. In the second case &ldquo;reject&rdquo; means that the route does not want to handle the request. You&rsquo;ll see further down in the section about route composition what this is good for.</p>
 <p>第一种情况很清楚，通过调用 <code>complete</code> 将指定响应作为对请求的响应发送到客户端。 在第二种情况里，“reject”意味着路由不愿处理该请求。 你将进一步在关于路由组合部分了解这样做的好处。</p>
@@ -441,10 +441,14 @@ object RouteResult {
   <li>路由链，如果指定的第一个路由被拒绝，将尝试第二个路由</li>
 </ul>
 <p>The last point is achieved with the concatenation operator <code>~</code>, which is an extension method that becomes available when you <code>import akka.http.scaladsl.server.Directives._</code>. The first two points are provided by so-called <a href="directives/index.html#directives">Directives</a> of which a large number is already predefined by Akka HTTP and which you can also easily create yourself. <a href="directives/index.html#directives">Directives</a> deliver most of Akka HTTP&rsquo;s power and flexibility.</p>
+<p>最后一点是使用连接操作符 <code>~</code> 达成的，操作符是一个扩展方法，在 <code>import akka.http.scaladsl.server.Directives._</code> 语句可用。 第一、二两点由 <a href="directives/index.html#directives">Directives</a> 提供，Akka HTTP 已经预定义了大量的指令，你也可以很容易的定义自己的指令。 <a href="directives/index.html#directives">Directives</a> 提供了 Akka HTTP 的大部分强大功能和灵活性。</p>
 <a id="the-routing-tree"></a>
 <h2><a href="#the-routing-tree" name="the-routing-tree" class="anchor"><span class="anchor-link"></span></a>The Routing Tree</h2>
+<p><strong>路由树</strong></p>
 <p>Essentially, when you combine directives and custom routes via the <code>concat</code> method, you build a routing structure that forms a tree. When a request comes in it is injected into this tree at the root and flows down through all the branches in a depth-first manner until either some node completes it or it is fully rejected.</p>
-<p>Consider this schematic example:</p><div class="group-scala">
+<p>实质上，当你通过 <code>concat</code> 方法结合指令和自定义路由时，构建的路由建构形成一颗树。 当一个请求进来时，它在根被注入，并以深度优先的方式向下流径所有分支，直到某个节点完成或者被完全拒绝。</p>
+<p>Consider this schematic example:</p>
+<p>考虑这个示意图例子：</p><div class="group-scala">
 <pre class="prettyprint"><code class="language-scala">val route =
   a {
     concat(
@@ -484,22 +488,37 @@ Route route =
   ));
 </code></pre></div>
 <p>Here five directives form a routing tree.</p>
+<p>这里五个指令形成一颗路由树。</p>
 <ul>
   <li>Route 1 will only be reached if directives <code>a</code>, <code>b</code> and <code>c</code> all let the request pass through.</li>
   <li>Route 2 will run if <code>a</code> and <code>b</code> pass, <code>c</code> rejects and <code>d</code> passes.</li>
   <li>Route 3 will run if <code>a</code> and <code>b</code> pass, but <code>c</code> and <code>d</code> reject.</li>
+  <li>
+  <p>如果指令 <code>a</code>、<code>b</code> 和 <code>c</code> 都让请求通过，路由 1 才能到达。</p></li>
+  <li>如果 <code>a</code> 和 <code>b</code> 通过，<code>c</code> 拒绝且 <code>d</code> 通过，路由 2 将运行。</li>
+  <li>如果 <code>a</code> 和 <code>b</code> 通过，但 <code>c</code> 和 <code>d</code> 拒绝，路由 3 将运行。</li>
 </ul>
 <p>Route 3 can therefore be seen as a &ldquo;catch-all&rdquo; route that only kicks in, if routes chained into preceding positions reject. This mechanism can make complex filtering logic quite easy to implement: simply put the most specific cases up front and the most general cases in the back.</p>
+<p>因此如果路由进入前面的路径被拒绝，则路由 3 可以看作“捕获-所有”路由。这种机制可以使复杂过滤逻辑非常容易实现：简单地把最特殊情况放在前面，而把最一般的情况放在后面。</p>
 <h2><a href="#sealing-a-route" name="sealing-a-route" class="anchor"><span class="anchor-link"></span></a>Sealing a Route</h2>
+<p><strong>密封路由</strong></p>
 <p>As described in <a href="rejections.html">Rejections</a> and <a href="exception-handling.html">Exception Handling</a>, there are generally two ways to handle rejections and exceptions.</p>
+<p>如 <a href="rejections.html">拒绝</a> 和 <a href="exception-handling.html">异常处理</a> 所述，通常有两种方法来处理拒绝和异常。 </p>
 <ul>
   <li>Bring rejection/exception handlers <span class="group-scala"><code>into implicit scope at the top-level</code></span><span class="group-java"><code>seal()</code> method of the <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span></span></li>
   <li>Supply handlers as arguments to <a href="directives/execution-directives/handleRejections.html#handlerejections">handleRejections</a> and <a href="directives/execution-directives/handleExceptions.html#handleexceptions">handleExceptions</a> directives</li>
+  <li>
+  <p>提供拒绝/异常处理程序 <span class="group-scala"><code>到顶层的隐式范围里</code></span><span class="group-java">给 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 的 <code>seal()</code> 方法</span></p></li>
+  <li>提供处理程序作为 <a href="directives/execution-directives/handleRejections.html#handlerejections">handleRejections</a> 和 <a href="directives/execution-directives/handleExceptions.html#handleexceptions">handleExceptions</a> 指令的参数</li>
 </ul>
 <p>In the first case your handlers will be &ldquo;sealed&rdquo;, (which means that it will receive the default handler as a fallback for all cases your handler doesn&rsquo;t handle itself) and used for all rejections/exceptions that are not handled within the route structure itself.</p>
+<p>在第一种情况，你的处理程序将被“密封”（这意味着它将接收默认处理程序，作为对于你的处理程序本身不处理的所有情况的后备）， 并且用于路由结构本身不处理的所有拒绝/异常。</p>
 <h3><a href="#route-seal-method-to-modify-httpresponse" name="route-seal-method-to-modify-httpresponse" class="anchor"><span class="anchor-link"></span></a>Route.seal() method to modify HttpResponse</h3>
+<p><strong>Route.seal() 方法修改 HttpResponse</strong></p>
 <p>In application code, unlike <a href="testkit.html#testing-sealed-routes">test code</a>, you don&rsquo;t need to use the <code>Route.seal()</code> method to seal a route. As long as you bring implicit rejection and/or exception handlers to the top-level scope, your route is sealed. </p>
+<p>在应用程序代码中，不像 <a href="testkit.html#testing-sealed-routes">测试代码</a> 那样，你不需要使用 <code>Route.seal()</code> 方法密封路由。 只要在顶层提供了隐式拒绝和/或异常处理器，你的路由将被密闭。</p>
 <p>However, you can use <code>Route.seal()</code> to perform modification on HttpResponse from the route. For example, if you want to add a special header, but still use the default rejection handler, then you can do the following. In the below case, the special header is added to rejected responses which did not match the route, as well as successful responses which matched the route.</p>
+<p>但是，你可以使用 <code>Route.seal()</code> 从路由对 HttpResponse 进行修改。 例如，你想添加一个特殊的头域，但仍然想使用默认拒绝处理程序，那么你可以向下面这样做。 特殊的头域被添加到不匹配路由的拒绝响应以及匹配路由的成功响应里。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -545,8 +564,11 @@ Route route =
 }</code></pre></dd>
 </dl>
 <h3><a href="#converting-routes-between-java-and-scala-dsls" name="converting-routes-between-java-and-scala-dsls" class="anchor"><span class="anchor-link"></span></a>Converting routes between Java and Scala DSLs</h3>
+<p><strong>在 Java 和 Scala DSL 之间转换路由</strong></p>
 <p>In some cases when building reusable libraries that expose routes, it may be useful to be able to convert routes between their Java and Scala DSL representations. You can do so using the <code>asScala</code> method on a Java DSL route, or by using an <code>RouteAdapter</code> to wrap an Scala DSL route. </p>
+<p>在某些情况中，在构建路由的可复用库时，能够在 Java 和 Scala DSL 之间转换路由可能是有用的。 你可以通过在 Java DSL 路由上使用 <code>asScala</code> 方法，或者使用 <code>RouteAdapter</code> 包装一个 Scala DSL 来做到。</p>
 <p>Converting Scala DSL routes to Java DSL:</p>
+<p>转换 Scala DSL 路由到 Java DSL：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -567,6 +589,7 @@ akka.http.javadsl.server.Route javaRoute =
     RouteAdapter.asJava(scalaRoute);</code></pre></dd>
 </dl>
 <p>Converting Java DSL routes to Scala DSL:</p>
+<p>转换 Java DSL 路由到 Scala DSL：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -596,7 +619,7 @@ scala.Function1&lt;RequestContext, Future&lt;RouteResult&gt;&gt; scalaRoute =
 <a href="../routing-dsl/overview.html"><i class="icon-prev"></i> <span class="link-prev">路由 DSL 概述</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../routing-dsl/directives/index.html">Directives <i class="icon-next"></i></a>
+<a class="float-right" href="../routing-dsl/directives/index.html">指令 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

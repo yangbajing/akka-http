@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Custom Directives &bull; Akka HTTP Chinese edition</title>
+<title>自定义指令 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -267,7 +267,7 @@ Version 10.1.11
       <li><a href="../../routing-dsl/index.html#configuring-server-side-https" class="header">Configuring Server-side HTTPS</a></li>
       <li><a href="../../routing-dsl/overview.html" class="page">路由 DSL 概述</a></li>
       <li><a href="../../routing-dsl/routes.html" class="page">路由</a></li>
-      <li><a href="../../routing-dsl/directives/index.html" class="page">Directives</a>
+      <li><a href="../../routing-dsl/directives/index.html" class="page">指令</a>
       <ul>
         <li><a href="../../routing-dsl/directives/index.html#basics" class="header">Basics</a></li>
         <li><a href="../../routing-dsl/directives/index.html#structure" class="header">Structure</a></li>
@@ -275,9 +275,9 @@ Version 10.1.11
         <li><a href="../../routing-dsl/directives/index.html#composing-directives" class="header">Composing Directives</a></li>
         <li><a href="../../routing-dsl/directives/index.html#type-safety-of-directives" class="header">Type Safety of Directives</a></li>
         <li><a href="../../routing-dsl/directives/index.html#automatic-tuple-extraction-flattening-" class="header group-scala">Automatic Tuple extraction (flattening)</a></li>
-        <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">Predefined Directives (alphabetically)</a></li>
-        <li><a href="../../routing-dsl/directives/by-trait.html" class="page">Predefined Directives (by trait)</a></li>
-        <li><a href="../../routing-dsl/directives/custom-directives.html#custom-directives" class="active page">Custom Directives</a>
+        <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">预定义指令（按字母排序）</a></li>
+        <li><a href="../../routing-dsl/directives/by-trait.html" class="page">预定义指令（按 trait 排序）</a></li>
+        <li><a href="../../routing-dsl/directives/custom-directives.html#自定义指令" class="active page">自定义指令</a>
         <ul>
           <li><a href="../../routing-dsl/directives/custom-directives.html#configuration-labeling" class="header">Configuration Labeling</a></li>
           <li><a href="../../routing-dsl/directives/custom-directives.html#transforming-directives" class="header group-scala">Transforming Directives</a></li>
@@ -344,7 +344,7 @@ Version 10.1.11
       <li><a href="../../routing-dsl/index.html#configuring-server-side-https" class="header">Configuring Server-side HTTPS</a></li>
       <li><a href="../../routing-dsl/overview.html" class="page">路由 DSL 概述</a></li>
       <li><a href="../../routing-dsl/routes.html" class="page">路由</a></li>
-      <li><a href="../../routing-dsl/directives/index.html" class="page">Directives</a>
+      <li><a href="../../routing-dsl/directives/index.html" class="page">指令</a>
       <ul>
         <li><a href="../../routing-dsl/directives/index.html#basics" class="header">Basics</a></li>
         <li><a href="../../routing-dsl/directives/index.html#structure" class="header">Structure</a></li>
@@ -352,9 +352,9 @@ Version 10.1.11
         <li><a href="../../routing-dsl/directives/index.html#composing-directives" class="header">Composing Directives</a></li>
         <li><a href="../../routing-dsl/directives/index.html#type-safety-of-directives" class="header">Type Safety of Directives</a></li>
         <li><a href="../../routing-dsl/directives/index.html#automatic-tuple-extraction-flattening-" class="header group-scala">Automatic Tuple extraction (flattening)</a></li>
-        <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">Predefined Directives (alphabetically)</a></li>
-        <li><a href="../../routing-dsl/directives/by-trait.html" class="page">Predefined Directives (by trait)</a></li>
-        <li><a href="../../routing-dsl/directives/custom-directives.html#custom-directives" class="active page">Custom Directives</a>
+        <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">预定义指令（按字母排序）</a></li>
+        <li><a href="../../routing-dsl/directives/by-trait.html" class="page">预定义指令（按 trait 排序）</a></li>
+        <li><a href="../../routing-dsl/directives/custom-directives.html#自定义指令" class="active page">自定义指令</a>
         <ul>
           <li><a href="../../routing-dsl/directives/custom-directives.html#configuration-labeling" class="header">Configuration Labeling</a></li>
           <li><a href="../../routing-dsl/directives/custom-directives.html#transforming-directives" class="header group-scala">Transforming Directives</a></li>
@@ -391,8 +391,10 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#custom-directives" name="custom-directives" class="anchor"><span class="anchor-link"></span></a>Custom Directives</h1>
+<h1><a href="#自定义指令" name="自定义指令" class="anchor"><span class="anchor-link"></span></a>自定义指令</h1>
+<p><em>Custom Directives</em></p>
 <p>Part of the power of akka-http directives comes from the ease with which it’s possible to define custom directives at differing levels of abstraction.</p>
+<p>akka-http 指令的部分功能来自于轻松定义不同抽象级别的自定义指令的可能性。</p>
 <p>There are essentially three ways of creating custom directives:</p>
 <ol>
   <li>By introducing new “labels” for configurations of existing directives</li>

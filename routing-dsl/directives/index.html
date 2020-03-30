@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Directives &bull; Akka HTTP Chinese edition</title>
+<title>指令 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -267,7 +267,7 @@ Version 10.1.11
       <li><a href="../../routing-dsl/index.html#configuring-server-side-https" class="header">Configuring Server-side HTTPS</a></li>
       <li><a href="../../routing-dsl/overview.html" class="page">路由 DSL 概述</a></li>
       <li><a href="../../routing-dsl/routes.html" class="page">路由</a></li>
-      <li><a href="../../routing-dsl/directives/index.html#directives" class="active page">Directives</a>
+      <li><a href="../../routing-dsl/directives/index.html#指令" class="active page">指令</a>
       <ul>
         <li><a href="../../routing-dsl/directives/index.html#basics" class="header">Basics</a></li>
         <li><a href="../../routing-dsl/directives/index.html#structure" class="header">Structure</a></li>
@@ -275,9 +275,9 @@ Version 10.1.11
         <li><a href="../../routing-dsl/directives/index.html#composing-directives" class="header">Composing Directives</a></li>
         <li><a href="../../routing-dsl/directives/index.html#type-safety-of-directives" class="header">Type Safety of Directives</a></li>
         <li><a href="../../routing-dsl/directives/index.html#automatic-tuple-extraction-flattening-" class="header group-scala">Automatic Tuple extraction (flattening)</a></li>
-        <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">Predefined Directives (alphabetically)</a></li>
-        <li><a href="../../routing-dsl/directives/by-trait.html" class="page">Predefined Directives (by trait)</a></li>
-        <li><a href="../../routing-dsl/directives/custom-directives.html" class="page">Custom Directives</a></li>
+        <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">预定义指令（按字母排序）</a></li>
+        <li><a href="../../routing-dsl/directives/by-trait.html" class="page">预定义指令（按 trait 排序）</a></li>
+        <li><a href="../../routing-dsl/directives/custom-directives.html" class="page">自定义指令</a></li>
       </ul></li>
       <li><a href="../../routing-dsl/rejections.html" class="page">Rejections</a></li>
       <li><a href="../../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
@@ -339,7 +339,7 @@ Version 10.1.11
       <li><a href="../../routing-dsl/index.html#configuring-server-side-https" class="header">Configuring Server-side HTTPS</a></li>
       <li><a href="../../routing-dsl/overview.html" class="page">路由 DSL 概述</a></li>
       <li><a href="../../routing-dsl/routes.html" class="page">路由</a></li>
-      <li><a href="../../routing-dsl/directives/index.html#directives" class="active page">Directives</a>
+      <li><a href="../../routing-dsl/directives/index.html#指令" class="active page">指令</a>
       <ul>
         <li><a href="../../routing-dsl/directives/index.html#basics" class="header">Basics</a></li>
         <li><a href="../../routing-dsl/directives/index.html#structure" class="header">Structure</a></li>
@@ -347,9 +347,9 @@ Version 10.1.11
         <li><a href="../../routing-dsl/directives/index.html#composing-directives" class="header">Composing Directives</a></li>
         <li><a href="../../routing-dsl/directives/index.html#type-safety-of-directives" class="header">Type Safety of Directives</a></li>
         <li><a href="../../routing-dsl/directives/index.html#automatic-tuple-extraction-flattening-" class="header group-scala">Automatic Tuple extraction (flattening)</a></li>
-        <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">Predefined Directives (alphabetically)</a></li>
-        <li><a href="../../routing-dsl/directives/by-trait.html" class="page">Predefined Directives (by trait)</a></li>
-        <li><a href="../../routing-dsl/directives/custom-directives.html" class="page">Custom Directives</a></li>
+        <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">预定义指令（按字母排序）</a></li>
+        <li><a href="../../routing-dsl/directives/by-trait.html" class="page">预定义指令（按 trait 排序）</a></li>
+        <li><a href="../../routing-dsl/directives/custom-directives.html" class="page">自定义指令</a></li>
       </ul></li>
       <li><a href="../../routing-dsl/rejections.html" class="page">Rejections</a></li>
       <li><a href="../../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
@@ -381,8 +381,11 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#directives" name="directives" class="anchor"><span class="anchor-link"></span></a>Directives</h1>
+<a id="directives"></a>
+<h1><a href="#指令" name="指令" class="anchor"><span class="anchor-link"></span></a>指令</h1>
+<p><em>Directives</em></p>
 <p>A &ldquo;Directive&rdquo; is a small building block used for creating arbitrarily complex <a href="../routes.html">route structures</a>. Akka HTTP already pre-defines a large number of directives and you can easily construct your own:</p>
+<p>“指令”是用于创建任意复杂 <a href="../routes.html">路由结构</a> 的一个小的构建块。 Akka HTTP 已经预定义大量指令，你也可以很容易的构造你自己的指令：</p>
 <div class="toc ">
 <ul>
   <li><a href="../../routing-dsl/directives/index.html#basics" class="header">Basics</a></li>
@@ -391,22 +394,29 @@ Version 10.1.11
   <li><a href="../../routing-dsl/directives/index.html#composing-directives" class="header">Composing Directives</a></li>
   <li><a href="../../routing-dsl/directives/index.html#type-safety-of-directives" class="header">Type Safety of Directives</a></li>
   <li><a href="../../routing-dsl/directives/index.html#automatic-tuple-extraction-flattening-" class="header group-scala">Automatic Tuple extraction (flattening)</a></li>
-  <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">Predefined Directives (alphabetically)</a></li>
-  <li><a href="../../routing-dsl/directives/by-trait.html" class="page">Predefined Directives (by trait)</a></li>
-  <li><a href="../../routing-dsl/directives/custom-directives.html" class="page">Custom Directives</a></li>
+  <li><a href="../../routing-dsl/directives/alphabetically.html" class="page">预定义指令（按字母排序）</a></li>
+  <li><a href="../../routing-dsl/directives/by-trait.html" class="page">预定义指令（按 trait 排序）</a></li>
+  <li><a href="../../routing-dsl/directives/custom-directives.html" class="page">自定义指令</a></li>
 </ul>
 </div>
 <h2><a href="#basics" name="basics" class="anchor"><span class="anchor-link"></span></a>Basics</h2>
+<p><strong>基础</strong></p>
 <p>Directives create <a href="../routes.html">Routes</a>. To understand how directives work it is helpful to contrast them with the &ldquo;primitive&rdquo; way of creating routes.</p>
-<p><a href="../routes.html">Routes</a> effectively are simply highly specialised functions that take a <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/RequestContext.html" title="akka.http.javadsl.server.RequestContext"><code>RequestContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/RequestContext.html" title="akka.http.scaladsl.server.RequestContext"><code>RequestContext</code></a></span> and eventually <code>complete</code> it, which could (and often should) happen asynchronously.</p><div class="group-java">
-<p>The <a href="route-directives/complete.html">complete</a> directive simply completes the request with a response:</p></div><div class="group-scala">
+<p>指令创建 <a href="../routes.html">路由</a> 。要理解指令是怎样工作的，把它们与创建路由的“原始”方法进行对比是有帮助的。</p>
+<p><a href="../routes.html">Routes</a> effectively are simply highly specialised functions that take a <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/RequestContext.html" title="akka.http.javadsl.server.RequestContext"><code>RequestContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/RequestContext.html" title="akka.http.scaladsl.server.RequestContext"><code>RequestContext</code></a></span> and eventually <code>complete</code> it, which could (and often should) happen asynchronously.</p>
+<p>有效 <a href="../routes.html">路由</a> 是调度专门化的函数，它拿到一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/RequestContext.html" title="akka.http.javadsl.server.RequestContext"><code>RequestContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/RequestContext.html" title="akka.http.scaladsl.server.RequestContext"><code>RequestContext</code></a></span> 并最后 <code>complete</code> 它， 可以（而且通常应该）异步发生。</p><div class="group-java">
+<p>The <a href="route-directives/complete.html">complete</a> directive simply completes the request with a response:</p>
+<p><a href="route-directives/complete.html">complete</a> 指令仅通过响应完成请求：</p></div><div class="group-scala">
 <p>Since <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> is just a type alias for a function type <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> instances can be written in any way in which function instances can be written, e.g. as a function literal:</p>
+<p>由于 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 只是函数类型的类型别名， <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 实例可以被重写为任何函数实例，例如：作为函数字面量：</p>
 <pre class="prettyprint"><code class="language-scala">val route: Route = { ctx =&gt; ctx.complete(&quot;yeah&quot;) }
 </code></pre>
 <p>or shorter:</p>
+<p>短的：</p>
 <pre class="prettyprint"><code class="language-scala">val route: Route = _.complete(&quot;yeah&quot;)
 </code></pre>
-<p>With the <a href="route-directives/complete.html">complete</a> directive this becomes even shorter:</p></div>
+<p>With the <a href="route-directives/complete.html">complete</a> directive this becomes even shorter:</p>
+<p>使用 <a href="route-directives/complete.html">complete</a> 指令，变得更短：</p></div>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -418,7 +428,9 @@ Version 10.1.11
 </code></pre></dd>
 </dl><div class="group-scala">
 <p>These three ways of writing this <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> are fully equivalent, the created <code>route</code> will behave identically in all cases.</p>
+<p>这3种写 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 方式是完全等效的，创建的 <code>route</code> 在所有情况里下的行为都一样。</p>
 <p>Let&rsquo;s look at a slightly more complicated example to highlight one important point in particular. Consider these two routes:</p>
+<p>让我们看下稍等复杂点的例子，特别强调一点。考虑这两个路由：</p>
 <pre class="prettyprint"><code class="language-scala">val a: Route = {
   println(&quot;MARK&quot;)
   ctx =&gt; ctx.complete(&quot;yeah&quot;)
@@ -430,7 +442,9 @@ val b: Route = { ctx =&gt;
 }
 </code></pre>
 <p>The difference between <code>a</code> and <code>b</code> is when the <code>println</code> statement is executed. In the case of <code>a</code> it is executed <em>once</em>, when the route is constructed, whereas in the case of <code>b</code> it is executed every time the route is <em>run</em>.</p>
+<p><code>a</code> 和 <code>b</code> 的不同是执行 <code>println</code> 语句的时间。 <code>a</code> 的情况下当路由被构造时执行 <em>一次</em> ，而在 <code>b</code> 的情况下在路由每次 <em>运行</em> 时执行。</p>
 <p>Using the <a href="route-directives/complete.html">complete</a> directive the same effects are achieved like this:</p>
+<p>使用 <a href="route-directives/complete.html">complete</a> 指令相同效果像这样：</p>
 <pre class="prettyprint"><code class="language-scala">val a = {
   println(&quot;MARK&quot;)
   complete(&quot;yeah&quot;)
@@ -442,7 +456,9 @@ val b = complete {
 }
 </code></pre>
 <p>This works because the argument to the <a href="route-directives/complete.html">complete</a> directive is evaluated <em>by-name</em>, i.e. it is re-evaluated every time the produced route is run.</p>
+<p>因为 <a href="route-directives/complete.html">complete</a> 指令的参数是 <em>按名称</em> 计算的，比如：每次生成路由运行时都要重新计算。</p>
 <p>Let&rsquo;s take things one step further:</p>
+<p>让我们更进一步：</p>
 <pre class="prettyprint"><code class="language-scala">val route: Route = { ctx =&gt;
   if (ctx.request.method == HttpMethods.GET)
     ctx.complete(&quot;Received GET&quot;)
@@ -451,6 +467,7 @@ val b = complete {
 }
 </code></pre>
 <p>Using the <a href="method-directives/get.html">get</a> and <a href="route-directives/complete.html">complete</a> directives we can write this route like this:</p>
+<p>使用 <a href="method-directives/get.html">get</a> 和 <a href="route-directives/complete.html">complete</a> 指令，我们可以像这样重写这个路由：</p>
 <pre class="prettyprint"><code class="language-scala">val route =
   concat(
     get {
@@ -460,7 +477,9 @@ val b = complete {
   )
 </code></pre>
 <p>Again, the produced routes will behave identically in all cases.</p>
+<p>再次，生成路由的行为所有情况下是一样的。</p>
 <p>Note that, if you wish, you can also mix the two styles of route creation:</p>
+<p>注意：如果你愿意，还可以混合路由创建的两种风格：</p>
 <pre class="prettyprint"><code class="language-scala">val route =
   concat(
     get { ctx =&gt;
@@ -470,8 +489,11 @@ val b = complete {
   )
 </code></pre>
 <p>Here, the inner route of the <a href="method-directives/get.html">get</a> directive is written as an explicit function literal.</p>
-<p>However, as you can see from these examples, building routes with directives rather than &ldquo;manually&rdquo; results in code that is a lot more concise and as such more readable and maintainable. In addition it provides for better composability (as you will see in the coming sections). So, when using Akka HTTP&rsquo;s Routing DSL you should almost never have to fall back to creating routes via <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> function literals that directly manipulate the <a href="../routes.html#requestcontext">RequestContext</a>.</p></div><div class="group-java">
+<p>这里，内部 <a href="method-directives/get.html">get</a> 指令的内部路由被写为显示的函数字面量。</p>
+<p>However, as you can see from these examples, building routes with directives rather than &ldquo;manually&rdquo; results in code that is a lot more concise and as such more readable and maintainable. In addition it provides for better composability (as you will see in the coming sections). So, when using Akka HTTP&rsquo;s Routing DSL you should almost never have to fall back to creating routes via <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> function literals that directly manipulate the <a href="../routes.html#requestcontext">RequestContext</a>.</p>
+<p>但是，正如你从这些示例看到的，用指令而不是“手动的”构建路由生成的代码更加简洁，因此可读性和可维护性更好。 此外，提供了更好的可组合性（你将在接下来的部分看到）。因此，在使用 Akka HTTP 的路由 DSL 时，你几乎不需要回退到通过直接操作 <a href="../routes.html#requestcontext">RequestContext</a> 的 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 函数字面量来创建路由。</p></div><div class="group-java">
 <p>Writing multiple routes that are tried as alternatives (in-order of definition), is as simple as using the <code>concat(route1, route2)</code>, method:</p>
+<p>编写多个路由（按顺序定义），就像使用 <code>concat(route1, route2)</code> 方法一样简单：</p>
 <pre class="prettyprint"><code class="language-java">Route routes = concat(
   pathSingleSlash(() -&gt;
     getFromResource(&quot;web/calculator.html&quot;)
@@ -480,6 +502,7 @@ val b = complete {
 );
 </code></pre>
 <p>You could also simply define a &ldquo;catch all&rdquo; completion by providing it as the last route to attempt to match. In the example below we use the <code>get()</code> (one of the <a href="method-directives/index.html">MethodDirectives</a>) to match all incoming <code>GET</code> requests for that route, and all other requests will be routed towards the other &ldquo;catch all&rdquo; route, that completes the route:</p>
+<p>你还可以简单的定义一个“捕获所有”完成，作为最后一个尝试匹配的路由。在下面的例子里使用 <code>get</code>（ <a href="method-directives/index.html">MethodDirectives</a> 的其中一个）方法匹配所以传入的 <code>GET</code> 请求，所有其它请求被路由到另一个“捕获所有”路由，从而完成这个路由：</p>
 <pre class="prettyprint"><code class="language-java">Route route =
   get(
     () -&gt; complete(&quot;Received GET&quot;)
@@ -488,8 +511,11 @@ val b = complete {
   )
 </code></pre></div>
 <p>If no route matches a given request, a default <code>404 Not Found</code> response will be returned as response.</p>
+<p>如果没有路由匹配指定请求，一个默认的 <code>404 Not Found</code> 响应将作为响应返回。</p>
 <h2><a href="#structure" name="structure" class="anchor"><span class="anchor-link"></span></a>Structure</h2>
+<p><strong>结构</strong></p>
 <p>The general anatomy of a directive is as follows:</p>
+<p>指令的一般解剖如下：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -505,19 +531,30 @@ val b = complete {
 </code></pre></dd>
 </dl>
 <p>It has a name, zero or more arguments and optionally an inner route (The <a href="route-directives/index.html">RouteDirectives</a> are special in that they are always used at the leaf-level and as such cannot have inner routes).</p>
+<p>它有一个名字，零或多个参数，以及可选的内部路由（ <a href="route-directives/index.html">RouteDirectives</a> 是特殊的， 因为它们总是用于叶子级别，因此不能用于内部路由）。</p>
 <p>Additionally directives can &ldquo;extract&rdquo; a number of values and make them available to their inner routes as function arguments. When seen &ldquo;from the outside&rdquo; a directive with its inner route form an expression of type <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span>.</p>
+<p>另外，指令可以“提取”一些值并使它们作为函数参数对期内部路由可用。当”从部“看时，一个带有内部路由的指令形成一个 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 类型的表达式。</p>
 <h2><a href="#what-directives-do" name="what-directives-do" class="anchor"><span class="anchor-link"></span></a>What Directives do</h2>
+<p><strong>指令做什么</strong></p>
 <p>A directive can do one or more of the following:</p>
+<p>指令可以做以下一样或更多：</p>
 <ul>
   <li>Transform the incoming <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/RequestContext.html" title="akka.http.javadsl.server.RequestContext"><code>RequestContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/RequestContext.html" title="akka.http.scaladsl.server.RequestContext"><code>RequestContext</code></a></span> before passing it on to its inner route (i.e. modify the request)</li>
   <li>Filter the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/RequestContext.html" title="akka.http.javadsl.server.RequestContext"><code>RequestContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/RequestContext.html" title="akka.http.scaladsl.server.RequestContext"><code>RequestContext</code></a></span> according to some logic, i.e. only pass on certain requests and reject others</li>
   <li>Extract values from the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/RequestContext.html" title="akka.http.javadsl.server.RequestContext"><code>RequestContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/RequestContext.html" title="akka.http.scaladsl.server.RequestContext"><code>RequestContext</code></a></span> and make them available to its inner route as &ldquo;extractions&rdquo;</li>
   <li>Chain some logic into the <a href="../routes.html#routeresult">RouteResult</a> future transformation chain (i.e. modify the response or rejection)</li>
   <li>Complete the request</li>
+  <li>
+  <p>在传递到内部路由之前转换进入的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/RequestContext.html" title="akka.http.javadsl.server.RequestContext"><code>RequestContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/RequestContext.html" title="akka.http.scaladsl.server.RequestContext"><code>RequestContext</code></a></span>（例如：修改请求） </p></li>
+  <li>根据一些逻辑过滤 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/RequestContext.html" title="akka.http.javadsl.server.RequestContext"><code>RequestContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/RequestContext.html" title="akka.http.scaladsl.server.RequestContext"><code>RequestContext</code></a></span>，例如：只通过某些请求而拒绝其它的</li>
+  <li>从 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/RequestContext.html" title="akka.http.javadsl.server.RequestContext"><code>RequestContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/RequestContext.html" title="akka.http.scaladsl.server.RequestContext"><code>RequestContext</code></a></span> 提取值并将期作为”提取“（的值）对内部路由可用</li>
 </ul>
 <p>This means a <code>Directive</code> completely wraps the functionality of its inner route and can apply arbitrarily complex transformations, both (or either) on the request and on the response side.</p>
+<p>这意味着 <code>Directive</code> 完全封装了内部路由的功能，并且可以在请求和响应两端（或一端）应用任意复杂的转换。</p>
 <h2><a href="#composing-directives" name="composing-directives" class="anchor"><span class="anchor-link"></span></a>Composing Directives</h2>
+<p><strong>组合指令</strong></p>
 <p>As you have seen from the examples presented so far the &ldquo;normal&rdquo; way of composing directives is nesting. Let&rsquo;s take a look at this concrete example:</p>
+<p>像你目前为止从示例看到的，组合指令的“一般”方法是嵌套。让我们看看这个具体的例子：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -555,6 +592,7 @@ Route orElse() {
 }</code></pre></dd>
 </dl>
 <p>Here the <code>get</code> and <code>put</code> directives are chained together <span class="group-scala">with the <code>concat</code> combinator</span><span class="group-java">using the <code>orElse</code> method</span> to form a higher-level route that serves as the inner route of the <code>path</code> directive. Let&rsquo;s rewrite it in the following way:</p>
+<p>这里 <code>get</code> 和 <code>put</code> 指令 <span class="group-scala">使用 <code>concat</code> 组合器</span><span class="group-java">使用 <code>orElse</code> 方法</span> 被链接到一起形成高级路由，该路由用途 <code>path</code> 指令的内部路由。 让我们按下面的方式重写它：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -598,8 +636,11 @@ Route customDirective() {
 }</code></pre></dd>
 </dl><div class="group-java">
 <p>In this previous example, we combined the <code>get</code> and <code>put</code> directives into one composed directive and extracted it to its own method, which could be reused anywhere else in our code.</p>
-<p>Instead of extracting the composed directives to its own method, we can also use the available <code>anyOf</code> combinator. The following code is equivalent to the previous one:</p></div><div class="group-scala">
-<p>What you can&rsquo;t see from this snippet is that directives are not implemented as simple methods but rather as stand-alone objects of type <code>Directive</code>. This gives you more flexibility when composing directives. For example you can also use the <code>|</code> operator on directives. Here is yet another way to write the example:</p></div>
+<p>在前端的例子里，我们合并 <code>get</code> 和 <code>put</code> 指令到一个组合指令并提取它到一个方法，该方法可以在我们代码里的任何地方复用。</p>
+<p>Instead of extracting the composed directives to its own method, we can also use the available <code>anyOf</code> combinator. The following code is equivalent to the previous one:</p>
+<p>我们也可以使用可用的 <code>anyOf</code> 组合器，而不是将组合指令提取到它自己的方法中。以下代码与前一代码相同：</p></div><div class="group-scala">
+<p>What you can&rsquo;t see from this snippet is that directives are not implemented as simple methods but rather as stand-alone objects of type <code>Directive</code>. This gives you more flexibility when composing directives. For example you can also use the <code>|</code> operator on directives. Here is yet another way to write the example:</p>
+<p>从这个代码片段你不能看到的是，指令不是作为简单方法实现的，而是作为 <code>Directive</code> 类型的独立对象。当组合指令时，这给予你更多的灵活性。 例如，你也可以使用指令上的 <code>|</code> 操作符。这是编写示例的另一种方法：</p></div>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -626,6 +667,7 @@ Route usingAnyOf() {
 }</code></pre></dd>
 </dl><div class="group-scala">
 <p>Or better (without dropping down to writing an explicit <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> function manually):</p>
+<p>或者更好（不用手动编写的 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 函数）：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L68-L75" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   path(&quot;order&quot; / IntNumber) { id =&gt;
     (get | put) {
@@ -635,6 +677,7 @@ Route usingAnyOf() {
     }
   }</code></pre>
 <p>If you have a larger route structure where the <code>(get | put)</code> snippet appears several times you could also factor it out like this:</p>
+<p>如果你有一个较大的路由结构，其中 <code>(get | put)</code> 代码版段多次出现，你也可以将其按如下方式分解：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L82-L90" target="_blank" title="Go to snippet source"></a><code class="language-scala">val getOrPut = get | put
 val route =
   path(&quot;order&quot; / IntNumber) { id =&gt;
@@ -645,21 +688,26 @@ val route =
     }
   }</code></pre>
 <p>Note that, because <code>getOrPut</code> doesn&rsquo;t take any parameters, it can be a <code>val</code> here.</p>
+<p>注意，因为 <code>getOrPut</code> 没有任何参数，这里可以是 <code>val</code>。</p>
 <p>As an alternative to nesting you can also use the <code>&amp;</code> operator:</p>
+<p>除了嵌套，你还可以使用 <code>&amp;</code> 操作符：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L97-L101" target="_blank" title="Go to snippet source"></a><code class="language-scala">val getOrPut = get | put
 val route =
   (path(&quot;order&quot; / IntNumber) &amp; getOrPut &amp; extractMethod) { (id, m) =&gt;
     complete(s&quot;Received ${m.name} request for order $id&quot;)
   }</code></pre>
 <p>Here you can see that, when directives producing extractions are combined with <code>&amp;</code>, the resulting &ldquo;super-directive&rdquo; simply extracts the concatenation of its sub-extractions.</p>
+<p>这里你可以看到，当生成提取的指令与 <code>&amp;</code> 组合时，生成的“超级-指令”只提取其子提取的串联起来的值。</p>
 <p>And once again, you can factor things out if you want, thereby pushing the &ldquo;factoring out&rdquo; of directive configurations to its extreme:</p>
+<p>再次，你可以分解你想要的，从而把指令配置的“因式分解”推到极致：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L108-L113" target="_blank" title="Go to snippet source"></a><code class="language-scala">val orderGetOrPutWithMethod =
   path(&quot;order&quot; / IntNumber) &amp; (get | put) &amp; extractMethod
 val route =
   orderGetOrPutWithMethod { (id, m) =&gt;
     complete(s&quot;Received ${m.name} request for order $id&quot;)
   }</code></pre>
-<p>This type of combining directives with the <code>|</code> and <code>&amp;</code> operators as well as &ldquo;saving&rdquo; more complex directive configurations as a <code>val</code> works across the board, with all directives taking inner routes.</p></div><div class="group-java">
+<p>This type of combining directives with the <code>|</code> and <code>&amp;</code> operators as well as &ldquo;saving&rdquo; more complex directive configurations as a <code>val</code> works across the board, with all directives taking inner routes.</p>
+<p>TODO translate to chinese</p></div><div class="group-java">
 <p>The previous example, tries to complete the route first with a <code>GET</code> or with a <code>PUT</code> if the first one was rejected. </p>
 <p>In case you are constantly nesting the same directives several times in you code, you could factor them out in their own method and use it everywhere:</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L71-L157" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
@@ -724,10 +772,15 @@ Route multipleRoutes() {
 }</code></pre>
 <p>Notice how you could adjust the indentation in these last two examples to have a more readable code.</p></div>
 <p>Note that going too far with &ldquo;compressing&rdquo; several directives into a single one probably doesn&rsquo;t result in the most readable and therefore maintainable routing code. It might even be that the very first of this series of examples is in fact the most readable one.</p>
-<p>Still, the purpose of the exercise presented here is to show you how flexible directives can be and how you can use their power to define your web service behavior at the level of abstraction that is right for <strong>your</strong> application.</p><div class="group-scala">
-<h3><a href="#composing-directives-with-operator" name="composing-directives-with-operator" class="anchor"><span class="anchor-link"></span></a>Composing Directives with <code>~</code> Operator</h3></div><div class="callout note group-scala"><div class="callout-title">Note</div>
-<p>Gotcha: forgetting the <code>~</code> (tilde) character in between directives can result in perfectly valid Scala code that compiles but does not work as expected. What would be intended as a single expression would actually be multiple expressions, and only the final one would be used as the result of the parent directive. Because of this, the recommended way to compose routes is with the the <code>concat</code> combinator.</p></div><div class="group-scala">
+<p>注意，过多的“压缩”多个指令到单个指令可能不是产生可读性、可维护性最好的路由代码。这系列示例的第一个代码实际上可能是可读性最好的。</p>
+<p>Still, the purpose of the exercise presented here is to show you how flexible directives can be and how you can use their power to define your web service behavior at the level of abstraction that is right for <strong>your</strong> application.</p>
+<p>不过，这里的练习的目的向你展示指令的灵活性，以及如何使用它们的能力在适合 <strong>你的</strong> 应用程序的抽象级别上定义你的 Web 服务行为。</p><div class="group-scala">
+<h3><a href="#composing-directives-with-operator" name="composing-directives-with-operator" class="anchor"><span class="anchor-link"></span></a>Composing Directives with <code>~</code> Operator</h3>
+<p><strong>使用 <code>~</code> 操作符组合指令</strong></p></div><div class="callout note group-scala"><div class="callout-title">Note</div>
+<p>Gotcha: forgetting the <code>~</code> (tilde) character in between directives can result in perfectly valid Scala code that compiles but does not work as expected. What would be intended as a single expression would actually be multiple expressions, and only the final one would be used as the result of the parent directive. Because of this, the recommended way to compose routes is with the the <code>concat</code> combinator.</p>
+<p>注意：忘记指令之间的 <code>~</code>（波浪符号）字符可能导致完全有效的 Scala 代码编码，但是不能按预期的工作。 单个表达式实际上是多个表达，只有最后一个表达式用作父指令的结果。因为这个原因，组合路由的推荐方式是使用 <code>concat</code> 组合器。 </p></div><div class="group-scala">
 <p>Alternatively we can combine directives using the <code>~</code> operator where we chain them together instead of passing each directive as a separate argument. Let&rsquo;s take a look at the usage of this combinator:</p>
+<p>另外，我们可以使用 <code>~</code> 操作符将指令组合到一起，用于替代将每个指令作为单独的参数进行传递。让我们看看这个组合器的用法：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L120-L132" target="_blank" title="Go to snippet source"></a><code class="language-scala">def innerRoute(id: Int): Route =
   get {
     complete {
@@ -742,8 +795,11 @@ Route multipleRoutes() {
 
 val route: Route = path(&quot;order&quot; / IntNumber) { id =&gt; innerRoute(id) }</code></pre></div>
 <h2><a href="#type-safety-of-directives" name="type-safety-of-directives" class="anchor"><span class="anchor-link"></span></a>Type Safety of Directives</h2>
+<p><strong>指令的类型安全</strong></p>
 <p>When you combine directives with the <span class="group-scala"><code>|</code> and <code>&amp;</code> operators</span><span class="group-java"><code>anyOf</code> and <code>allOf</code> methods</span> the routing DSL makes sure that all extractions work as expected and logical constraints are enforced at compile-time.</p>
+<p>当你将指令与 <span class="group-scala"><code>|</code> 和 <code>&amp;</code> 操作符</span><span class="group-java"><code>anyOf</code> 笔 <code>allOf</code> 方法</span> 组合时，路由 DSL 确保所有的提取都按预期工作， 并在编译时强制执行逻辑约束。</p>
 <p>For example you cannot <span class="group-scala"><code>|</code></span><span class="group-java"><code>anyOf</code></span> a directive producing an extraction with one that doesn&rsquo;t:</p>
+<p>例如你不能 <span class="group-scala"><code>|</code></span><span class="group-java"><code>anyOf</code></span> 一个指令生成提取而另一个不生成：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -755,6 +811,7 @@ val route: Route = path(&quot;order&quot; / IntNumber) { id =&gt; innerRoute(id)
 </code></pre></dd>
 </dl>
 <p>Also the number of extractions and their types have to match up:</p>
+<p>还有提取器的数据和它们的类型也要匹配上：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -773,6 +830,7 @@ anyOf(bindParameter(this::parameter, &quot;foo&quot;), bindParameter(this::param
 </code></pre></dd>
 </dl>
 <p>When you combine directives producing extractions with the <span class="group-scala"><code>&amp;</code> operator</span><span class="group-java"><code>allOf</code> method</span> all extractions will be properly gathered up:</p>
+<p>当你结合指令与 <span class="group-scala"><code>&amp;</code> 操作符</span><span class="group-java"><code>allOf</code> 方法</span> 生成提取时，所有的提取将正确的收集：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -787,9 +845,12 @@ val route =
   <pre class="prettyprint"><code class="language-java">allOf(this::extractScheme, this::extractMethod, (scheme, method) -&gt; ...) 
 </code></pre></dd>
 </dl>
-<p>Directives offer a great way of constructing your web service logic from small building blocks in a plug and play fashion while maintaining DRYness and full type-safety. If the large range of <a href="alphabetically.html">Predefined Directives</a> does not fully satisfy your needs you can also easily create <a href="custom-directives.html">Custom Directives</a>.</p><div class="group-scala">
+<p>Directives offer a great way of constructing your web service logic from small building blocks in a plug and play fashion while maintaining DRYness and full type-safety. If the large range of <a href="alphabetically.html">Predefined Directives</a> does not fully satisfy your needs you can also easily create <a href="custom-directives.html">Custom Directives</a>.</p>
+<p>指令提供了很好的方式以既插即用的方式从小的构建块构造你的 Web 服务逻辑，同时操持不要 DRY 原则且完全类型安全。 如果大量的 <a href="alphabetically.html">预定义指令</a> 不能完全满足你的需要，你可以轻松的创建 <a href="custom-directives.html">自定义指令</a> 。</p><div class="group-scala">
 <h2><a href="#automatic-tuple-extraction-flattening-" name="automatic-tuple-extraction-flattening-" class="anchor"><span class="anchor-link"></span></a>Automatic Tuple extraction (flattening)</h2>
+<p><strong>自动元组提取（压扁）</strong></p>
 <p>Convenient Scala DSL syntax described in <a href="index.html#basics">Basics</a>, and <a href="index.html#composing-directives">Composing Directives</a> are made possible by Tuple extraction internally. Let&rsquo;s see how this works with examples.</p>
+<p>在 <a href="index.html#basics">基础</a> 中描述的便利 Scala DSL 语法，以及通过内部的元组提取使 <a href="index.html#composing-directives">组合指令</a> 成为可能。 让我们通过例子看看这是怎么工作的。</p>
 <pre class="prettyprint"><code class="language-scala">val futureOfInt: Future[Int] = Future.successful(1)
 val route =
   path(&quot;success&quot;) {
@@ -799,6 +860,7 @@ val route =
   }
 </code></pre>
 <p>Looking at the above code, <code>onSuccess(futureOfInt)</code> returns a <code>Directive1[Int] = Directive[Tuple1[Int]]</code>.</p>
+<p>看上面的代码，<code>onSuccess(futureOfInt)</code> 返回一个 <code>Directive1[Int] = Directive[Tuple1[Int]]</code> 。</p>
 <pre class="prettyprint"><code class="language-scala">val futureOfTuple2: Future[Tuple2[Int,Int]] = Future.successful( (1,2) )
 val route =
   path(&quot;success&quot;) {
@@ -808,6 +870,7 @@ val route =
   }
 </code></pre>
 <p>Similarly, <code>onSuccess(futureOfTuple2)</code> returns a <code>Directive1[Tuple2[Int,Int]] = Directive[Tuple1[Tuple2[Int,Int]]]</code>, but this will be automatically converted to <code>Directive[Tuple2[Int,Int]]</code> to avoid nested Tuples.</p>
+<p>类似的，<code>onSuccess(futureOfTuple2)</code> 返回一个 <code>Directive1[Tuple2[Int,Int]] = Directive[Tuple1[Tuple2[Int,Int]]]</code>， 但是，这将会自动转换为 <code>Directve[Tuple2[Int, Int]]</code> 以避免嵌套的元组。</p>
 <pre class="prettyprint"><code class="language-scala">val futureOfUnit: Future[Unit] = Future.successful( () )
 val route =
   path(&quot;success&quot;) {
@@ -816,7 +879,8 @@ val route =
     }
   }
 </code></pre>
-<p>If the future returns <code>Future[Unit]</code>, it is a bit special case as it results in <code>Directive0</code>. Looking at the above code, <code>onSuccess(futureOfUnit)</code> returns a <code>Directive1[Unit] = Directive[Tuple1[Unit]]</code>. However, the DSL interprets <code>Unit</code> as <code>Tuple0</code>, and automatically converts the result to <code>Directive[Unit] = Directive0</code>,</p></div>
+<p>If the future returns <code>Future[Unit]</code>, it is a bit special case as it results in <code>Directive0</code>. Looking at the above code, <code>onSuccess(futureOfUnit)</code> returns a <code>Directive1[Unit] = Directive[Tuple1[Unit]]</code>. However, the DSL interprets <code>Unit</code> as <code>Tuple0</code>, and automatically converts the result to <code>Directive[Unit] = Directive0</code>,</p>
+<p>如果进一步返回 <code>Future[Unit]</code>，这是一个有点特殊的情况，它的结果为 <code>Directive0</code>。 看上面的代码，<code>onSuccess(futureOfUnit)</code> 返回一个 <code>Directive1[Unit] = Directive[Tuple1[Unit]]</code>。 但是，DSL 解释 <code>Unit</code> 为 <code>Tuple0</code>，并自动转换结果为 <code>Directive[Unit] = Directive0</code>。</p></div>
 </div>
 </article>
 <div class="row">
@@ -826,7 +890,7 @@ val route =
 <a href="../../routing-dsl/routes.html"><i class="icon-prev"></i> <span class="link-prev">路由</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../../routing-dsl/directives/alphabetically.html">Predefined Directives (alphabetically) <i class="icon-next"></i></a>
+<a class="float-right" href="../../routing-dsl/directives/alphabetically.html">预定义指令（按字母排序） <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
