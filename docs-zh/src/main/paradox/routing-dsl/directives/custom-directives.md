@@ -1,7 +1,10 @@
-# Custom Directives
+# 自定义指令
+*Custom Directives*
 
 Part of the power of akka-http directives comes from the ease with which it’s possible to define
 custom directives at differing levels of abstraction.
+
+akka-http 指令的部分功能来自于轻松定义不同抽象级别的自定义指令的可能性。
 
 There are essentially three ways of creating custom directives:
 

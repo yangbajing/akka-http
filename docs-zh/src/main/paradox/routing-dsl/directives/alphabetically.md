@@ -1,8 +1,9 @@
-# Predefined Directives (alphabetically)
+# 预定义指令（按字母排序）
+*Predefined Directives (alphabetically)*
 
 |Directive                                                                                                            | Description                                                                                                                                                                                               |
 |---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|@ref[alwaysCache](caching-directives/alwaysCache.md)                                                                 | Wraps its inner Route with caching support using the given @apidoc[Cache] implementation and the in-scope keyer function.                                                                                 |
+|@ref[alwaysCache](caching-directives/alwaysCache.md)                                                                 | Wraps its inner Route with caching support using the given @apidoc[Cache] implementation and the in-scope keyer function.<br/> 使用指定 @apidoc[Cache] 和作用域内的 keyer 函数将内部路由包装为具有缓存支持|
 |@ref[authenticateBasic](security-directives/authenticateBasic.md)                                                    | Wraps the inner route with Http Basic authentication support using a given @scala[`Authenticator[T]`]@java[`Authenticator<T>`]                                                                            |
 |@ref[authenticateBasicAsync](security-directives/authenticateBasicAsync.md)                                          | Wraps the inner route with Http Basic authentication support using a given @scala[`AsyncAuthenticator[T]`]@java[`AsyncAuthenticator<T>`]                                                                  |
 |@ref[authenticateBasicPF](security-directives/authenticateBasicPF.md)                                                | Wraps the inner route with Http Basic authentication support using a given @scala[`AuthenticatorPF[T]`]@java[`AuthenticatorPF<T>`]                                                                        |

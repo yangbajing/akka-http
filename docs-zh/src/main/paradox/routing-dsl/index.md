@@ -232,6 +232,7 @@ in the @ref[Exception Handling](exception-handling.md) section of the documentat
 你可以使用 @apidoc[ExceptionHandler] 以合适的错误代码和人类可读的失败描述来转换异常为 @apidoc[HttpResponse] 。
 
 ## File uploads
+**文件上传**
 
 For high level directives to handle uploads see the @ref[FileUploadDirectives](directives/file-upload-directives/index.md).
 
@@ -242,10 +243,13 @@ by accepting a *Multipart.FormData* entity, note that the body parts are *Source
 all available right away, and so is the individual body part payload so you will need to consume
 those streams both for the file and for the form fields.
 
-
+处理简单文件上传（form）表单，例如带有一个 *file* 输入框的浏览器（form）表单可以通过接受 *Multipart.FormData* 实体来完成。
+注意，正文部分是 *Source* 而不是立即可用，因此，单个正文部分载荷也是如此，所以你需要同时对文件和表单字段消费这些流。
 
 Here is a simple example which just dumps the uploaded file into a temporary file on disk, collects
 some form fields and saves an entry to a fictive database:
+
+这里是一个简单的示例，只是转储上传文件到磁盘上的临时文件里面，收集一些表单字段，并保存条目到一个虚构的数据库：
 
 Scala
 :  @@snip [FileUploadExamplesSpec.scala]($test$/scala/docs/http/scaladsl/server/FileUploadExamplesSpec.scala) { #simple-upload }
@@ -257,6 +261,9 @@ You can transform the uploaded files as they arrive rather than storing them in 
 in the previous example. In this example we accept any number of `.csv` files, parse those into lines
 and split each line before we send it to an actor for further processing:
 
+你可以在上传文件到达时转换，而不是上前面例子里存储到一个临时文件里。在这个例子里，我们接受任意数量的 `.csv` 文件，
+将其按行解析并分割每一行，然后发送到 actor 里进行进一步处理。
+
 Scala
 :  @@snip [FileUploadExamplesSpec.scala]($test$/scala/docs/http/scaladsl/server/FileUploadExamplesSpec.scala) { #stream-csv-upload }
 
@@ -264,5 +271,8 @@ Java
 :  @@snip [FileUploadExamplesTest.java]($test$/java/docs/http/javadsl/server/FileUploadExamplesTest.java) { #stream-csv-upload }
 
 ## Configuring Server-side HTTPS
+**配置服务器端 HTTPS**
 
 For detailed documentation about configuring and using HTTPS on the server-side refer to @ref[Server-Side HTTPS Support](../server-side/server-https-support.md).
+
+有关在服务器端配置和使用 HTTPS 的详细文档，参考 @ref[服务器端 HTTPS 支持](../server-side/server-https-support.md) 。
