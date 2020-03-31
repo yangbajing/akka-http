@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Exception Handling &bull; Akka HTTP Chinese edition</title>
+<title>异常处理 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -269,7 +269,7 @@ Version 10.1.11
       <li><a href="../routing-dsl/routes.html" class="page">路由</a></li>
       <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">拒绝</a></li>
-      <li><a href="../routing-dsl/exception-handling.html#exception-handling" class="active page">Exception Handling</a>
+      <li><a href="../routing-dsl/exception-handling.html#异常处理" class="active page">异常处理</a>
       <ul>
         <li><a href="../routing-dsl/exception-handling.html#default-exception-handler" class="header">Default Exception Handler</a></li>
         <li><a href="../routing-dsl/exception-handling.html#including-sensitive-data-in-exceptions" class="header">Including sensitive data in exceptions</a></li>
@@ -335,7 +335,7 @@ Version 10.1.11
       <li><a href="../routing-dsl/routes.html" class="page">路由</a></li>
       <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">拒绝</a></li>
-      <li><a href="../routing-dsl/exception-handling.html#exception-handling" class="active page">Exception Handling</a>
+      <li><a href="../routing-dsl/exception-handling.html#异常处理" class="active page">异常处理</a>
       <ul>
         <li><a href="../routing-dsl/exception-handling.html#default-exception-handler" class="header">Default Exception Handler</a></li>
         <li><a href="../routing-dsl/exception-handling.html#including-sensitive-data-in-exceptions" class="header">Including sensitive data in exceptions</a></li>
@@ -369,19 +369,31 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#exception-handling" name="exception-handling" class="anchor"><span class="anchor-link"></span></a>Exception Handling</h1>
+<a id="exception-handling"></a>
+<h1><a href="#异常处理" name="异常处理" class="anchor"><span class="anchor-link"></span></a>异常处理</h1>
+<p><em>Exception Handling</em></p>
 <p>Exceptions thrown during route execution bubble up through the route structure to the next enclosing <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> directive or the top of your route structure.</p>
-<p>Similarly to the way that <a href="rejections.html">Rejections</a> are handled the <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> directive delegates the actual job of converting an exception to its argument, an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala">, which is defined like this:</span><span class="group-java">.</span></p><div class="group-scala">
+<p>在路由执行期间被抛出的异常通过路由结构向上冒泡到下一个围住的 <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> 指令或路由结构的顶部。</p>
+<p>Similarly to the way that <a href="rejections.html">Rejections</a> are handled the <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> directive delegates the actual job of converting an exception to its argument, an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala">, which is defined like this:</span><span class="group-java">.</span></p>
+<p>类似于 <a href="rejections.html">描绘</a> 的处理方式， <a href="directives/execution-directives/handleRejections.html">handleExceptions</a> 指令将转换异常的实际工作委托给它的参数， 一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala">，它的定义像这样：</span><span class="group-java">。</span></p><div class="group-scala">
 <pre class="prettyprint"><code class="language-scala">trait ExceptionHandler extends PartialFunction[Throwable, Route]
 </code></pre></div>
 <p>Since an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> is a partial function, it can choose which exceptions it would like to handle and which not. Unhandled exceptions will simply continue to bubble up in the route structure. At the root of the route tree any still unhandled exception will be dealt with by the top-level handler which always handles <em>all</em> exceptions.</p>
+<p>由于 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> 是一个部分函数，所以可以选择要处理哪些异常而不处理哪些异常。未处理异常将在路由结构中继续向上冒泡。 在路由树的根，任何仍未处理的异常都将由顶层处理程序处理，它始终处理 <em>所有</em> 异常。</p>
 <p><code>Route.seal</code> internally wraps its argument route with the <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> directive in order to &ldquo;catch&rdquo; and handle any exception.</p>
+<p><code>Route.seal</code> 内部使用 <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> 指令包裹路由参数，以便“捕获”并处理任何异常。</p>
 <p>So, if you&rsquo;d like to customize the way certain exceptions are handled you need to write a custom <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span>. Once you have defined your custom <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> you have two options for &ldquo;activating&rdquo; it:</p>
+<p>因此，如果你想定制某些异常的处理方式，你需要写一个自定义 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> 。 一旦你定义好了自定义 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span>，有两种选项来“激活”它：</p>
 <ol>
   <li><span class="group-scala">Bring it into implicit scope at the top-level.</span><span class="group-java">Pass it to the <code>seal()</code> method of the <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> class.</span></li>
   <li>Supply it as argument to the <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> directive.</li>
 </ol>
+<ul>
+  <li><span class="group-scala">提供它到隐式作用域的顶层</span><span class="group-java">把它传递给 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 类的 <code>seal()</code> 方法</span></li>
+  <li>提供它作为 <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> 指令的参数</li>
+</ul>
 <p>In the first case your handler will be &ldquo;sealed&rdquo; (which means that it will receive the default handler as a fallback for all cases your handler doesn&rsquo;t handle itself) and used for all exceptions that are not handled within the route structure itself. Here you can see an example of it:</p>
+<p>在第一种情况，你的处理程序将被“密封”（这意味着它将接收默认处理程序，作为你的处理程序不能处理的所有情况的回退），并且用于路由结构自身没有处理的所有异常。 在这里你可以看到一个例子：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -436,7 +448,9 @@ public class ExceptionHandlerInSealExample extends AllDirectives {
 }</code></pre></dd>
 </dl>
 <p>The second case allows you to restrict the applicability of your handler to certain branches of your route structure.</p>
+<p>第二种情况，允许你将处理程序的适用性限制在路由结构的某些分支。</p>
 <p>Here is an example for wiring up a custom handler via <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a>:</p>
+<p>这里是通过 <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> 连接自定义处理程序的示例：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -515,6 +529,7 @@ public class ExceptionHandlerExample extends AllDirectives {
 }</code></pre></dd>
 </dl><div class="group-scala">
 <p>And this is how to do it implicitly:</p>
+<p>这是如何使用隐式参数的例子：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/ExceptionHandlerExamplesSpec.scala#L52-L80" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
@@ -544,19 +559,33 @@ object MyApp extends App {
 }
 </code></pre></div>
 <h2><a href="#default-exception-handler" name="default-exception-handler" class="anchor"><span class="anchor-link"></span></a>Default Exception Handler</h2>
+<p><strong>默认异常处理程序</strong></p>
 <p>A default <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> is used if no custom instance is provided.</p>
+<p>如果未提供自定义实例，则使用默认 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span>。 </p>
 <p>It will handle every <code>NonFatal</code> throwable, write its stack trace and complete the request with <code>InternalServerError</code> <code>(500)</code> status code.</p>
+<p>它将处理每一个 <code>NonFatal</code> throwable，写它的堆栈跟踪 <em>（译注：记录异常栈）</em> 并使用 <code>InternalServerError</code> <code>(500)</code> 状态码完成请求。</p>
 <p>The message body will contain a string obtained via <code>Throwable#getMessage</code> call on the exception caught.</p>
+<p>消息正文将包含一个通过在捕获异常上的 <code>Throwable#getMessage</code> 调用获得的字符串。</p>
 <p>In case <code>getMessage</code> returns <code>null</code> (which is true for e.g. <code>NullPointerException</code> instances), the class name and a remark about the message being null are included in the response body.</p>
-<p>Note that <code>IllegalRequestException</code>s&rsquo; stack traces are not logged, since instances of this class normally contain enough information to provide a useful error message.</p><div class="callout note "><div class="callout-title">Note</div>
+<p>在<code>getMessage</code> 返回 <code>null</code> 在情况下，类名和一句关于消息为 null 的注释被包含到响应正文。</p>
+<p>Note that <code>IllegalRequestException</code>s&rsquo; stack traces are not logged, since instances of this class normally contain enough information to provide a useful error message.</p>
+<p>注意，<code>IllegalRequestException</code> 的堆栈跟踪不被记录，因为该类的实例通常包含足够的信息来提供用有的错误消息。</p><div class="callout note "><div class="callout-title">Note</div>
 <p>Users are strongly encouraged not to rely on using the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> as a means of handling errors. By errors, we mean things that are an expected part of normal operations: for example, issues discovered during input validation. The <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> is meant to be a means of handling failures. See <a href="https://www.reactivemanifesto.org/glossary#Failure">Failure vs Error</a> in the glossary of the <a href="https://www.reactivemanifesto.org">Reactive Manifesto</a>.</p>
+<p>强烈建议用户不要依赖使用 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> 作为处理错误的方法。 所谓错误，我们的本意指它是正常操作中预期的部分：例如，输入检验期间发现的问题。 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> 是处理失败的方法。 见 <a href="https://www.reactivemanifesto.org">反应式宣言</a> 词汇表中的 <a href="https://www.reactivemanifesto.org/glossary#Failure">失败 vs 错误</a> 。 </p>
 <p>Distinguishing between errors and failures (i.e. thrown <code>Exceptions</code> handled via the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span>) provides a much better mental model but also leads to performance improvements.</p>
+<p>区别错误和失败（例如，通过 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> 处理抛出的 <code>Exceptions</code>）提供更好的心智模型，而且也会导致性能的改进。</p>
 <p>This is because exceptions are known to have a negative performance impact for cases when the depth of the call stack is significant (stack trace construction cost) and when the handler is located far from the place of the throwable instantiation (stack unwinding costs).</p>
+<p>这是因为当调用堆栈深度非常大（堆栈跟踪构建成本）并且处理程序远离可抛出实例化的地方（堆栈展开成本）时，已知异常会对性能产生负面影响。</p>
 <p>In a typical Akka application both these conditions are frequently true, so as a rule of thumb, you should try to minimize the number of <code>Throwable</code> instances reaching the exception handler.</p>
-<p>To understand the performance implications of (mis-)using exceptions, have a read at this excellent post by A. Shipilёv: <a href="https://shipilev.net/blog/2014/exceptional-performance">The Exceptional Performance of Lil&rsquo; Exception</a>.</p></div><div class="callout note "><div class="callout-title">Note</div>
-<p>Please note that since version <code>10.1.6</code>, the default <code>ExceptionHandler</code> will also discard the entity bytes automatically. If you want to change this behavior, please refer to <a href="exception-handling.html#exception-handling">the section above</a>; however, might cause connections to stall if the entity is not properly rejected or cancelled on the client side.</p></div>
+<p>在典型 Akka 应用程序里这些条件通常都为真，因此根据经验，应该尽量减少到达异常处理程序的 <code>Throwable</code> 实例的数量</p>
+<p>To understand the performance implications of (mis-)using exceptions, have a read at this excellent post by A. Shipilёv: <a href="https://shipilev.net/blog/2014/exceptional-performance">The Exceptional Performance of Lil&rsquo; Exception</a>.</p>
+<p>要了解（错误-）使用异常对性能可能的影响，阅读 A. Shipilёv 的这篇优秀文章：<a href="https://shipilev.net/blog/2014/exceptional-performance">LilException 的异常性能</a> 。</p></div><div class="callout note "><div class="callout-title">Note</div>
+<p>Please note that since version <code>10.1.6</code>, the default <code>ExceptionHandler</code> will also discard the entity bytes automatically. If you want to change this behavior, please refer to <a href="exception-handling.html#exception-handling">the section above</a>; however, might cause connections to stall if the entity is not properly rejected or cancelled on the client side.</p>
+<p>请注意，从 <code>10.1.6</code> 版本开始，默认 <code>ExceptionHandler</code> 也将自动丢弃（请求的）实体字节流。 如果你想改变这个行为，请参考 <a href="exception-handling.html#exception-handling">上面的部分</a> ；但是，如果客户端上的实体没有正确地拒绝或取消，可能会导致连接挂住。</p></div>
 <h2><a href="#including-sensitive-data-in-exceptions" name="including-sensitive-data-in-exceptions" class="anchor"><span class="anchor-link"></span></a>Including sensitive data in exceptions</h2>
+<p><strong>异常中包含敏感的数据</strong></p>
 <p>To prevent certain types of attack, it is not recommended to include arbitrary invalid user input in the response. However, sometimes it can be useful to include it in the exception and logging for diagnostic reasons. In such cases, you can use exceptions that extend <code>ExceptionWithErrorInfo</code>, such as <code>IllegalHeaderException</code>:</p>
+<p>要防止某些类型的攻击，在响应里包含任意无效的用户输入是不建议的。 但是，有时为了诊断原因在异常和日志里包含它是有用的。 在此类情况下，你可以使用扩展了 <code>ExceptionWithErrorInfo</code> 的异常，例如：<code>IllegalHeaderException</code>：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -596,7 +625,9 @@ assertTrue(response.contains(&quot;header Foo was illegal&quot;));
 assertTrue(!response.contains(&quot;evil_xss_or_xsrf_reflection&quot;));</code></pre></dd>
 </dl>
 <h2><a href="#respond-with-headers-and-exception-handler" name="respond-with-headers-and-exception-handler" class="anchor"><span class="anchor-link"></span></a>Respond with headers and Exception Handler</h2>
+<p><strong>使用头域和异常处理程序响应</strong></p>
 <p>If you wrap an ExceptionHandler inside a different directive, then that directive will still apply. Example below shows that wrapping an ExceptionHandler inside a respondWithHeader directive will still add the header to the response. </p>
+<p>如果把 <code>ExceptionHandler</code> 包裹在不同的指令里，那么这个指令仍然适用。下面的示例显示，把 <code>ExceptionHandler</code> 包裹在 <code>respondWithHeader</code> 指令里，仍将添加头域到响应。</p>
 <dl>
   <dt>Scala</dt>
   <dd>

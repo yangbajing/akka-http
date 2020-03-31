@@ -276,7 +276,7 @@ Version 10.1.11
         <li><a href="../routing-dsl/rejections.html#empty-rejections" class="header">Empty Rejections</a></li>
         <li><a href="../routing-dsl/rejections.html#customizing-rejection-handling" class="header">Customizing Rejection Handling</a></li>
       </ul></li>
-      <li><a href="../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
+      <li><a href="../routing-dsl/exception-handling.html" class="page">异常处理</a></li>
       <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
       <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source Streaming</a></li>
       <li><a href="../routing-dsl/testkit.html" class="page">Route TestKit</a></li>
@@ -344,7 +344,7 @@ Version 10.1.11
         <li><a href="../routing-dsl/rejections.html#empty-rejections" class="header">Empty Rejections</a></li>
         <li><a href="../routing-dsl/rejections.html#customizing-rejection-handling" class="header">Customizing Rejection Handling</a></li>
       </ul></li>
-      <li><a href="../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
+      <li><a href="../routing-dsl/exception-handling.html" class="page">异常处理</a></li>
       <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
       <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source Streaming</a></li>
       <li><a href="../routing-dsl/testkit.html" class="page">Route TestKit</a></li>
@@ -567,7 +567,7 @@ final Route wrapped = handleRejections(rejectionHandler,
   <li>提供它作为 <a href="directives/execution-directives/handleRejections.html">handleRejections</a> 指令的参数</li>
 </ul>
 <p>In the first case your handler will be &ldquo;sealed&rdquo; (which means that it will receive the default handler as a fallback for all cases your handler doesn&rsquo;t handle itself) and used for all rejections that are not handled within the route structure itself.</p>
-<p>在第一种情况，你的处理程序将被“密封”（这意味着它将接收默认处理程序，作为你的处理程序不能处理的所有情况的回退），并且用于路由结构自身没有处理所有拒绝。</p>
+<p>在第一种情况，你的处理程序将被“密封”（这意味着它将接收默认处理程序，作为你的处理程序不能处理的所有情况的回退），并且用于路由结构自身没有处理的所有拒绝。</p>
 <p>The second case allows you to restrict the applicability of your handler to certain branches of your route structure.</p>
 <p>第二种情况，允许你将处理程序的适用性限制在路由结构的某些分支。</p>
 <a id="customising-rejections"></a>
@@ -741,7 +741,7 @@ testRoute(route).run(HttpRequest.GET(&quot;/handled/missing&quot;))
 <a href="../routing-dsl/directives/custom-directives.html"><i class="icon-prev"></i> <span class="link-prev">自定义指令</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../routing-dsl/exception-handling.html">Exception Handling <i class="icon-next"></i></a>
+<a class="float-right" href="../routing-dsl/exception-handling.html">异常处理 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
