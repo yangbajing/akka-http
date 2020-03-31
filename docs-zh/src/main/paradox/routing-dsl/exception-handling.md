@@ -10,7 +10,7 @@ Exceptions thrown during route execution bubble up through the route structure t
 Similarly to the way that @ref[Rejections](rejections.md) are handled the @ref[handleExceptions](directives/execution-directives/handleExceptions.md) directive delegates the actual job
 of converting an exception to its argument, an @apidoc[ExceptionHandler]@scala[, which is defined like this:]@java[.]
 
-类似于 @ref[描绘](rejections.md) 的处理方式， @ref[handleExceptions](directives/execution-directives/handleRejections.md) 指令将转换异常的实际工作委托给它的参数，
+类似于 @ref[拒绝](rejections.md) 的处理方式， @ref[handleExceptions](directives/execution-directives/handleRejections.md) 指令将转换异常的实际工作委托给它的参数，
 一个 @apidoc[ExceptionHandler]@scala[，它的定义像这样：]@java[。]
 
 @@@ div { .group-scala }
