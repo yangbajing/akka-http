@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Rejections &bull; Akka HTTP Chinese edition</title>
+<title>拒绝 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -268,7 +268,7 @@ Version 10.1.11
       <li><a href="../routing-dsl/overview.html" class="page">路由 DSL 概述</a></li>
       <li><a href="../routing-dsl/routes.html" class="page">路由</a></li>
       <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
-      <li><a href="../routing-dsl/rejections.html#rejections" class="active page">Rejections</a>
+      <li><a href="../routing-dsl/rejections.html#拒绝" class="active page">拒绝</a>
       <ul>
         <li><a href="../routing-dsl/rejections.html#predefined-rejections" class="header">Predefined Rejections</a></li>
         <li><a href="../routing-dsl/rejections.html#the-rejectionhandler" class="header">The RejectionHandler</a></li>
@@ -336,7 +336,7 @@ Version 10.1.11
       <li><a href="../routing-dsl/overview.html" class="page">路由 DSL 概述</a></li>
       <li><a href="../routing-dsl/routes.html" class="page">路由</a></li>
       <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
-      <li><a href="../routing-dsl/rejections.html#rejections" class="active page">Rejections</a>
+      <li><a href="../routing-dsl/rejections.html#拒绝" class="active page">拒绝</a>
       <ul>
         <li><a href="../routing-dsl/rejections.html#predefined-rejections" class="header">Predefined Rejections</a></li>
         <li><a href="../routing-dsl/rejections.html#the-rejectionhandler" class="header">The RejectionHandler</a></li>
@@ -373,11 +373,17 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#rejections" name="rejections" class="anchor"><span class="anchor-link"></span></a>Rejections</h1>
+<a id="rejections"></a>
+<h1><a href="#拒绝" name="拒绝" class="anchor"><span class="anchor-link"></span></a>拒绝</h1>
+<p><em>Rejections</em></p>
 <p>In the chapter about constructing <a href="routes.html">Routes</a> the <span class="group-scala"><code>~</code> operator</span><span class="group-java"><code>RouteDirectives.route()</code> method</span> was introduced, which connects two or more routes in a way that allows the next specified route to get a go at a request if the first route &ldquo;rejected&rdquo; it. The concept of &ldquo;rejections&rdquo; is used by Akka HTTP for maintaining a more functional overall architecture and in order to be able to properly handle all kinds of error scenarios.</p>
+<p>在关于构建 <a href="routes.html">路由</a> 的章节中介绍了 <span class="group-scala"><code>~</code> 操作符</span><span class="group-java"><code>RouteDirectives.route()</code> 方法</span> ， 它们是连接两个或更多路由的方法，这样允许请求在第一个路由“拒绝”它时到达下一个指定的路由。 Akka HTTP 使用“拒绝”的概念来维护更具有功能性的整体架构，并能够正确的处理各种错误场景。</p>
 <p>When a filtering directive, like the <a href="directives/method-directives/get.html">get</a> directive, cannot let the request pass through to its inner route because the filter condition is not satisfied (e.g. because the incoming request is not a GET request) the directive doesn&rsquo;t immediately complete the request with an error response. Doing so would make it impossible for other routes chained in after the failing filter to get a chance to handle the request. Rather, failing filters &ldquo;reject&rdquo; the request in the same way as by explicitly calling <code>requestContext.reject(...)</code>.</p>
+<p>当过滤指令（就像 <a href="directives/method-directives/get.html">get</a> 指令）不能让请求通过它的内部路由时， 因为不满足过滤条件（例如：因为传入请求不是一个 GET 请求），该指令不会使用一个错误响应立即完成请求。 这样做将使链接的其它路由在过滤失败后无法获得处理请求的机会 <em>（译注：这里指如果直接以错误响应回复请求的话）</em>。 某种程度上，“reject”请求与显示调用 <code>requestContext.reject(...)</code> 的方式一样。</p>
 <p>After having been rejected by a route the request will continue to flow through the routing structure and possibly find another route that can complete it. If there are more rejections all of them will be picked up and collected.</p>
+<p>被一个路由拒绝后，请求将继续流径路由结构，并可能找到另一个可以完成它的路由。如果有更多的拒绝，它们所有都将被收集起来。</p>
 <p>If the request cannot be completed by (a branch of) the route structure an enclosing <a href="directives/execution-directives/handleRejections.html">handleRejections</a> directive can be used to convert a set of rejections into an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> - which typically would be an error response. <code>Route.seal()</code> internally wraps its argument route with the <a href="directives/execution-directives/handleRejections.html">handleRejections</a> directive in order to &ldquo;catch&rdquo; and handle any rejection.</p>
+<p>如果通过路由结构（分支）无法完成请求，则一个（把所有路由）围起来的 <a href="directives/execution-directives/handleRejections.html">handleRejections</a> 指令可用于将一系列的拒绝转换为 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> - 这通常是一个错误响应。</p>
 <h2><a href="#predefined-rejections" name="predefined-rejections" class="anchor"><span class="anchor-link"></span></a>Predefined Rejections</h2>
 <p>A rejection encapsulates a specific reason why a route was not able to handle a request. It is modeled as an object of type <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Rejection.html" title="akka.http.javadsl.server.Rejection"><code>Rejection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Rejection.html" title="akka.http.scaladsl.server.Rejection"><code>Rejection</code></a></span>. Akka HTTP comes with a set of <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Rejection.html" title="akka.http.scaladsl.server.Rejection"><code>predefined rejections</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Rejections.html" title="akka.http.javadsl.server.Rejections"><code>predefined rejections</code></a></span>, which are used by the many <a href="directives/alphabetically.html">predefined directives</a>.</p>
 <p>Rejections are gathered up over the course of a Route evaluation and finally converted to <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> replies by the <a href="directives/execution-directives/handleRejections.html">handleRejections</a> directive if there was no way for the request to be completed.</p>

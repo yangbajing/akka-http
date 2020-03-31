@@ -284,7 +284,7 @@ Version 10.1.11
           <li><a href="../../routing-dsl/directives/custom-directives.html#directives-from-scratch" class="header group-scala">Directives from Scratch</a></li>
         </ul></li>
       </ul></li>
-      <li><a href="../../routing-dsl/rejections.html" class="page">Rejections</a></li>
+      <li><a href="../../routing-dsl/rejections.html" class="page">拒绝</a></li>
       <li><a href="../../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
       <li><a href="../../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
       <li><a href="../../routing-dsl/source-streaming-support.html" class="page">Source Streaming</a></li>
@@ -361,7 +361,7 @@ Version 10.1.11
           <li><a href="../../routing-dsl/directives/custom-directives.html#directives-from-scratch" class="header group-scala">Directives from Scratch</a></li>
         </ul></li>
       </ul></li>
-      <li><a href="../../routing-dsl/rejections.html" class="page">Rejections</a></li>
+      <li><a href="../../routing-dsl/rejections.html" class="page">拒绝</a></li>
       <li><a href="../../routing-dsl/exception-handling.html" class="page">Exception Handling</a></li>
       <li><a href="../../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
       <li><a href="../../routing-dsl/source-streaming-support.html" class="page">Source Streaming</a></li>
@@ -396,14 +396,23 @@ Version 10.1.11
 <p>Part of the power of akka-http directives comes from the ease with which it’s possible to define custom directives at differing levels of abstraction.</p>
 <p>akka-http 指令的部分功能来自于轻松定义不同抽象级别的自定义指令的可能性。</p>
 <p>There are essentially three ways of creating custom directives:</p>
+<p>根本上，有三种方式创建自定义指令：</p>
 <ol>
   <li>By introducing new “labels” for configurations of existing directives</li>
   <li>By transforming existing directives</li>
   <li>By writing a directive “from scratch”</li>
 </ol>
+<ul>
+  <li>为现有指令的配置引入新的“标签” <em>（译注：比如通过组合的方式）</em></li>
+  <li>转换现有指令</li>
+  <li>“从头开始”写一个指令</li>
+</ul>
 <h2><a href="#configuration-labeling" name="configuration-labeling" class="anchor"><span class="anchor-link"></span></a>Configuration Labeling</h2>
+<p><strong>配置标签</strong></p>
 <p>The easiest way to create a custom directive is to simply assign a new name for a certain configuration of one or more existing directives. In fact, most of the predefined akka-http directives can be considered named configurations of more low-level directives.</p>
+<p>创建自定义指令最简便的方法就是将一个或多个已有指令通过配置的方式分配一个新的名字来定义。事实上Akka HTTP预定义的大多数指令都由以较低级别指令命名配置的方式来定义的。</p>
 <p>The basic technique is explained in the chapter about Composing Directives, where, for example, a new directive <code>getOrPut</code> is defined like this:</p>
+<p>基本技术就是本章里阐述的组合指令，使用：一个新的指令 <code>getOrPu</code> 像这样定义：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -431,6 +440,7 @@ public Route getOrPut(Supplier&lt;Route&gt; inner) {
 Route route = getOrPut(() -&gt; complete(&quot;ok&quot;));</code></pre></dd>
 </dl><div class="group-java">
 <p>Multiple directives can be nested to produce a single directive out of multiple like this:</p>
+<p>可以嵌套多个指令，以便生成这样的一个单个指令：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/CustomDirectivesExamplesTest.java#L28-L103" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.headerValueByName;
 
 // the composed custom directive
@@ -468,10 +478,14 @@ Route route = get(() -&gt;
     headerBasedAuth(authLogic, MyRole.ADMIN, () -&gt; complete(StatusCodes.OK, &quot;admin stuff&quot;))
   )
 );</code></pre></div>
-<p>Another example is the <a href="method-directives/index.html">MethodDirectives</a> which are simply instances of a preconfigured <a href="method-directives/method.html">method</a> directive. The low-level directives that most often form the basis of higher-level “named configuration” directives are grouped together in the <a href="basic-directives/index.html">BasicDirectives</a> trait.</p><div class="group-scala">
+<p>Another example is the <a href="method-directives/index.html">MethodDirectives</a> which are simply instances of a preconfigured <a href="method-directives/method.html">method</a> directive. The low-level directives that most often form the basis of higher-level “named configuration” directives are grouped together in the <a href="basic-directives/index.html">BasicDirectives</a> trait.</p>
+<p>另一个例子是 <a href="method-directives/index.html">MethodDirectives</a>，它只是预配置 <a href="method-directives/method.html">method</a> 指令的实例。 底级指令通常构造高级“命名配置”指令的基础，它们被分组在 <a href="basic-directives/index.html">BasicDirectives</a> 中。</p><div class="group-scala">
 <h2><a href="#transforming-directives" name="transforming-directives" class="anchor"><span class="anchor-link"></span></a>Transforming Directives</h2>
+<p><strong>转换指令</strong></p>
 <p>The second option for creating new directives is to transform an existing one using one of the “transformation methods”, which are defined on the <a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Directive.html" title="akka.http.scaladsl.server.Directive"><code>Directive</code></a> class, the base class of all “regular” directives.</p>
+<p>创建新指令的第二种选项是使用“转换方法”来转换现有指令，这些转换方法定义在 <a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Directive.html" title="akka.http.scaladsl.server.Directive"><code>Directive</code></a> 类上，<code>Directive</code> 是所有“常规”指令的基类。</p>
 <p>Apart from the combinator operators (<code>|</code> and <code>&amp;</code>) and the case-class extractor (<code>as[T]</code>) the following transformations are also defined on all <code>Directive</code> instances:</p>
+<p>除了组合器操作符（<code>|</code> 和 <code>&amp;</code>）和 case-class 提取器（<code>as[T]</code>），以下转换也定义在所有 <code>Directive</code> 实例上：</p>
 <blockquote>
   <ul>
     <li><a href="#map-tmap">map/tmap</a></li>
@@ -482,7 +496,9 @@ Route route = get(() -&gt;
 </blockquote>
 <a id="map-tmap"></a>
 <h3><a href="#map-and-tmap" name="map-and-tmap" class="anchor"><span class="anchor-link"></span></a>map and tmap</h3>
+<p><strong>map 和 tmap</strong></p>
 <p>If the Directive is a single-value <code>Directive</code>, the <code>map</code> method allows for simple transformations:</p>
+<p>如果指令是单值 <code>Directive</code>，<code>map</code> 方法允许用于简单转换：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L34-L43" target="_blank" title="Go to snippet source"></a><code class="language-scala">val textParam: Directive1[String] =
   parameter(&quot;text&quot;.as[String])
 
@@ -494,10 +510,13 @@ Get(&quot;/?text=abcdefg&quot;) ~&gt; lengthDirective(x =&gt; complete(x.toStrin
   responseAs[String] shouldEqual &quot;7&quot;
 }</code></pre>
 <p>One example of a predefined directive relying on <code>map</code> is the <a href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/directives/HeaderDirectives.scala#L104-L107">optionalHeaderValue</a> directive.</p>
+<p>依赖 <code>map</code> 的其中一个预定义指令例子是 <a href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/directives/HeaderDirectives.scala#L104-L107">optionalHeaderValue</a> 指令。</p>
 <p>The tmap modifier has this signature (somewhat simplified):</p>
+<p><code>tmap</code> 修改器有着这样的签名（进行了简化）：</p>
 <pre class="prettyprint"><code class="language-scala">def tmap[R](f: L =&gt; R): Directive[Out]
 </code></pre>
 <p>It can be used to transform the <code>Tuple</code> of extractions into another <code>Tuple</code>. The number and/or types of the extractions can be changed arbitrarily. For example if <code>R</code> is <code>Tuple2[A, B]</code> then the result will be a <code>Directive[(A, B)]</code>. Here is a somewhat contrived example:</p>
+<p>它可用于将提取的 <code>Tuple</code> 转换到另一个 <code>Tuple</code>。提取的数量和/或类型都可以任意改变。 例如，如果 <code>R</code> 是 <code>Tuple2[A, B]</code>，但结果是 <code>Directive[(A, B)]</code>。这里是一个有点做作的例子：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L49-L60" target="_blank" title="Go to snippet source"></a><code class="language-scala">val twoIntParameters: Directive[(Int, Int)] =
   parameters((&quot;a&quot;.as[Int], &quot;b&quot;.as[Int]))
 
@@ -512,12 +531,17 @@ Get(&quot;/?a=2&amp;b=5&quot;) ~&gt; myDirective(x =&gt; complete(x)) ~&gt; chec
 }</code></pre>
 <a id="flatmap-tflatmap"></a>
 <h3><a href="#flatmap-and-tflatmap" name="flatmap-and-tflatmap" class="anchor"><span class="anchor-link"></span></a>flatMap and tflatMap</h3>
+<p><strong>flatMap 和 tflatMap</strong></p>
 <p>With map and tmap you can transform the values a directive extracts but you cannot change the “extracting” nature of the directive. For example, if you have a directive extracting an <code>Int</code> you can use map to turn it into a directive that extracts that <code>Int</code> and doubles it, but you cannot transform it into a directive, that doubles all positive <code>Int</code> values and rejects all others.</p>
+<p>通过map、tmap可以将指令提取的值转换成其它值，但不能改变其“提取”指令的性质。 例如：如果你有一个提取 <code>Int</code> 值的指令，你可以使用 <code>map</code> 将其转换为一个提取 <code>Int</code> 并将它加倍的指令， 但是，你不能将它转换为将所有正数 <code>Int</code> 值加倍并拒绝其它的指令。</p>
 <p>In order to do the latter you need <code>flatMap</code> or <code>tflatMap</code>. The <code>tflatMap</code> modifier has this signature:</p>
+<p>为了实现后者，你需要 <code>flatMap</code> 或 <code>tflatMap</code>。<code>tflatMap</code> 修改器有这样的签名：</p>
 <pre class="prettyprint"><code class="language-scala">def tflatMap[R: Tuple](f: L =&gt; Directive[R]): Directive[R]
 </code></pre>
 <p>The given function produces a new directive depending on the Tuple of extractions of the underlying one. As in the case of <a href="#map-tmap">map/tmap</a> there is also a single-value variant called <code>flatMap</code>, which simplifies the operation for Directives only extracting one single value.</p>
+<p>给定的函数根据底层函数的提取元组（值）生成一个新的指令。与 <a href="#map-tmap">map/tmap</a> 的情况一个，也有一个名为 <code>flatMap</code> 的单值变体， 它简化了指令只提取一个单值的操作。</p>
 <p>Here is the (contrived) example from above, which doubles positive Int values and rejects all others:</p>
+<p>这里是上面的（做作的）例子，它加倍正数 Int 值并拒绝其它：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L86-L100" target="_blank" title="Go to snippet source"></a><code class="language-scala">val intParameter: Directive1[Int] = parameter(&quot;a&quot;.as[Int])
 
 val myDirective: Directive1[Int] =
@@ -534,19 +558,25 @@ Get(&quot;/?a=-18&quot;) ~&gt; myDirective(i =&gt; complete(i.toString)) ~&gt; c
   handled shouldEqual false
 }</code></pre>
 <p>A common pattern that relies on flatMap is to first extract a value from the RequestContext with the extract directive and then flatMap with some kind of filtering logic. For example, this is the implementation of the method directive:</p>
+<p>依赖 <code>flatMap</code> 的一种常用模式是，先使用提取指令从 <code>RequestContext</code> 提取一个值，然后使用某种过滤逻辑在 <code>flatMap</code> 中提取值。 例如：这是 <code>method</code> 指令的实现：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/directives/MethodDirectives.scala#L83-L87" target="_blank" title="Go to snippet source"></a><code class="language-scala">def method(httpMethod: HttpMethod): Directive0 =
   extractMethod.flatMap[Unit] {
     case `httpMethod` =&gt; pass
     case _            =&gt; reject(MethodRejection(httpMethod))
   } &amp; cancelRejections(classOf[MethodRejection])</code></pre>
 <p>The explicit type parameter <code>[Unit]</code> on the flatMap is needed in this case because the result of the flatMap is directly concatenated with the <code>cancelAllRejections</code> directive, thereby preventing “outside-in” inference of the type parameter value.</p>
+<p><code>flatMap</code> 上的显示类型参数 <code>[Unit]</code> 在这种情况下是需要的，因为 <code>flatMap</code> 的结果直接连接到 <code>cancelAllRejections</code> 指令，这样能防止类型参数值的“从外向里”推理。*（译注：避免自动推导出错误的类型）*</p>
 <a id="require-trequire"></a>
 <h3><a href="#require-and-trequire" name="require-and-trequire" class="anchor"><span class="anchor-link"></span></a>require and trequire</h3>
+<p><strong>require 和 trequire</strong></p>
 <p>The require modifier transforms a single-extraction directive into a directive without extractions, which filters the requests according the a predicate function. All requests, for which the predicate is false are rejected, all others pass unchanged.</p>
+<p><code>require</code> 修改器将单提取指令转换为没有提取的指令，该指令根据谓词函数过滤请求。谓词为false的请求都被拒绝，其它请求保持不变。</p>
 <p>The signature of require is this:</p>
+<p><code>require</code> 的签名是这样：</p>
 <pre class="prettyprint"><code class="language-scala">def require(predicate: T =&gt; Boolean, rejections: Rejection*): Directive0
 </code></pre>
 <p>One example of a predefined directive relying on require is the first overload of the host directive:</p>
+<p>依赖 <code>require</code> 的预定义指令的一个例子是 <code>host</code> 指令的第一个重载版本：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/directives/HostDirectives.scala#L34-L39" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
  * Rejects all requests for whose host name the given predicate function returns false.
  *
@@ -554,27 +584,38 @@ Get(&quot;/?a=-18&quot;) ~&gt; myDirective(i =&gt; complete(i.toString)) ~&gt; c
  */
 def host(predicate: String =&gt; Boolean): Directive0 = extractHost.require(predicate)</code></pre>
 <p>You can only call require on single-extraction directives. The trequire modifier is the more general variant, which takes a predicate of type <code>Tuple =&gt; Boolean</code>. It can therefore also be used on directives with several extractions.</p>
+<p>只能在单提取指令上调用 <code>require</code>。<code>trequire</code> 修改器是更通用的变体，它接受一个 <code>Tuple =&gt; Boolean</code> 类型的谓词。 因此，它可以用于具有多个提取（值）的指令。</p>
 <a id="recover-recoverpf"></a>
 <h3><a href="#recover-and-recoverpf" name="recover-and-recoverpf" class="anchor"><span class="anchor-link"></span></a>recover and recoverPF</h3>
+<p><strong>recover 和 recoverPF</strong></p>
 <p>The <code>recover</code> modifier allows you “catch” rejections produced by the underlying directive and, instead of rejecting, produce an alternative directive with the same type(s) of extractions.</p>
+<p><code>recover</code> 修改器允许“捕获”由底层指令成生的拒绝，并生成具有相同提取类型的替代指令。</p>
 <p>The signature of recover is this:</p>
+<p><code>recover</code> 的签名是这样：</p>
 <pre class="prettyprint"><code class="language-scala">def recover[R &gt;: L: Tuple](recovery: Seq[Rejection] =&gt; Directive[R]): Directive[R] =
 </code></pre>
 <p>In many cases the very similar <code>recoverPF</code> modifier might be little bit easier to use since it doesn’t require the handling of all rejections:</p>
+<p>在许多情况下，非常类似的 <code>recoverPF</code> 修改器也许可易使用，因为它不需要处理所有拒绝：</p>
 <pre class="prettyprint"><code class="language-scala">def recoverPF[R &gt;: L: Tuple](
   recovery: PartialFunction[Seq[Rejection], Directive[R]]): Directive[R]
 </code></pre>
 <p>One example of a predefined directive relying <code>recoverPF</code> is the <code>optionalHeaderValue</code> directive:</p>
+<p>依赖 <code>recoverPF</code> 的预定义指令的一个例子是 <code>optionalHeaderValue</code> 指令：</p>
 <pre class="prettyprint"><code class="language-scala">def optionalHeaderValue[T](f: HttpHeader =&gt; Option[T]): Directive1[Option[T]]</code></pre>
 <h3><a href="#collect-and-tcollect" name="collect-and-tcollect" class="anchor"><span class="anchor-link"></span></a>collect and tcollect</h3>
+<p><strong>collect 和 tcollect</strong></p>
 <p>With collect and tcollect you can filter and map in one go, it mimics the collect known from the regular Scala collections.</p>
+<p>使用 <code>collect</code> 和 <code>tcollect</code> 可以（对提取）一次性过虑和映射，它模拟了常规 Scala 集合中已知 <code>collect</code>（的行为）。</p>
 <p>Here is an example, first via map and filter and finally using collect:</p>
+<p>这里是一个示例，首先通过 <code>filter</code> 和 <code>map</code>，最后使用 <code>collect</code>：</p>
 <pre><code>parameter(&quot;a&quot;.as[Int]).filter(x =&gt; x != 0, MissingQueryParamRejection(&quot;a&quot;)).map(x =&gt; 42 / x)
 
 parameter(&quot;a&quot;.as[Int]).collect({ case x if x != 0 =&gt; 42 / x }, MissingQueryParamRejection(&quot;a&quot;))
 </code></pre>
 <h2><a href="#directives-from-scratch" name="directives-from-scratch" class="anchor"><span class="anchor-link"></span></a>Directives from Scratch</h2>
+<p><strong>从头开始实现指令</strong></p>
 <p>The third option for creating custom directives is to do it “from scratch”, either by using <code>Directive.apply</code> or by subclassing <code>Directive</code> class directly. The <code>Directive</code> is defined like this (leaving away operators and modifiers):</p>
+<p>创建自定义指令的第三个选项是“从头开始”做起，直接使用 <code>Directive.apply</code> 或 <code>Directive</code> 的子类。<code>Directive</code> 的定义像这样（去掉了操作符和修改器）：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/Directive.scala#L20-L123" target="_blank" title="Go to snippet source"></a><code class="language-scala">abstract class Directive[L](implicit val ev: Tuple[L]) {
 
   /**
@@ -586,14 +627,19 @@ parameter(&quot;a&quot;.as[Int]).collect({ case x if x != 0 =&gt; 42 / x }, Miss
   def tapply(f: L =&gt; Route): Route
 }</code></pre>
 <p>It only has one abstract member that you need to implement, the <code>tapply</code> method, which creates the Route the directives presents to the outside from its inner Route building function (taking the extractions as parameters).</p>
+<p><code>Directive</code> 只有一个抽象成员 <code>tapply</code> 方法需要实现，该方法从内部路由构建函数（将提取的值作为参数）创建指令呈现给外部的路由。</p>
 <p>Extractions are kept as a Tuple. Here are a few examples:</p>
+<p>提取（值）保持为元组。这里是一些示例：</p>
 <p>A <code>Directive[Unit]</code> extracts nothing (like the get directive). Because this type is used quite frequently akka-http defines a type alias for it:</p>
+<p><code>Directive[Unit]</code> 什么也不提取（就像 <code>get</code> 指令）。因为该类型使用太频繁，akka-http 为它定义了一个类型别名：</p>
 <pre class="prettyprint"><code class="language-scala">type Directive0 = Directive[Unit]
 </code></pre>
 <p>A <code>Directive[(String)]</code> extracts one String value (like the hostName directive). The type alias for it is:</p>
+<p><code>Directive[(String)]</code> 提取一个字符串值（就像 <code>hostName</code> 指令）。它的类型别名是：</p>
 <pre class="prettyprint"><code class="language-scala">type Directive1[T] = Directive[Tuple1[T]]
 </code></pre>
 <p>A <code>Directive[(String, Int)]</code> extracts a <code>String</code> value and an <code>Int</code> value (like a <code>parameters(&#39;a.as[String], &#39;b.as[Int])</code> directive). Such a directive can be defined to extract the hostname and port of a request:</p>
+<p><code>Directive[(String, Int)]</code> 提取一个 <code>String</code> 值和一个 <code>Int</code> 值（就像 <code>parameters(&#39;a.as[String], &#39;b.as[Int])</code> 指令）。 因此，指令可用于定义提取请求的主机名和端口。</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L106-L119" target="_blank" title="Go to snippet source"></a><code class="language-scala">def hostnameAndPort: Directive[(String, Int)] = Directive[(String, Int)] { inner =&gt; ctx =&gt;
   val authority = ctx.request.uri.authority
   inner((authority.host.address(), authority.port))(ctx)
@@ -609,6 +655,7 @@ Get() ~&gt; Host(&quot;akka.io&quot;, 8080) ~&gt; route ~&gt; check {
   responseAs[String] shouldEqual &quot;The hostname is akka.io and the port is 8080&quot;
 }</code></pre>
 <p>Beside using <code>Directive.apply</code>, you can also extending <code>Directive</code> directly(This is actually uncommon and the first is preferable for common use cases):</p>
+<p>除了使用 <code>Directive.apply</code>，你也可以直接扩展 <code>Directive</code>（这实际上不常见，对于常见用例第一种更为可取）。</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L125-L140" target="_blank" title="Go to snippet source"></a><code class="language-scala">object hostnameAndPort extends Directive[(String, Int)] {
   override def tapply(f: ((String, Int)) =&gt; Route): Route = { ctx =&gt;
     val authority = ctx.request.uri.authority
@@ -625,7 +672,8 @@ Get() ~&gt; Host(&quot;akka.io&quot;, 8080) ~&gt; route ~&gt; check {
   status shouldEqual OK
   responseAs[String] shouldEqual &quot;The hostname is akka.io and the port is 8080&quot;
 }</code></pre>
-<p>Keeping extractions as <code>Tuples</code> has a lot of advantages, mainly great flexibility while upholding full type safety and “inferability”. However, the number of times where you’ll really have to fall back to defining a directive from scratch should be very small. In fact, if you find yourself in a position where a “from scratch” directive is your only option, we’d like to hear about it, so we can provide a higher-level “something” for other users.</p></div>
+<p>Keeping extractions as <code>Tuples</code> has a lot of advantages, mainly great flexibility while upholding full type safety and “inferability”. However, the number of times where you’ll really have to fall back to defining a directive from scratch should be very small. In fact, if you find yourself in a position where a “from scratch” directive is your only option, we’d like to hear about it, so we can provide a higher-level “something” for other users.</p>
+<p>保持提取值为 <code>Tuples</code> 具有很多优点，主要是在支持完整类型安全性和“可推断性”的同时具有很大的灵活性。 但是，真正有回退到从头开始定义自定义指令的次数是很少的。事实上，如果你发现自己处于一个“从头开始”定义指令是唯一选项的地步，我们想听到它， 所以我们可以为其他用户提供更高级的”东西“（指令） <em>（译注：希望大家能提出想要的或贡献自己的指令）</em>。</p></div>
 </div>
 </article>
 <div class="row">
@@ -635,7 +683,7 @@ Get() ~&gt; Host(&quot;akka.io&quot;, 8080) ~&gt; route ~&gt; check {
 <a href="../../routing-dsl/directives/timeout-directives/withRequestTimeoutResponse.html"><i class="icon-prev"></i> <span class="link-prev">withRequestTimeoutResponse</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../../routing-dsl/rejections.html">Rejections <i class="icon-next"></i></a>
+<a class="float-right" href="../../routing-dsl/rejections.html">拒绝 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
