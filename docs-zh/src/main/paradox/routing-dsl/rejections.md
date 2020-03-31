@@ -1,9 +1,15 @@
-# Rejections
+<a id="rejections"></a>
+# 拒绝
+*Rejections*
 
 In the chapter about constructing @ref[Routes](routes.md) the @scala[`~` operator]@java[`RouteDirectives.route()` method] was introduced, which connects two or more routes in a way
 that allows the next specified route to get a go at a request if the first route "rejected" it. The concept of "rejections" is
 used by Akka HTTP for maintaining a more functional overall architecture and in order to be able to properly
 handle all kinds of error scenarios.
+
+在关于构建 @ref[路由](routes.md) 的章节中介绍了 @scala[`~` 操作符]@java[`RouteDirectives.route()` 方法] ，
+它们是连接两个或更多路由的方法，这样允许请求在第一个路由“拒绝”它时到达下一个指定的路由。
+Akka HTTP 使用“拒绝”的概念来维护更具有功能性的整体架构，并能够正确的处理各种错误场景。
 
 When a filtering directive, like the @ref[get](directives/method-directives/get.md) directive, cannot let the request pass through to its inner route because
 the filter condition is not satisfied (e.g. because the incoming request is not a GET request) the directive doesn't
@@ -11,13 +17,23 @@ immediately complete the request with an error response. Doing so would make it 
 after the failing filter to get a chance to handle the request.
 Rather, failing filters "reject" the request in the same way as by explicitly calling `requestContext.reject(...)`.
 
+当过滤指令（就像 @ref[get](directives/method-directives/get.md) 指令）不能让请求通过它的内部路由时，
+因为不满足过滤条件（例如：因为传入请求不是一个 GET 请求），该指令不会使用一个错误响应立即完成请求。
+这样做将使链接的其它路由在过滤失败后无法获得处理请求的机会 *（译注：这里指如果直接以错误响应回复请求的话）*。
+某种程度上，“reject”请求与显示调用 `requestContext.reject(...)` 的方式一样。
+
 After having been rejected by a route the request will continue to flow through the routing structure and possibly find
 another route that can complete it. If there are more rejections all of them will be picked up and collected.
+
+被一个路由拒绝后，请求将继续流径路由结构，并可能找到另一个可以完成它的路由。如果有更多的拒绝，它们所有都将被收集起来。
 
 If the request cannot be completed by (a branch of) the route structure an enclosing @ref[handleRejections](directives/execution-directives/handleRejections.md) directive
 can be used to convert a set of rejections into an @apidoc[HttpResponse] - which typically would be an error response.
 `Route.seal()` internally wraps its argument route with the @ref[handleRejections](directives/execution-directives/handleRejections.md) directive in order to "catch"
 and handle any rejection.
+
+如果通过路由结构（分支）无法完成请求，则一个（把所有路由）围起来的 @ref[handleRejections](directives/execution-directives/handleRejections.md)
+指令可用于将一系列的拒绝转换为 @apidoc[HttpResponse] - 这通常是一个错误响应。
 
 ## Predefined Rejections
 
