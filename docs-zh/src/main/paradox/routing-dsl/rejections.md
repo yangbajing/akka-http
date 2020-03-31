@@ -199,7 +199,7 @@ In the first case your handler will be "sealed" (which means that it will receiv
 all cases your handler doesn't handle itself) and used for all rejections that are not handled within the route structure
 itself.
 
-在第一种情况，你的处理程序将被“密封”（这意味着它将接收默认处理程序，作为你的处理程序不能处理的所有情况的回退），并且用于路由结构自身没有处理所有拒绝。
+在第一种情况，你的处理程序将被“密封”（这意味着它将接收默认处理程序，作为你的处理程序不能处理的所有情况的回退），并且用于路由结构自身没有处理的所有拒绝。
 
 The second case allows you to restrict the applicability of your handler to certain branches of your route structure.
 
