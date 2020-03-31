@@ -1,4 +1,5 @@
-# Predefined Directives (by trait)
+# 预定义指令（按 trait 排序）
+*Predefined Directives (by trait)*
 
 All predefined directives are organized into traits that form one part of the overarching @apidoc[Directives] trait.
 
