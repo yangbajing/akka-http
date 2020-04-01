@@ -275,8 +275,8 @@ Version 10.1.11
         <li><a href="../routing-dsl/exception-handling.html#including-sensitive-data-in-exceptions" class="header">Including sensitive data in exceptions</a></li>
         <li><a href="../routing-dsl/exception-handling.html#respond-with-headers-and-exception-handler" class="header">Respond with headers and Exception Handler</a></li>
       </ul></li>
-      <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
-      <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source Streaming</a></li>
+      <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class 提取</a></li>
+      <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source 数据流</a></li>
       <li><a href="../routing-dsl/testkit.html" class="page">Route TestKit</a></li>
       <li><a href="../routing-dsl/HttpApp.html" class="page">HttpApp Bootstrap</a></li>
     </ul></li>
@@ -341,8 +341,8 @@ Version 10.1.11
         <li><a href="../routing-dsl/exception-handling.html#including-sensitive-data-in-exceptions" class="header">Including sensitive data in exceptions</a></li>
         <li><a href="../routing-dsl/exception-handling.html#respond-with-headers-and-exception-handler" class="header">Respond with headers and Exception Handler</a></li>
       </ul></li>
-      <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
-      <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source Streaming</a></li>
+      <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class 提取</a></li>
+      <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source 数据流</a></li>
       <li><a href="../routing-dsl/testkit.html" class="page">Route TestKit</a></li>
       <li><a href="../routing-dsl/HttpApp.html" class="page">HttpApp Bootstrap</a></li>
     </ul></li>
@@ -375,7 +375,7 @@ Version 10.1.11
 <p>Exceptions thrown during route execution bubble up through the route structure to the next enclosing <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> directive or the top of your route structure.</p>
 <p>在路由执行期间被抛出的异常通过路由结构向上冒泡到下一个围住的 <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> 指令或路由结构的顶部。</p>
 <p>Similarly to the way that <a href="rejections.html">Rejections</a> are handled the <a href="directives/execution-directives/handleExceptions.html">handleExceptions</a> directive delegates the actual job of converting an exception to its argument, an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala">, which is defined like this:</span><span class="group-java">.</span></p>
-<p>类似于 <a href="rejections.html">描绘</a> 的处理方式， <a href="directives/execution-directives/handleRejections.html">handleExceptions</a> 指令将转换异常的实际工作委托给它的参数， 一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala">，它的定义像这样：</span><span class="group-java">。</span></p><div class="group-scala">
+<p>类似于 <a href="rejections.html">拒绝</a> 的处理方式， <a href="directives/execution-directives/handleRejections.html">handleExceptions</a> 指令将转换异常的实际工作委托给它的参数， 一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala">，它的定义像这样：</span><span class="group-java">。</span></p><div class="group-scala">
 <pre class="prettyprint"><code class="language-scala">trait ExceptionHandler extends PartialFunction[Throwable, Route]
 </code></pre></div>
 <p>Since an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ExceptionHandler.html" title="akka.http.javadsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ExceptionHandler.html" title="akka.http.scaladsl.server.ExceptionHandler"><code>ExceptionHandler</code></a></span> is a partial function, it can choose which exceptions it would like to handle and which not. Unhandled exceptions will simply continue to bubble up in the route structure. At the root of the route tree any still unhandled exception will be dealt with by the top-level handler which always handles <em>all</em> exceptions.</p>
@@ -737,7 +737,7 @@ class RespondWithHeaderHandlerExample extends AllDirectives {
 <a href="../routing-dsl/rejections.html"><i class="icon-prev"></i> <span class="link-prev">拒绝</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../routing-dsl/case-class-extraction.html">Case Class Extraction <i class="icon-next"></i></a>
+<a class="float-right" href="../routing-dsl/case-class-extraction.html">Case Class 提取 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

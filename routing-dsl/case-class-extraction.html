@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Case Class Extraction &bull; Akka HTTP Chinese edition</title>
+<title>Case Class 提取 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -270,11 +270,11 @@ Version 10.1.11
       <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">拒绝</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">异常处理</a></li>
-      <li><a href="../routing-dsl/case-class-extraction.html#case-class-extraction" class="active page group-scala">Case Class Extraction</a>
+      <li><a href="../routing-dsl/case-class-extraction.html#case-class-提取" class="active page group-scala">Case Class 提取</a>
       <ul>
         <li><a href="../routing-dsl/case-class-extraction.html#case-class-validation" class="header group-scala">Case Class Validation</a></li>
       </ul></li>
-      <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source Streaming</a></li>
+      <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source 数据流</a></li>
       <li><a href="../routing-dsl/testkit.html" class="page">Route TestKit</a></li>
       <li><a href="../routing-dsl/HttpApp.html" class="page">HttpApp Bootstrap</a></li>
     </ul></li>
@@ -334,11 +334,11 @@ Version 10.1.11
       <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">拒绝</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">异常处理</a></li>
-      <li><a href="../routing-dsl/case-class-extraction.html#case-class-extraction" class="active page group-scala">Case Class Extraction</a>
+      <li><a href="../routing-dsl/case-class-extraction.html#case-class-提取" class="active page group-scala">Case Class 提取</a>
       <ul>
         <li><a href="../routing-dsl/case-class-extraction.html#case-class-validation" class="header group-scala">Case Class Validation</a></li>
       </ul></li>
-      <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source Streaming</a></li>
+      <li><a href="../routing-dsl/source-streaming-support.html" class="page">Source 数据流</a></li>
       <li><a href="../routing-dsl/testkit.html" class="page">Route TestKit</a></li>
       <li><a href="../routing-dsl/HttpApp.html" class="page">HttpApp Bootstrap</a></li>
     </ul></li>
@@ -366,9 +366,12 @@ Version 10.1.11
 <article class="page-content row">
 <div class="small-12 column" id="docs">
 <div class="group-java">
-<p>This section is only relevant when using the Scala API</p></div><div class="group-scala">
-<h1><a href="#case-class-extraction" name="case-class-extraction" class="anchor"><span class="anchor-link"></span></a>Case Class Extraction</h1>
+<p>This section is only relevant when using the Scala API</p>
+<p>本部分只在使用 Scala API 时相关</p></div><div class="group-scala">
+<h1><a href="#case-class-提取" name="case-class-提取" class="anchor"><span class="anchor-link"></span></a>Case Class 提取</h1>
+<p><strong>Case Class Extraction</strong></p>
 <p>The value extraction performed by <a href="directives/index.html">Directives</a> is a nice way of providing your route logic with interesting request properties, all with proper type-safety and error handling. However, in some case you might want even more. Consider this example:</p>
+<p>通过 <a href="directives/index.html">Directives</a> 执行的值提取是为你的路由逻辑提供为感兴趣的请求属性的一种好方法，所以这些属性都具有合适的类型-安全性和错误处理。 但是，有些情况下，你可能会想更多。举个例子：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L21-L30" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(red: Int, green: Int, blue: Int)
 
 val route =
@@ -379,7 +382,9 @@ val route =
     }
   }</code></pre>
 <p>Here the <a href="directives/parameter-directives/parameters.html">parameters</a> directives is employed to extract three <code>Int</code> values, which are then used to construct an instance of the <code>Color</code> case class. So far so good. However, if the model classes we&rsquo;d like to work with have more than just a few parameters the overhead introduced by capturing the arguments as extractions only to feed them into the model class constructor directly afterwards can somewhat clutter up your route definitions.</p>
+<p>这里，<code>parameters</code> 指令用于提取三个 <code>Int</code> 值，然后这三个值用于构造 <code>Color</code> case 类的实例。到目前为止还不错。 但是，如果我们想要处理的模型类不止有几个参数，那么捕获作为提取的参数并将其直接提供给模型类构造函数所带来的开销，可能你的路由定义有些混乱。</p>
 <p>If your model classes are case classes, as in our example, Akka HTTP supports an even shorter and more concise syntax. You can also write the example above like this:</p>
+<p>如果你的模型类是 case 类，在我们的例子中，Akka HTTP 支持一种更短且更简洁的语法。也可以像这样写上面的例子：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L37-L45" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(red: Int, green: Int, blue: Int)
 
 val route =
@@ -389,7 +394,9 @@ val route =
     }
   }</code></pre>
 <p>You can postfix any directive with extractions with an <code>as(...)</code> call. By simply passing the companion object of your model case class to the <code>as</code> modifier method the underlying directive is transformed into an equivalent one, which extracts only one value of the type of your model class. Note that there is no reflection involved and your case class does not have to implement any special interfaces. The only requirement is that the directive you attach the <code>as</code> call to produces the right number of extractions, with the right types and in the right order.</p>
+<p>你可以使用 <code>as(...)</code> 调用为任何带有提取的指令添加后缀。通过简单的传递模型 case 类的伴身对象到 <code>as</code> 修改器方法，将底层指令转换为等效的指令， 该指令只提取模型类类型的一个值。注意，这里没有反射参与并且你的 case 类没有实现任何特定接口。唯一的要求是，附加的指令 <code>as</code> 调用生成正确的提取数量， 具有正确的类型和正确的顺序。</p>
 <p>If you&rsquo;d like to construct a case class instance from extractions produced by <em>several</em> directives you can first join the directives with the <code>&amp;</code> operator before using the <code>as</code> call:</p>
+<p>如果要从 <em>几个</em> 指令生成的提取构造 case 类实例，可以先使用 <code>&amp;</code> 操作符连接指令，再使用 <code>as</code> 调用：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L52-L59" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(name: String, red: Int, green: Int, blue: Int)
 
 val route =
@@ -398,18 +405,25 @@ val route =
       // ... route working with the `color` instance
     }</code></pre>
 <p>Here the <code>Color</code> class has gotten another member, <code>name</code>, which is supplied not as a parameter but as a path element. By joining the <code>path</code> and <code>parameters</code> directives with <code>&amp;</code> you create a directive extracting 4 values, which directly fit the member list of the <code>Color</code> case class. Therefore you can use the <code>as</code> modifier to convert the directive into one extracting only a single <code>Color</code> instance.</p>
-<p>Generally, when you have routes that work with, say, more than 3 extractions it&rsquo;s a good idea to introduce a case class for these and resort to case class extraction. Especially since it supports another nice feature: validation.</p><div class="callout warning "><div class="callout-title">Caution</div>
-<p>There is one quirk to look out for when using case class extraction: If you create an explicit companion object for your case class, no matter whether you actually add any members to it or not, the syntax presented above will not (quite) work anymore. Instead of <code>as(Color)</code> you will then have to say <code>as(Color.apply)</code>. This behavior appears as if it&rsquo;s not really intended, so this might be improved in future Scala versions.</p></div>
+<p>这里 <code>Color</code> 类有另一个成员：<code>name</code>，它不作为（查询）参数而是作为路径元素提供。通过将 <code>path</code> 和 <code>parameters</code> 指令与 <code>&amp;</code> 连接起来，创建一个提取 4 个值的指令， 这些值直接贴合 <code>Color</code> case 类的成员列表。因此，可以使用 <code>as</code> 修改器将指令转换为提取单个 <code>Color</code> 实例的指令。</p>
+<p>Generally, when you have routes that work with, say, more than 3 extractions it&rsquo;s a good idea to introduce a case class for these and resort to case class extraction. Especially since it supports another nice feature: validation.</p>
+<p>一般来说，当你有处理超过 3 个提取的路由时，最好引入 case 类并使用 case 类提取。特别是它支持另一个很好的特性：验证。</p><div class="callout warning "><div class="callout-title">Caution</div>
+<p>There is one quirk to look out for when using case class extraction: If you create an explicit companion object for your case class, no matter whether you actually add any members to it or not, the syntax presented above will not (quite) work anymore. Instead of <code>as(Color)</code> you will then have to say <code>as(Color.apply)</code>. This behavior appears as if it&rsquo;s not really intended, so this might be improved in future Scala versions.</p>
+<p>当使用 case 类提取时有一个奇怪的地方需要留意：如果为 case 类创建一个显示的伴身对象，不管是否真的添加了任何成员，上面的语法将再也不能（完全）工作。 作为 <code>as(Color)</code> 的替代，不得不用 <code>as(Color.apply)</code>。这种行为似乎不是真实想要的，所以，在未来的 Scala 版本可能会改进。</p></div>
 <h2><a href="#case-class-validation" name="case-class-validation" class="anchor"><span class="anchor-link"></span></a>Case Class Validation</h2>
+<p><strong>Case 类验证</strong></p>
 <p>In many cases your web service needs to verify input parameters according to some logic before actually working with them. E.g. in the example above the restriction might be that all color component values must be between 0 and 255. You could get this done with a few <a href="directives/misc-directives/validate.html">validate</a> directives but this would quickly become cumbersome and hard to read.</p>
+<p>在很多情况下，你的 Web 服务在实际使用输入参数以前需要根据某些逻辑验证它们。例如：在上面的例子中，可以限制所有颜色分量值必须在 0 到 255 之间。<br/>可以使用一些 <a href="directives/misc-directives/validate.html">validate</a> 指令完成这项工作，但是这将很快变得繁琐且难以阅读。</p>
 <p>If you use case class extraction you can put the verification logic into the constructor of your case class, where it should be:</p>
+<p>如果使用 case 类提供，可以将验证逻辑放入 case 类的构造器里，它应该在：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L65-L70" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(name: String, red: Int, green: Int, blue: Int) {
   require(!name.isEmpty, &quot;color name must not be empty&quot;)
   require(0 &lt;= red &amp;&amp; red &lt;= 255, &quot;red color component must be between 0 and 255&quot;)
   require(0 &lt;= green &amp;&amp; green &lt;= 255, &quot;green color component must be between 0 and 255&quot;)
   require(0 &lt;= blue &amp;&amp; blue &lt;= 255, &quot;blue color component must be between 0 and 255&quot;)
 }</code></pre>
-<p>If you write your validations like this Akka HTTP&rsquo;s case class extraction logic will properly pick up all error messages and generate a <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ValidationRejection.html" title="akka.http.javadsl.server.ValidationRejection"><code>ValidationRejection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ValidationRejection.html" title="akka.http.scaladsl.server.ValidationRejection"><code>ValidationRejection</code></a></span> if something goes wrong. By default, <code>ValidationRejections</code> are converted into <code>400 Bad Request</code> error response by the default <a href="rejections.html#the-rejectionhandler">RejectionHandler</a>, if no subsequent route successfully handles the request.</p></div>
+<p>If you write your validations like this Akka HTTP&rsquo;s case class extraction logic will properly pick up all error messages and generate a <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ValidationRejection.html" title="akka.http.javadsl.server.ValidationRejection"><code>ValidationRejection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ValidationRejection.html" title="akka.http.scaladsl.server.ValidationRejection"><code>ValidationRejection</code></a></span> if something goes wrong. By default, <code>ValidationRejections</code> are converted into <code>400 Bad Request</code> error response by the default <a href="rejections.html#the-rejectionhandler">RejectionHandler</a>, if no subsequent route successfully handles the request.</p>
+<p>如果像这样编写验证，如果出了什么问题，Akka HTTP 的 case 类提取逻辑将正确的获取所有错误消息并生成 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/ValidationRejection.html" title="akka.http.javadsl.server.ValidationRejection"><code>ValidationRejection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/ValidationRejection.html" title="akka.http.scaladsl.server.ValidationRejection"><code>ValidationRejection</code></a></span> 。 默认，如果没有后续路由成功处理请求，<code>ValidationRejections</code> 将被默认 <a href="rejections.html#the-rejectionhandler">RejectionHandler</a> 转换为 <code>400 Bad Request</code> 错误响应。</p></div>
 </div>
 </article>
 <div class="row">
@@ -419,7 +433,7 @@ val route =
 <a href="../routing-dsl/exception-handling.html"><i class="icon-prev"></i> <span class="link-prev">异常处理</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../routing-dsl/source-streaming-support.html">Source Streaming <i class="icon-next"></i></a>
+<a class="float-right" href="../routing-dsl/source-streaming-support.html">Source 数据流 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

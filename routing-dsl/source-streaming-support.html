@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Source Streaming &bull; Akka HTTP Chinese edition</title>
+<title>Source 数据流 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -270,8 +270,8 @@ Version 10.1.11
       <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">拒绝</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">异常处理</a></li>
-      <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
-      <li><a href="../routing-dsl/source-streaming-support.html#source-streaming" class="active page">Source Streaming</a>
+      <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class 提取</a></li>
+      <li><a href="../routing-dsl/source-streaming-support.html#source-数据流" class="active page">Source 数据流</a>
       <ul>
         <li><a href="../routing-dsl/source-streaming-support.html#json-streaming" class="header">JSON Streaming</a></li>
       </ul></li>
@@ -334,8 +334,8 @@ Version 10.1.11
       <li><a href="../routing-dsl/directives/index.html" class="page">指令</a></li>
       <li><a href="../routing-dsl/rejections.html" class="page">拒绝</a></li>
       <li><a href="../routing-dsl/exception-handling.html" class="page">异常处理</a></li>
-      <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class Extraction</a></li>
-      <li><a href="../routing-dsl/source-streaming-support.html#source-streaming" class="active page">Source Streaming</a>
+      <li><a href="../routing-dsl/case-class-extraction.html" class="page group-scala">Case Class 提取</a></li>
+      <li><a href="../routing-dsl/source-streaming-support.html#source-数据流" class="active page">Source 数据流</a>
       <ul>
         <li><a href="../routing-dsl/source-streaming-support.html#json-streaming" class="header">JSON Streaming</a></li>
       </ul></li>
@@ -365,13 +365,20 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#source-streaming" name="source-streaming" class="anchor"><span class="anchor-link"></span></a>Source Streaming</h1>
+<h1><a href="#source-数据流" name="source-数据流" class="anchor"><span class="anchor-link"></span></a>Source 数据流</h1>
+<p><em>Source Streaming</em></p>
 <p>Akka HTTP supports completing a request with an Akka <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;T, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[T, _]</code></a></span>, which makes it possible to easily build and consume streaming end-to-end APIs which apply back pressure throughout the entire stack.</p>
+<p>Akka HTTP 支持使用 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;T, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[T, _]</code></a></span> 完成请求，这使得轻松构建和使用流式端到端 API 成为可能，该 API 在整个栈中处处应用回压。</p>
 <p>It is possible to complete requests with raw <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;ByteString, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[ByteString, _]</code></a></span>, however often it is more convenient to stream on an element-by-element basis, and allow Akka HTTP to handle the rendering internally - for example as a JSON array, or CSV stream (where each element is followed by a newline).</p>
+<p>可以使用原始的 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;ByteString, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[ByteString, _]</code></a></span> 来完成请求，然而更方便的是基于元素到元素上的流，并允许 Akka HTTP 在内部处理渲染 - 例如作为 JSON 数组或 CSV 流（其中每个元素后面跟着一个新行）。</p>
 <p>In the following sections we investigate how to make use of the JSON Streaming infrastructure, however the general hints apply to any kind of element-by-element streaming you could imagine.</p>
+<p>在下面部分中，我们研究如何利用 JSON 数据流基础设施，但是一般的提示适用于你可以想像的任何类型的元素到元素数据流。</p>
 <h1><a href="#json-streaming" name="json-streaming" class="anchor"><span class="anchor-link"></span></a>JSON Streaming</h1>
+<p><strong>JSON 数据流</strong></p>
 <p><a href="https://en.wikipedia.org/wiki/JSON_Streaming">JSON Streaming</a> is a term referring to streaming a (possibly infinite) stream of element as independent JSON objects as a continuous HTTP request or response. The elements are most often separated using newlines, however do not have to be. Concatenating elements side-by-side or emitting &ldquo;very long&rdquo; JSON array is also another use case.</p>
+<p><a href="https://en.wikipedia.org/wiki/JSON_Streaming">JSON 数据流</a> 是一个术语，指将一个（可能无限）流的元素作为独立的 JSON 对象，作为持续 HTTP 请求或响应的数据流。</p>
 <p>In the below examples, we&rsquo;ll be referring to the <code>Tweet</code> case class as our model, which is defined as:</p>
+<p>在下面的例子中，我们将引用 <code>Tweet</code> case 类为我们的模型，它的定义为：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -405,6 +412,7 @@ Version 10.1.11
 }</code></pre></dd>
 </dl><div class="group-scala">
 <p>And as always with <code>spray-json</code>, we provide our marshaller and unmarshaller instances as implicit values using the <code>jsonFormat##</code> method to generate them statically:</p>
+<p>像往常使用 <code>spary-json</code> 一样，我们使用 <code>jsonFormat##</code> 方法将我们的编组和解组实例作为隐式值来静态生成：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -416,14 +424,19 @@ Version 10.1.11
 }</code></pre></dd>
 </dl></div>
 <h2><a href="#responding-with-json-streams" name="responding-with-json-streams" class="anchor"><span class="anchor-link"></span></a>Responding with JSON Streams</h2>
-<p>In this example we implement an API representing an infinite stream of tweets, very much like Twitter&rsquo;s <a href="https://dev.twitter.com/streaming/overview">Streaming API</a>.</p><div class="group-scala">
+<p><strong>使用 JSON 流回应</strong></p>
+<p>In this example we implement an API representing an infinite stream of tweets, very much like Twitter&rsquo;s <a href="https://dev.twitter.com/streaming/overview">Streaming API</a>.</p>
+<p>在这个例子里，我们实现一个 API 来代表 tweets 的一个无限流，非常像 Twitter 的 <a href="https://dev.twitter.com/streaming/overview">流式 API</a> 。</p><div class="group-scala">
 <p>Firstly, we&rsquo;ll need to get some additional marshalling infrastructure set up, that is able to marshal to and from an Akka Streams <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;T, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[T, _]</code></a></span>. One such trait, containing the needed marshallers is <code>SprayJsonSupport</code>, which uses <code>spray-json</code> (a high performance JSON parser library), and is shipped as part of Akka HTTP in the <code>akka-http-spray-json</code> module.</p>
-<p>Once the general infrastructure is prepared, we import our model&rsquo;s marshallers, generated by <code>spray-json</code> (Step 1) and enable JSON Streaming by making an implicit <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> instance available (Step 2). Akka HTTP pre-packages JSON and CSV entity streaming support, however it is simple to add your own, in case you&rsquo;d like to stream a different content type (for example plists or protobuf).</p></div><div class="group-java">
+<p>首先，我们将需要获得一些额外的编组基础设施，它能够编组/解组 Akka 流 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;T, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[T, _]</code></a></span> 。 其中一个包含所需编组器的 trait 是 <code>SparyJsonSupport</code>，它使用 <code>spary-json</code>（高性能 JSON 解析库）， 并作为 Akka HTTP 的一部分在 <code>akka-http-spary-json</code> 模块里。</p>
+<p>Once the general infrastructure is prepared, we import our model&rsquo;s marshallers, generated by <code>spray-json</code> (Step 1) and enable JSON Streaming by making an implicit <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> instance available (Step 2). Akka HTTP pre-packages JSON and CSV entity streaming support, however it is simple to add your own, in case you&rsquo;d like to stream a different content type (for example plists or protobuf).</p>
+<p>一旦普通基础设施已准备好，我们导入我们模型的编组，它由 <code>spar-json</code> 生成（步骤 1），并通过生成隐式 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> 实例来启用数据流（步骤 2）。 Akka HTTP 预先打包了 JSON 和 CSV 实体数据流支持，但是添加自己的数据流支持很简单，这种情况下你想流式处理不同的内容类型（例如：plists 或者 protobuf）。</p></div><div class="group-java">
 <p>Firstly, we&rsquo;ll need to get some additional marshalling infrastructure set up, that is able to marshal to and from an Akka Streams <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;T, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[T, ?]</code></a></span>. Here we&rsquo;ll use the <code>Jackson</code> helper class from <code>akka-http-jackson</code> (a separate library that you should add as a dependency if you want to use Jackson with Akka HTTP).</p>
 <p>First we enable JSON Streaming by making an implicit <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> instance available (Step 1).</p>
 <p>The default mode of rendering a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source</code></a></span> is to represent it as an JSON Array. If you want to change this representation for example to use Twitter style new-line separated JSON objects, you can do so by configuring the support trait accordingly.</p>
 <p>In Step 1.1. we demonstrate how to configure the rendering to be new-line separated, and also how parallel marshalling can be applied. We configure the Support object to render the JSON as series of new-line separated JSON objects, simply by appending a ByteString consisting of a single new-line character to each ByteString in the stream. Although this format is <em>not</em> valid JSON, it is pretty popular since parsing it is relatively simple - clients need only to find the new-lines and apply JSON unmarshalling for an entire line of JSON.</p></div>
 <p>The final step is simply completing a request using a Source of tweets, as simple as that:</p>
+<p>最后一步是使用 tweets 的 Source 来简单的完成请求，就像这么简单：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -525,12 +538,18 @@ routes.run(HttpRequest.GET(&quot;/tweets?n=3&quot;).addHeader(acceptText))
   .assertStatusCode(StatusCodes.NOT_ACCEPTABLE) // 406
   .assertEntity(&quot;Resource representation is only available with these types:\ntext/csv; charset=UTF-8&quot;);</code></pre></dd>
 </dl>
-<p>The reason the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> has to be enabled explicitly is that one might want to configure how the stream should be rendered. We&rsquo;ll discuss this in depth in the next section though.</p><div class="group-scala">
+<p>The reason the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> has to be enabled explicitly is that one might want to configure how the stream should be rendered. We&rsquo;ll discuss this in depth in the next section though.</p>
+<p>必须明确启用 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> 的原因是，可能希望配置流怎样被渲染。我们将在下一节深入讨论这个话题。</p><div class="group-scala">
 <h3><a href="#customising-response-rendering-mode" name="customising-response-rendering-mode" class="anchor"><span class="anchor-link"></span></a>Customising response rendering mode</h3>
+<p><strong>定制响应渲染模式</strong></p>
 <p>Since it is not always possible to directly and confidently answer the question of how a stream of <code>T</code> should look on the wire, the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> traits come into play and allow fine-tuning the stream&rsquo;s rendered representation.</p>
+<p>因为不总是可能直接并有把握地回答如何看待线上 <code>T</code> 流的问题， <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> trait 开始发挥作用，并且可以微调流的渲染表现。</p>
 <p>For example, in case of JSON Streaming, there isn&rsquo;t really one standard about rendering the response. Some APIs prefer to render multiple JSON objects in a line-by-line fashion (Twitter&rsquo;s streaming APIs for example), while others simply return very large arrays, which could be streamed as well.</p>
+<p>例如，在 JSON 数据流的情况中，关于渲染响应没有事实标准。有些 API 更喜欢一行一行的渲染多个 JSON 对象（例如 Twitter 的流式 API）， 而另一些简单返回一个很大的数组，这些数组也可以流式处理。</p>
 <p>Akka defaults to the second one (streaming a JSON Array), as it is correct JSON and clients not expecting a streaming API would still be able to consume it in a naive way if they&rsquo;d want to.</p>
+<p>Akka 默认第二种方式（流式的 JSON 数组），因为它是正确的 JSON，并且如果客户端希望的话，它们不假定流式 API，仍然能够以一种天真的方式使用它。 </p>
 <p>The line-by-line approach however is also pretty popular even though it is not valid JSON. Its simplicity for client-side parsing is a strong point in case to pick this format for your Streaming APIs. Below we demonstrate how to reconfigure the support trait to render the JSON line-by-line.</p>
+<p>然而，按行处理的方法也非常流行，尽管它们是无效的 JSON。它对于客户端解析的简单性是为流式 API 挑选这种格式的一个优点。 下面我们演示怎样重新配置支持 trait 来按行渲染 JSON。 </p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -564,6 +583,7 @@ Get(&quot;/tweets&quot;).withHeaders(AcceptJson) ~&gt; route ~&gt; check {
 }</code></pre></dd>
 </dl>
 <p>Another interesting feature is parallel marshalling. Since marshalling can potentially take much time, it is possible to marshal multiple elements of the stream in parallel. This is simply a configuration option on <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> and is configurable like this:</p>
+<p>另一个有趣的特性是并行编组。因为编组有可能花很多时间，所以可以并行编组流的多个元素。这是 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> 的一个简单配置选项，配置像这样：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -578,7 +598,9 @@ path(&quot;tweets&quot;) {
 }</code></pre></dd>
 </dl>
 <p>The above shown mode preserves ordering of the Source&rsquo;s elements, which may sometimes be a required property, for example when streaming a strictly ordered dataset. Sometimes the concept of strict order does not apply to the data being streamed, though, which allows us to exploit this property and use an <code>unordered</code> rendering.</p>
+<p>上面显示的模式保持 Source 的元素的顺序，这有时是必须的属性，比如当流处理一个严格有序的数据库。有时严格有序的概念不适用于正在流式传输的数据， 这时，允许我们利用这个属性并使用 <code>无序</code> 渲染。</p>
 <p>This <code>unordered</code> rendering can be enabled via a configuration option as shown below. Effectively, this allows Akka HTTP&rsquo;s marshalling infrastructure to concurrently marshall up to as many elements as defined in <code>parallelism</code> and emit the first one which is marshalled into the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span>:</p>
+<p><code>无序</code> 渲染可以通过下面所示的配置选项启用。实际上，这允许 Akka HTTP 的编组基础设施并发的编组直到 <code>parallelism</code> 定义的尽可能多的元素，并（同时）发出第一个被编组的元素到 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> ：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -592,10 +614,14 @@ path(&quot;tweets&quot; / &quot;unordered&quot;) {
   complete(tweets)
 }</code></pre></dd>
 </dl>
-<p>This allows us to <em>potentially</em> render elements faster into the HttpResponse, since it can avoid &ldquo;head of line blocking&rdquo;, in case one element in front of the stream takes a long time to marshall, yet others after it are very quick to marshall.</p></div>
+<p>This allows us to <em>potentially</em> render elements faster into the HttpResponse, since it can avoid &ldquo;head of line blocking&rdquo;, in case one element in front of the stream takes a long time to marshall, yet others after it are very quick to marshall.</p>
+<p>这允许我们 <em>潜在地</em> 更快的将元素渲染进 <code>HttpResponse</code> 中，因它这可以避免“行首阻塞”，以防止流前的元素花很长时间编组，而后面的其它元素则非常快的编组。</p></div>
 <h2><a href="#consuming-json-streaming-uploads" name="consuming-json-streaming-uploads" class="anchor"><span class="anchor-link"></span></a>Consuming JSON Streaming uploads</h2>
+<p><strong>消费上传的 JSON 数据流</strong></p>
 <p>Sometimes a client sends a streaming request. For example, an embedded device initiated a connection with the server and is feeding it with one line of measurement data.</p>
+<p>有时客户端发送流式请求。例如：嵌入式设备初始化发起与服务器的连接，并向服务器提供一行测量数据。 </p>
 <p>In this example, we want to consume this data in a streaming fashion from the request entity and also apply back pressure to the underlying TCP connection should the server be unable to cope with the rate of incoming data. Back pressure is automatically applied thanks to <a href="https://doc.akka.io/docs/akka/2.5.26/scala/stream/index.html">Akka Streams</a>.</p>
+<p>这个例子中，我们希望以流式的方式消费请求实体的数据，并在服务器无法处理传入数据的速率时应用回压到底层的 TCP 连接。 回压是自动应用的，感谢 <a href="https://doc.akka.io/docs/akka/2.5.26/scala/stream/index.html">Akka Streams</a> 。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -717,7 +743,9 @@ final Route incomingStreaming = path(&quot;metrics&quot;, () -&gt;
 );</code></pre></dd>
 </dl>
 <h2><a href="#simple-csv-streaming-example" name="simple-csv-streaming-example" class="anchor"><span class="anchor-link"></span></a>Simple CSV streaming example</h2>
+<p><strong>简单 CSV 数据流示例</strong></p>
 <p>Akka HTTP provides another <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> out of the box, namely <code>csv</code> (comma-separated values). For completeness, we demonstrate its usage in the snippet below. As you&rsquo;ll notice, switching between streaming modes is fairly simple: You only have to make sure that an implicit <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller</code></a></span> of the requested type is available and that the streaming support operates on the same <code>Content-Type</code> as the rendered values. Otherwise, you&rsquo;ll see an error during runtime that the marshaller did not expose the expected content type and thus we can&rsquo;t render the streaming response).</p>
+<p>Akka HTTP 提供了另一个开箱即用的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> ，既 <code>csv</code>（逗号-分隔的值）。为了完整起见， 我们在下面代码片段里演示它的使用方法。正如你注意到的，切换流模式相当简单：你只需要确保请求类型的隐式 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller</code></a></span> 可用， 并且流支持操作与渲染值相同的 <code>Content-Type</code>。否则，你将在运行期看到一个错误：编组未暴露预期的内容类型，因此我们不能渲染流式响应。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -772,11 +800,17 @@ final Route responseStreaming = path(&quot;tweets&quot;, () -&gt;
 );</code></pre></dd>
 </dl>
 <h2><a href="#implementing-custom-entitystreamingsupport-traits" name="implementing-custom-entitystreamingsupport-traits" class="anchor"><span class="anchor-link"></span></a>Implementing custom EntityStreamingSupport traits</h2>
+<h2><a href="#实现自定义-entitystreamingsupport-trait" name="实现自定义-entitystreamingsupport-trait" class="anchor"><span class="anchor-link"></span></a>实现自定义 EntityStreamingSupport trait</h2>
 <p>The <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> infrastructure is open for extension and not bound to any single format, content type, or marshalling library. The provided JSON support does not rely on <code>spray-json</code> directly, but uses <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller&lt;T, ByteString&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller[T, ByteString]</code></a></span> instances, which can be provided using any JSON marshalling library (such as Circe, Jawn or Play JSON).</p>
+<p><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> 基础设施对扩展是开放的并且不绑定的任何单一格式：内容类型或编组库。 提供 JSON 支持并不直接依赖 <code>spary-json</code>，而是使用 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller&lt;T, ByteString&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller[T, ByteString]</code></a></span> 实例，可以使用任何 JSON 编组库（如：Circe、Jawn 或 Play JSON）提供该实例。</p>
 <p>When implementing a custom support trait, one should simply extend the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> abstract class and implement all of its methods. It&rsquo;s best to use the existing implementations as a guideline.</p>
+<p>当实现自定义支持 trait 时，只用扩展 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> 抽象类并实现所有方法。最好使用现有实现作为指导原则。</p>
 <h2><a href="#supporting-custom-content-types" name="supporting-custom-content-types" class="anchor"><span class="anchor-link"></span></a>Supporting custom content types</h2>
+<p><strong>支持自定义内容类型</strong></p>
 <p>In order to marshal into custom content types, both a <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller</code></a></span> that can handle that content type <strong>as well as an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span> of matching content type</strong> is required.</p>
+<p>为了编组到自定义内容类型，既需要一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller</code></a></span> 可以处理该内容类型，**也需要一个匹配内容类型的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/common/EntityStreamingSupport.html" title="akka.http.javadsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/common/EntityStreamingSupport.html" title="akka.http.scaladsl.common.EntityStreamingSupport"><code>EntityStreamingSupport</code></a></span>** </p>
 <p>Refer to the complete example below, showcasing how to configure a custom marshaller and change the entity streaming support&rsquo;s content type to be compatible. This is an area that would benefit from additional type safety, which we hope to add in a future release.</p>
+<p>参考下面的完整示例，展示如何配置一个自定义编组并将实体流更改为兼容支持的内容类型。这是一个可以从额外的类型安全上获益的领域，我们希望在未来的发布中添加它。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -919,14 +953,16 @@ public class JsonStreamingFullExample extends AllDirectives {
 }</code></pre></dd>
 </dl>
 <h2><a href="#consuming-streaming-json-on-client-side" name="consuming-streaming-json-on-client-side" class="anchor"><span class="anchor-link"></span></a>Consuming streaming JSON on client-side</h2>
+<p><strong>在客户端消费流式 JSON</strong></p>
 <p>For consuming such streaming APIs with, for example, JSON responses refer to <a href="../common/json-support.html#consuming-json-streaming-style-apis">Consuming JSON Streaming style APIs</a> documentation in the JSON support section.</p>
+<p>例如，消费此类流式 API 的 JSON 响应，参考在 JSON 支持部分的 <a href="../common/json-support.html#consuming-json-streaming-style-apis">消费 JSON 流式风格的 APIs</a> 文档。</p>
 </div>
 </article>
 <div class="row">
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="../routing-dsl/case-class-extraction.html"><i class="icon-prev"></i> <span class="link-prev">Case Class Extraction</span></a>
+<a href="../routing-dsl/case-class-extraction.html"><i class="icon-prev"></i> <span class="link-prev">Case Class 提取</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
 <a class="float-right" href="../routing-dsl/testkit.html">Route TestKit <i class="icon-next"></i></a>
