@@ -26,7 +26,8 @@ objects as a continuous HTTP request or response. The elements are most often se
 however do not have to be. Concatenating elements side-by-side or emitting "very long" JSON array is also another
 use case.
 
-[JSON 数据流](https://en.wikipedia.org/wiki/JSON_Streaming) 是一个术语，指将一个（可能无限）流的元素作为独立的 JSON 对象，作为持续 HTTP 请求或响应的数据流。
+[JSON 数据流](https://en.wikipedia.org/wiki/JSON_Streaming) 是一个术语，指将一个（可能无限）流的元素作为独立的 JSON 对象，作为持续的 HTTP 请求或响应数据流。
+元素通常使用换行分割，但不必这样。并排连接元素或发出“很长的” JSON 数组也是另一个用例。
 
 In the below examples, we'll be referring to the `Tweet` case class as our model, which is defined as:
 
@@ -243,7 +244,7 @@ and implement all of its methods. It's best to use the existing implementations 
 In order to marshal into custom content types, both a @apidoc[Marshaller] that can handle that content type
 **as well as an @apidoc[EntityStreamingSupport] of matching content type** is required.
 
-为了编组到自定义内容类型，既需要一个 @apidoc[Marshaller] 可以处理该内容类型，**也需要一个匹配内容类型的 @apidoc[EntityStreamingSupport]** 
+为了编组到自定义内容类型，既需要一个 @apidoc[Marshaller] 可以处理该内容类型， **也需要一个匹配内容类型的 @apidoc[EntityStreamingSupport]** 。 
 
 Refer to the complete example below, showcasing how to configure a custom marshaller and change
 the entity streaming support's content type to be compatible. This is an area that would benefit from additional type safety,
