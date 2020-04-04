@@ -1,38 +1,61 @@
-# Host-Level Client-Side API
+# 主机级别客户端 API
+*Host-Level Client-Side API*
 
 As opposed to the @ref[Connection-Level Client-Side API](connection-level.md) the host-level API relieves you from manually managing individual HTTP
 connections. It autonomously manages a configurable pool of connections to *one particular target endpoint* (i.e.
 host/port combination).
 
+与 @ref[连接级别客户端 API](connection-level.md) 相反，主机级别的 API 使你不必手动管理单个 HTTP 连接。
+它自主管理连接到 *一个特定目标端点* （例如：主机/端口 组合）的可配置池。
+
 @@@ note
 It is recommended to first read the @ref[Implications of the streaming nature of Request/Response Entities](../implications-of-streaming-http-entity.md) section,
 as it explains the underlying full-stack streaming concepts, which may be unexpected when coming
 from a background with non-"streaming first" HTTP Clients.
+
+推荐阅读 @ref[请求/响应实体流的实质含义](../implications-of-streaming-http-entity.md) 部分，它阐明了（Akka HTTP）底层的全栈流的概念。
+因为对于没有“流式优先” HTTP 客户端概念背景的人来说，也许会感到难以理解。
 @@@
 
 ## Requesting a Host Connection Pool
+**请求主机连接池**
 
 The best way to get a hold of a connection pool to a given target endpoint is the @scala[`Http().cachedHostConnectionPool(...)`]@java[`Http.get(system).cachedHostConnectionPool(...)`]
 method, which returns a @apidoc[Flow] that can be "baked" into an application-level stream setup. This flow is also called
 a "pool client flow".
 
+获得一个持有到指定目标端点的连接池的最好方式是使用 @scala[`Http().cachedHostConnectionPool(...)`]@java[`Http.get(system).cachedHostConnectionPool(...)`] 方法，该方法返回一个可以“烘焙到”应用程序级别流设置中的 @apidoc[Flow] 。
+这个 flow 也被称为“池客户端 flow”。
+
 The connection pool underlying a pool client flow is cached. For every @apidoc[akka.actor.ActorSystem], target endpoint and pool
 configuration there will never be more than a single pool live at any time.
+
+构成连接池的池客户端 flow 被缓存。对于每个 @apidoc[akka.actor.ActorSystem]，目标端点和池配置任何时候都不会有超过一个池活动。
 
 Also, the HTTP layer transparently manages idle shutdown and restarting of connection pools as configured.
 The client flow instances therefore remain valid throughout the lifetime of the application, i.e. they can be
 materialized as often as required and the time between individual materialization is of no importance.
 
+而且，HTTP 层按配置透明地管理连接池的空闲关闭和重启。
+
 When you request a pool client flow with @scala[`Http().cachedHostConnectionPool(...)`]@java[`Http.get(system).cachedHostConnectionPool(...)`], Akka HTTP will immediately start
 the pool, even before the first client flow materialization. However, this running pool will not actually open the
 first connection to the target endpoint until the first request has arrived.
 
+当你使用 @scala[`Http().cachedHostConnectionPool(...)`]@java[`Http.get(system).cachedHostConnectionPool(...)`]
+请求“池客户端 flow”时，Akka HTTP 将立即启动池，甚至在第一个客户端 flow 具体化之前。
+但是，在第一个请求到达前，该运行池实际上不会打开到目标端点的第一个连接。
+
 ## Configuring a Host Connection Pool
+**配置主机连接池**
 
 Apart from the connection-level config settings and socket options there are a number of settings that allow you to
 influence the behavior of the connection pool logic itself.
 Check out the `akka.http.host-connection-pool` section of the Akka HTTP @ref[Configuration](../configuration.md) for
 more information about which settings are available and what they mean.
+
+除了连接级别配置设置和套接字选项之外，还有许多设置允许你影响连接池逻辑自身的行为。
+有关哪些设置可用和它们的含义的更多信息，查看 Akka HTTP @ref[配置](../configuration.md) 的 `akka.http.host-connection-pool` 部分。
 
 Note that, if you request pools with different configurations for the same target host you will get *independent* pools.
 This means that, in total, your application might open more concurrent HTTP connections to the target endpoint than any

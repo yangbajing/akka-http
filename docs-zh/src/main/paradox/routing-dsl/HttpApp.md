@@ -1,5 +1,5 @@
-# HttpApp Bootstrap
-**HttpApp 引导程序**
+# HttpApp 引导程序
+*HttpApp Bootstrap*
 
 @@@ warning { title="API may change" }
 This is experimental and the API is subjected to change in future releases of Akka HTTP.
