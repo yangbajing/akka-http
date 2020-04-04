@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>HttpRequest and HttpResponse &bull; Akka HTTP Chinese edition</title>
+<title>HttpRequest 和 HttpResponse &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -256,13 +256,13 @@ Version 10.1.11
   <li><a href="../server-side/index.html" class="page">4. 服务器 API</a></li>
   <li><a href="../client-side/index.html" class="page">5. 客户端 API</a>
   <ul>
-    <li><a href="../client-side/request-and-response.html#httprequest-and-httpresponse" class="active page">HttpRequest and HttpResponse</a>
+    <li><a href="../client-side/request-and-response.html#httprequest-和-httpresponse" class="active page">HttpRequest 和 HttpResponse</a>
     <ul>
       <li><a href="../client-side/request-and-response.html#creating-requests" class="header">Creating requests</a></li>
       <li><a href="../client-side/request-and-response.html#processing-responses" class="header">Processing responses</a></li>
     </ul></li>
-    <li><a href="../client-side/request-level.html" class="page">Request-Level Client-Side API</a></li>
-    <li><a href="../client-side/host-level.html" class="page">Host-Level Client-Side API</a></li>
+    <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
+    <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">Connection-Level Client-Side API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">Pool overflow and the max-open-requests setting</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">Client-Side HTTPS Support</a></li>
@@ -305,13 +305,13 @@ Version 10.1.11
   <li><a href="../server-side/index.html" class="page">4. 服务器 API</a></li>
   <li><a href="../client-side/index.html" class="page">5. 客户端 API</a>
   <ul>
-    <li><a href="../client-side/request-and-response.html#httprequest-and-httpresponse" class="active page">HttpRequest and HttpResponse</a>
+    <li><a href="../client-side/request-and-response.html#httprequest-和-httpresponse" class="active page">HttpRequest 和 HttpResponse</a>
     <ul>
       <li><a href="../client-side/request-and-response.html#creating-requests" class="header">Creating requests</a></li>
       <li><a href="../client-side/request-and-response.html#processing-responses" class="header">Processing responses</a></li>
     </ul></li>
-    <li><a href="../client-side/request-level.html" class="page">Request-Level Client-Side API</a></li>
-    <li><a href="../client-side/host-level.html" class="page">Host-Level Client-Side API</a></li>
+    <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
+    <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">Connection-Level Client-Side API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">Pool overflow and the max-open-requests setting</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">Client-Side HTTPS Support</a></li>
@@ -335,10 +335,14 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#httprequest-and-httpresponse" name="httprequest-and-httpresponse" class="anchor"><span class="anchor-link"></span></a>HttpRequest and HttpResponse</h1>
+<h1><a href="#httprequest-和-httpresponse" name="httprequest-和-httpresponse" class="anchor"><span class="anchor-link"></span></a>HttpRequest 和 HttpResponse</h1>
+<p><em>HttpRequest and HttpResponse</em></p>
 <p>All 3 Akka HTTP Client API levels use the same basic model of <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> and <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span>.</p>
+<p>所有 3 个 Akka HTTP 客户端 API 级别都使用相同的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> 和 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> 基本模型。</p>
 <h2><a href="#creating-requests" name="creating-requests" class="anchor"><span class="anchor-link"></span></a>Creating requests</h2>
+<p><strong>创建请求</strong></p>
 <p>You can create simple <code>GET</code> requests:</p>
+<p>可以创建简单 <code>GET</code> 请求：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -348,6 +352,7 @@ Version 10.1.11
   <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs/src/test/java/docs/http/javadsl/ClientSingleRequestExample.java#L36" target="_blank" title="Go to snippet source"></a><code class="language-java">HttpRequest.create(&quot;https://akka.io&quot;);</code></pre></dd>
 </dl>
 <p>Or more complicated ones, like this <code>POST</code>:</p>
+<p>或者更复杂的请求，像这个 <code>POST</code>：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -362,8 +367,11 @@ Version 10.1.11
   .withEntity(HttpEntities.create(ContentTypes.TEXT_PLAIN_UTF8, &quot;data&quot;));</code></pre></dd>
 </dl>
 <p>See the API documentation of <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> for more information on how to customize your requests.</p>
+<p>有关怎样自定义请求的更多信息，见 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> 的 API 文档。</p>
 <h2><a href="#processing-responses" name="processing-responses" class="anchor"><span class="anchor-link"></span></a>Processing responses</h2>
+<p><strong>处理响应</strong></p>
 <p>When you receive a response, you can use the <a href="../common/marshalling.html">Marshalling</a> API to convert the response entity into an object:</p>
+<p>当收到一个响应，可以使用 <a href="../common/marshalling.html">编组</a> API 来将响应实体转换为一个对象：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -388,7 +396,7 @@ val pet: Future[Pet] = Unmarshal(response).to[Pet]</code></pre></dd>
 <a href="../client-side/index.html"><i class="icon-prev"></i> <span class="link-prev">5. 客户端 API</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../client-side/request-level.html">Request-Level Client-Side API <i class="icon-next"></i></a>
+<a class="float-right" href="../client-side/request-level.html">请求级别客户端 API <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

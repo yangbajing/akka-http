@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Host-Level Client-Side API &bull; Akka HTTP Chinese edition</title>
+<title>主机级别客户端 API &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -256,9 +256,9 @@ Version 10.1.11
   <li><a href="../server-side/index.html" class="page">4. 服务器 API</a></li>
   <li><a href="../client-side/index.html" class="page">5. 客户端 API</a>
   <ul>
-    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest and HttpResponse</a></li>
-    <li><a href="../client-side/request-level.html" class="page">Request-Level Client-Side API</a></li>
-    <li><a href="../client-side/host-level.html#host-level-client-side-api" class="active page">Host-Level Client-Side API</a>
+    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest 和 HttpResponse</a></li>
+    <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
+    <li><a href="../client-side/host-level.html#主机级别客户端-api" class="active page">主机级别客户端 API</a>
     <ul>
       <li><a href="../client-side/host-level.html#requesting-a-host-connection-pool" class="header">Requesting a Host Connection Pool</a></li>
       <li><a href="../client-side/host-level.html#configuring-a-host-connection-pool" class="header">Configuring a Host Connection Pool</a></li>
@@ -310,9 +310,9 @@ Version 10.1.11
   <li><a href="../server-side/index.html" class="page">4. 服务器 API</a></li>
   <li><a href="../client-side/index.html" class="page">5. 客户端 API</a>
   <ul>
-    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest and HttpResponse</a></li>
-    <li><a href="../client-side/request-level.html" class="page">Request-Level Client-Side API</a></li>
-    <li><a href="../client-side/host-level.html#host-level-client-side-api" class="active page">Host-Level Client-Side API</a>
+    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest 和 HttpResponse</a></li>
+    <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
+    <li><a href="../client-side/host-level.html#主机级别客户端-api" class="active page">主机级别客户端 API</a>
     <ul>
       <li><a href="../client-side/host-level.html#requesting-a-host-connection-pool" class="header">Requesting a Host Connection Pool</a></li>
       <li><a href="../client-side/host-level.html#configuring-a-host-connection-pool" class="header">Configuring a Host Connection Pool</a></li>
@@ -345,16 +345,26 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#host-level-client-side-api" name="host-level-client-side-api" class="anchor"><span class="anchor-link"></span></a>Host-Level Client-Side API</h1>
-<p>As opposed to the <a href="connection-level.html">Connection-Level Client-Side API</a> the host-level API relieves you from manually managing individual HTTP connections. It autonomously manages a configurable pool of connections to <em>one particular target endpoint</em> (i.e. host/port combination).</p><div class="callout note "><div class="callout-title">Note</div>
-<p>It is recommended to first read the <a href="../implications-of-streaming-http-entity.html">Implications of the streaming nature of Request/Response Entities</a> section, as it explains the underlying full-stack streaming concepts, which may be unexpected when coming from a background with non-&ldquo;streaming first&rdquo; HTTP Clients.</p></div>
+<h1><a href="#主机级别客户端-api" name="主机级别客户端-api" class="anchor"><span class="anchor-link"></span></a>主机级别客户端 API</h1>
+<p><em>Host-Level Client-Side API</em></p>
+<p>As opposed to the <a href="connection-level.html">Connection-Level Client-Side API</a> the host-level API relieves you from manually managing individual HTTP connections. It autonomously manages a configurable pool of connections to <em>one particular target endpoint</em> (i.e. host/port combination).</p>
+<p>与 <a href="connection-level.html">连接级别客户端 API</a> 相反，主机级别的 API 使你不必手动管理单个 HTTP 连接。 它自主管理连接到 <em>一个特定目标端点</em> （例如：主机/端口 组合）的可配置池。</p><div class="callout note "><div class="callout-title">Note</div>
+<p>It is recommended to first read the <a href="../implications-of-streaming-http-entity.html">Implications of the streaming nature of Request/Response Entities</a> section, as it explains the underlying full-stack streaming concepts, which may be unexpected when coming from a background with non-&ldquo;streaming first&rdquo; HTTP Clients.</p>
+<p>推荐阅读 <a href="../implications-of-streaming-http-entity.html">请求/响应实体流的实质含义</a> 部分，它阐明了（Akka HTTP）底层的全栈流的概念。 因为对于没有“流式优先” HTTP 客户端概念背景的人来说，也许会感到难以理解。</p></div>
 <h2><a href="#requesting-a-host-connection-pool" name="requesting-a-host-connection-pool" class="anchor"><span class="anchor-link"></span></a>Requesting a Host Connection Pool</h2>
+<p><strong>请求主机连接池</strong></p>
 <p>The best way to get a hold of a connection pool to a given target endpoint is the <span class="group-scala"><code>Http().cachedHostConnectionPool(...)</code></span><span class="group-java"><code>Http.get(system).cachedHostConnectionPool(...)</code></span> method, which returns a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> that can be &ldquo;baked&rdquo; into an application-level stream setup. This flow is also called a &ldquo;pool client flow&rdquo;.</p>
+<p>获得一个持有到指定目标端点的连接池的最好方式是使用 <span class="group-scala"><code>Http().cachedHostConnectionPool(...)</code></span><span class="group-java"><code>Http.get(system).cachedHostConnectionPool(...)</code></span> 方法，该方法返回一个可以“烘焙到”应用程序级别流设置中的 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> 。 这个 flow 也被称为“池客户端 flow”。</p>
 <p>The connection pool underlying a pool client flow is cached. For every <span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/actor/ActorSystem.html" title="akka.actor.ActorSystem"><code>ActorSystem</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/actor/ActorSystem.html" title="akka.actor.ActorSystem"><code>ActorSystem</code></a></span>, target endpoint and pool configuration there will never be more than a single pool live at any time.</p>
+<p>构成连接池的池客户端 flow 被缓存。对于每个 <span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/actor/ActorSystem.html" title="akka.actor.ActorSystem"><code>ActorSystem</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/actor/ActorSystem.html" title="akka.actor.ActorSystem"><code>ActorSystem</code></a></span>，目标端点和池配置任何时候都不会有超过一个池活动。</p>
 <p>Also, the HTTP layer transparently manages idle shutdown and restarting of connection pools as configured. The client flow instances therefore remain valid throughout the lifetime of the application, i.e. they can be materialized as often as required and the time between individual materialization is of no importance.</p>
+<p>而且，HTTP 层按配置透明地管理连接池的空闲关闭和重启。</p>
 <p>When you request a pool client flow with <span class="group-scala"><code>Http().cachedHostConnectionPool(...)</code></span><span class="group-java"><code>Http.get(system).cachedHostConnectionPool(...)</code></span>, Akka HTTP will immediately start the pool, even before the first client flow materialization. However, this running pool will not actually open the first connection to the target endpoint until the first request has arrived.</p>
+<p>当你使用 <span class="group-scala"><code>Http().cachedHostConnectionPool(...)</code></span><span class="group-java"><code>Http.get(system).cachedHostConnectionPool(...)</code></span> 请求“池客户端 flow”时，Akka HTTP 将立即启动池，甚至在第一个客户端 flow 具体化之前。 但是，在第一个请求到达前，该运行池实际上不会打开到目标端点的第一个连接。</p>
 <h2><a href="#configuring-a-host-connection-pool" name="configuring-a-host-connection-pool" class="anchor"><span class="anchor-link"></span></a>Configuring a Host Connection Pool</h2>
+<p><strong>配置主机连接池</strong></p>
 <p>Apart from the connection-level config settings and socket options there are a number of settings that allow you to influence the behavior of the connection pool logic itself. Check out the <code>akka.http.host-connection-pool</code> section of the Akka HTTP <a href="../configuration.html">Configuration</a> for more information about which settings are available and what they mean.</p>
+<p>除了连接级别配置设置和套接字选项之外，还有许多设置允许你影响连接池逻辑自身的行为。 有关哪些设置可用和它们的含义的更多信息，查看 Akka HTTP <a href="../configuration.html">配置</a> 的 <code>akka.http.host-connection-pool</code> 部分。</p>
 <p>Note that, if you request pools with different configurations for the same target host you will get <em>independent</em> pools. This means that, in total, your application might open more concurrent HTTP connections to the target endpoint than any of the individual pool&rsquo;s <code>max-connections</code> settings allow!</p>
 <p>There is one setting that likely deserves a bit deeper explanation: <code>max-open-requests</code>. This setting limits the maximum number of requests that can be in-flight at any time for a single connection pool. If an application calls <span class="group-scala"><code>Http().cachedHostConnectionPool(...)</code></span><span class="group-java"><code>Http.get(system).cachedHostConnectionPool(...)</code></span> 3 times (with the same endpoint and settings) it will get back <code>3</code> different client flow instances for the same pool. If each of these client flows is then materialized <code>4</code> times (concurrently) the application will have 12 concurrently running client flow materializations. All of these share the resources of the single pool.</p>
 <p>This means that no more than 12 requests can be open at any time.</p>
@@ -513,7 +523,7 @@ filesToUpload()
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="../client-side/request-level.html"><i class="icon-prev"></i> <span class="link-prev">Request-Level Client-Side API</span></a>
+<a href="../client-side/request-level.html"><i class="icon-prev"></i> <span class="link-prev">请求级别客户端 API</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
 <a class="float-right" href="../client-side/connection-level.html">Connection-Level Client-Side API <i class="icon-next"></i></a>

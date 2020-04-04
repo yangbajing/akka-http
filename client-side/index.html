@@ -256,9 +256,9 @@ Version 10.1.11
   <li><a href="../server-side/index.html" class="page">4. 服务器 API</a></li>
   <li><a href="../client-side/index.html#5-客户端-api" class="active page">5. 客户端 API</a>
   <ul>
-    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest and HttpResponse</a></li>
-    <li><a href="../client-side/request-level.html" class="page">Request-Level Client-Side API</a></li>
-    <li><a href="../client-side/host-level.html" class="page">Host-Level Client-Side API</a></li>
+    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest 和 HttpResponse</a></li>
+    <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
+    <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">Connection-Level Client-Side API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">Pool overflow and the max-open-requests setting</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">Client-Side HTTPS Support</a></li>
@@ -301,9 +301,9 @@ Version 10.1.11
   <li><a href="../server-side/index.html" class="page">4. 服务器 API</a></li>
   <li><a href="../client-side/index.html#5-客户端-api" class="active page">5. 客户端 API</a>
   <ul>
-    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest and HttpResponse</a></li>
-    <li><a href="../client-side/request-level.html" class="page">Request-Level Client-Side API</a></li>
-    <li><a href="../client-side/host-level.html" class="page">Host-Level Client-Side API</a></li>
+    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest 和 HttpResponse</a></li>
+    <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
+    <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">Connection-Level Client-Side API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">Pool overflow and the max-open-requests setting</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">Client-Side HTTPS Support</a></li>
@@ -330,26 +330,37 @@ Version 10.1.11
 <h1><a href="#5-客户端-api" name="5-客户端-api" class="anchor"><span class="anchor-link"></span></a>5. 客户端 API</h1>
 <p><em>5. Client API</em></p>
 <p>All client-side functionality of Akka HTTP, for consuming HTTP-based services offered by other endpoints, is currently provided by the <code>akka-http-core</code> module.</p>
+<p>Akka HTTP 的所有客户端功能，用于消费通过其它端点提供的 HTTP 服务，当前都由 <code>akka-http-core</code> 模块提供。</p>
 <p>It is recommended to first read the <a href="../implications-of-streaming-http-entity.html">Implications of the streaming nature of Request/Response Entities</a> section, as it explains the underlying full-stack streaming concepts, which may be unexpected when coming from a background with non-&ldquo;streaming first&rdquo; HTTP Clients.</p>
+<p>推荐阅读 <a href="../implications-of-streaming-http-entity.html">请求/响应实体流的实质含义</a> 部分，它阐明了（Akka HTTP）底层的全栈流的概念。 因为对于没有“流式优先” HTTP 客户端概念背景的人来说，也许会感到难以理解。</p>
 <p>All of the API&rsquo;s deal with <a href="request-and-response.html"><code>HttpRequest</code> and <code>HttpResponse</code></a> objects.</p>
+<p>所有 API 都处理 <a href="request-and-response.html"><code>HttpRequest</code> 和 <code>HttpResponse</code></a> 对象。</p>
 <p>Depending on your application&rsquo;s specific needs you can choose from three different API levels:</p>
+<p>根据你的应用程序程序的特定需要，你可以从三种不同的 API 级别进行选择：</p>
 <dl>
   <dt><a href="request-level.html">Request-Level Client-Side API</a></dt>
   <dd>for letting Akka HTTP perform all connection management. Recommended for most usages.</dd>
+  <dt><a href="request-level.html">请求级客户端 API</a></dt>
+  <dd>用于让 Akka HTTP 执行所有连接管理。推荐使用。</dd>
   <dt><a href="host-level.html">Host-Level Client-Side API</a></dt>
   <dd>for letting Akka HTTP manage a connection-pool to <em>one specific</em> host/port endpoint. Recommended when  the user can supply a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;HttpRequest, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[HttpRequest, _]</code></a></span> with requests to run against a single host  over multiple pooled connections.</dd>
+  <dt><a href="host-level.html">主机级客户端 API</a></dt>
+  <dd>用于让 Akka HTTP 管理到 <em>一个特定</em> 主机/端口端点的连接池。当用户可以提供 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;HttpRequest, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[HttpRequest, _]</code></a></span>，并在多个连接池上针对单个主机运行请求时，推荐使用。</dd>
   <dt><a href="connection-level.html">Connection-Level Client-Side API</a></dt>
   <dd>for full control over when HTTP connections are opened/closed and how requests are scheduled across them. Only  recommended for particular use cases.</dd>
+  <dt><a href="connection-level.html">连接级客户端 API</a></dt>
+  <dd>用于完全控制何时打开/关闭 HTTP 连接以及如何跨连接调度请求。仅推荐用于特殊用例。</dd>
 </dl>
 <p>You can interact with different API levels at the same time and, independently of which API level you choose, Akka HTTP will happily handle many thousand concurrent connections to a single or many different hosts.</p>
+<p>你可以同时与不同的 API 级别进行交互，并且独立于你选择的 API 级别，Akka HTTP 将愉快地处理到单个或多个不同主机的数千个并发连接。</p>
 <div class="toc ">
 <ul>
-  <li><a href="../client-side/request-and-response.html" class="page">HttpRequest and HttpResponse</a>
+  <li><a href="../client-side/request-and-response.html" class="page">HttpRequest 和 HttpResponse</a>
   <ul>
     <li><a href="../client-side/request-and-response.html#creating-requests" class="header">Creating requests</a></li>
     <li><a href="../client-side/request-and-response.html#processing-responses" class="header">Processing responses</a></li>
   </ul></li>
-  <li><a href="../client-side/request-level.html" class="page">Request-Level Client-Side API</a>
+  <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a>
   <ul>
     <li><a href="../client-side/request-level.html#future-based-variant" class="header">Future-Based Variant</a>
     <ul>
@@ -359,7 +370,7 @@ Version 10.1.11
     <li><a href="../client-side/request-level.html#flow-based-variant" class="header">Flow-Based Variant</a></li>
     <li><a href="../client-side/request-level.html#collecting-headers-from-a-server-response" class="header">Collecting headers from a server response</a></li>
   </ul></li>
-  <li><a href="../client-side/host-level.html" class="page">Host-Level Client-Side API</a>
+  <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a>
   <ul>
     <li><a href="../client-side/host-level.html#requesting-a-host-connection-pool" class="header">Requesting a Host Connection Pool</a></li>
     <li><a href="../client-side/host-level.html#configuring-a-host-connection-pool" class="header">Configuring a Host Connection Pool</a></li>
@@ -434,7 +445,7 @@ Version 10.1.11
 <a href="../server-side/http2.html"><i class="icon-prev"></i> <span class="link-prev">服务器端 HTTP/2 (预览)</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../client-side/request-and-response.html">HttpRequest and HttpResponse <i class="icon-next"></i></a>
+<a class="float-right" href="../client-side/request-and-response.html">HttpRequest 和 HttpResponse <i class="icon-next"></i></a>
 </div>
 </section>
 </div>

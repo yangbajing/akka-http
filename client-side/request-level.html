@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Request-Level Client-Side API &bull; Akka HTTP Chinese edition</title>
+<title>请求级别客户端 API &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -256,14 +256,14 @@ Version 10.1.11
   <li><a href="../server-side/index.html" class="page">4. 服务器 API</a></li>
   <li><a href="../client-side/index.html" class="page">5. 客户端 API</a>
   <ul>
-    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest and HttpResponse</a></li>
-    <li><a href="../client-side/request-level.html#request-level-client-side-api" class="active page">Request-Level Client-Side API</a>
+    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest 和 HttpResponse</a></li>
+    <li><a href="../client-side/request-level.html#请求级别客户端-api" class="active page">请求级别客户端 API</a>
     <ul>
       <li><a href="../client-side/request-level.html#future-based-variant" class="header">Future-Based Variant</a></li>
       <li><a href="../client-side/request-level.html#flow-based-variant" class="header">Flow-Based Variant</a></li>
       <li><a href="../client-side/request-level.html#collecting-headers-from-a-server-response" class="header">Collecting headers from a server response</a></li>
     </ul></li>
-    <li><a href="../client-side/host-level.html" class="page">Host-Level Client-Side API</a></li>
+    <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">Connection-Level Client-Side API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">Pool overflow and the max-open-requests setting</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">Client-Side HTTPS Support</a></li>
@@ -306,14 +306,14 @@ Version 10.1.11
   <li><a href="../server-side/index.html" class="page">4. 服务器 API</a></li>
   <li><a href="../client-side/index.html" class="page">5. 客户端 API</a>
   <ul>
-    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest and HttpResponse</a></li>
-    <li><a href="../client-side/request-level.html#request-level-client-side-api" class="active page">Request-Level Client-Side API</a>
+    <li><a href="../client-side/request-and-response.html" class="page">HttpRequest 和 HttpResponse</a></li>
+    <li><a href="../client-side/request-level.html#请求级别客户端-api" class="active page">请求级别客户端 API</a>
     <ul>
       <li><a href="../client-side/request-level.html#future-based-variant" class="header">Future-Based Variant</a></li>
       <li><a href="../client-side/request-level.html#flow-based-variant" class="header">Flow-Based Variant</a></li>
       <li><a href="../client-side/request-level.html#collecting-headers-from-a-server-response" class="header">Collecting headers from a server response</a></li>
     </ul></li>
-    <li><a href="../client-side/host-level.html" class="page">Host-Level Client-Side API</a></li>
+    <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">Connection-Level Client-Side API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">Pool overflow and the max-open-requests setting</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">Client-Side HTTPS Support</a></li>
@@ -337,15 +337,24 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#request-level-client-side-api" name="request-level-client-side-api" class="anchor"><span class="anchor-link"></span></a>Request-Level Client-Side API</h1>
-<p>The request-level API is the recommended and most convenient way of using Akka HTTP&rsquo;s client-side functionality. It internally builds upon the <a href="host-level.html">Host-Level Client-Side API</a> to provide you with a simple and easy-to-use way of retrieving HTTP responses from remote servers. Depending on your preference you can pick the flow-based or the future-based variant.</p><div class="callout note "><div class="callout-title">Note</div>
-<p>It is recommended to first read the <a href="../implications-of-streaming-http-entity.html">Implications of the streaming nature of Request/Response Entities</a> section, as it explains the underlying full-stack streaming concepts, which may be unexpected when coming from a background with non-&ldquo;streaming first&rdquo; HTTP Clients.</p></div><div class="callout note "><div class="callout-title">Note</div>
-<p>The request-level API is implemented on top of a connection pool that is shared inside the actor system. A consequence of using a pool is that long-running requests block a connection while running and starve other requests. Make sure not to use the request-level API for long-running requests like long-polling GET requests. Use the <a href="connection-level.html">Connection-Level Client-Side API</a> or an extra pool just for the long-running connection instead.</p></div>
+<h1><a href="#请求级别客户端-api" name="请求级别客户端-api" class="anchor"><span class="anchor-link"></span></a>请求级别客户端 API</h1>
+<p><em>Request-Level Client-Side API</em></p>
+<p>The request-level API is the recommended and most convenient way of using Akka HTTP&rsquo;s client-side functionality. It internally builds upon the <a href="host-level.html">Host-Level Client-Side API</a> to provide you with a simple and easy-to-use way of retrieving HTTP responses from remote servers. Depending on your preference you can pick the flow-based or the future-based variant.</p>
+<p>请求级别 API 是使用 Akka HTTP 的客户端功能的推荐和最方便的方法。它内部建立在 <a href="host-level.html">主机级别客户端 API</a> 之上， 为你提供从远程服务器检索 HTTP 响应的简单易用的方式。</p><div class="callout note "><div class="callout-title">Note</div>
+<p>It is recommended to first read the <a href="../implications-of-streaming-http-entity.html">Implications of the streaming nature of Request/Response Entities</a> section, as it explains the underlying full-stack streaming concepts, which may be unexpected when coming from a background with non-&ldquo;streaming first&rdquo; HTTP Clients.</p>
+<p>推荐阅读 <a href="../implications-of-streaming-http-entity.html">请求/响应实体流的实质含义</a> 部分，它阐明了（Akka HTTP）底层的全栈流的概念。 因为对于没有“流式优先” HTTP 客户端概念背景的人来说，也许会感到难以理解。</p></div><div class="callout note "><div class="callout-title">Note</div>
+<p>The request-level API is implemented on top of a connection pool that is shared inside the actor system. A consequence of using a pool is that long-running requests block a connection while running and starve other requests. Make sure not to use the request-level API for long-running requests like long-polling GET requests. Use the <a href="connection-level.html">Connection-Level Client-Side API</a> or an extra pool just for the long-running connection instead.</p>
+<p>请求级别 API 是在连接池顶部实现的，共享内部的 actor 系统。使用连接池的一个结果是长时间运行的请求在运行时阻塞连接，并饿死其它请求。 确保对于长时间运行的请求不要使用请求级别 API，如：长轮询 GET 请求。为长时间运行的连接改用 <a href="connection-level.html">连接级别客户端 API</a> 或额外的连接池。</p></div>
 <h2><a href="#future-based-variant" name="future-based-variant" class="anchor"><span class="anchor-link"></span></a>Future-Based Variant</h2>
+<p><strong>基于 Future 的变体</strong></p>
 <p>Most often, your HTTP client needs are very basic. You simply need the HTTP response for a certain request and don&rsquo;t want to bother with setting up a full-blown streaming infrastructure.</p>
+<p>通常，你的 HTTP 客户端需要是很基础的。你只需要某个请求进行 HTTP 响应，不想费心设置一个完善的流处理基础设施。</p>
 <p>For these cases Akka HTTP offers the <span class="group-scala"><code>Http().singleRequest(...)</code></span><span class="group-java"><code>Http.get(system).singleRequest(...)</code></span> method, which simply turns an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> instance into <span class="group-scala"><code>Future[HttpResponse]</code></span><span class="group-java"><code>CompletionStage&lt;HttpResponse&gt;</code></span>. Internally the request is dispatched across the (cached) host connection pool for the request&rsquo;s effective URI.</p>
+<p>对于这些情况，Akka HTTP 提供了 <span class="group-scala"><code>Http().singleRequest(...)</code></span><span class="group-java"><code>Http.get(system).singleRequest(...)</code></span> 方法， 该方法简单地将 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> 实例转换为 <span class="group-scala"><code>Future[HttpResponse]</code></span><span class="group-java"><code>CompletionStage&lt;HttpResponse&gt;</code></span> 。 在内部，以请求的有效 URI 将请求分配到跨（缓存的）主机连接池。</p>
 <p>Just like in the case of the super-pool flow described above the request must have either an absolute URI or a valid <code>Host</code> header, otherwise the returned future will be completed with an error.</p>
+<p>就像上面超级连接池的情况描述的，请求必须包含包含 URI 路径或者有一个有效的 <code>Host</code> 头域，否则返回的 Future 将以一个错误完成。</p>
 <h3><a href="#example" name="example" class="anchor"><span class="anchor-link"></span></a>Example</h3>
+<p><strong>示例</strong></p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -382,7 +391,9 @@ final CompletionStage&lt;HttpResponse&gt; responseFuture =
       .singleRequest(HttpRequest.create(&quot;http://akka.io&quot;));</code></pre></dd>
 </dl>
 <h3><a href="#using-the-future-based-api-in-actors" name="using-the-future-based-api-in-actors" class="anchor"><span class="anchor-link"></span></a>Using the Future-Based API in Actors</h3>
+<p><strong>在 Actor 里使用基于 Future 的 API</strong></p>
 <p>When using the <span class="group-scala"><code>Future</code></span><span class="group-java"><code>CompletionStage</code></span> based API from inside an <span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/actor/Actor.html" title="akka.actor.Actor"><code>Actor</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/actor/Actor.html" title="akka.actor.Actor"><code>Actor</code></a></span>, all the usual caveats apply to how one should deal with the futures completion. For example you should not access the actor&rsquo;s state from within the <span class="group-scala"><code>Future</code></span><span class="group-java"><code>CompletionStage</code></span>&rsquo;s callbacks (such as <code>map</code>, <code>onComplete</code>, &hellip;) and instead you should use the <span class="group-scala"><code>pipeTo</code></span><span class="group-java"><code>pipe</code></span> pattern to pipe the result back to the actor as a message:</p>
+<p>当从 <span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/actor/Actor.html" title="akka.actor.Actor"><code>Actor</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/actor/Actor.html" title="akka.actor.Actor"><code>Actor</code></a></span> 内部使用基于 <span class="group-scala"><code>Future</code></span><span class="group-java"><code>CompletionStage</code></span> 的 API时，所有常见的警告都适用于如何处理 <code>Future</code> 完成。 如使：在 <span class="group-scala"><code>Future</code></span><span class="group-java"><code>CompletionStage</code></span> 的回调（如：<code>map</code>、<code>onComplete</code>、……）里不应该访问 Actor 的状态，你应该使用 <span class="group-scala"><code>pipeTo</code></span><span class="group-java"><code>pipe</code></span> 模式将（<code>Future</code> 的）结果通过管道作为消息发回 actor 。 </p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -450,15 +461,25 @@ class SingleRequestInActorExample extends AbstractActor {
 }</code></pre></dd>
 </dl><div class="callout warning "><div class="callout-title">Warning</div>
 <p>Always make sure you consume the response entity streams (of type <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;ByteString,Unit&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[ByteString,Unit]</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;ByteString, Object&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[ByteString, Object]</code></a></span></span>) by for example connecting it to a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Sink.html" title="akka.stream.javadsl.Sink"><code>Sink</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Sink.html" title="akka.stream.scaladsl.Sink"><code>Sink</code></a></span> or by calling <span class="group-scala"><code>response.discardEntityBytes()</code></span><span class="group-java"><code>response.discardEntityBytes(Materializer)</code></span> if you don&rsquo;t care about the response entity. Otherwise Akka HTTP (and the underlying Streams infrastructure) will understand the lack of entity consumption as a back-pressure signal and stop reading from the underlying TCP connection!</p>
+<p>总是确保你消费了响应实体流（@scala[<span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;ByteString,Unit&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[ByteString,Unit]</code></a></span>]<span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;ByteString, Object&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[ByteString, Object]</code></a></span></span> 类型）， 例如将流连接到一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Sink.html" title="akka.stream.javadsl.Sink"><code>Sink</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Sink.html" title="akka.stream.scaladsl.Sink"><code>Sink</code></a></span> 或者如果你不关心响应实体时通过调用 <span class="group-scala"><code>response.discardEntityBytes()</code></span><span class="group-java"><code>response.discardEntityBytes(Materializer)</code></span> 消费它。 否则，Akka HTTP（及底层的流基础设施）将没有实体消耗理解为回压信号并停止从底层 TCP 连接读取数据！</p>
 <p>This is a feature of Akka HTTP that allows consuming entities (and pulling them through the network) in a streaming fashion, and only <em>on demand</em> when the client is ready to consume the bytes - it may be a bit surprising at first though.</p>
-<p>There are tickets open about automatically dropping entities if not consumed (<a href="https://github.com/akka/akka-http/issues/183">#183</a> and <a href="https://github.com/akka/akka-http/issues/117">#117</a>), so these may be implemented in the near future.</p></div>
+<p>Akka HTTP 的这个特性允许以流处理的方式消费实体（并通过网络拉取它们），并且只在客户端准备消费字节时才 <em>按需</em> （拉取数据）- 该特性起初可能有点令人惊讶。</p>
+<p>There are tickets open about automatically dropping entities if not consumed (<a href="https://github.com/akka/akka-http/issues/183">#183</a> and <a href="https://github.com/akka/akka-http/issues/117">#117</a>), so these may be implemented in the near future.</p>
+<p>关于如果没有消费则自动丢弃实体，有打开的提案（<a href="https://github.com/akka/akka-http/issues/183">#183</a> 和 <a href="https://github.com/akka/akka-http/issues/117">#117</a>），这些提供可能在不久的将来实现。</p></div>
 <h2><a href="#flow-based-variant" name="flow-based-variant" class="anchor"><span class="anchor-link"></span></a>Flow-Based Variant</h2>
+<p><strong>基于 Flow 的变体</strong></p>
 <p>The flow-based variant of the request-level client-side API is presented by the <span class="group-scala"><code>Http().superPool(...)</code></span><span class="group-java"><code>Http.get(system).superPool(...)</code></span> method. It creates a new &ldquo;super connection pool flow&rdquo;, which routes incoming requests to a (cached) host connection pool depending on their respective effective URIs.</p>
+<p>请求级别客户端 API 的基于 Flow 的变体由 <span class="group-scala"><code>Http().superPool(...)</code></span><span class="group-java"><code>Http.get(system).superPool(...)</code></span> 方法表示。 它创建一个新的“超级连接池 flow”，将传入请求路由到一个（缓存的）主机连接池，（路由算法）具体取决于它们各自的有效 URI。</p>
 <p>The <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> returned by <span class="group-scala"><code>Http().superPool(...)</code></span><span class="group-java"><code>Http.get(system).superPool(...)</code></span> is very similar to the one from the <a href="host-level.html">Host-Level Client-Side API</a>, so the <a href="host-level.html#using-a-host-connection-pool">Using a Host Connection Pool</a> section also applies here.</p>
+<p>因为通过 <span class="group-scala"><code>Http().superPool(...)</code></span><span class="group-java"><code>Http.get(system).superPool(...)</code></span> 返回的 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> 非常类似 <a href="host-level.html">主机级别客户端 API</a> 返回的 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> ，所以 <a href="host-level.html#using-a-host-connection-pool">使用一个主机连接池</a> 部分描述的内容也适用与这里。</p>
 <p>However, there is one notable difference between a &ldquo;host connection pool client flow&rdquo; for the host-level API and a &ldquo;super-pool flow&rdquo;: Since in the former case the flow has an implicit target host context the requests it takes don&rsquo;t need to have absolute URIs or a valid <code>Host</code> header. The host connection pool will automatically add a <code>Host</code> header if required.</p>
+<p>但是，主机级别 API 的“主机连接池客户端 flow”和“超级池”之间有一个值得注意的区别： 因为在前一种情况下，flow 具有一个请求的隐式目标主机上下文，所以 flow 接收的请求不需要有绝对 URI 或者有效的 <code>Host</code> 头域。 如果需要，主机连接池将自动添加一个 <code>Host</code> 头域。</p>
 <p>For a super-pool flow this is not the case. All requests to a super-pool must either have an absolute URI or a valid <code>Host</code> header, because otherwise it&rsquo;d be impossible to find out which target endpoint to direct the request to.</p>
+<p>而对于”超级池 flow“，情况并非如此。到超级池的所有请求都必须具有绝对 URI 或有效 <code>Host</code> 头域之一， 否则超级池将无法找到请求该定向到哪个目标端点。</p>
 <h2><a href="#collecting-headers-from-a-server-response" name="collecting-headers-from-a-server-response" class="anchor"><span class="anchor-link"></span></a>Collecting headers from a server response</h2>
+<p><strong>从服务器响应收集头域</strong></p>
 <p>Sometimes we would like to get only headers of specific type which are sent from a server. In order to collect headers in a type safe way Akka HTTP API provides a type for each HTTP header. Here is an example for getting all cookies set by a server (<code>Set-Cookie</code> header):</p>
+<p>有时我们只想获得从服务器发送的特定类型的头域。为了以类型安全的方式收集头域，Akka HTTP API 为每个 HTTP 头域提供了类型。 这里是一个通过服务器获得所有 cookie 设置的（<code>Set-Cookie</code> 头域）：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -497,16 +518,17 @@ final Iterable&lt;SetCookie&gt; setCookies = response.getHeaders(SetCookie.class
 System.out.println(&quot;Cookies set by a server: &quot; + setCookies);
 response.discardEntityBytes(materializer);</code></pre></dd>
 </dl>
+<p><em>（译注：不要忘记调用 <code>response.discardEntityBytes()</code>）</em></p>
 </div>
 </article>
 <div class="row">
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="../client-side/request-and-response.html"><i class="icon-prev"></i> <span class="link-prev">HttpRequest and HttpResponse</span></a>
+<a href="../client-side/request-and-response.html"><i class="icon-prev"></i> <span class="link-prev">HttpRequest 和 HttpResponse</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../client-side/host-level.html">Host-Level Client-Side API <i class="icon-next"></i></a>
+<a class="float-right" href="../client-side/host-level.html">主机级别客户端 API <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
