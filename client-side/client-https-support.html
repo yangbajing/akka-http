@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Client-Side HTTPS Support &bull; Akka HTTP Chinese edition</title>
+<title>客户端 HTTPS 支持 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -260,8 +260,8 @@ Version 10.1.11
     <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
     <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
-    <li><a href="../client-side/pool-overflow.html" class="page">Pool overflow and the max-open-requests setting</a></li>
-    <li><a href="../client-side/client-https-support.html#client-side-https-support" class="active page">Client-Side HTTPS Support</a>
+    <li><a href="../client-side/pool-overflow.html" class="page">池溢出和最大打开请求数设置</a></li>
+    <li><a href="../client-side/client-https-support.html#客户端-https-支持" class="active page">客户端 HTTPS 支持</a>
     <ul>
       <li><a href="../client-side/client-https-support.html#ssl-config" class="header">SSL-Config</a></li>
       <li><a href="../client-side/client-https-support.html#detailed-configuration-and-workarounds" class="header">Detailed configuration and workarounds</a></li>
@@ -309,8 +309,8 @@ Version 10.1.11
     <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
     <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
-    <li><a href="../client-side/pool-overflow.html" class="page">Pool overflow and the max-open-requests setting</a></li>
-    <li><a href="../client-side/client-https-support.html#client-side-https-support" class="active page">Client-Side HTTPS Support</a>
+    <li><a href="../client-side/pool-overflow.html" class="page">池溢出和最大打开请求数设置</a></li>
+    <li><a href="../client-side/client-https-support.html#客户端-https-支持" class="active page">客户端 HTTPS 支持</a>
     <ul>
       <li><a href="../client-side/client-https-support.html#ssl-config" class="header">SSL-Config</a></li>
       <li><a href="../client-side/client-https-support.html#detailed-configuration-and-workarounds" class="header">Detailed configuration and workarounds</a></li>
@@ -335,9 +335,12 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#client-side-https-support" name="client-side-https-support" class="anchor"><span class="anchor-link"></span></a>Client-Side HTTPS Support</h1>
+<h1><a href="#客户端-https-支持" name="客户端-https-支持" class="anchor"><span class="anchor-link"></span></a>客户端 HTTPS 支持</h1>
+<p><em>Client-Side HTTPS Support</em></p>
 <p>Akka HTTP supports TLS encryption on the client-side as well as on the <a href="../server-side/server-https-support.html">server-side</a>.</p>
+<p>Akka HTTP 在客户端以及 <a href="../server-side/server-https-support.html">服务器端</a> 都支持 TSL 加密。</p>
 <p>The central vehicle for configuring encryption is the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span>, which can be created using the static method <code>ConnectionContext.https</code> which is defined like this:</p>
+<p>配置加密的主要工具是 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/HttpsConnectionContext.html" title="akka.http.javadsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/HttpsConnectionContext.html" title="akka.http.scaladsl.HttpsConnectionContext"><code>HttpsConnectionContext</code></a></span> ，它通过使用静态方法 <code>ConnectionContext.https</code> 创建，定义看起来像这样：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -365,37 +368,69 @@ def https(
   sslParameters:       Optional[SSLParameters]) = // ...</code></pre></dd>
 </dl>
 <p>In addition to the <code>outgoingConnection</code>, <code>newHostConnectionPool</code> and <code>cachedHostConnectionPool</code> methods the <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>akka.http.scaladsl.Http</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>akka.http.javadsl.Http</code></a></span> extension also defines <code>outgoingConnectionHttps</code>, <code>newHostConnectionPoolHttps</code> and <code>cachedHostConnectionPoolHttps</code>. These methods work identically to their counterparts without the <code>-Https</code> suffix, with the exception that all connections will always be encrypted.</p>
+<p>除 <code>outgoingConnection</code>、<code>newHostConnectionPool</code> 和 <code>cachedHostConnectionPool</code> 方法之外， <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>akka.http.scaladsl.Http</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>akka.http.javadsl.Http</code></a></span> 扩展也定义了 <code>outgoingConnectionHttps</code>、<code>newHostConnectionPoolHttps</code> 和 <code>cachedHostConnectionPoolHttps</code>。 这些方法和它们没有 <code>-Https</code> 后缀的对应方法相同，区别是所有连接将始终加密。</p>
 <p>The <code>singleRequest</code> and <code>superPool</code> methods determine the encryption state via the scheme of the incoming request, i.e. requests to an &ldquo;https&rdquo; URI will be encrypted, while requests to an &ldquo;http&rdquo; URI won&rsquo;t.</p>
+<p><code>singleRequest</code> 和 <code>superPool</code> 方法通过传入请求的模式来决定加密状态，例如：将加密对 &ldquo;https&rdquo; URI 的请求，而对 &ldquo;http&rdquo; URI 的请求不会。</p>
 <p>The encryption configuration for all HTTPS connections, i.e. the <code>HttpsContext</code> is determined according to the following logic:</p>
 <ol>
   <li>If the optional <code>httpsContext</code> method parameter is defined it contains the configuration to be used (and thus takes precedence over any potentially set default client-side <code>HttpsContext</code>).</li>
   <li>If the optional <code>httpsContext</code> method parameter is undefined (which is the default) the default client-side <code>HttpsContext</code> is used, which can be set via the <code>setDefaultClientHttpsContext</code> on the <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span> extension.</li>
   <li>If no default client-side <code>HttpsContext</code> has been set via the <code>setDefaultClientHttpsContext</code> on the <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span> extension the default system configuration is used.</li>
 </ol>
+<p>对于所有 HTTPS 连接的加密配置，例如：<code>HttpsContext</code> 根据以下逻辑决定：</p>
+<ol>
+  <li>如果定义了可选的 <code>httpsContext</code> 方法参数，则使用它包含的配置（因此优先于任何可能设置的默认客户端 <code>HttpsContext</code>）。</li>
+  <li>如果未定义可选的 <code>httpsContext</code> 方法参数，则使用默认客户端 <code>HttpsContext</code>，默认值可以通过 <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span> 扩展上的 <code>setDefaultClientHttpsContext</code> 设置。</li>
+  <li>如果没有通过 <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span> 扩展上的 <code>setDefaultClientHttpsContext</code> 设置默认客户端 <code>HttpsContext</code>，则默认的系统配置被使用。</li>
+</ol>
 <p>Usually the process is, if the default system TLS configuration is not good enough for your application&rsquo;s needs, that you configure a custom <code>HttpsContext</code> instance and set it via <span class="group-scala"><code>Http().setDefaultClientHttpsContext</code></span><span class="group-java"><code>Http.get(system).setDefaultClientHttpsContext</code></span>. Afterwards you simply use <code>outgoingConnectionHttps</code>, <code>newHostConnectionPoolHttps</code>, <code>cachedHostConnectionPoolHttps</code>, <code>superPool</code> or <code>singleRequest</code> without a specific <code>httpsContext</code> argument, which causes encrypted connections to rely on the configured default client-side <code>HttpsContext</code>.</p>
+<p>通常的过程是，如果默认的系统 TSL 配置不能满足你的应用程序的需要，那么配置一个自定义 <code>HttpsContext</code> 实例通过 <span class="group-scala"><code>Http().setDefaultClientHttpsContext</code></span><span class="group-java"><code>Http.get(system).setDefaultClientHttpsContext</code></span> 设置它。 然后，你简单使用 <code>outgoingConnectionHttps</code>、<code>newHostConnectionPoolHttps</code>、<code>cachedHostConnectionPoolHttps</code>、<code>superPool</code> 或 <code>singleRequest</code> 而不用指定 <code>httpsContext</code> 参数，这将导致加密连接依赖于配置的默认客户端 <code>HttpsContext</code>。 </p>
 <p>If no custom <code>HttpsContext</code> is defined the default context uses Java&rsquo;s default TLS settings. Customizing the <code>HttpsContext</code> can make the Https client less secure. Understand what you are doing!</p>
+<p>如果没有定义自定义的 <code>HttpsContext</code>，默认上下文使用 Java 的默认 TLS 设置。定制 <code>HttpsContext</code> 可能会降低 Https 客户端的安全性。 请了解你正在做什么！</p>
 <h2><a href="#ssl-config" name="ssl-config" class="anchor"><span class="anchor-link"></span></a>SSL-Config</h2>
+<p><strong>SSL-配置</strong></p>
 <p>Akka HTTP heavily relies on, and delegates most configuration of any SSL/TLS related options to <a href="https://lightbend.github.io/ssl-config/">Lightbend SSL-Config</a>, which is a library specialized in providing an secure-by-default SSLContext and related options.</p>
+<p>Akka HTTP 严重依赖并将大部分 SSL/TLS 相关选项的配置委托给 <a href="https://lightbend.github.io/ssl-config/">Lightbend SSL-配置</a>， 这是一个专门提供默认安全 <code>SSLContext</code> 和相关选项的库。</p>
 <p>Please refer to the <a href="https://lightbend.github.io/ssl-config/">Lightbend SSL-Config</a> documentation for detailed documentation of all available settings.</p>
+<p>有关所有可用设置的详细文档，请参考 <a href="https://lightbend.github.io/ssl-config/">Lightbend SSL-配置</a> 文档。</p>
 <p>SSL Config settings used by Akka HTTP (as well as Streaming TCP) are located under the <em>akka.ssl-config</em> namespace.</p>
+<p>Akka HTTP（以及流式 TCP）使用的 SSL 配置设置位于 <em>akka.ssl-config</em> 名称空间。</p>
 <h2><a href="#detailed-configuration-and-workarounds" name="detailed-configuration-and-workarounds" class="anchor"><span class="anchor-link"></span></a>Detailed configuration and workarounds</h2>
+<p><strong>详细的配置和解决方案</strong></p>
 <p>Akka HTTP relies on <a href="https://lightbend.github.io/ssl-config">Lightbend SSL-Config</a> which is a library maintained by Lightbend that makes configuring things related to SSL/TLS much simpler than using the raw SSL APIs provided by the JDK. Please refer to its documentation to learn more about it.</p>
-<p>All configuration options available to this library may be set under the <code>akka.ssl-config</code> configuration for Akka HTTP applications.</p><div class="callout note "><div class="callout-title">Note</div>
-<p>When encountering problems connecting to HTTPS hosts we highly encourage to reading up on the excellent ssl-config configuration. Especially the quick start sections about <a href="https://lightbend.github.io/ssl-config/WSQuickStart.html#connecting-to-a-remote-server-over-https">adding certificates to the trust store</a> should prove very useful, for example to easily trust a self-signed certificate that applications might use in development mode.</p></div><div class="callout warning "><div class="callout-title">Warning</div>
+<p>Akka HTTP 依赖由 Lightbend 维护的 <a href="https://lightbend.github.io/ssl-config/">Lightbend SSL-配置</a> 库， 它使对 SSL/TLS 相关的配置比使用 JDK 提供的原始 SSL API 简单得多。请参考它的文档学习更多。 </p>
+<p>All configuration options available to this library may be set under the <code>akka.ssl-config</code> configuration for Akka HTTP applications.</p>
+<p>此库可用的所有配置选项都可以在 Akka HTTP 应用程序的 <code>akka.ssl-config</code> 配置下设置。</p><div class="callout note "><div class="callout-title">Note</div>
+<p>When encountering problems connecting to HTTPS hosts we highly encourage to reading up on the excellent ssl-config configuration. Especially the quick start sections about <a href="https://lightbend.github.io/ssl-config/WSQuickStart.html#connecting-to-a-remote-server-over-https">adding certificates to the trust store</a> should prove very useful, for example to easily trust a self-signed certificate that applications might use in development mode.</p>
+<p>当遇到连接到 HTTPS 主机的问题时，我们强烈建议阅读优秀的 ss-config 配置。特别是有关 <a href="https://lightbend.github.io/ssl-config/WSQuickStart.html#connecting-to-a-remote-server-over-https">添加证书到信任存储</a> 的快速入门部分非常有用，例如，轻松信任自签名证书，应用程序可能在使用开发模式。</p></div><div class="callout warning "><div class="callout-title">Warning</div>
 <p>While it is possible to disable certain checks using the so called &ldquo;loose&rdquo; settings in SSL Config, we <strong>strongly recommend</strong> to instead attempt to solve these issues by properly configuring TLS–for example by adding trusted keys to the keystore.</p>
-<p>If however certain checks really need to be disabled because of misconfigured (or legacy) servers that your application has to speak to, instead of disabling the checks globally (i.e. in <code>application.conf</code>) we suggest configuring the loose settings for <em>specific connections</em> that are known to need them disabled (and trusted for some other reason). The pattern of doing so is documented in the following sub-sections.</p></div>
+<p>虽然可以使用 SSL 配置中所谓的“松散”设置禁用某些检查，但我们 <strong>强烈建议</strong> 尝试通过正确配置 TLS 来解决这些问题，例如向密钥库添加可信密钥。</p>
+<p>If however certain checks really need to be disabled because of misconfigured (or legacy) servers that your application has to speak to, instead of disabling the checks globally (i.e. in <code>application.conf</code>) we suggest configuring the loose settings for <em>specific connections</em> that are known to need them disabled (and trusted for some other reason). The pattern of doing so is documented in the following sub-sections.</p>
+<p>但是，如果因为你的应用程序需要与错误配置（或遗留）的服务器对话，某些检查确实需要禁用，则建议为已知需要禁用这些检查的 <em>特定连接</em> （以及某些其它原因而可信的连接）配置设置，而不是全局禁用这些检查（例如：在 <code>application.conf</code> 中）。 这样做的模式被记录在下面小节中。</p></div>
 <h3><a href="#hostname-verification" name="hostname-verification" class="anchor"><span class="anchor-link"></span></a>Hostname verification</h3>
+<p><strong>主机名验证</strong></p>
 <p>Hostname verification proves that the Akka HTTP client is actually communicating with the server it intended to communicate with. Without this check a man-in-the-middle attack is possible. In the attack scenario, an alternative certificate would be presented which was issued for another host name. Checking the host name in the certificate against the host name the connection was opened against is therefore vital.</p>
+<p>主机名验证证明 Akka HTTP 客户端是真正的在与它要与之通信的服务器通信。没有这个检查，中间人攻击是可能的。在攻击场景中， 将提供为另一个主机名颁发的替代证书。因此，根据打开连接所针对的主机名检查证书中的主机名必不可少。</p>
 <p>The default <code>HttpsContext</code> enables hostname verification. Akka HTTP relies on the <a href="https://lightbend.github.io/ssl-config">Lightbend SSL-Config</a> library to implement this and security options for SSL/TLS. Hostname verification is provided by the JDK and used by Akka since Java 7, and on Java 6 the verification is implemented by ssl-config manually.</p>
+<p>默认 <code>HttpsContext</code> 启用主机名验证。Akka HTTP 依赖 <a href="https://lightbend.github.io/ssl-config">Lightbend SSL-配置</a> 库实现该功能和 SSL/TLS 的安全选项。Akka 从 Java 7 开始主机名验证由 JDK 提供，而在 Java 6 上验证由 ssl-config 手动实现。</p>
 <p>For further recommended reading we would like to highlight the <a href="https://tersesystems.com/2014/03/23/fixing-hostname-verification/">fixing hostname verification blog post</a> by blog post by Will Sargent.</p>
-<h3><a href="#server-name-indication-sni-" name="server-name-indication-sni-" class="anchor"><span class="anchor-link"></span></a>Server Name Indication (SNI)</h3>
+<p>有关进一步推荐阅读，我们想突出 Will Sargent 的这篇博客文章 <a href="https://tersesystems.com/2014/03/23/fixing-hostname-verification/">修复主机名验证的博客文章</a></p>
+<h3><a href="#服务器名字指示-sni-" name="服务器名字指示-sni-" class="anchor"><span class="anchor-link"></span></a>服务器名字指示 (SNI)</h3>
+<p><strong>Server Name Indication (SNI)</strong></p>
 <p>SNI is an TLS extension which aims to guard against man-in-the-middle attacks. It does so by having the client send the name of the virtual domain it is expecting to talk to as part of the TLS handshake.</p>
+<p>SNI 是一个 TLS 扩展，旨在防范中间人攻击。它通过让客户端发送它期望作为 TLS 握手的一部分与之通信的虚拟域的名字来做到。</p>
 <p>It is specified as part of <a href="https://tools.ietf.org/html/rfc6066#page-6">RFC 6066</a>.</p>
-<h3><a href="#disabling-tls-security-features-at-your-own-risk" name="disabling-tls-security-features-at-your-own-risk" class="anchor"><span class="anchor-link"></span></a>Disabling TLS security features, at your own risk</h3><div class="callout warning "><div class="callout-title">Warning</div>
+<p>它被指定为 <a href="https://tools.ietf.org/html/rfc6066#page-6">RFC 6066</a> 的一部分。</p>
+<h3><a href="#disabling-tls-security-features-at-your-own-risk" name="disabling-tls-security-features-at-your-own-risk" class="anchor"><span class="anchor-link"></span></a>Disabling TLS security features, at your own risk</h3>
+<p><strong>禁用 TLS 安全特性，风险自负</strong></p><div class="callout warning "><div class="callout-title">Warning</div>
 <p>It is highly discouraged to disable any of the security features of TLS, however do acknowledge that workarounds may sometimes be needed.</p>
+<p>禁用 TLS 的任何安全特性都是非常不鼓励的，但是请承认有时可能需要一些变通方法。</p>
 <p>Before disabling any of the features one should consider if they may be solvable <em>within</em> the TLS world, for example by <a href="https://lightbend.github.io/ssl-config/WSQuickStart.html">trusting a certificate</a>, or <a href="https://lightbend.github.io/ssl-config/CipherSuites.html">configuring the trusted cipher suites</a>. There&rsquo;s also a very important section in the ssl-config docs titled <a href="https://lightbend.github.io/ssl-config/LooseSSL.html#please-read-this-before-turning-anything-off">LooseSSL - Please read this before turning anything off!</a>.</p>
-<p>If disabling features is indeed desired, we recommend doing so for <em>specific connections</em>, instead of globally configuring it via <code>application.conf</code>.</p></div>
+<p>在禁用任何特性之前，应该考虑这些特性是否可以在 TLS 世界 <em>中</em> 解决，例如通过 <a href="https://lightbend.github.io/ssl-config/WSQuickStart.html">可信证书</a> 或 <a href="https://lightbend.github.io/ssl-config/CipherSuites.html">配置可信密码套件</a> 。 在 ssl-config 文档中还有非常重要的部分，标题为 <a href="https://lightbend.github.io/ssl-config/LooseSSL.html#please-read-this-before-turning-anything-off">LooseSSL - 请在关闭任何东西之前阅读此内容</a></p>
+<p>If disabling features is indeed desired, we recommend doing so for <em>specific connections</em>, instead of globally configuring it via <code>application.conf</code>.</p>
+<p>如果确实需要禁用功能，建议对 <em>特定连接</em> 执行操作，而不是通过 <code>application.conf</code> 全局配置。</p></div>
 <p>The following shows an example of disabling SNI for a given connection:</p>
+<p>下面显示了为给定连接禁用 SNI 的例子：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
@@ -421,13 +456,14 @@ final HttpsConnectionContext badCtx = http.createClientHttpsContext(badSslConfig
 http.outgoingConnection(ConnectHttp.toHostHttps(unsafeHost).withCustomHttpsContext(badCtx));</code></pre></dd>
 </dl>
 <p>The <code>badSslConfig</code> is a copy of the default <code>AkkaSSLConfig</code> with the slightly changed configuration to disable SNI. This value can be cached and used for connections which should indeed not use this feature.</p>
+<p><code>badSslConfig</code> 是默认 <code>AkkaSSLConfig</code> 的副本，它的配置略有更改以禁用 SNI。<code>badSslConfig</code> 可以被缓存，并用于不应用使用此特性的连接。</p>
 </div>
 </article>
 <div class="row">
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="../client-side/pool-overflow.html"><i class="icon-prev"></i> <span class="link-prev">Pool overflow and the max-open-requests setting</span></a>
+<a href="../client-side/pool-overflow.html"><i class="icon-prev"></i> <span class="link-prev">池溢出和最大打开请求数设置</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
 <a class="float-right" href="../client-side/client-transport.html">Pluggable Client Transports / HTTP(S) proxy Support <i class="icon-next"></i></a>

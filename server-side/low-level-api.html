@@ -548,11 +548,11 @@ val bindingFuture: Future[Http.ServerBinding] =
 <p>服务器端配置和使用 HTTPS 的详细文档请参考 <a href="server-https-support.html">服务器端 HTTPS 支持</a> 。</p>
 <a id="http-server-layer"></a>
 <h2><a href="#stand-alone-http-layer-usage" name="stand-alone-http-layer-usage" class="anchor"><span class="anchor-link"></span></a>Stand-Alone HTTP Layer Usage</h2>
-<p><strong>独立 HTTP 层的使用方法</strong></p>
+<p><strong>独立的 HTTP 层的使用方法</strong></p>
 <p>Due to its Reactive-Streams-based nature the Akka HTTP layer is fully detachable from the underlying TCP interface. While in most applications this &ldquo;feature&rdquo; will not be crucial it can be useful in certain cases to be able to &ldquo;run&rdquo; the HTTP layer (and, potentially, higher-layers) against data that do not come from the network but rather some other source. Potential scenarios where this might be useful include tests, debugging or low-level event-sourcing (e.g by replaying network traffic).</p>
-<p>由于基于反应式流，Akka HTTP 层与底层 TCP 接口是分离的。 虽然在大多数应用程序中这个“特性”并不重要，但在某些情况下，能够针对不是来自网络而是其他来源的数据“运行”HTTP层（以及更高的层）可能很有用。 潜在场景可用于包括测试、调度或者底级事件法（重放网络流量）。</p><div class="group-scala">
+<p>由于基于反应式流，Akka HTTP 层与底层 TCP 接口是完全分离的。 虽然在大多数应用程序中这个“特性”并不重要，但在某些情况下，能够针对不是来自网络而是其他来源的数据“运行”HTTP层（以及更高的层）可能很有用。 潜在场景可用于包括测试、调试或者低级事件源（例如，重放网络流量）。</p><div class="group-scala">
 <p>On the server-side the stand-alone HTTP layer forms a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/BidiFlow.html" title="akka.stream.javadsl.BidiFlow"><code>BidiFlow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/BidiFlow.html" title="akka.stream.scaladsl.BidiFlow"><code>BidiFlow</code></a></span> that is defined like this:</p>
-<p>在服务器端，标准 HTTP 层结构 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/BidiFlow.html" title="akka.stream.javadsl.BidiFlow"><code>BidiFlow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/BidiFlow.html" title="akka.stream.scaladsl.BidiFlow"><code>BidiFlow</code></a></span> 定义像这样：</p>
+<p>在服务器端，独立的 HTTP 层形式 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/BidiFlow.html" title="akka.stream.javadsl.BidiFlow"><code>BidiFlow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/BidiFlow.html" title="akka.stream.scaladsl.BidiFlow"><code>BidiFlow</code></a></span> 定义像这样：</p>
 <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-core/src/main/scala/akka/http/scaladsl/Http.scala#L895-L907" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
  * The type of the server-side HTTP layer as a stand-alone BidiFlow
  * that can be put atop the TCP layer to form an HTTP server.

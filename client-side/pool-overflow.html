@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Pool overflow and the max-open-requests setting &bull; Akka HTTP Chinese edition</title>
+<title>池溢出和最大打开请求数设置 &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -260,12 +260,12 @@ Version 10.1.11
     <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
     <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
-    <li><a href="../client-side/pool-overflow.html#pool-overflow-and-the-max-open-requests-setting" class="active page">Pool overflow and the max-open-requests setting</a>
+    <li><a href="../client-side/pool-overflow.html#池溢出和最大打开请求数设置" class="active page">池溢出和最大打开请求数设置</a>
     <ul>
       <li><a href="../client-side/pool-overflow.html#common-causes-of-pool-overload" class="header">Common causes of pool overload</a></li>
       <li><a href="../client-side/pool-overflow.html#why-does-this-happen-only-with-akka-http-and-not-with-" class="header">Why does this happen only with Akka Http and not with [insert other client]</a></li>
     </ul></li>
-    <li><a href="../client-side/client-https-support.html" class="page">Client-Side HTTPS Support</a></li>
+    <li><a href="../client-side/client-https-support.html" class="page">客户端 HTTPS 支持</a></li>
     <li><a href="../client-side/client-transport.html" class="page">Pluggable Client Transports / HTTP(S) proxy Support</a></li>
     <li><a href="../client-side/websocket-support.html" class="page">Client-Side WebSocket Support</a></li>
   </ul></li>
@@ -309,12 +309,12 @@ Version 10.1.11
     <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
     <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
-    <li><a href="../client-side/pool-overflow.html#pool-overflow-and-the-max-open-requests-setting" class="active page">Pool overflow and the max-open-requests setting</a>
+    <li><a href="../client-side/pool-overflow.html#池溢出和最大打开请求数设置" class="active page">池溢出和最大打开请求数设置</a>
     <ul>
       <li><a href="../client-side/pool-overflow.html#common-causes-of-pool-overload" class="header">Common causes of pool overload</a></li>
       <li><a href="../client-side/pool-overflow.html#why-does-this-happen-only-with-akka-http-and-not-with-" class="header">Why does this happen only with Akka Http and not with [insert other client]</a></li>
     </ul></li>
-    <li><a href="../client-side/client-https-support.html" class="page">Client-Side HTTPS Support</a></li>
+    <li><a href="../client-side/client-https-support.html" class="page">客户端 HTTPS 支持</a></li>
     <li><a href="../client-side/client-transport.html" class="page">Pluggable Client Transports / HTTP(S) proxy Support</a></li>
     <li><a href="../client-side/websocket-support.html" class="page">Client-Side WebSocket Support</a></li>
   </ul></li>
@@ -335,15 +335,22 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#pool-overflow-and-the-max-open-requests-setting" name="pool-overflow-and-the-max-open-requests-setting" class="anchor"><span class="anchor-link"></span></a>Pool overflow and the max-open-requests setting</h1>
+<h1><a href="#池溢出和最大打开请求数设置" name="池溢出和最大打开请求数设置" class="anchor"><span class="anchor-link"></span></a>池溢出和最大打开请求数设置</h1>
+<p><em>Pool overflow and the max-open-requests setting</em></p>
 <p><a href="request-level.html">Request-Level Client-Side API</a> and <a href="host-level.html">Host-Level Client-Side API</a> use a connection pool underneath. The connection pool will open a limited number of concurrent connections to one host (see the <code>akka.http.host-connection-pool.max-connections</code> setting). This will limit the rate of requests a pool to a single host can handle.</p>
+<p><a href="request-level.html">请求级别客户端 API</a> 和 <a href="host-level.html">主机级别客户端 API</a> 在下面使用一个连接池。 连接池将打开到一个主机的有限数量的并发连接（见 <code>akka.http.host-connection-pool.max-connections</code> 设置）。 这将限制池对单个主机可以处理的请求的速率。 </p>
 <p>When you use the <a href="host-level.html#using-the-host-level-api-in-a-streaming-fashion">stream-based host-level API</a> stream semantics prevent that the pool is overloaded with requests. On the other side, when a new request is pushed either using <span class="group-scala"><code>Http().singleRequest()</code></span><span class="group-java"><code>Http.get(system).singleRequest()</code></span> or when materializing too many streams using the same <span class="group-scala"><code>Http().cachedHostConnectionPool</code></span><span class="group-java"><code>Http.get(system).cachedHostConnectionPool</code></span>, requests may start to queue up when the rate of new requests is greater than the rate at which the pool can process requests.</p>
+<p>当你使用 <a href="host-level.html#using-the-host-level-api-in-a-streaming-fashion">基于流的主机级别 API</a> 时，流语义防止池请求过载。 在另一边，当使用 <span class="group-scala"><code>Http().singleRequest()</code></span><span class="group-java"><code>Http.get(system).singleRequest()</code></span> 推送新请求， 或者使用相同 <span class="group-scala"><code>Http().cachedHostConnectionPool</code></span><span class="group-java"><code>Http.get(system).cachedHostConnectionPool</code></span> 具体化太多流时， 当新请求的速率大于池可以处理请求的速率时，请求可能会开始排队。</p>
 <p>In such a situation <code>max-open-requests</code> per host connection pool will be queued to buffer short-term peaks of requests. Further requests will fail immediately with a <span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/BufferOverflowException.html" title="akka.stream.BufferOverflowException"><code>BufferOverflowException</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/BufferOverflowException.html" title="akka.stream.BufferOverflowException"><code>BufferOverflowException</code></a></span> with a message like this:</p>
+<p>在这样的情况下，每个主机连接池的 <code>max-open-requests</code> 将排队以缓冲短期请求高峰。更多的请求将以 <span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/BufferOverflowException.html" title="akka.stream.BufferOverflowException"><code>BufferOverflowException</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/BufferOverflowException.html" title="akka.stream.BufferOverflowException"><code>BufferOverflowException</code></a></span> 立即失败， 消息像这样：</p>
 <pre><code>Exceeded configured max-open-requests value of ...
 </code></pre>
 <p>This will usually happen under high load or when the pool has been running for some time with the processing speed being too slow to handle all the incoming requests.</p>
+<p>这通常发生在高负载下，或者当池已经运行一段时间，处理速度太慢，无法处理所有传入请求时。</p>
 <p>Note, that even if the pool can handle regular load, short-term hiccups (at the server, the network, or at the client) can make the queue overflow, so you need to treat this as an expected condition. Your application should be able to deal with it. In many cases, it makes sense to treat pool overflow the same as a <code>503</code> answer from the server which usually is used when the server is overloaded. A common way to treat it would be to retry the request after some while (using a viable backoff strategy).</p>
+<p>注意，即使池可以处理常规负载，短期故障（在服务器、网络或客户端）可能导致队列溢出，因此需要把这视为预期条件。你的应用程序应该可以处理它。 在许多情况下，把池溢出视为来自服务器的 <code>503</code> 应答（通常在服务器过载时使用）是有意义的。一种常见处理方式是在一段时间后重试请求（使用可行的后退策略）。</p>
 <h2><a href="#common-causes-of-pool-overload" name="common-causes-of-pool-overload" class="anchor"><span class="anchor-link"></span></a>Common causes of pool overload</h2>
+<p><strong>池过载的常见原因</strong></p>
 <p>As explained above the general explanation for pool overload is that the incoming request rate is higher that the request processing rate. This can have all kinds of causes (and hints for fixing them in parentheses):</p>
 <ul>
   <li>The server is too slow (improve server performance)</li>
@@ -354,9 +361,22 @@ Version 10.1.11
   <li>Response entities were not read or discarded (see <a href="../implications-of-streaming-http-entity.html">Implications of the streaming nature of Http entities</a>)</li>
   <li>Some requests are slower than others blocking the connections of a pool for other requests (see below)</li>
 </ul>
+<p>如上所述，对池过载的一般说明是传入请求速率高于请求处理速率。这可能有多种原因（以及在括号中修复它们的提示）：</p>
+<ul>
+  <li>服务器太慢（改进服务器性能）</li>
+  <li>网络太慢（改进网络性能）</li>
+  <li>客户端发出请求太快（如果可能，减慢请求的创建速度）</li>
+  <li>客户端和服务器这间有调整延迟（使用更多并发连接以并行方式隐藏延迟）</li>
+  <li>请求速率峰值（通过优化客户端应用程序或者增加 <code>max-open-requests</code> 以缓冲短期峰值来防止峰值）</li>
+  <li>响应实体不可读或已丢弃（见 <a href="../implications-of-streaming-http-entity.html">请求/响应实体流的实质含义</a>）</li>
+  <li>一些请求比其它请求慢，其它请求会阻塞池的连接（见下面）</li>
+</ul>
 <p>The last point may need a bit more explanation. If some requests are much slower than others, e.g. if the request is a long-running Server Sent Events request than this will block one of the connections of the pool for a long time. If there are multiple such requests going on at the same time it will lead to starvation and other requests cannot make any progress any more. Make sure to run a long-running request on a dedicated connection (using the <a href="connection-level.html">Connection-Level Client-Side API</a>) to prevent such a situation.</p>
+<p>最后点可能需要更多解释。如果一些请求比其它请求慢得多，例如：如果请求是一个长时间运行的 SSE 请求，这将阻塞池里的一个连接很长时间。 如果同时有多个此类请求，它将导致饥饿和其它请求不能取得任何进展。确保在专用连接上运行长时间运行的请求（使用 <a href="connection-level.html">连接级别客户端 API</a>），以防止此类情况。</p>
 <h2><a href="#why-does-this-happen-only-with-akka-http-and-not-with-" name="why-does-this-happen-only-with-akka-http-and-not-with-" class="anchor"><span class="anchor-link"></span></a>Why does this happen only with Akka Http and not with [insert other client]</h2>
+<p><strong>为什么这种情况只在 Akka HTTP 上发生，而其它 HTTP 客户端没有？</strong></p>
 <p>Many Java HTTP clients don&rsquo;t set limits by default for some of the resources used. E.g. some clients will never queue a request but will just open another connection to the server if all the pooled connections are currently busy. However, this might just move the problem from the client to the server. Also using an excessive number of connections will lead to worse performance on the network as more connections will compete for bandwidth.</p>
+<p>许多 Java HTTP 客户端默认对使用的某些资源不设置限制。例如：某些客户端从不对请求排队，但如果所有池连接当前都很忙，则只会打开到服务器的另一个连接。 但是，只可能只是将问题从客户端移动了服务器端。而且，使用过多的连接将导致网络性能下降，因为更多的连接将争夺带宽。</p>
 </div>
 </article>
 <div class="row">
@@ -366,7 +386,7 @@ Version 10.1.11
 <a href="../client-side/connection-level.html"><i class="icon-prev"></i> <span class="link-prev">连接级别客户端 API</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../client-side/client-https-support.html">Client-Side HTTPS Support <i class="icon-next"></i></a>
+<a class="float-right" href="../client-side/client-https-support.html">客户端 HTTPS 支持 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
