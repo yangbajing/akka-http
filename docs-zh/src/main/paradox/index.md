@@ -1,4 +1,4 @@
-# Akka HTTP Chinese edition
+# Akka HTTP Unofficial Chinese
 
 @@toc { depth=2 }
 
