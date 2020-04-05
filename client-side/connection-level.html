@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Connection-Level Client-Side API &bull; Akka HTTP Chinese edition</title>
+<title>连接级别客户端 API &bull; Akka HTTP Chinese edition</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -259,7 +259,7 @@ Version 10.1.11
     <li><a href="../client-side/request-and-response.html" class="page">HttpRequest 和 HttpResponse</a></li>
     <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
     <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
-    <li><a href="../client-side/connection-level.html#connection-level-client-side-api" class="active page">Connection-Level Client-Side API</a>
+    <li><a href="../client-side/connection-level.html#连接级别客户端-api" class="active page">连接级别客户端 API</a>
     <ul>
       <li><a href="../client-side/connection-level.html#opening-http-connections" class="header">Opening HTTP Connections</a></li>
       <li><a href="../client-side/connection-level.html#request-response-cycle" class="header">Request-Response Cycle</a></li>
@@ -311,7 +311,7 @@ Version 10.1.11
     <li><a href="../client-side/request-and-response.html" class="page">HttpRequest 和 HttpResponse</a></li>
     <li><a href="../client-side/request-level.html" class="page">请求级别客户端 API</a></li>
     <li><a href="../client-side/host-level.html" class="page">主机级别客户端 API</a></li>
-    <li><a href="../client-side/connection-level.html#connection-level-client-side-api" class="active page">Connection-Level Client-Side API</a>
+    <li><a href="../client-side/connection-level.html#连接级别客户端-api" class="active page">连接级别客户端 API</a>
     <ul>
       <li><a href="../client-side/connection-level.html#opening-http-connections" class="header">Opening HTTP Connections</a></li>
       <li><a href="../client-side/connection-level.html#request-response-cycle" class="header">Request-Response Cycle</a></li>
@@ -341,8 +341,10 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#connection-level-client-side-api" name="connection-level-client-side-api" class="anchor"><span class="anchor-link"></span></a>Connection-Level Client-Side API</h1>
-<p>The connection-level API is the lowest-level client-side API Akka HTTP provides. It gives you full control over when HTTP connections are opened and closed and how requests are to be send across which connection. As such it offers the highest flexibility at the cost of providing the least convenience.</p><div class="callout note "><div class="callout-title">Note</div>
+<h1><a href="#连接级别客户端-api" name="连接级别客户端-api" class="anchor"><span class="anchor-link"></span></a>连接级别客户端 API</h1>
+<p><em>Connection-Level Client-Side API</em></p>
+<p>The connection-level API is the lowest-level client-side API Akka HTTP provides. It gives you full control over when HTTP connections are opened and closed and how requests are to be send across which connection. As such it offers the highest flexibility at the cost of providing the least convenience.</p>
+<p>连接级别 API 是 Akka HTTP 提供的最低级别客户端 API。给你完全控制何时打开和关闭 HTTP 连接，以及如何通过哪个连接发送请求。 因此，它以提供最少的便利性为代价，提供了最高的灵活性。</p><div class="callout note "><div class="callout-title">Note</div>
 <p>It is recommended to first read the <a href="../implications-of-streaming-http-entity.html">Implications of the streaming nature of Request/Response Entities</a> section, as it explains the underlying full-stack streaming concepts, which may be unexpected when coming from a background with non-&ldquo;streaming first&rdquo; HTTP Clients.</p></div>
 <h2><a href="#opening-http-connections" name="opening-http-connections" class="anchor"><span class="anchor-link"></span></a>Opening HTTP Connections</h2>
 <p>With the connection-level API you open a new HTTP connection to a target endpoint by materializing a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> returned by the <span class="group-scala"><code>Http().outgoingConnection(...)</code></span><span class="group-java"><code>Http.get(system).outgoingConnection(...)</code></span> method. Here is an example:</p>
