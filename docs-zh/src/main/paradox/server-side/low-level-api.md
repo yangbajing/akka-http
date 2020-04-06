@@ -191,7 +191,7 @@ For detailed documentation about configuring and using HTTPS on the server-side 
 
 <a id="http-server-layer"></a>
 ## Stand-Alone HTTP Layer Usage
-**独立 HTTP 层的使用方法**
+**独立的 HTTP 层的使用方法**
 
 Due to its Reactive-Streams-based nature the Akka HTTP layer is fully detachable from the underlying TCP
 interface. While in most applications this "feature" will not be crucial it can be useful in certain cases to be able
@@ -199,14 +199,14 @@ to "run" the HTTP layer (and, potentially, higher-layers) against data that do n
 some other source. Potential scenarios where this might be useful include tests, debugging or low-level event-sourcing
 (e.g by replaying network traffic).
 
-由于基于反应式流，Akka HTTP 层与底层 TCP 接口是分离的。
+由于基于反应式流，Akka HTTP 层与底层 TCP 接口是完全分离的。
 虽然在大多数应用程序中这个“特性”并不重要，但在某些情况下，能够针对不是来自网络而是其他来源的数据“运行”HTTP层（以及更高的层）可能很有用。 
-潜在场景可用于包括测试、调度或者底级事件法（重放网络流量）。
+潜在场景可用于包括测试、调试或者低级事件源（例如，重放网络流量）。
 
 @@@ div { .group-scala }
 On the server-side the stand-alone HTTP layer forms a @apidoc[BidiFlow] that is defined like this:
 
-在服务器端，标准 HTTP 层结构 @apidoc[BidiFlow] 定义像这样：
+在服务器端，独立的 HTTP 层形式 @apidoc[BidiFlow] 定义像这样：
 
 @@snip [Http.scala]($akka-http$/akka-http-core/src/main/scala/akka/http/scaladsl/Http.scala) { #server-layer }
 

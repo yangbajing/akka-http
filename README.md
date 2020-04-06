@@ -1,6 +1,14 @@
 Akka HTTP
 =========
 
+## 中文版说明（非官方）
+
+*翻译难免有错误或表达不够清楚的地方。因此，Akka HTTP 中文版翻译采用了基于原始 markdown 文件对照翻译的形式，英文原文将显示在中文译文的上方。
+欢迎大家指出或改进不好的地方，一起完善并在未来跟进官方版本的更新。欢迎随时编辑并提交 Pull Request。*
+
+访问地址：[Akka HTTP 10.1 中文](https://www.yangbajing.me/akka-http/)
+码云镜像：[Akka HTTP 10.1 中文](https://yangbajing.gitee.io/akka-http/)
+
 [![Latest version](https://index.scala-lang.org/akka/akka-http/akka-http-core/latest.svg)](https://index.scala-lang.org/akka/akka-http)
 
 The Akka HTTP modules implement a full server- and client-side HTTP stack on top
