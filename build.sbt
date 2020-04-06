@@ -425,7 +425,10 @@ lazy val docsZh = project("docs-zh")
       "algolia.docsearch.index_name" -> "akka-http",
       //"google.analytics.account" -> "UA-21117439-1",
       //"google.analytics.domain.name" -> "yangbajing.me",
-      "github.base_url" -> GitHub.url(version.value),
+      "github.base_url" -> {
+        val branch = if (version.value.endsWith("SNAPSHOT")) "master" else "zh-docs-10.1" // "v" + version.value
+        "https://github.com/yangbajing/akka-http/tree/" + branch
+      },
       "snip.test.base_dir" -> (sourceDirectory in Test).value.getAbsolutePath,
       "snip.akka-http.base_dir" -> (baseDirectory in ThisBuild).value.getAbsolutePath,
       "signature.test.base_dir" -> (sourceDirectory in Test).value.getAbsolutePath,

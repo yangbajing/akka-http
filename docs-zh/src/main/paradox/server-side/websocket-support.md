@@ -280,4 +280,4 @@ the client side will *not* reply to such heartbeat). You can configure this mode
 客户端将始终使用一个合适的 `Pong` 回复一个 Ping 响应，并携带相同的载荷。
 也可以通过配置保持-活跃机制发送 `Pong` 帧来替代 `Ping` 帧。
 你可以配置这个模式：`akka.http.server.websocket.periodic-keep-alive-mode = pong` 来启用 [定向心跳](https://tools.ietf.org/html/rfc6455#section-5.5.3) 机制
-（在这种情况下，客户端将 *不* 回复此类心跳）。
+（在这种情况下，客户端将 *不* 回复此类心跳）。 
