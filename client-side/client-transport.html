@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Pluggable Client Transports / HTTP(S) proxy Support &bull; Akka HTTP Chinese edition</title>
+<title>可插拔的客户端传输 / HTTP(S) 代理支持 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -262,13 +262,13 @@ Version 10.1.11
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">池溢出和最大打开请求数设置</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">客户端 HTTPS 支持</a></li>
-    <li><a href="../client-side/client-transport.html#pluggable-client-transports-http-s-proxy-support" class="active page">Pluggable Client Transports / HTTP(S) proxy Support</a>
+    <li><a href="../client-side/client-transport.html#可插拔的客户端传输-http-s-代理支持" class="active page">可插拔的客户端传输 / HTTP(S) 代理支持</a>
     <ul>
       <li><a href="../client-side/client-transport.html#configuring-client-transports" class="header">Configuring Client Transports</a></li>
       <li><a href="../client-side/client-transport.html#predefined-transports" class="header">Predefined Transports</a></li>
       <li><a href="../client-side/client-transport.html#implementing-custom-transports" class="header">Implementing Custom Transports</a></li>
     </ul></li>
-    <li><a href="../client-side/websocket-support.html" class="page">Client-Side WebSocket Support</a></li>
+    <li><a href="../client-side/websocket-support.html" class="page">客户端 WebSocket 支持</a></li>
   </ul></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
   <li><a href="../technologies.html" class="page">7. 支持的技术</a></li>
@@ -283,7 +283,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -298,7 +298,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -312,13 +312,13 @@ Version 10.1.11
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">池溢出和最大打开请求数设置</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">客户端 HTTPS 支持</a></li>
-    <li><a href="../client-side/client-transport.html#pluggable-client-transports-http-s-proxy-support" class="active page">Pluggable Client Transports / HTTP(S) proxy Support</a>
+    <li><a href="../client-side/client-transport.html#可插拔的客户端传输-http-s-代理支持" class="active page">可插拔的客户端传输 / HTTP(S) 代理支持</a>
     <ul>
       <li><a href="../client-side/client-transport.html#configuring-client-transports" class="header">Configuring Client Transports</a></li>
       <li><a href="../client-side/client-transport.html#predefined-transports" class="header">Predefined Transports</a></li>
       <li><a href="../client-side/client-transport.html#implementing-custom-transports" class="header">Implementing Custom Transports</a></li>
     </ul></li>
-    <li><a href="../client-side/websocket-support.html" class="page">Client-Side WebSocket Support</a></li>
+    <li><a href="../client-side/websocket-support.html" class="page">客户端 WebSocket 支持</a></li>
   </ul></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
   <li><a href="../technologies.html" class="page">7. 支持的技术</a></li>
@@ -337,34 +337,47 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#pluggable-client-transports-http-s-proxy-support" name="pluggable-client-transports-http-s-proxy-support" class="anchor"><span class="anchor-link"></span></a>Pluggable Client Transports / HTTP(S) proxy Support</h1>
+<h1><a href="#可插拔的客户端传输-http-s-代理支持" name="可插拔的客户端传输-http-s-代理支持" class="anchor"><span class="anchor-link"></span></a>可插拔的客户端传输 / HTTP(S) 代理支持</h1>
+<p><em>Pluggable Client Transports / HTTP(S) proxy Support</em></p>
 <p>The client side infrastructure has support to plug different transport mechanisms underneath (the API may still change in the future). A client side transport is represented by an instance of <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/ClientTransport.html" title="akka.http.scaladsl.ClientTransport"><code>akka.http.scaladsl.ClientTransport</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ClientTransport.html" title="akka.http.javadsl.ClientTransport"><code>akka.http.javadsl.ClientTransport</code></a></span>:</p>
+<p>客户端基础设施支持在下面插入的不同传输机制（该 API 在未来仍有可能改变）。客户端传输由 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/ClientTransport.html" title="akka.http.scaladsl.ClientTransport"><code>akka.http.scaladsl.ClientTransport</code></a></span><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ClientTransport.html" title="akka.http.javadsl.ClientTransport"><code>akka.http.javadsl.ClientTransport</code></a></span> 的实例表示。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-core/src/main/scala/akka/http/scaladsl/ClientTransport.scala#L26-L29" target="_blank" title="Go to snippet source"></a><code class="language-scala">@ApiMayChange
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-core/src/main/scala/akka/http/scaladsl/ClientTransport.scala#L26-L29" target="_blank" title="Go to snippet source"></a><code class="language-scala">@ApiMayChange
 trait ClientTransport {
   def connectTo(host: String, port: Int, settings: ClientConnectionSettings)(implicit system: ActorSystem): Flow[ByteString, ByteString, Future[OutgoingConnection]]
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-core/src/main/scala/akka/http/javadsl/ClientTransport.scala#L25-L28" target="_blank" title="Go to snippet source"></a><code class="language-scala">@ApiMayChange
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-core/src/main/scala/akka/http/javadsl/ClientTransport.scala#L25-L28" target="_blank" title="Go to snippet source"></a><code class="language-scala">@ApiMayChange
 abstract class ClientTransport {
   def connectTo(host: String, port: Int, settings: ClientConnectionSettings, system: ActorSystem): Flow[ByteString, ByteString, CompletionStage[OutgoingConnection]]
 }</code></pre></dd>
 </dl>
-<p>A transport implementation defines how the client infrastructure should communicate with a given host.</p><div class="callout note "><div class="callout-title">Note</div>
-<p>In our model, SSL/TLS runs on top of the client transport, even if you could theoretically see it as part of the transport layer itself.</p></div>
+<p>A transport implementation defines how the client infrastructure should communicate with a given host.</p>
+<p>传输实现定义了客户端基础设施应该如何与指定主机通信。</p><div class="callout note "><div class="callout-title">Note</div>
+<p>In our model, SSL/TLS runs on top of the client transport, even if you could theoretically see it as part of the transport layer itself.</p>
+<p>在我们的模型中，SSL/TLS 运行在客户端传输之上，即使理论上你可以将它看作为传输层本身的一部分。</p></div>
 <h2><a href="#configuring-client-transports" name="configuring-client-transports" class="anchor"><span class="anchor-link"></span></a>Configuring Client Transports</h2>
+<p><strong>配置客户端传输</strong></p>
 <p>A <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ClientTransport.html" title="akka.http.javadsl.ClientTransport"><code>ClientTransport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/ClientTransport.html" title="akka.http.scaladsl.ClientTransport"><code>ClientTransport</code></a></span> can be configured in the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/settings/ClientConnectionSettings.html" title="akka.http.javadsl.settings.ClientConnectionSettings"><code>ClientConnectionSettings</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/settings/ClientConnectionSettings.html" title="akka.http.scaladsl.settings.ClientConnectionSettings"><code>ClientConnectionSettings</code></a></span>. Right now, this is not possible through config files but only by code. First, use <code>ClientConnectionSettings.withTransport</code> to configure a transport, then use <code>ConnectionPoolSettings.withConnectionSettings</code>. <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/settings/ClientConnectionSettings.html" title="akka.http.javadsl.settings.ClientConnectionSettings"><code>ClientConnectionSettings</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/settings/ClientConnectionSettings.html" title="akka.http.scaladsl.settings.ClientConnectionSettings"><code>ClientConnectionSettings</code></a></span> can be passed to all client-side entry points in <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span>.</p>
+<p>可以在 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/settings/ClientConnectionSettings.html" title="akka.http.javadsl.settings.ClientConnectionSettings"><code>ClientConnectionSettings</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/settings/ClientConnectionSettings.html" title="akka.http.scaladsl.settings.ClientConnectionSettings"><code>ClientConnectionSettings</code></a></span> 中配置 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/ClientTransport.html" title="akka.http.javadsl.ClientTransport"><code>ClientTransport</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/ClientTransport.html" title="akka.http.scaladsl.ClientTransport"><code>ClientTransport</code></a></span> 。现在，不能通过配置文件而只能通过代码实现。首先，使用 <code>ClientConnectionSettings.withTransport</code> 来配置一个传输，然后使用 <code>ConnectionPoolSettings.withConnectionSettings</code>。 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/settings/ClientConnectionSettings.html" title="akka.http.javadsl.settings.ClientConnectionSettings"><code>ClientConnectionSettings</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/settings/ClientConnectionSettings.html" title="akka.http.scaladsl.settings.ClientConnectionSettings"><code>ClientConnectionSettings</code></a></span> 可以被传递到 <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http$.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/Http.html" title="akka.http.javadsl.Http"><code>Http</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/Http.html" title="akka.http.scaladsl.Http"><code>Http</code></a></span></span> 中的所有客户端入口点。 </p>
 <h2><a href="#predefined-transports" name="predefined-transports" class="anchor"><span class="anchor-link"></span></a>Predefined Transports</h2>
+<p><strong>预定义传输</strong></p>
 <h3><a href="#tcp" name="tcp" class="anchor"><span class="anchor-link"></span></a>TCP</h3>
 <p>The default transport is <code>ClientTransport.TCP</code> which simply opens a TCP connection to the target host.</p>
+<p>默认传输是 <code>ClientTransport.TCP</code>，它简单打开到目标的 TCP 连接。</p>
 <h3><a href="#http-s-proxy" name="http-s-proxy" class="anchor"><span class="anchor-link"></span></a>HTTP(S) Proxy</h3>
+<p><strong>HTTP(S) 代理</strong></p>
 <p>A transport that connects to target servers via an HTTP(S) proxy. An HTTP(S) proxy uses the HTTP <code>CONNECT</code> method (as specified in <a href="https://tools.ietf.org/html/rfc7231#section-4.3.6">RFC 7231 Section 4.3.6</a>) to create tunnels to target servers. The proxy itself should transparently forward data to the target servers so that end-to-end encryption should still work (if TLS breaks, then the proxy might be fussing with your data).</p>
+<p>一个传输通过 HTTP(S) 代理连接到目标服务器。HTTP(S) 代理使用 HTTP <code>CONNECT</code> 方法 （在 <a href="https://tools.ietf.org/html/rfc7231#section-4.3.6">RFC 7231，4.3.6 节</a> 中指定）创建到目标服务器的隧道。 代理本身应该透明的转发数据到目标服务器，因此端到端的加密应该仍然工作（如果 TLS 中断，那么代理可能干扰你的数据）。</p>
 <p>This approach is commonly used to securely proxy requests to HTTPS endpoints. In theory it could also be used to proxy requests targeting HTTP endpoints, but we have not yet found a proxy that in fact allows this.</p>
+<p>这个方法常见用于安全的代理请求到 HTTPS 端点。理论上它也可用于代理针对 HTTP 端点的请求，但我们还没有找到一个（这样的）代理，实际上允许这样做。</p>
 <p>Instantiate the HTTP(S) proxy transport using <code>ClientTransport.httpsProxy(proxyAddress)</code>.</p>
+<p>使用 <code>ClientTransport.httpsProxy(proxyAddress)</code> 实例化 HTTP(S) 代理传输。</p>
 <p>The proxy transport can also be setup using <code>ClientTransport.httpsProxy()</code> or <code>ClientTransport.httpsProxy(basicHttpCredentials)</code> In order to defined the transport as such, you will need to set the proxy host / port in your <code>conf</code> file like the following.</p>
+<p>可以使用 <code>ClientTransport.httpsProxy()</code> 或 <code>ClientTransport.httpsProxy(basicHttpCredentials)</code> 来设置代理传输。 为了像这样定义代理，你将需要在 <code>配置</code> 文件中设置代理主机/端口，就像下面：</p>
 <pre><code>akka.http.client.proxy {
  https {
    host = &quot;&quot;
@@ -373,13 +386,16 @@ abstract class ClientTransport {
 }
 </code></pre>
 <p>If host is left as <code>&quot;&quot;</code> and you attempt to setup a httpsProxy transport, an exception will be thrown.</p>
+<p>如果主机被保留为 <code>&quot;&quot;</code> 并且尝试设置一个 httpsProxy 代理，将抛出一个异常。</p>
 <a id="use-https-proxy-with-http-singlerequest"></a>
 <h3><a href="#use-http-s-proxy-with-" name="use-http-s-proxy-with-" class="anchor"><span class="anchor-link"></span></a>Use HTTP(S) proxy with <span class="group-scala"><code>Http().singleRequest</code></span><span class="group-java"><code>Http.get(...).singleRequest</code></span></h3>
+<p><strong>与 <span class="group-scala"><code>Http().singleRequest</code></span><span class="group-java"><code>Http.get(...).singleRequest</code></span> 一起使用 HTTP(S) 代理</strong></p>
 <p>To make use of an HTTP proxy when using the <code>singleRequest</code> API you simply need to configure the proxy and pass the appropriate settings object when calling the single request method.</p>
+<p>要在使用 <code>singleRequest</code> API 时使用 HTTP 代理，你只需要配置代理并在调用单请求方法时传递合适的设置对象。 </p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L419-L436" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.net.InetSocketAddress
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L419-L436" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.net.InetSocketAddress
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
@@ -399,7 +415,7 @@ val settings = ConnectionPoolSettings(system)
 Http().singleRequest(HttpRequest(uri = &quot;https://google.com&quot;), settings = settings)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L257-L271" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>final ActorSystem system = ActorSystem.create();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L257-L271" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>final ActorSystem system = ActorSystem.create();
 
 ClientTransport proxy = ClientTransport.httpsProxy(InetSocketAddress.createUnresolved(&quot;192.168.2.5&quot;, 8080));
 ConnectionPoolSettings poolSettingsWithHttpsProxy = ConnectionPoolSettings.create(system)
@@ -415,11 +431,13 @@ final CompletionStage&lt;HttpResponse&gt; responseFuture =
 </code></pre></dd>
 </dl>
 <h3><a href="#use-http-s-proxy-that-requires-authentication" name="use-http-s-proxy-that-requires-authentication" class="anchor"><span class="anchor-link"></span></a>Use HTTP(S) proxy that requires authentication</h3>
+<p><strong>使用需要身份验证的 HTTP(S) 代理</strong></p>
 <p>In order to use a HTTP(S) proxy that requires authentication, you need to provide <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/HttpCredentials.html" title="akka.http.javadsl.model.headers.HttpCredentials"><code>HttpCredentials</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/HttpCredentials.html" title="akka.http.scaladsl.model.headers.HttpCredentials"><code>HttpCredentials</code></a></span> that will be used when making the CONNECT request to the proxy:</p>
+<p>为了使用需要身份验证的 HTTP(S) 代理，你需要提供在向代理发起 CONNECT 请求时将使用的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/HttpCredentials.html" title="akka.http.javadsl.model.headers.HttpCredentials"><code>HttpCredentials</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/HttpCredentials.html" title="akka.http.scaladsl.model.headers.HttpCredentials"><code>HttpCredentials</code></a></span> 。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L454-L464" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.headers
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L454-L464" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.headers
 
 val proxyAddress = InetSocketAddress.createUnresolved(proxyHost, proxyPort)
 val auth = headers.BasicHttpCredentials(&quot;proxy-user&quot;, &quot;secret-proxy-pass-dont-tell-anyone&quot;)
@@ -432,7 +450,7 @@ val settings = ConnectionPoolSettings(system)
 Http().singleRequest(HttpRequest(uri = &quot;http://akka.io&quot;), settings = settings)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L282-L298" target="_blank" title="Go to snippet source"></a><code class="language-java">InetSocketAddress proxyAddress =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L282-L298" target="_blank" title="Go to snippet source"></a><code class="language-java">InetSocketAddress proxyAddress =
   InetSocketAddress.createUnresolved(&quot;192.168.2.5&quot;, 8080);
 HttpCredentials credentials =
   HttpCredentials.createBasicHttpCredentials(&quot;proxy-user&quot;, &quot;secret-proxy-pass-dont-tell-anyone&quot;);
@@ -451,11 +469,13 @@ final CompletionStage&lt;HttpResponse&gt; responseFuture =
 </code></pre></dd>
 </dl>
 <h3><a href="#use-http-s-proxy-with-" name="use-http-s-proxy-with-" class="anchor"><span class="anchor-link"></span></a>Use HTTP(S) proxy with <span class="group-scala">Http().singleWebSocketRequest</span><span class="group-java">Http.get(&hellip;).singleWebSocketRequest</span></h3>
+<p><strong>与 <span class="group-scala">Http().singleWebSocketRequest</span><span class="group-java">Http.get(&hellip;).singleWebSocketRequest</span> 一起使用 HTTP(S) 代理</strong></p>
 <p>Making use of an HTTP proxy when using the <code>singleWebSocketRequest</code> is done like using <code>singleRequest</code>, except you set <code>ClientConnectionSettings</code> instead of <code>ConnectionPoolSettings</code>:</p>
+<p>当使用 <code>singleWebSocketRequest</code> 时使用 HTTP 代理类似于使用 <code>singleRequest</code>，除了设置 <code>ClientConnectionSettings</code> 来替代 <code>ConnectionPoolSettings</code>：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L250-L274" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.net.InetSocketAddress
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L250-L274" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.net.InetSocketAddress
 
 import akka.actor.ActorSystem
 import akka.NotUsed
@@ -482,7 +502,7 @@ val settings = ClientConnectionSettings(system).withTransport(httpsProxyTranspor
 Http().singleWebSocketRequest(WebSocketRequest(uri = &quot;wss://example.com:8080/some/path&quot;), clientFlow = flow, settings = settings)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L247-L269" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>final ActorSystem system = ActorSystem.create();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L247-L269" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>final ActorSystem system = ActorSystem.create();
 final Materializer materializer = ActorMaterializer.create(system);
 
 final Flow&lt;Message, Message, NotUsed&gt; flow =
@@ -506,11 +526,13 @@ Http.get(system)
 </code></pre></dd>
 </dl>
 <h3><a href="#use-http-s-proxy-that-requires-authentication-for-web-sockets" name="use-http-s-proxy-that-requires-authentication-for-web-sockets" class="anchor"><span class="anchor-link"></span></a>Use HTTP(S) proxy that requires authentication for Web Sockets</h3>
+<p><strong>为 Web Sockets 使用需要身份验证的 HTTP(S) 代理</strong></p>
 <p>Here is an example for Web Socket:</p>
+<p>这是一个 Web Socket 的例子：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L301-L309" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.headers
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L301-L309" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.headers
 
 val proxyAddress = InetSocketAddress.createUnresolved(proxyHost, proxyPort)
 val auth = headers.BasicHttpCredentials(&quot;proxy-user&quot;, &quot;secret-proxy-pass-dont-tell-anyone&quot;)
@@ -521,7 +543,7 @@ val settings = ClientConnectionSettings(system).withTransport(httpsProxyTranspor
 Http().singleWebSocketRequest(WebSocketRequest(uri = &quot;wss://example.com:8080/some/path&quot;), clientFlow = flow, settings = settings)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L285-L303" target="_blank" title="Go to snippet source"></a><code class="language-java">InetSocketAddress proxyAddress =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L285-L303" target="_blank" title="Go to snippet source"></a><code class="language-java">InetSocketAddress proxyAddress =
   InetSocketAddress.createUnresolved(&quot;192.168.2.5&quot;, 8080);
 HttpCredentials credentials =
   HttpCredentials.createBasicHttpCredentials(&quot;proxy-user&quot;, &quot;secret-proxy-pass-dont-tell-anyone&quot;);
@@ -542,11 +564,18 @@ Http.get(system)
 </code></pre></dd>
 </dl>
 <h2><a href="#implementing-custom-transports" name="implementing-custom-transports" class="anchor"><span class="anchor-link"></span></a>Implementing Custom Transports</h2>
+<p><strong>实现自定义传输</strong></p>
 <p>Implement <code>ClientTransport.connectTo</code> to implement a custom client transport.</p>
+<p>实现 <code>ClientTransport.connectTo</code> 来实现一个自定义客户端传输。</p>
 <p>Here are some ideas for custom (or future predefined) transports:</p>
 <ul>
   <li>SSH tunnel transport: connects to the target host through an SSH tunnel</li>
   <li>Per-host configurable transport: allows choosing transports per target host</li>
+</ul>
+<p>这是自定义（或者未来预制）传输的一些语音：</p>
+<ul>
+  <li>SSH 隧道传输：通过 SSH 隧道连接到目标主机</li>
+  <li>每主机可配置传输：允许选择每个目标主机的传输</li>
 </ul>
 </div>
 </article>
@@ -557,14 +586,13 @@ Http.get(system)
 <a href="../client-side/client-https-support.html"><i class="icon-prev"></i> <span class="link-prev">客户端 HTTPS 支持</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
-<a class="float-right" href="../client-side/websocket-support.html">Client-Side WebSocket Support <i class="icon-next"></i></a>
+<a class="float-right" href="../client-side/websocket-support.html">客户端 WebSocket 支持 <i class="icon-next"></i></a>
 </div>
 </section>
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/client-side/client-transport.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/client-side/client-transport.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

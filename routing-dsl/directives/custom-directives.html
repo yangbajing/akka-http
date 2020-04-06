@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>自定义指令 &bull; Akka HTTP Chinese edition</title>
+<title>自定义指令 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../../usage.html" class="page">2. 使用</a></li>
@@ -310,7 +310,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -325,7 +325,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../../usage.html" class="page">2. 使用</a></li>
@@ -416,7 +416,7 @@ Version 10.1.11
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L17-L28" target="_blank" title="Go to snippet source"></a><code class="language-scala">val getOrPut = get | put
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L17-L28" target="_blank" title="Go to snippet source"></a><code class="language-scala">val getOrPut = get | put
 
 // tests:
 val route = getOrPut { complete(&quot;ok&quot;) }
@@ -430,7 +430,7 @@ Put(&quot;/&quot;) ~&gt; route ~&gt; check {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/CustomDirectivesExamplesTest.java#L22-L41" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.get;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/directives/CustomDirectivesExamplesTest.java#L22-L41" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.get;
 import static akka.http.javadsl.server.Directives.put;
 import static akka.http.javadsl.server.Directives.complete;
 
@@ -441,7 +441,7 @@ Route route = getOrPut(() -&gt; complete(&quot;ok&quot;));</code></pre></dd>
 </dl><div class="group-java">
 <p>Multiple directives can be nested to produce a single directive out of multiple like this:</p>
 <p>可以嵌套多个指令，以便生成这样的一个单个指令：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/CustomDirectivesExamplesTest.java#L28-L103" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.headerValueByName;
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/directives/CustomDirectivesExamplesTest.java#L28-L103" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.headerValueByName;
 
 // the composed custom directive
 /**
@@ -499,7 +499,7 @@ Route route = get(() -&gt;
 <p><strong>map 和 tmap</strong></p>
 <p>If the Directive is a single-value <code>Directive</code>, the <code>map</code> method allows for simple transformations:</p>
 <p>如果指令是单值 <code>Directive</code>，<code>map</code> 方法允许用于简单转换：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L34-L43" target="_blank" title="Go to snippet source"></a><code class="language-scala">val textParam: Directive1[String] =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L34-L43" target="_blank" title="Go to snippet source"></a><code class="language-scala">val textParam: Directive1[String] =
   parameter(&quot;text&quot;.as[String])
 
 val lengthDirective: Directive1[Int] =
@@ -509,15 +509,15 @@ val lengthDirective: Directive1[Int] =
 Get(&quot;/?text=abcdefg&quot;) ~&gt; lengthDirective(x =&gt; complete(x.toString)) ~&gt; check {
   responseAs[String] shouldEqual &quot;7&quot;
 }</code></pre>
-<p>One example of a predefined directive relying on <code>map</code> is the <a href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/directives/HeaderDirectives.scala#L104-L107">optionalHeaderValue</a> directive.</p>
-<p>依赖 <code>map</code> 的其中一个预定义指令例子是 <a href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/directives/HeaderDirectives.scala#L104-L107">optionalHeaderValue</a> 指令。</p>
+<p>One example of a predefined directive relying on <code>map</code> is the <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/server/directives/HeaderDirectives.scala#L104-L107">optionalHeaderValue</a> directive.</p>
+<p>依赖 <code>map</code> 的其中一个预定义指令例子是 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/server/directives/HeaderDirectives.scala#L104-L107">optionalHeaderValue</a> 指令。</p>
 <p>The tmap modifier has this signature (somewhat simplified):</p>
 <p><code>tmap</code> 修改器有着这样的签名（进行了简化）：</p>
 <pre class="prettyprint"><code class="language-scala">def tmap[R](f: L =&gt; R): Directive[Out]
 </code></pre>
 <p>It can be used to transform the <code>Tuple</code> of extractions into another <code>Tuple</code>. The number and/or types of the extractions can be changed arbitrarily. For example if <code>R</code> is <code>Tuple2[A, B]</code> then the result will be a <code>Directive[(A, B)]</code>. Here is a somewhat contrived example:</p>
 <p>它可用于将提取的 <code>Tuple</code> 转换到另一个 <code>Tuple</code>。提取的数量和/或类型都可以任意改变。 例如，如果 <code>R</code> 是 <code>Tuple2[A, B]</code>，但结果是 <code>Directive[(A, B)]</code>。这里是一个有点做作的例子：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L49-L60" target="_blank" title="Go to snippet source"></a><code class="language-scala">val twoIntParameters: Directive[(Int, Int)] =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L49-L60" target="_blank" title="Go to snippet source"></a><code class="language-scala">val twoIntParameters: Directive[(Int, Int)] =
   parameters((&quot;a&quot;.as[Int], &quot;b&quot;.as[Int]))
 
 val myDirective: Directive1[String] =
@@ -542,7 +542,7 @@ Get(&quot;/?a=2&amp;b=5&quot;) ~&gt; myDirective(x =&gt; complete(x)) ~&gt; chec
 <p>给定的函数根据底层函数的提取元组（值）生成一个新的指令。与 <a href="#map-tmap">map/tmap</a> 的情况一个，也有一个名为 <code>flatMap</code> 的单值变体， 它简化了指令只提取一个单值的操作。</p>
 <p>Here is the (contrived) example from above, which doubles positive Int values and rejects all others:</p>
 <p>这里是上面的（做作的）例子，它加倍正数 Int 值并拒绝其它：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L86-L100" target="_blank" title="Go to snippet source"></a><code class="language-scala">val intParameter: Directive1[Int] = parameter(&quot;a&quot;.as[Int])
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L86-L100" target="_blank" title="Go to snippet source"></a><code class="language-scala">val intParameter: Directive1[Int] = parameter(&quot;a&quot;.as[Int])
 
 val myDirective: Directive1[Int] =
   intParameter.flatMap {
@@ -559,7 +559,7 @@ Get(&quot;/?a=-18&quot;) ~&gt; myDirective(i =&gt; complete(i.toString)) ~&gt; c
 }</code></pre>
 <p>A common pattern that relies on flatMap is to first extract a value from the RequestContext with the extract directive and then flatMap with some kind of filtering logic. For example, this is the implementation of the method directive:</p>
 <p>依赖 <code>flatMap</code> 的一种常用模式是，先使用提取指令从 <code>RequestContext</code> 提取一个值，然后使用某种过滤逻辑在 <code>flatMap</code> 中提取值。 例如：这是 <code>method</code> 指令的实现：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/directives/MethodDirectives.scala#L83-L87" target="_blank" title="Go to snippet source"></a><code class="language-scala">def method(httpMethod: HttpMethod): Directive0 =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/server/directives/MethodDirectives.scala#L83-L87" target="_blank" title="Go to snippet source"></a><code class="language-scala">def method(httpMethod: HttpMethod): Directive0 =
   extractMethod.flatMap[Unit] {
     case `httpMethod` =&gt; pass
     case _            =&gt; reject(MethodRejection(httpMethod))
@@ -577,7 +577,7 @@ Get(&quot;/?a=-18&quot;) ~&gt; myDirective(i =&gt; complete(i.toString)) ~&gt; c
 </code></pre>
 <p>One example of a predefined directive relying on require is the first overload of the host directive:</p>
 <p>依赖 <code>require</code> 的预定义指令的一个例子是 <code>host</code> 指令的第一个重载版本：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/directives/HostDirectives.scala#L34-L39" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/server/directives/HostDirectives.scala#L34-L39" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
  * Rejects all requests for whose host name the given predicate function returns false.
  *
  * @group host
@@ -616,7 +616,7 @@ parameter(&quot;a&quot;.as[Int]).collect({ case x if x != 0 =&gt; 42 / x }, Miss
 <p><strong>从头开始实现指令</strong></p>
 <p>The third option for creating custom directives is to do it “from scratch”, either by using <code>Directive.apply</code> or by subclassing <code>Directive</code> class directly. The <code>Directive</code> is defined like this (leaving away operators and modifiers):</p>
 <p>创建自定义指令的第三个选项是“从头开始”做起，直接使用 <code>Directive.apply</code> 或 <code>Directive</code> 的子类。<code>Directive</code> 的定义像这样（去掉了操作符和修改器）：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/server/Directive.scala#L20-L123" target="_blank" title="Go to snippet source"></a><code class="language-scala">abstract class Directive[L](implicit val ev: Tuple[L]) {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/server/Directive.scala#L20-L123" target="_blank" title="Go to snippet source"></a><code class="language-scala">abstract class Directive[L](implicit val ev: Tuple[L]) {
 
   /**
    * Calls the inner route with a tuple of extracted values of type `L`.
@@ -640,7 +640,7 @@ parameter(&quot;a&quot;.as[Int]).collect({ case x if x != 0 =&gt; 42 / x }, Miss
 </code></pre>
 <p>A <code>Directive[(String, Int)]</code> extracts a <code>String</code> value and an <code>Int</code> value (like a <code>parameters(&#39;a.as[String], &#39;b.as[Int])</code> directive). Such a directive can be defined to extract the hostname and port of a request:</p>
 <p><code>Directive[(String, Int)]</code> 提取一个 <code>String</code> 值和一个 <code>Int</code> 值（就像 <code>parameters(&#39;a.as[String], &#39;b.as[Int])</code> 指令）。 因此，指令可用于定义提取请求的主机名和端口。</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L106-L119" target="_blank" title="Go to snippet source"></a><code class="language-scala">def hostnameAndPort: Directive[(String, Int)] = Directive[(String, Int)] { inner =&gt; ctx =&gt;
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L106-L119" target="_blank" title="Go to snippet source"></a><code class="language-scala">def hostnameAndPort: Directive[(String, Int)] = Directive[(String, Int)] { inner =&gt; ctx =&gt;
   val authority = ctx.request.uri.authority
   inner((authority.host.address(), authority.port))(ctx)
 }
@@ -656,7 +656,7 @@ Get() ~&gt; Host(&quot;akka.io&quot;, 8080) ~&gt; route ~&gt; check {
 }</code></pre>
 <p>Beside using <code>Directive.apply</code>, you can also extending <code>Directive</code> directly(This is actually uncommon and the first is preferable for common use cases):</p>
 <p>除了使用 <code>Directive.apply</code>，你也可以直接扩展 <code>Directive</code>（这实际上不常见，对于常见用例第一种更为可取）。</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L125-L140" target="_blank" title="Go to snippet source"></a><code class="language-scala">object hostnameAndPort extends Directive[(String, Int)] {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomDirectivesExamplesSpec.scala#L125-L140" target="_blank" title="Go to snippet source"></a><code class="language-scala">object hostnameAndPort extends Directive[(String, Int)] {
   override def tapply(f: ((String, Int)) =&gt; Route): Route = { ctx =&gt;
     val authority = ctx.request.uri.authority
     f((authority.host.address(), authority.port))(ctx)
@@ -689,8 +689,7 @@ Get() ~&gt; Host(&quot;akka.io&quot;, 8080) ~&gt; route ~&gt; check {
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/routing-dsl/directives/custom-directives.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/routing-dsl/directives/custom-directives.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

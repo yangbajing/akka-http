@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>parameters &bull; Akka HTTP Chinese edition</title>
+<title>parameters &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../../../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../../../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../../../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../../../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../../../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../../../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../../../usage.html" class="page">2. 使用</a></li>
@@ -348,7 +348,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../../../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../../../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -363,7 +363,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../../../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../../../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../../../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../../../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../../../usage.html" class="page">2. 使用</a></li>
@@ -513,7 +513,7 @@ def parameters(params: &lt;ParamDef[T_0]&gt; :: ... &lt;ParamDef[T_i]&gt; ... ::
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L34-L46" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L34-L46" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   parameters(&#39;color, &#39;backgroundColor) { (color, backgroundColor) =&gt;
     complete(s&quot;The color is &#39;$color&#39; and the background is &#39;$backgroundColor&#39;&quot;)
   }
@@ -528,7 +528,7 @@ Get(&quot;/?color=blue&quot;) ~&gt; Route.seal(route) ~&gt; check {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/ParameterDirectivesExamplesTest.java#L24-L95" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/directives/ParameterDirectivesExamplesTest.java#L24-L95" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.parameter;
 
 final Route route = parameter(&quot;color&quot;, color -&gt;
@@ -550,7 +550,7 @@ testRoute(route).run(HttpRequest.GET(&quot;/?color=blue&quot;))
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L51-L63" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L51-L63" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   parameters(&#39;color, &#39;backgroundColor.?) { (color, backgroundColor) =&gt;
     val backgroundStr = backgroundColor.getOrElse(&quot;&lt;undefined&gt;&quot;)
     complete(s&quot;The color is &#39;$color&#39; and the background is &#39;$backgroundStr&#39;&quot;)
@@ -565,7 +565,7 @@ Get(&quot;/?color=blue&quot;) ~&gt; route ~&gt; check {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/ParameterDirectivesExamplesTest.java#L29-L114" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/directives/ParameterDirectivesExamplesTest.java#L29-L114" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.parameter;
 import static akka.http.javadsl.server.Directives.parameterOptional;
 
@@ -584,7 +584,7 @@ testRoute(route).run(HttpRequest.GET(&quot;/?color=blue&quot;))
   .assertEntity(&quot;The color is &#39;blue&#39; and the background is &#39;undefined&#39;&quot;);</code></pre></dd>
 </dl><div class="group-scala">
 <h3><a href="#optional-parameter-with-default-value" name="optional-parameter-with-default-value" class="anchor"><span class="anchor-link"></span></a>Optional parameter with default value</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L68-L79" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L68-L79" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   parameters(&#39;color, &#39;backgroundColor ? &quot;white&quot;) { (color, backgroundColor) =&gt;
     complete(s&quot;The color is &#39;$color&#39; and the background is &#39;$backgroundColor&#39;&quot;)
   }
@@ -600,7 +600,7 @@ Get(&quot;/?color=blue&quot;) ~&gt; route ~&gt; check {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L84-L97" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L84-L97" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   parameters(&#39;color, &#39;action ! &quot;true&quot;) { (color) =&gt;
     complete(s&quot;The color is &#39;$color&#39;.&quot;)
   }
@@ -616,7 +616,7 @@ Get(&quot;/?color=blue&amp;action=false&quot;) ~&gt; Route.seal(route) ~&gt; che
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/ParameterDirectivesExamplesTest.java#L35-L134" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/directives/ParameterDirectivesExamplesTest.java#L35-L134" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.parameterRequiredValue;
 
 final Route route = parameter(&quot;color&quot;, color -&gt;
@@ -638,7 +638,7 @@ testRoute(route).run(HttpRequest.GET(&quot;/?color=blue&amp;action=false&quot;))
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L102-L116" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L102-L116" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   parameters(&#39;color, &#39;count.as[Int]) { (color, count) =&gt;
     complete(s&quot;The color is &#39;$color&#39; and you have $count of it.&quot;)
   }
@@ -655,7 +655,7 @@ Get(&quot;/?color=blue&amp;count=blub&quot;) ~&gt; Route.seal(route) ~&gt; check
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/ParameterDirectivesExamplesTest.java#L40-L153" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/directives/ParameterDirectivesExamplesTest.java#L40-L153" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.parameter;
 
 final Route route = parameter(&quot;color&quot;, color -&gt;
@@ -673,7 +673,7 @@ testRoute(route).run(HttpRequest.GET(&quot;/?color=blue&amp;count=blub&quot;))
                       +&quot; is not a valid 32-bit signed integer value&quot;);</code></pre></dd>
 </dl><div class="group-scala">
 <h3><a href="#repeated-parameter" name="repeated-parameter" class="anchor"><span class="anchor-link"></span></a>Repeated parameter</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L121-L141" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L121-L141" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   parameters(&#39;color, &#39;city.*) { (color, cities) =&gt;
     cities.toList match {
       case Nil         =&gt; complete(s&quot;The color is &#39;$color&#39; and there are no cities.&quot;)
@@ -695,7 +695,7 @@ Get(&quot;/?color=blue&amp;city=Chicago&amp;city=Boston&quot;) ~&gt; Route.seal(
   responseAs[String] shouldEqual &quot;The color is &#39;blue&#39; and the cities are Boston, Chicago.&quot;
 }</code></pre>
 <h3><a href="#csv-parameter" name="csv-parameter" class="anchor"><span class="anchor-link"></span></a>CSV parameter</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L221-L238" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L221-L238" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   parameter(&quot;names&quot;.as(CsvSeq[String])) { names =&gt;
     complete(s&quot;The parameters are ${names.mkString(&quot;, &quot;)}&quot;)
   }
@@ -714,7 +714,7 @@ Get(&quot;/?names=Caplin,John,&quot;) ~&gt; route ~&gt; check {
   responseAs[String] shouldEqual &quot;The parameters are Caplin, John, &quot;
 }</code></pre>
 <h3><a href="#repeated-deserialized-parameter" name="repeated-deserialized-parameter" class="anchor"><span class="anchor-link"></span></a>Repeated, deserialized parameter</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L146-L166" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/ParameterDirectivesExamplesSpec.scala#L146-L166" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   parameters(&#39;color, &#39;distance.as[Int].*) { (color, distances) =&gt;
     distances.toList match {
       case Nil             =&gt; complete(s&quot;The color is &#39;$color&#39; and there are no distances.&quot;)
@@ -750,8 +750,7 @@ Get(&quot;/?color=blue&amp;distance=5&amp;distance=14&quot;) ~&gt; Route.seal(ro
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/routing-dsl/directives/parameter-directives/parameters.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/routing-dsl/directives/parameter-directives/parameters.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

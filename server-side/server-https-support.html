@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>服务器 HTTPS 支持 &bull; Akka HTTP Chinese edition</title>
+<title>服务器 HTTPS 支持 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -283,7 +283,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -298,7 +298,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -346,7 +346,7 @@ Version 10.1.11
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-core/src/main/scala/akka/http/scaladsl/ConnectionContext.scala#L28-L35" target="_blank" title="Go to snippet source"></a><code class="language-scala">def https(
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-core/src/main/scala/akka/http/scaladsl/ConnectionContext.scala#L28-L35" target="_blank" title="Go to snippet source"></a><code class="language-scala">def https(
   sslContext:          SSLContext,
   sslConfig:           Option[AkkaSSLConfig]         = None,
   enabledCipherSuites: Option[immutable.Seq[String]] = None,
@@ -356,7 +356,7 @@ Version 10.1.11
   new HttpsConnectionContext(sslContext, sslConfig, enabledCipherSuites, enabledProtocols, clientAuth, sslParameters)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-core/src/main/scala/akka/http/javadsl/ConnectionContext.scala#L20-L34" target="_blank" title="Go to snippet source"></a><code class="language-scala">// ConnectionContext
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-core/src/main/scala/akka/http/javadsl/ConnectionContext.scala#L20-L34" target="_blank" title="Go to snippet source"></a><code class="language-scala">// ConnectionContext
 /** Used to serve HTTPS traffic. */
 def https(sslContext: SSLContext): HttpsConnectionContext = // ...
 
@@ -391,7 +391,7 @@ def https(
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L8-L16" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.io.InputStream
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L8-L16" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.io.InputStream
 import java.security.{ SecureRandom, KeyStore }
 import javax.net.ssl.{ SSLContext, TrustManagerFactory, KeyManagerFactory }
 
@@ -425,7 +425,7 @@ sslContext.init(keyManagerFactory.getKeyManagers, tmf.getTrustManagers, new Secu
 val https: HttpsConnectionContext = ConnectionContext.https(sslContext)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/simple/SimpleServerApp.java#L33-L164" target="_blank" title="Go to snippet source"></a><code class="language-java">import javax.net.ssl.KeyManagerFactory;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/simple/SimpleServerApp.java#L33-L164" target="_blank" title="Go to snippet source"></a><code class="language-java">import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
@@ -476,12 +476,12 @@ public static HttpsConnectionContext useHttps(ActorSystem system) {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L75-L77" target="_blank" title="Go to snippet source"></a><code class="language-scala">// sets default context to HTTPS – all Http() bound servers for this ActorSystem will use HTTPS from now on
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L75-L77" target="_blank" title="Go to snippet source"></a><code class="language-scala">// sets default context to HTTPS – all Http() bound servers for this ActorSystem will use HTTPS from now on
 Http().setDefaultServerHttpContext(https)
 Http().bindAndHandle(routes, &quot;127.0.0.1&quot;, 9090, connectionContext = https)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/simple/SimpleServerApp.java#L49-L126" target="_blank" title="Go to snippet source"></a><code class="language-java">public Route multiply(int x, int y) {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/simple/SimpleServerApp.java#L49-L126" target="_blank" title="Go to snippet source"></a><code class="language-java">public Route multiply(int x, int y) {
   int result = x * y;
   return complete(String.format(&quot;%d * %d = %d&quot;, x, y, result));
 }
@@ -562,7 +562,7 @@ public static void main(String[] args) throws IOException {
 </dl><div class="group-scala">
 <p>It is also possible to pass in the context to specific <code>bind...</code> (or client) calls, like displayed below:</p>
 <p>也可以在上下文中传递到特定的 <code>bind...</code> （或客户端）调用，像下面显示的一样：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L67-L71" target="_blank" title="Go to snippet source"></a><code class="language-scala">Http().bind(&quot;127.0.0.1&quot;, connectionContext = https)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L67-L71" target="_blank" title="Go to snippet source"></a><code class="language-scala">Http().bind(&quot;127.0.0.1&quot;, connectionContext = https)
 
 // or using the high level routing DSL:
 val routes: Route = get { complete(&quot;Hello world!&quot;) }
@@ -576,7 +576,7 @@ Http().bindAndHandle(routes, &quot;127.0.0.1&quot;, 8080, connectionContext = ht
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L34-L56" target="_blank" title="Go to snippet source"></a><code class="language-scala">implicit val system = ActorSystem()
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L34-L56" target="_blank" title="Go to snippet source"></a><code class="language-scala">implicit val system = ActorSystem()
 implicit val mat = ActorMaterializer()
 implicit val dispatcher = system.dispatcher
 
@@ -601,7 +601,7 @@ sslContext.init(keyManagerFactory.getKeyManagers, tmf.getTrustManagers, new Secu
 val https: HttpsConnectionContext = ConnectionContext.https(sslContext)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/simple/SimpleServerApp.java#L33-L164" target="_blank" title="Go to snippet source"></a><code class="language-java">import javax.net.ssl.KeyManagerFactory;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/simple/SimpleServerApp.java#L33-L164" target="_blank" title="Go to snippet source"></a><code class="language-java">import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
@@ -652,13 +652,13 @@ public static HttpsConnectionContext useHttps(ActorSystem system) {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L60-L63" target="_blank" title="Go to snippet source"></a><code class="language-scala">// you can run both HTTP and HTTPS in the same application as follows:
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/HttpsServerExampleSpec.scala#L60-L63" target="_blank" title="Go to snippet source"></a><code class="language-scala">// you can run both HTTP and HTTPS in the same application as follows:
 val commonRoutes: Route = get { complete(&quot;Hello world!&quot;) }
 Http().bindAndHandle(commonRoutes, &quot;127.0.0.1&quot;, 443, connectionContext = https)
 Http().bindAndHandle(commonRoutes, &quot;127.0.0.1&quot;, 80)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/simple/SimpleServerHttpHttpsApp.java#L38-L49" target="_blank" title="Go to snippet source"></a><code class="language-java">final Http http = Http.get(system);
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/simple/SimpleServerHttpHttpsApp.java#L38-L49" target="_blank" title="Go to snippet source"></a><code class="language-java">final Http http = Http.get(system);
 //Run HTTP server firstly
 http.bindAndHandle(flow, ConnectHttp.toHost(&quot;localhost&quot;, 80), materializer);
 
@@ -706,8 +706,7 @@ http.bindAndHandle(flow, ConnectHttp.toHost(&quot;localhost&quot;, 443), materia
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/server-side/server-https-support.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/server-side/server-https-support.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

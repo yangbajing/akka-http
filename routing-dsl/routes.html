@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>路由 &bull; Akka HTTP Chinese edition</title>
+<title>路由 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -301,7 +301,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -316,7 +316,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -522,7 +522,7 @@ Route route =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/RouteSealExampleSpec.scala#L15-L25" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route = respondWithHeader(RawHeader(&quot;special-header&quot;, &quot;you always have this even in 404&quot;)) {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/RouteSealExampleSpec.scala#L15-L25" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route = respondWithHeader(RawHeader(&quot;special-header&quot;, &quot;you always have this even in 404&quot;)) {
   Route.seal(
     get {
       pathSingleSlash {
@@ -535,7 +535,7 @@ Route route =
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/RouteSealExample.java#L24-L50" target="_blank" title="Go to snippet source"></a><code class="language-java">public class RouteSealExample extends AllDirectives {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/RouteSealExample.java#L24-L50" target="_blank" title="Go to snippet source"></a><code class="language-java">public class RouteSealExample extends AllDirectives {
 
   public static void main(String [] args) throws IOException {
     RouteSealExample app = new RouteSealExample();
@@ -572,7 +572,7 @@ Route route =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/scala/akka/http/scaladsl/RouteJavaScalaDslConversionSpec.scala#L31-L37" target="_blank" title="Go to snippet source"></a><code class="language-scala">val scalaRoute: akka.http.scaladsl.server.Route =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/scala/akka/http/scaladsl/RouteJavaScalaDslConversionSpec.scala#L31-L37" target="_blank" title="Go to snippet source"></a><code class="language-scala">val scalaRoute: akka.http.scaladsl.server.Route =
   akka.http.scaladsl.server.Directives.get {
     akka.http.scaladsl.server.Directives.complete(&quot;OK&quot;)
   }
@@ -581,7 +581,7 @@ val javaRoute: akka.http.javadsl.server.Route =
   akka.http.javadsl.server.directives.RouteAdapter.asJava(scalaRoute)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/java/docs/http/javadsl/server/RouteJavaScalaDslConversionTest.java#L20-L25" target="_blank" title="Go to snippet source"></a><code class="language-java">scala.Function1&lt;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/java/docs/http/javadsl/server/RouteJavaScalaDslConversionTest.java#L20-L25" target="_blank" title="Go to snippet source"></a><code class="language-java">scala.Function1&lt;
     akka.http.scaladsl.server.RequestContext,
     scala.concurrent.Future&lt;akka.http.scaladsl.server.RouteResult&gt;&gt; scalaRoute = someRoute();
 
@@ -593,7 +593,7 @@ akka.http.javadsl.server.Route javaRoute =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/scala/akka/http/scaladsl/RouteJavaScalaDslConversionSpec.scala#L18-L25" target="_blank" title="Go to snippet source"></a><code class="language-scala">val javaRoute =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/scala/akka/http/scaladsl/RouteJavaScalaDslConversionSpec.scala#L18-L25" target="_blank" title="Go to snippet source"></a><code class="language-scala">val javaRoute =
   akka.http.javadsl.server.Directives.get(new Supplier[akka.http.javadsl.server.Route] {
     override def get(): Route = akka.http.javadsl.server.Directives.complete(&quot;ok&quot;)
   })
@@ -603,7 +603,7 @@ akka.http.javadsl.server.Route javaRoute =
 val scalaRoute: akka.http.scaladsl.server.Route = javaRoute.asScala</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/java/docs/http/javadsl/server/RouteJavaScalaDslConversionTest.java#L31-L36" target="_blank" title="Go to snippet source"></a><code class="language-java">Route javaRoute = Directives.get(() -&gt;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/java/docs/http/javadsl/server/RouteJavaScalaDslConversionTest.java#L31-L36" target="_blank" title="Go to snippet source"></a><code class="language-java">Route javaRoute = Directives.get(() -&gt;
     Directives.complete(&quot;okey&quot;)
 );
 
@@ -625,8 +625,7 @@ scala.Function1&lt;RequestContext, Future&lt;RouteResult&gt;&gt; scalaRoute =
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/routing-dsl/routes.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/routing-dsl/routes.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

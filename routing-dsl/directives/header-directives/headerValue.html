@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>headerValue &bull; Akka HTTP Chinese edition</title>
+<title>headerValue &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../../../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../../../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../../../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../../../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../../../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../../../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../../../usage.html" class="page">2. 使用</a></li>
@@ -351,7 +351,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../../../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../../../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -366,7 +366,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../../../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../../../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../../../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../../../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../../../usage.html" class="page">2. 使用</a></li>
@@ -485,7 +485,7 @@ Version 10.1.11
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/HeaderDirectivesExamplesSpec.scala#L36-L53" target="_blank" title="Go to snippet source"></a><code class="language-scala">def extractHostPort: HttpHeader =&gt; Option[Int] = {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/HeaderDirectivesExamplesSpec.scala#L36-L53" target="_blank" title="Go to snippet source"></a><code class="language-scala">def extractHostPort: HttpHeader =&gt; Option[Int] = {
   case h: `Host` =&gt; Some(h.port)
   case x         =&gt; None
 }
@@ -505,7 +505,7 @@ Get(&quot;/&quot;) ~&gt; Route.seal(route) ~&gt; check {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/HeaderDirectivesExamplesTest.java#L30-L104" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/directives/HeaderDirectivesExamplesTest.java#L30-L104" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.headerValue;
 
 final Function&lt;HttpHeader, Optional&lt;Host&gt;&gt; extractHostPort = header -&gt; {
@@ -533,7 +533,7 @@ testRoute(route).run(HttpRequest.GET(&quot;/&quot;))
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/HeaderDirectivesExamplesSpec.scala#L58-L76" target="_blank" title="Go to snippet source"></a><code class="language-scala">val exampleHeaderValue = &quot;exampleHeaderValue&quot;.toLowerCase
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/HeaderDirectivesExamplesSpec.scala#L58-L76" target="_blank" title="Go to snippet source"></a><code class="language-scala">val exampleHeaderValue = &quot;exampleHeaderValue&quot;.toLowerCase
 def extractExampleHeader: HttpHeader =&gt; Option[String] = {
   case HttpHeader(`exampleHeaderValue`, value) =&gt; Some(value)
   case _                                       =&gt; None
@@ -554,7 +554,7 @@ Get(&quot;/&quot;) ~&gt; route ~&gt; check {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/HeaderDirectivesExamplesTest.java#L35-L130" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.server.Directives;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/directives/HeaderDirectivesExamplesTest.java#L35-L130" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.server.Directives;
 
 import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.anyOf;
@@ -594,8 +594,7 @@ testRoute(route).run(HttpRequest.GET(&quot;/&quot;))
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/routing-dsl/directives/header-directives/headerValue.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/routing-dsl/directives/header-directives/headerValue.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

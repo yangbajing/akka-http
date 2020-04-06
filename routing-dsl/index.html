@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>路由 DSL &bull; Akka HTTP Chinese edition</title>
+<title>路由 DSL &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -294,7 +294,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -309,7 +309,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -392,7 +392,7 @@ Version 10.1.11
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L318-L348" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L318-L348" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
@@ -425,7 +425,7 @@ object WebServer {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/HttpServerMinimalExampleTest.java#L7-L51" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.NotUsed;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/HttpServerMinimalExampleTest.java#L7-L51" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.NotUsed;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
@@ -480,7 +480,7 @@ public class HttpServerMinimalExampleTest extends AllDirectives {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpAppExampleSpec.scala#L15-L30" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.{ ContentTypes, HttpEntity }
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpAppExampleSpec.scala#L15-L30" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.{ ContentTypes, HttpEntity }
 import akka.http.scaladsl.server.HttpApp
 import akka.http.scaladsl.server.Route
 
@@ -498,7 +498,7 @@ object WebServer extends HttpApp {
 WebServer.startServer(&quot;localhost&quot;, 8080)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/HttpAppExampleTest.java#L49-L71" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>// Server definition
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/HttpAppExampleTest.java#L49-L71" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>// Server definition
 class MinimalHttpApp extends HttpApp {
   @Override
   protected Route routes() {
@@ -520,7 +520,7 @@ myServer.startServer(&quot;localhost&quot;, 8080);</code></pre></dd>
 <p><strong>较长的示例</strong></p>
 <p>The following is an Akka HTTP route definition that tries to show off a few features. The resulting service does not really do anything useful but its definition should give you a feel for what an actual API definition with the Routing DSL will look like:</p>
 <p>下面是一个 Akka HTTP 路由定义，试图展示一些功能。服务实际上没有做任何有用的事，但是，它的定义应该让你了解了路由 DSL 的实际 API 定义看起来像：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L354-L461" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.{ ActorRef, ActorSystem }
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L354-L461" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.{ ActorRef, ActorSystem }
 import akka.http.scaladsl.coding.Deflate
 import akka.http.scaladsl.marshalling.ToResponseMarshaller
 import akka.http.scaladsl.model.StatusCodes.MovedPermanently
@@ -638,7 +638,7 @@ val route = concat(
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala-2.12+/docs/http/scaladsl/HttpServerWithTypedSample.scala#L10-L51" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.typed.{ ActorRef, Behavior }
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala-2.12+/docs/http/scaladsl/HttpServerWithTypedSample.scala#L10-L51" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.typed.{ ActorRef, Behavior }
 import akka.actor.typed.scaladsl.Behaviors
 
 object JobRepository {
@@ -686,7 +686,7 @@ object JobRepository {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala-2.12+/docs/http/scaladsl/HttpServerWithTypedSample.scala#L55-L83" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala-2.12+/docs/http/scaladsl/HttpServerWithTypedSample.scala#L55-L83" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import spray.json.DefaultJsonProtocol
 import spray.json.DeserializationException
 import spray.json.JsString
@@ -721,7 +721,7 @@ trait JsonSupport extends SprayJsonSupport {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala-2.12+/docs/http/scaladsl/HttpServerWithTypedSample.scala#L87-L142" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.typed.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala-2.12+/docs/http/scaladsl/HttpServerWithTypedSample.scala#L87-L142" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.typed.ActorSystem
 import akka.util.Timeout
 
 import akka.http.scaladsl.server.Directives._
@@ -783,7 +783,7 @@ class JobRoutes(buildJobRepository: ActorRef[JobRepository.Command])(implicit sy
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala-2.12+/docs/http/scaladsl/HttpServerWithTypedSample.scala#L150-L224" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.typed.PostStop
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala-2.12+/docs/http/scaladsl/HttpServerWithTypedSample.scala#L150-L224" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.typed.PostStop
 import akka.actor.typed.scaladsl.adapter._
 import akka.stream.ActorMaterializer
 import akka.http.scaladsl.Http.ServerBinding
@@ -870,7 +870,7 @@ def main(args: Array[String]) {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L723-L754" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class MockDefinition(path: String, requests: Seq[JsValue], responses: Seq[JsValue])
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L723-L754" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class MockDefinition(path: String, requests: Seq[JsValue], responses: Seq[JsValue])
 implicit val format = jsonFormat3(MockDefinition)
 
 @volatile var state = Map.empty[String, Map[JsValue, JsValue]]
@@ -904,7 +904,7 @@ val dynamicRoute: Route = ctx =&gt; {
 val route = fixedRoute ~ dynamicRoute</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/HttpServerDynamicRoutingExampleTest.java#L45-L101" target="_blank" title="Go to snippet source"></a><code class="language-java">final private Map&lt;String, Map&lt;JsonNode, JsonNode&gt;&gt; state = new ConcurrentHashMap&lt;&gt;();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/HttpServerDynamicRoutingExampleTest.java#L45-L101" target="_blank" title="Go to snippet source"></a><code class="language-java">final private Map&lt;String, Map&lt;JsonNode, JsonNode&gt;&gt; state = new ConcurrentHashMap&lt;&gt;();
 
 private Route createRoute() {
   // fixed route to update state
@@ -988,7 +988,7 @@ private static class MockDefinition {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L48-L76" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L48-L76" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.Http.ServerBinding
 import akka.http.scaladsl.server.Directives._
@@ -1019,7 +1019,7 @@ object WebServer {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/HighLevelServerBindFailureExample.java#L8-L43" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>import akka.NotUsed;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/HighLevelServerBindFailureExample.java#L8-L43" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>import akka.NotUsed;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.ServerBinding;
@@ -1072,7 +1072,7 @@ public class HighLevelServerBindFailureExample {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/FileUploadExamplesSpec.scala#L31-L67" target="_blank" title="Go to snippet source"></a><code class="language-scala">val uploadVideo =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/FileUploadExamplesSpec.scala#L31-L67" target="_blank" title="Go to snippet source"></a><code class="language-scala">val uploadVideo =
   path(&quot;video&quot;) {
     entity(as[Multipart.FormData]) { formData =&gt;
 
@@ -1111,7 +1111,7 @@ public class HighLevelServerBindFailureExample {
   }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/FileUploadExamplesTest.java#L34-L98" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/FileUploadExamplesTest.java#L34-L98" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.entity;
 import static akka.http.javadsl.server.Directives.onSuccess;
 import static akka.http.javadsl.server.Directives.path;
@@ -1161,7 +1161,7 @@ import static akka.http.javadsl.server.Directives.path;
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/FileUploadExamplesSpec.scala#L78-L100" target="_blank" title="Go to snippet source"></a><code class="language-scala">val splitLines = Framing.delimiter(ByteString(&quot;\n&quot;), 256)
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/FileUploadExamplesSpec.scala#L78-L100" target="_blank" title="Go to snippet source"></a><code class="language-scala">val splitLines = Framing.delimiter(ByteString(&quot;\n&quot;), 256)
 
 val csvUploads =
   path(&quot;metadata&quot; / LongNumber) { id =&gt;
@@ -1186,7 +1186,7 @@ val csvUploads =
   }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/FileUploadExamplesTest.java#L42-L138" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/FileUploadExamplesTest.java#L42-L138" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.entity;
 import static akka.http.javadsl.server.Directives.onComplete;
 import static akka.http.javadsl.server.Directives.path;
@@ -1236,8 +1236,7 @@ Route csvUploads() {
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/routing-dsl/index.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/routing-dsl/index.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

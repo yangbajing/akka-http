@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>服务器端 HTTP/2 (预览) &bull; Akka HTTP Chinese edition</title>
+<title>服务器端 HTTP/2 (预览) &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -283,7 +283,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -298,7 +298,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -366,7 +366,7 @@ Version 10.1.11
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/Http2Spec.scala#L12-L43" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.concurrent.Future
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/Http2Spec.scala#L12-L43" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.concurrent.Future
 
 import akka.http.scaladsl.HttpsConnectionContext
 import akka.http.scaladsl.Http
@@ -378,7 +378,7 @@ Http().bindAndHandleAsync(
   httpsServerContext)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/Http2Test.java#L19-L41" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.Http;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/Http2Test.java#L19-L41" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.Http;
 import static akka.http.javadsl.ConnectHttp.toHostHttps;
 
 Http.get(system)
@@ -401,7 +401,7 @@ Http.get(system)
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/Http2Spec.scala#L19-L51" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.Http
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/Http2Spec.scala#L19-L51" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.Http
 import akka.http.scaladsl.HttpConnectionContext
 
 Http().bindAndHandleAsync(
@@ -411,7 +411,7 @@ Http().bindAndHandleAsync(
   connectionContext = HttpConnectionContext())</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/Http2Test.java#L25-L49" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.ConnectHttp.toHost;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/Http2Test.java#L25-L49" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.ConnectHttp.toHost;
 
 Http.get(system)
   .bindAndHandleAsync(
@@ -549,8 +549,7 @@ Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL 
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/server-side/http2.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/server-side/http2.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

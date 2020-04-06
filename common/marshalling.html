@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Marshalling/编组 &bull; Akka HTTP Chinese edition</title>
+<title>Marshalling/编组 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -288,7 +288,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -303,7 +303,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -349,7 +349,7 @@ Version 10.1.11
 <div class="small-12 column" id="docs">
 <h1><a href="#marshalling-编组" name="marshalling-编组" class="anchor"><span class="anchor-link"></span></a>Marshalling/编组</h1>
 <p><em>译注：编码、组合</em></p>
-<p><span class="group-java">TODO <a href="https://github.com/akka/akka-http/issues/1367">overhaul for Java</a></span></p>
+<p><span class="group-java">TODO <a href="https://github.com/yangbajing/akka-http/issues/1367">overhaul for Java</a></span></p>
 <p>Marshalling is the process of converting a higher-level (object) structure into some kind of lower-level representation, often a &ldquo;wire format&rdquo;. Other popular names for marshalling are &ldquo;serialization&rdquo; or &ldquo;pickling&rdquo;.</p>
 <p>编组是指转换一个高阶（对象）结构到某种低阶表示的过程。其它流行的叫法是“序列化”（serialization）或“腌制”（pickling）。</p>
 <p>In Akka HTTP, marshalling means the conversion of an object of type <code>T</code> into a lower-level target type, e.g. a <code>MessageEntity</code> (which forms the &ldquo;entity body&rdquo; of an HTTP request or response) or a full <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpRequest.html" title="akka.http.javadsl.model.HttpRequest"><code>HttpRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpRequest.html" title="akka.http.scaladsl.model.HttpRequest"><code>HttpRequest</code></a></span> or <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span>.</p>
@@ -372,7 +372,7 @@ Version 10.1.11
 </ol><div class="group-scala">
 <p>This is how <code>Marshalling</code> is defined:</p>
 <p>这是 <code>Marshalling</code> 的定义方式：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/marshalling/Marshaller.scala#L174-L218" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/marshalling/Marshaller.scala#L174-L218" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
  * Describes one possible option for marshalling a given value.
  */
 sealed trait Marshalling[+A] {
@@ -419,7 +419,7 @@ object Marshalling {
 }</code></pre>
 <p>Akka HTTP also defines a number of helpful aliases for the types of marshallers that you&rsquo;ll likely work with most:</p>
 <p>Akka HTTP 为你可能用到的大多数编组也定义了一些有用的别名：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/marshalling/package.scala#L13-L17" target="_blank" title="Go to snippet source"></a><code class="language-scala">type ToEntityMarshaller[T] = Marshaller[T, MessageEntity]
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/marshalling/package.scala#L13-L17" target="_blank" title="Go to snippet source"></a><code class="language-scala">type ToEntityMarshaller[T] = Marshaller[T, MessageEntity]
 type ToByteStringMarshaller[T] = Marshaller[T, ByteString]
 type ToHeadersAndEntityMarshaller[T] = Marshaller[T, (immutable.Seq[HttpHeader], MessageEntity)]
 type ToResponseMarshaller[T] = Marshaller[T, HttpResponse]
@@ -506,7 +506,7 @@ type ToRequestMarshaller[T] = Marshaller[T, HttpRequest]</code></pre></div>
 <p>对于编写自己的编组器，不需要直接“手动”实现 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller</code></a></span> <span class="group-scala">trait</span><span class="group-java">类</span>。</p><div class="group-scala">
 <p>Rather, it should be possible to use one of the convenience construction helpers defined on the <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller</code></a></span> companion:</p>
 <p>相反，应该使用在 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller</code></a></span> 伴身对象中定义的便利构造助手。</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/marshalling/Marshaller.scala#L80-L170" target="_blank" title="Go to snippet source"></a><code class="language-scala">object Marshaller
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/marshalling/Marshaller.scala#L80-L170" target="_blank" title="Go to snippet source"></a><code class="language-scala">object Marshaller
   extends GenericMarshallers
   with PredefinedToEntityMarshallers
   with PredefinedToResponseMarshallers
@@ -626,7 +626,7 @@ type ToRequestMarshaller[T] = Marshaller[T, HttpRequest]</code></pre></div>
 <p>Akka HTTP 的很多地方，编组器被隐式使用，例如：当你用 <a href="../routing-dsl/index.html">路由 DSL</a> <a href="../routing-dsl/directives/route-directives/complete.html">complete</a> 一个请求时。</p><div class="group-scala">
 <p>However, you can also use the marshalling infrastructure directly if you wish, which can be useful for example in tests. The best entry point for this is the <a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshal.html" title="akka.http.scaladsl.marshalling.Marshal"><code>Marshal</code></a> object, which you can use like this:</p>
 <p>但是，如果你希望，也可以直接使用编组器基础设施，例如在测试中可能很有用。 <a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshal.html" title="akka.http.scaladsl.marshalling.Marshal"><code>Marshal</code></a> object 是最好的切入点，你可以这样使用：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/MarshalSpec.scala#L13-L36" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.concurrent.Await
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/MarshalSpec.scala#L13-L36" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.concurrent.Await
 import scala.concurrent.duration._
 import akka.http.scaladsl.marshalling.Marshal
 import akka.http.scaladsl.model._
@@ -652,7 +652,7 @@ a[Marshal.UnacceptableResponseContentTypeException] should be thrownBy {
 }</code></pre></div><div class="group-java">
 <p>However, many directives dealing with <a href="../routing-dsl/directives/marshalling-directives/index.html">marshalling</a> also require that you pass a marshaller explicitly. The following example shows how to marshal Java bean classes to JSON using the <a href="json-support.html#jackson-support">Jackson JSON support</a>:</p>
 <p>但是，很多有关 <a href="../routing-dsl/directives/marshalling-directives/index.html">marshalling</a> 的指令也需求你显示传一个编组器。 下面的示例显示怎样使用 <a href="json-support.html#jackson-support">Jackson JSON support</a> 编码 Java bean 类到 JSON：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java#L11-L28" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.marshallers.jackson.Jackson;
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java#L11-L28" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.model.StatusCodes;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -684,8 +684,7 @@ private static Route alternativeFuturePutPetHandler(Map&lt;Integer, Pet&gt; pets
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/common/marshalling.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/common/marshalling.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

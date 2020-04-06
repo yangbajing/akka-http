@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>HTTP 模型 &bull; Akka HTTP Chinese edition</title>
+<title>HTTP 模型 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -293,7 +293,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -308,7 +308,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -367,11 +367,11 @@ Version 10.1.11
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L8-L9" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model._
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L8-L9" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model._
 </code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L11-L14" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.model.*;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L11-L14" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.model.*;
 import akka.http.javadsl.model.headers.*;
 
 import java.util.Optional;</code></pre></dd>
@@ -429,7 +429,7 @@ import java.util.Optional;</code></pre></dd>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L19-L43" target="_blank" title="Go to snippet source"></a><code class="language-scala">import HttpMethods._
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L19-L43" target="_blank" title="Go to snippet source"></a><code class="language-scala">import HttpMethods._
 
 // construct a simple GET request to `homeUri`
 val homeUri = Uri(&quot;/abc&quot;)
@@ -456,7 +456,7 @@ HttpRequest(
   protocol = `HTTP/1.0`)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L22-L41" target="_blank" title="Go to snippet source"></a><code class="language-java">// construct a simple GET request to `homeUri`
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L22-L41" target="_blank" title="Go to snippet source"></a><code class="language-java">// construct a simple GET request to `homeUri`
 Uri homeUri = Uri.create(&quot;/home&quot;);
 HttpRequest request1 = HttpRequest.create().withUri(homeUri);
 
@@ -493,11 +493,11 @@ HttpRequest complexRequest =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L94-L95" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.headers.`Raw-Request-URI`
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L94-L95" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.headers.`Raw-Request-URI`
 val req = HttpRequest(uri = &quot;/ignored&quot;, headers = List(`Raw-Request-URI`(&quot;/a/b%2Bc&quot;)))</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L95-L96" target="_blank" title="Go to snippet source"></a><code class="language-java">// imports akka.http.javadsl.model.headers.RawRequestURI
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L95-L96" target="_blank" title="Go to snippet source"></a><code class="language-java">// imports akka.http.javadsl.model.headers.RawRequestURI
 HttpRequest.create(&quot;/ignored&quot;).addHeader(RawRequestURI.create(&quot;/a/b%2Bc&quot;));</code></pre></dd>
 </dl>
 <h2><a href="#httpresponse" name="httpresponse" class="anchor"><span class="anchor-link"></span></a>HttpResponse</h2>
@@ -519,7 +519,7 @@ HttpRequest.create(&quot;/ignored&quot;).addHeader(RawRequestURI.create(&quot;/a
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L49-L63" target="_blank" title="Go to snippet source"></a><code class="language-scala">import StatusCodes._
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L49-L63" target="_blank" title="Go to snippet source"></a><code class="language-scala">import StatusCodes._
 
 // simple OK response without data created using the integer status code
 HttpResponse(200)
@@ -536,7 +536,7 @@ HttpResponse(Found, headers = List(locationHeader))
 </code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L48-L65" target="_blank" title="Go to snippet source"></a><code class="language-java">// simple OK response without data created using the integer status code
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L48-L65" target="_blank" title="Go to snippet source"></a><code class="language-java">// simple OK response without data created using the integer status code
 HttpResponse ok = HttpResponse.create().withStatus(200);
 
 // 404 response created using the named StatusCode constant
@@ -655,7 +655,7 @@ HttpResponse redirectResponse =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L69-L84" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.headers._
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/ModelSpec.scala#L69-L84" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.model.headers._
 
 // create a ``Location`` header
 val loc = Location(&quot;http://example.com/other&quot;)
@@ -673,7 +673,7 @@ def credentialsOfRequest(req: HttpRequest): Option[User] =
   } yield User(user, pass)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L72-L89" target="_blank" title="Go to snippet source"></a><code class="language-java">        // create a ``Location`` header
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/ModelDocTest.java#L72-L89" target="_blank" title="Go to snippet source"></a><code class="language-java">        // create a ``Location`` header
         Location locationHeader = Location.create(&quot;http://example.com/other&quot;);
 
         // create an ``Authorization`` header with HTTP Basic authentication data
@@ -724,9 +724,9 @@ def credentialsOfRequest(req: HttpRequest): Option[User] =
   <dd>
   <p><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/Date.html" title="akka.http.javadsl.model.headers.Date"><code>Date</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Date.html" title="akka.http.scaladsl.model.headers.Date"><code>Date</code></a></span> 响应头自动添加，但也可以手动加入以覆盖它。</p></dd>
   <dt>Connection</dt>
-  <dd>On the server-side Akka HTTP watches for explicitly added <code>Connection: close</code> response headers and as such honors the potential wish of the application to close the connection after the respective response has been sent out. The actual logic for determining whether to close the connection is quite involved. It takes into account the request&rsquo;s method, protocol and potential <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/Connection.html" title="akka.http.javadsl.model.headers.Connection"><code>Connection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Connection.html" title="akka.http.scaladsl.model.headers.Connection"><code>Connection</code></a></span> header as well as the response&rsquo;s protocol, entity and potential <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/Connection.html" title="akka.http.javadsl.model.headers.Connection"><code>Connection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Connection.html" title="akka.http.scaladsl.model.headers.Connection"><code>Connection</code></a></span> header. See <a href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-core/src/test/scala/akka/http/impl/engine/rendering/ResponseRendererSpec.scala#L471-L572">this test</a> for a full table of what happens when.</dd>
+  <dd>On the server-side Akka HTTP watches for explicitly added <code>Connection: close</code> response headers and as such honors the potential wish of the application to close the connection after the respective response has been sent out. The actual logic for determining whether to close the connection is quite involved. It takes into account the request&rsquo;s method, protocol and potential <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/Connection.html" title="akka.http.javadsl.model.headers.Connection"><code>Connection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Connection.html" title="akka.http.scaladsl.model.headers.Connection"><code>Connection</code></a></span> header as well as the response&rsquo;s protocol, entity and potential <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/Connection.html" title="akka.http.javadsl.model.headers.Connection"><code>Connection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Connection.html" title="akka.http.scaladsl.model.headers.Connection"><code>Connection</code></a></span> header. See <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-core/src/test/scala/akka/http/impl/engine/rendering/ResponseRendererSpec.scala#L471-L572">this test</a> for a full table of what happens when.</dd>
   <dd>
-  <p>在服务器端，Akka HTTP 监视器强制添加 <code>Connection: close</code> 响应头，以便程序在送出响应后希望断开相关连接的愿望。 确定是否决定关闭连接的逻辑相当的复杂。要考虑到请求的方法、协议类型和相关的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/Connection.html" title="akka.http.javadsl.model.headers.Connection"><code>Connection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Connection.html" title="akka.http.scaladsl.model.headers.Connection"><code>Connection</code></a></span> 头以及响应的协议类型、实体和相关的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/Connection.html" title="akka.http.javadsl.model.headers.Connection"><code>Connection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Connection.html" title="akka.http.scaladsl.model.headers.Connection"><code>Connection</code></a></span> 头。有这些情况发生的完整列表，参见 <a href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-core/src/test/scala/akka/http/impl/engine/rendering/ResponseRendererSpec.scala#L471-L572">这个测试</a> 。</p></dd>
+  <p>在服务器端，Akka HTTP 监视器强制添加 <code>Connection: close</code> 响应头，以便程序在送出响应后希望断开相关连接的愿望。 确定是否决定关闭连接的逻辑相当的复杂。要考虑到请求的方法、协议类型和相关的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/Connection.html" title="akka.http.javadsl.model.headers.Connection"><code>Connection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Connection.html" title="akka.http.scaladsl.model.headers.Connection"><code>Connection</code></a></span> 头以及响应的协议类型、实体和相关的 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/headers/Connection.html" title="akka.http.javadsl.model.headers.Connection"><code>Connection</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/headers/Connection.html" title="akka.http.scaladsl.model.headers.Connection"><code>Connection</code></a></span> 头。有这些情况发生的完整列表，参见 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-core/src/test/scala/akka/http/impl/engine/rendering/ResponseRendererSpec.scala#L471-L572">这个测试</a> 。</p></dd>
   <dt>Strict-Transport-Security
   </dt>
   <dd>HTTP Strict Transport Security (HSTS) is a web security policy mechanism which is communicated by the <code>Strict-Transport-Security</code> header. The most important security vulnerability that HSTS can fix is SSL-stripping man-in-the-middle attacks. The SSL-stripping attack works by transparently converting a secure HTTPS connection into a plain HTTP connection. The user can see that the connection is insecure, but crucially there is no way of knowing whether the connection should be secure. HSTS addresses this problem by informing the browser that connections to the site should always use TLS/SSL. See also <a href="https://tools.ietf.org/html/rfc6797">RFC 6797</a>.</dd>
@@ -743,7 +743,7 @@ def credentialsOfRequest(req: HttpRequest): Option[User] =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/scala/akka/http/scaladsl/server/ModeledCustomHeaderSpec.scala#L15-L24" target="_blank" title="Go to snippet source"></a><code class="language-scala">final class ApiTokenHeader(token: String) extends ModeledCustomHeader[ApiTokenHeader] {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/scala/akka/http/scaladsl/server/ModeledCustomHeaderSpec.scala#L15-L24" target="_blank" title="Go to snippet source"></a><code class="language-scala">final class ApiTokenHeader(token: String) extends ModeledCustomHeader[ApiTokenHeader] {
   override def renderInRequests = true
   override def renderInResponses = true
   override val companion = ApiTokenHeader
@@ -755,7 +755,7 @@ object ApiTokenHeader extends ModeledCustomHeaderCompanion[ApiTokenHeader] {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/CustomHeaderExampleTest.java#L32-L59" target="_blank" title="Go to snippet source"></a><code class="language-java">public static class ApiTokenHeader extends ModeledCustomHeader {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/CustomHeaderExampleTest.java#L32-L59" target="_blank" title="Go to snippet source"></a><code class="language-java">public static class ApiTokenHeader extends ModeledCustomHeader {
 
   ApiTokenHeader(String name, String value) {
     super(name, value);
@@ -789,7 +789,7 @@ static class ApiTokenHeaderFactory extends ModeledCustomHeaderFactory&lt;ApiToke
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/scala/akka/http/scaladsl/server/ModeledCustomHeaderSpec.scala#L49-L73" target="_blank" title="Go to snippet source"></a><code class="language-scala">val ApiTokenHeader(t1) = ApiTokenHeader(&quot;token&quot;)
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/scala/akka/http/scaladsl/server/ModeledCustomHeaderSpec.scala#L49-L73" target="_blank" title="Go to snippet source"></a><code class="language-scala">val ApiTokenHeader(t1) = ApiTokenHeader(&quot;token&quot;)
 t1 should ===(&quot;token&quot;)
 
 val RawHeader(k2, v2) = ApiTokenHeader(&quot;token&quot;)
@@ -816,7 +816,7 @@ intercept[MatchError] {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/CustomHeaderExampleTest.java#L65-L89" target="_blank" title="Go to snippet source"></a><code class="language-java">final ApiTokenHeaderFactory apiTokenHeaderFactory = new ApiTokenHeaderFactory();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/CustomHeaderExampleTest.java#L65-L89" target="_blank" title="Go to snippet source"></a><code class="language-java">final ApiTokenHeaderFactory apiTokenHeaderFactory = new ApiTokenHeaderFactory();
 final ApiTokenHeader token = apiTokenHeaderFactory.create(&quot;token&quot;);
 assertEquals(&quot;token&quot;, token.value());
 
@@ -847,7 +847,7 @@ assertFalse(wrong.isPresent());</code></pre></dd>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/scala/akka/http/scaladsl/server/ModeledCustomHeaderSpec.scala#L86-L108" target="_blank" title="Go to snippet source"></a><code class="language-scala">def extractFromCustomHeader = headerValuePF {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/scala/akka/http/scaladsl/server/ModeledCustomHeaderSpec.scala#L86-L108" target="_blank" title="Go to snippet source"></a><code class="language-scala">def extractFromCustomHeader = headerValuePF {
   case t @ ApiTokenHeader(token) =&gt; s&quot;extracted&gt; $t&quot;
   case raw: RawHeader            =&gt; s&quot;raw&gt; $raw&quot;
 }
@@ -872,7 +872,7 @@ Get().withHeaders(ApiTokenHeader(&quot;TheKey&quot;)) ~&gt; routes ~&gt; check {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/CustomHeaderExampleTest.java#L24-L125" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.server.Directives;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/CustomHeaderExampleTest.java#L24-L125" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.server.Directives;
 
 import static akka.http.javadsl.server.Directives.headerValuePF;
 
@@ -930,7 +930,7 @@ testRoute(route)
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/scala/akka/http/scaladsl/CustomMediaTypesSpec.scala#L43-L60" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>// similarly in Java: `akka.http.javadsl.settings.[...]`
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/scala/akka/http/scaladsl/CustomMediaTypesSpec.scala#L43-L60" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>// similarly in Java: `akka.http.javadsl.settings.[...]`
 import akka.http.scaladsl.settings.ParserSettings
 import akka.http.scaladsl.settings.ServerSettings
 
@@ -949,7 +949,7 @@ val routes = extractRequest { r =&gt;
 Http().bindAndHandle(routes, host, port, settings = serverSettings)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/CustomMediaTypesExampleTest.java#L33-L72" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/CustomMediaTypesExampleTest.java#L33-L72" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.extractRequest;
 
 // Define custom media type:
@@ -988,7 +988,7 @@ final CompletionStage&lt;ServerBinding&gt; binding = Http.get(system)
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/scala/akka/http/scaladsl/CustomStatusCodesSpec.scala#L27-L51" target="_blank" title="Go to snippet source"></a><code class="language-scala">// similarly in Java: `akka.http.javadsl.settings.[...]`
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/scala/akka/http/scaladsl/CustomStatusCodesSpec.scala#L27-L51" target="_blank" title="Go to snippet source"></a><code class="language-scala">// similarly in Java: `akka.http.javadsl.settings.[...]`
 import akka.http.scaladsl.settings.{ ParserSettings, ServerSettings }
 
 // define custom status code:
@@ -1015,7 +1015,7 @@ val response = Http().singleRequest(request, settings = clientSettings)
 response.futureValue.status should ===(LeetCode)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/CustomStatusCodesExampleTest.java#L33-L94" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/CustomStatusCodesExampleTest.java#L33-L94" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.extractRequest;
 
 // Define custom status code:
@@ -1074,7 +1074,7 @@ assertEquals(leetCode, response.status());</code></pre></dd>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomHttpMethodSpec.scala#L31-L46" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.settings.{ ParserSettings, ServerSettings }
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/CustomHttpMethodSpec.scala#L31-L46" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.settings.{ ParserSettings, ServerSettings }
 
 // define custom method type:
 val BOLT = HttpMethod.custom(&quot;BOLT&quot;, safe = false,
@@ -1092,7 +1092,7 @@ val binding = Http().bindAndHandle(routes, host, port, settings = serverSettings
 val request = HttpRequest(BOLT, s&quot;http://$host:$port/&quot;, protocol = `HTTP/1.1`)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/directives/CustomHttpMethodExamplesTest.java#L33-L81" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/directives/CustomHttpMethodExamplesTest.java#L33-L81" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.route;
 import static akka.http.javadsl.server.Directives.extractMethod;
 
@@ -1144,8 +1144,7 @@ CompletionStage&lt;HttpResponse&gt; response = http.singleRequest(request, mater
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/common/http-model.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/common/http-model.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

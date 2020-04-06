@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>服务器 WebSocket 支持 &bull; Akka HTTP Chinese edition</title>
+<title>服务器 WebSocket 支持 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -282,7 +282,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -297,7 +297,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -350,7 +350,7 @@ Version 10.1.11
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-core/src/main/scala/akka/http/scaladsl/model/ws/Message.scala#L18-L110" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-core/src/main/scala/akka/http/scaladsl/model/ws/Message.scala#L18-L110" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
  * The ADT for WebSocket messages. A message can either be a binary or a text message.
  */
 sealed trait Message extends akka.http.javadsl.model.ws.Message
@@ -412,7 +412,7 @@ sealed trait BinaryMessage extends akka.http.javadsl.model.ws.BinaryMessage with
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-core/src/main/scala/akka/http/javadsl/model/ws/Message.scala#L53-L73" target="_blank" title="Go to snippet source"></a><code class="language-scala">abstract class TextMessage extends Message {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-core/src/main/scala/akka/http/javadsl/model/ws/Message.scala#L53-L73" target="_blank" title="Go to snippet source"></a><code class="language-scala">abstract class TextMessage extends Message {
   /**
    * Returns a source of the text message data.
    */
@@ -453,14 +453,14 @@ sealed trait BinaryMessage extends akka.http.javadsl.model.ws.BinaryMessage with
 <p>注意，需要处理程序使用每个消息的数据流来放置新消息。否则，后续消息可能被卡住，并且该方向的消息通信将暂停。</p>
 <h3><a href="#example" name="example" class="anchor"><span class="anchor-link"></span></a>Example</h3>
 <p><strong>示例</strong></p>
-<p>Let&rsquo;s look at an <span class="group-scala"><a href="https://github.com/akka/akka-http/tree/v10.1.11/docs/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala">example</a></span><span class="group-java"><a href="https://github.com/akka/akka-http/tree/v10.1.11/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java">example</a></span>.</p>
-<p>让我们看一个 <span class="group-scala"><a href="https://github.com/akka/akka-http/tree/v10.1.11/docs/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala">示例</a></span><span class="group-java"><a href="https://github.com/akka/akka-http/tree/v10.1.11/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java">示例</a></span> 。</p>
+<p>Let&rsquo;s look at an <span class="group-scala"><a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala">example</a></span><span class="group-java"><a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java">example</a></span>.</p>
+<p>让我们看一个 <span class="group-scala"><a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala">示例</a></span><span class="group-java"><a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java">示例</a></span> 。</p>
 <p>WebSocket requests come in like any other requests. In the example, requests to <code>/greeter</code> are expected to be WebSocket requests:</p>
 <p>WebSocket 请求像其它任何请求一样进入。在例子里，对 <code>/greeter</code> 的请求应该是 WebSocket 请求：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala#L55-L64" target="_blank" title="Go to snippet source"></a><code class="language-scala">val requestHandler: HttpRequest =&gt; HttpResponse = {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala#L55-L64" target="_blank" title="Go to snippet source"></a><code class="language-scala">val requestHandler: HttpRequest =&gt; HttpResponse = {
   case req @ HttpRequest(GET, Uri.Path(&quot;/greeter&quot;), _, _, _) =&gt;
     req.header[UpgradeToWebSocket] match {
       case Some(upgrade) =&gt; upgrade.handleMessages(greeterWebSocketService)
@@ -472,7 +472,7 @@ sealed trait BinaryMessage extends akka.http.javadsl.model.ws.BinaryMessage with
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java#L46-L55" target="_blank" title="Go to snippet source"></a><code class="language-java">public static HttpResponse handleRequest(HttpRequest request) {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java#L46-L55" target="_blank" title="Go to snippet source"></a><code class="language-java">public static HttpResponse handleRequest(HttpRequest request) {
   System.out.println(&quot;Handling request to &quot; + request.getUri());
 
   if (request.getUri().path().equals(&quot;/greeter&quot;)) {
@@ -492,7 +492,7 @@ sealed trait BinaryMessage extends akka.http.javadsl.model.ws.BinaryMessage with
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala#L37-L51" target="_blank" title="Go to snippet source"></a><code class="language-scala">// The Greeter WebSocket Service expects a &quot;name&quot; per message and
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala#L37-L51" target="_blank" title="Go to snippet source"></a><code class="language-scala">// The Greeter WebSocket Service expects a &quot;name&quot; per message and
 // returns a greeting message for that name
 val greeterWebSocketService =
   Flow[Message]
@@ -509,7 +509,7 @@ val greeterWebSocketService =
     }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java#L79-L111" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>/**
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java#L79-L111" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>/**
  * A handler that treats incoming messages as a name,
  * and responds with a greeting to that name
  */
@@ -555,7 +555,7 @@ public static TextMessage handleTextMessage(TextMessage msg) {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/WebSocketDirectivesExamplesSpec.scala#L19-L55" target="_blank" title="Go to snippet source"></a><code class="language-scala">def greeter: Flow[Message, Message, Any] =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/directives/WebSocketDirectivesExamplesSpec.scala#L19-L55" target="_blank" title="Go to snippet source"></a><code class="language-scala">def greeter: Flow[Message, Message, Any] =
   Flow[Message].mapConcat {
     case tm: TextMessage =&gt;
       TextMessage(Source.single(&quot;Hello &quot;) ++ tm.textStream ++ Source.single(&quot;!&quot;)) :: Nil
@@ -594,7 +594,7 @@ WS(&quot;/greeter&quot;, wsClient.flow) ~&gt; websocketRoute ~&gt;
   }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketRoutingExample.java#L19-L24" target="_blank" title="Go to snippet source"></a><code class="language-java">public Route createRoute() {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketRoutingExample.java#L19-L24" target="_blank" title="Go to snippet source"></a><code class="language-java">public Route createRoute() {
   return
     path(&quot;greeter&quot;, () -&gt;
       handleWebSocketMessages(greeter())
@@ -605,8 +605,8 @@ WS(&quot;/greeter&quot;, wsClient.flow) ~&gt; websocketRoute ~&gt;
 <p>WebSocket 的处理代码与使用低级 API 一样。</p><div class="group-scala">
 <p>The example also includes code demonstrating the testkit support for WebSocket services. It allows to create WebSocket requests to run against a route using <em>WS</em> which can be used to provide a mock WebSocket probe that allows manual testing of the WebSocket handler&rsquo;s behavior if the request was accepted.</p>
 <p>该示例还包括示范对 WebSocket 服务的测试包支持的代码。它允许使用 <em>WS</em> 创建针对路由运行的 WebSocket 请求，它可以使用提供的模拟 WebSocket 探针。 如果请求被接受，该探针允许手动测试 WebSocket 处理程序的行为。</p></div>
-<p>See the <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java">full routing example</a>.</p>
-<p>见 <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java">完整路由示例</a> 。</p>
+<p>See the <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java">full routing example</a>.</p>
+<p>见 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java">完整路由示例</a> 。</p>
 <a id="keep-alive-ping"></a>
 <h2><a href="#automatic-keep-alive-ping-support" name="automatic-keep-alive-ping-support" class="anchor"><span class="anchor-link"></span></a>Automatic keep-alive Ping support</h2>
 <p><strong>自动保持 Ping 支持</strong></p>
@@ -623,7 +623,7 @@ WS(&quot;/greeter&quot;, wsClient.flow) ~&gt; websocketRoute ~&gt;
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala#L125-L135" target="_blank" title="Go to snippet source"></a><code class="language-scala">val defaultSettings = ServerSettings(system)
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala#L125-L135" target="_blank" title="Go to snippet source"></a><code class="language-scala">val defaultSettings = ServerSettings(system)
 
 val pingCounter = new AtomicInteger()
 val customWebsocketSettings =
@@ -636,7 +636,7 @@ val customServerSettings =
 Http().bindAndHandle(???, &quot;127.0.0.1&quot;, settings = customServerSettings)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java#L119-L136" target="_blank" title="Go to snippet source"></a><code class="language-java">ServerSettings defaultSettings = ServerSettings.create(system);
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java#L119-L136" target="_blank" title="Go to snippet source"></a><code class="language-java">ServerSettings defaultSettings = ServerSettings.create(system);
 
 AtomicInteger pingCounter = new AtomicInteger();
 
@@ -658,7 +658,7 @@ http.bindAndHandle(handler,
 <h3><a href="#uni-directional-pong-keep-alive" name="uni-directional-pong-keep-alive" class="anchor"><span class="anchor-link"></span></a>Uni-directional Pong keep-alive</h3>
 <p><strong>单向 Pong 保持-存活</strong></p>
 <p>A Ping response will always be replied to by the client-side with an appropriate <code>Pong</code> reply, carrying the same payload. It is also possible to configure the keep-alive mechanism to send <code>Pong</code> frames instead of <code>Ping</code> frames, which enables an <a href="https://tools.ietf.org/html/rfc6455#section-5.5.3">uni-directional heartbeat</a> mechanism (in which case the client side will <em>not</em> reply to such heartbeat). You can configure this mode by setting: <code>akka.http.server.websocket.periodic-keep-alive-mode = pong</code>.</p>
-<p>客户端将始终使用一个合适的 <code>Pong</code> 回复一个 Ping 响应，并携带相同的载荷。 也可以通过配置保持-活跃机制发送 <code>Pong</code> 帧来替代 <code>Ping</code> 帧。 你可以配置这个模式：<code>akka.http.server.websocket.periodic-keep-alive-mode = pong</code> 来启用 <a href="https://tools.ietf.org/html/rfc6455#section-5.5.3">定向心跳</a> 机制 （在这种情况下，客户端将 <em>不</em> 回复此类心跳）。</p>
+<p>客户端将始终使用一个合适的 <code>Pong</code> 回复一个 Ping 响应，并携带相同的载荷。 也可以通过配置保持-活跃机制发送 <code>Pong</code> 帧来替代 <code>Ping</code> 帧。 你可以配置这个模式：<code>akka.http.server.websocket.periodic-keep-alive-mode = pong</code> 来启用 <a href="https://tools.ietf.org/html/rfc6455#section-5.5.3">定向心跳</a> 机制 （在这种情况下，客户端将 <em>不</em> 回复此类心跳）。 </p>
 </div>
 </article>
 <div class="row">
@@ -674,8 +674,7 @@ http.bindAndHandle(handler,
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/server-side/websocket-support.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/server-side/websocket-support.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>请求/响应实体流的实质含义 &bull; Akka HTTP Chinese edition</title>
+<title>请求/响应实体流的实质含义 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="security.html" class="page">! 安全声明 !</a></li>
   <li><a href="release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="introduction.html" class="page">1. 导读</a></li>
   <li><a href="usage.html" class="page">2. 使用</a></li>
@@ -276,7 +276,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -291,7 +291,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="security.html" class="page">! 安全声明 !</a></li>
   <li><a href="release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="introduction.html" class="page">1. 导读</a></li>
   <li><a href="usage.html" class="page">2. 使用</a></li>
@@ -342,7 +342,7 @@ Version 10.1.11
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L17-L37" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.io.File
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L17-L37" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.io.File
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model._
@@ -365,7 +365,7 @@ def transformEachLine(line: ByteString): ByteString = ???
 </code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L31-L79" target="_blank" title="Go to snippet source"></a><code class="language-java">import java.io.File;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L31-L79" target="_blank" title="Go to snippet source"></a><code class="language-java">import java.io.File;
 
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -394,7 +394,7 @@ response.entity().getDataBytes()
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L43-L70" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.concurrent.Future
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L43-L70" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.concurrent.Future
 import scala.concurrent.duration._
 
 import akka.actor.ActorSystem
@@ -424,7 +424,7 @@ val transformedData: Future[ExamplePerson] =
 </code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L86-L113" target="_blank" title="Go to snippet source"></a><code class="language-java">final class ExamplePerson {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L86-L113" target="_blank" title="Go to snippet source"></a><code class="language-java">final class ExamplePerson {
   final String name;
   public ExamplePerson(String name) { this.name = name; }
 }
@@ -469,7 +469,7 @@ final CompletionStage&lt;ExamplePerson&gt; person =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L76-L121" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.concurrent.duration._
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L76-L121" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.concurrent.duration._
 import scala.concurrent.Future
 
 import akka.NotUsed
@@ -517,7 +517,7 @@ requests
 </code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L119-L153" target="_blank" title="Go to snippet source"></a><code class="language-java">final class ExamplePerson {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L119-L153" target="_blank" title="Go to snippet source"></a><code class="language-java">final class ExamplePerson {
   final String name;
   public ExamplePerson(String name) { this.name = name; }
 }
@@ -564,7 +564,7 @@ final CompletionStage&lt;Done&gt; stream = Source
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L127-L140" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L127-L140" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.http.scaladsl.model.HttpMessage.DiscardedEntity
 import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
@@ -580,7 +580,7 @@ discarded.future.onComplete { done =&gt; println(&quot;Entity discarded complete
 </code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L159-L169" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L159-L169" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
 final ExecutionContextExecutor dispatcher = system.dispatcher();
 final ActorMaterializer materializer = ActorMaterializer.create(system);
 
@@ -597,13 +597,13 @@ discarded.completionStage().whenComplete((done, ex) -&gt; {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L157-L160" target="_blank" title="Go to snippet source"></a><code class="language-scala">val response1: HttpResponse = ??? // obtained from an HTTP call (see examples below)
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L157-L160" target="_blank" title="Go to snippet source"></a><code class="language-scala">val response1: HttpResponse = ??? // obtained from an HTTP call (see examples below)
 
 val discardingComplete: Future[Done] = response1.entity.dataBytes.runWith(Sink.ignore)
 discardingComplete.onComplete(done =&gt; println(&quot;Entity discarded completely!&quot;))</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L176-L186" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/HttpClientExampleDocTest.java#L176-L186" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
 final ExecutionContextExecutor dispatcher = system.dispatcher();
 final ActorMaterializer materializer = ActorMaterializer.create(system);
 
@@ -628,7 +628,7 @@ discardingComplete.whenComplete((done, ex) -&gt; {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L593-L617" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L593-L617" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 import akka.stream.ActorMaterializer
@@ -655,7 +655,7 @@ val route =
   }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/HttpServerExampleDocTest.java#L224-L247" target="_blank" title="Go to snippet source"></a><code class="language-java">class Bid {
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/HttpServerExampleDocTest.java#L224-L247" target="_blank" title="Go to snippet source"></a><code class="language-java">class Bid {
   final String userId;
   final int bid;
 
@@ -685,7 +685,7 @@ final Route s = path(&quot;bid&quot;, () -&gt;
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L623-L646" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L623-L646" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.stream.scaladsl.FileIO
 import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
@@ -711,7 +711,7 @@ val route =
   }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/HttpServerExampleDocTest.java#L253-L271" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/HttpServerExampleDocTest.java#L253-L271" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
 final ExecutionContextExecutor dispatcher = system.dispatcher();
 final ActorMaterializer materializer = ActorMaterializer.create(system);
 
@@ -742,7 +742,7 @@ final Route s =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L652-L674" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L652-L674" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
 import akka.http.scaladsl.model.HttpRequest
@@ -767,7 +767,7 @@ val route =
   }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/HttpServerExampleDocTest.java#L277-L294" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/HttpServerExampleDocTest.java#L277-L294" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
 final ExecutionContextExecutor dispatcher = system.dispatcher();
 final ActorMaterializer materializer = ActorMaterializer.create(system);
 
@@ -791,7 +791,7 @@ final Route s =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L680-L706" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpServerExampleSpec.scala#L680-L706" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.stream.scaladsl.Sink
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.model.headers.Connection
@@ -820,7 +820,7 @@ val route =
   }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/HttpServerExampleDocTest.java#L300-L322" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/HttpServerExampleDocTest.java#L300-L322" target="_blank" title="Go to snippet source"></a><code class="language-java">final ActorSystem system = ActorSystem.create();
 final ExecutionContextExecutor dispatcher = system.dispatcher();
 final ActorMaterializer materializer = ActorMaterializer.create(system);
 
@@ -869,8 +869,7 @@ final Route s =
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/implications-of-streaming-http-entity.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/implications-of-streaming-http-entity.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>指令 &bull; Akka HTTP Chinese edition</title>
+<title>指令 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../../usage.html" class="page">2. 使用</a></li>
@@ -305,7 +305,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -320,7 +320,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../../usage.html" class="page">2. 使用</a></li>
@@ -558,7 +558,7 @@ val b = complete {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L14-L28" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route: Route =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L14-L28" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route: Route =
   path(&quot;order&quot; / IntNumber) { id =&gt;
     concat(
       get {
@@ -575,7 +575,7 @@ val b = complete {
   }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L16-L100" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L16-L100" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.get;
 import static akka.http.javadsl.server.Directives.path;
 import static akka.http.javadsl.server.Directives.put;
@@ -596,7 +596,7 @@ Route orElse() {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L35-L49" target="_blank" title="Go to snippet source"></a><code class="language-scala">def innerRoute(id: Int): Route =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L35-L49" target="_blank" title="Go to snippet source"></a><code class="language-scala">def innerRoute(id: Int): Route =
   concat(
     get {
       complete {
@@ -613,7 +613,7 @@ Route orElse() {
 val route: Route = path(&quot;order&quot; / IntNumber) { id =&gt; innerRoute(id) }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L50-L133" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L50-L133" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.extractMethod;
 import static akka.http.javadsl.server.Directives.get;
 import static akka.http.javadsl.server.Directives.path;
@@ -644,7 +644,7 @@ Route customDirective() {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L56-L61" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L56-L61" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   path(&quot;order&quot; / IntNumber) { id =&gt;
     (get | put) { ctx =&gt;
       ctx.complete(s&quot;Received ${ctx.request.method.name} request for order $id&quot;)
@@ -652,7 +652,7 @@ Route customDirective() {
   }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L62-L142" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.server.Directives;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L62-L142" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.server.Directives;
 
 import static akka.http.javadsl.server.Directives.anyOf;
 
@@ -668,7 +668,7 @@ Route usingAnyOf() {
 </dl><div class="group-scala">
 <p>Or better (without dropping down to writing an explicit <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> function manually):</p>
 <p>或者更好（不用手动编写的 <span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/index.html#Route=akka.http.scaladsl.server.RequestContext=%3Escala.concurrent.Future[akka.http.scaladsl.server.RouteResult]" title="akka.http.scaladsl.server"><code>Route</code></a></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/Route.html" title="akka.http.javadsl.server.Route"><code>Route</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/Route.html" title="akka.http.scaladsl.server.Route"><code>Route</code></a></span></span> 函数）：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L68-L75" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L68-L75" target="_blank" title="Go to snippet source"></a><code class="language-scala">val route =
   path(&quot;order&quot; / IntNumber) { id =&gt;
     (get | put) {
       extractMethod { m =&gt;
@@ -678,7 +678,7 @@ Route usingAnyOf() {
   }</code></pre>
 <p>If you have a larger route structure where the <code>(get | put)</code> snippet appears several times you could also factor it out like this:</p>
 <p>如果你有一个较大的路由结构，其中 <code>(get | put)</code> 代码版段多次出现，你也可以将其按如下方式分解：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L82-L90" target="_blank" title="Go to snippet source"></a><code class="language-scala">val getOrPut = get | put
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L82-L90" target="_blank" title="Go to snippet source"></a><code class="language-scala">val getOrPut = get | put
 val route =
   path(&quot;order&quot; / IntNumber) { id =&gt;
     getOrPut {
@@ -691,7 +691,7 @@ val route =
 <p>注意，因为 <code>getOrPut</code> 没有任何参数，这里可以是 <code>val</code>。</p>
 <p>As an alternative to nesting you can also use the <code>&amp;</code> operator:</p>
 <p>除了嵌套，你还可以使用 <code>&amp;</code> 操作符：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L97-L101" target="_blank" title="Go to snippet source"></a><code class="language-scala">val getOrPut = get | put
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L97-L101" target="_blank" title="Go to snippet source"></a><code class="language-scala">val getOrPut = get | put
 val route =
   (path(&quot;order&quot; / IntNumber) &amp; getOrPut &amp; extractMethod) { (id, m) =&gt;
     complete(s&quot;Received ${m.name} request for order $id&quot;)
@@ -700,7 +700,7 @@ val route =
 <p>这里你可以看到，当生成提取的指令与 <code>&amp;</code> 组合时，生成的“超级-指令”只提取其子提取的串联起来的值。</p>
 <p>And once again, you can factor things out if you want, thereby pushing the &ldquo;factoring out&rdquo; of directive configurations to its extreme:</p>
 <p>再次，你可以分解你想要的，从而把指令配置的“因式分解”推到极致：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L108-L113" target="_blank" title="Go to snippet source"></a><code class="language-scala">val orderGetOrPutWithMethod =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L108-L113" target="_blank" title="Go to snippet source"></a><code class="language-scala">val orderGetOrPutWithMethod =
   path(&quot;order&quot; / IntNumber) &amp; (get | put) &amp; extractMethod
 val route =
   orderGetOrPutWithMethod { (id, m) =&gt;
@@ -710,7 +710,7 @@ val route =
 <p>TODO translate to chinese</p></div><div class="group-java">
 <p>The previous example, tries to complete the route first with a <code>GET</code> or with a <code>PUT</code> if the first one was rejected. </p>
 <p>In case you are constantly nesting the same directives several times in you code, you could factor them out in their own method and use it everywhere:</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L71-L157" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L71-L157" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.extractClientIP;
 import static akka.http.javadsl.server.Directives.get;
 import static akka.http.javadsl.server.Directives.path;
@@ -729,7 +729,7 @@ Route complexRoute() {
 }</code></pre>
 <p>Here we simple created our own combined directive that accepts <code>GET</code> requests, then extracts the method and completes it with an inner route that takes this HTTP method as a parameter.</p>
 <p>Again, instead of extracting own combined directives to its own method, we can make use of the <code>allOf</code> combinator. The following code is equivalent to the previous one:</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L161-L166" target="_blank" title="Go to snippet source"></a><code class="language-java">Route complexRouteUsingAllOf() {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L161-L166" target="_blank" title="Go to snippet source"></a><code class="language-java">Route complexRouteUsingAllOf() {
   return path(segment(&quot;order&quot;).slash(integerSegment()), id -&gt;
     allOf(Directives::get, Directives::extractClientIP, address -&gt;
       complete(&quot;Received request for order &quot; + id + &quot; from IP &quot; + address))
@@ -737,7 +737,7 @@ Route complexRoute() {
 }</code></pre>
 <p>In this previous example, the the inner route function provided to <code>allOf</code> will be called when the request is a <code>GET</code> and with the extracted client IP obtained from the second directive.</p>
 <p>As you have already seen in the previous section, you can also use the <code>concat</code> method defined in <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/server/directives/RouteDirectives.html" title="akka.http.javadsl.server.directives.RouteDirectives"><code>RouteDirectives</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/server/directives/RouteDirectives.html" title="akka.http.scaladsl.server.directives.RouteDirectives"><code>RouteDirectives</code></a></span> as an alternative to <code>orElse</code> chaining. Here you can see the first example again, rewritten using <code>concat</code>:</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L26-L109" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L26-L109" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.get;
 import static akka.http.javadsl.server.Directives.path;
 import static akka.http.javadsl.server.Directives.put;
@@ -753,7 +753,7 @@ Route usingConcat() {
   );
 }</code></pre>
 <p>The <code>concat</code> combinator comes handy when you want to avoid nesting. Here you can see an illustrative example:</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L37-L119" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/DirectiveExamplesTest.java#L37-L119" target="_blank" title="Go to snippet source"></a><code class="language-java">import static akka.http.javadsl.server.Directives.complete;
 import static akka.http.javadsl.server.Directives.get;
 import static akka.http.javadsl.server.Directives.head;
 import static akka.http.javadsl.server.Directives.path;
@@ -781,7 +781,7 @@ Route multipleRoutes() {
 <p>注意：忘记指令之间的 <code>~</code>（波浪符号）字符可能导致完全有效的 Scala 代码编码，但是不能按预期的工作。 单个表达式实际上是多个表达，只有最后一个表达式用作父指令的结果。因为这个原因，组合路由的推荐方式是使用 <code>concat</code> 组合器。 </p></div><div class="group-scala">
 <p>Alternatively we can combine directives using the <code>~</code> operator where we chain them together instead of passing each directive as a separate argument. Let&rsquo;s take a look at the usage of this combinator:</p>
 <p>另外，我们可以使用 <code>~</code> 操作符将指令组合到一起，用于替代将每个指令作为单独的参数进行传递。让我们看看这个组合器的用法：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L120-L132" target="_blank" title="Go to snippet source"></a><code class="language-scala">def innerRoute(id: Int): Route =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/DirectiveExamplesSpec.scala#L120-L132" target="_blank" title="Go to snippet source"></a><code class="language-scala">def innerRoute(id: Int): Route =
   get {
     complete {
       &quot;Received GET request for order &quot; + id
@@ -896,8 +896,7 @@ val route =
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/routing-dsl/directives/index.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/routing-dsl/directives/index.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

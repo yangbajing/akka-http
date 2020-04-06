@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Client-Side WebSocket Support &bull; Akka HTTP Chinese edition</title>
+<title>客户端 WebSocket 支持 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -262,8 +262,8 @@ Version 10.1.11
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">池溢出和最大打开请求数设置</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">客户端 HTTPS 支持</a></li>
-    <li><a href="../client-side/client-transport.html" class="page">Pluggable Client Transports / HTTP(S) proxy Support</a></li>
-    <li><a href="../client-side/websocket-support.html#client-side-websocket-support" class="active page">Client-Side WebSocket Support</a>
+    <li><a href="../client-side/client-transport.html" class="page">可插拔的客户端传输 / HTTP(S) 代理支持</a></li>
+    <li><a href="../client-side/websocket-support.html#客户端-websocket-支持" class="active page">客户端 WebSocket 支持</a>
     <ul>
       <li><a href="../client-side/websocket-support.html#message" class="header">Message</a></li>
       <li><a href="../client-side/websocket-support.html#singlewebsocketrequest" class="header">singleWebSocketRequest</a></li>
@@ -286,7 +286,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -301,7 +301,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -315,8 +315,8 @@ Version 10.1.11
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">池溢出和最大打开请求数设置</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">客户端 HTTPS 支持</a></li>
-    <li><a href="../client-side/client-transport.html" class="page">Pluggable Client Transports / HTTP(S) proxy Support</a></li>
-    <li><a href="../client-side/websocket-support.html#client-side-websocket-support" class="active page">Client-Side WebSocket Support</a>
+    <li><a href="../client-side/client-transport.html" class="page">可插拔的客户端传输 / HTTP(S) 代理支持</a></li>
+    <li><a href="../client-side/websocket-support.html#客户端-websocket-支持" class="active page">客户端 WebSocket 支持</a>
     <ul>
       <li><a href="../client-side/websocket-support.html#message" class="header">Message</a></li>
       <li><a href="../client-side/websocket-support.html#singlewebsocketrequest" class="header">singleWebSocketRequest</a></li>
@@ -343,24 +343,37 @@ Version 10.1.11
 <section class="site-content small-12 column">
 <article class="page-content row">
 <div class="small-12 column" id="docs">
-<h1><a href="#client-side-websocket-support" name="client-side-websocket-support" class="anchor"><span class="anchor-link"></span></a>Client-Side WebSocket Support</h1>
+<h1><a href="#客户端-websocket-支持" name="客户端-websocket-支持" class="anchor"><span class="anchor-link"></span></a>客户端 WebSocket 支持</h1>
+<p><em>Client-Side WebSocket Support</em></p>
 <p>Client side WebSocket support is available through <span class="group-scala"><code>Http().singleWebSocketRequest</code></span><span class="group-java"><code>Http.get(system).singleWebSocketRequest</code></span>, <span class="group-scala"><code>Http().webSocketClientFlow</code></span><span class="group-java"><code>Http.get(system).webSocketClientFlow</code></span> and <span class="group-scala"><code>Http().webSocketClientLayer</code></span><span class="group-java"><code>Http.get(system).webSocketClientLayer</code></span>.</p>
+<p>客户端 WebSocket 支持通过 <span class="group-scala"><code>Http().singleWebSocketRequest</code></span><span class="group-java"><code>Http.get(system).singleWebSocketRequest</code></span> 、 <span class="group-scala"><code>Http().webSocketClientFlow</code></span><span class="group-java"><code>Http.get(system).webSocketClientFlow</code></span> 和 <span class="group-scala"><code>Http().webSocketClientLayer</code></span><span class="group-java"><code>Http.get(system).webSocketClientLayer</code></span> 可获得。</p>
 <p>A WebSocket consists of two streams of messages, incoming messages (a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Sink.html" title="akka.stream.javadsl.Sink"><code>Sink</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Sink.html" title="akka.stream.scaladsl.Sink"><code>Sink</code></a></span>) and outgoing messages (a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source</code></a></span>) where either may be signalled first; or even be the only direction in which messages flow during the lifetime of the connection. Therefore a WebSocket connection is modelled as either something you connect a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow&lt;Message, Message, Mat&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow[Message, Message, Mat]</code></a></span> to or a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow&lt;Message, Message, Mat&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow[Message, Message, Mat]</code></a></span> that you connect a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;Message, Mat&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[Message, Mat]</code></a></span> and a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Sink.html" title="akka.stream.javadsl.Sink"><code>Sink&lt;Message, Mat&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Sink.html" title="akka.stream.scaladsl.Sink"><code>Sink[Message, Mat]</code></a></span> to.</p>
+<p>WebSocket 包含两种消息的流，传入消息（@apidoc[Sink]）和传出消息（@apidoc[Source]），其中任何一个都可能先发出信号；或者是在连接的生命周期期间消息流动的唯一方向。 因此，WebSocket 连接被建模为连接 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow&lt;Message, Message, Mat&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow[Message, Message, Mat]</code></a></span> 到（对象）或者将 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;Message, Mat&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[Message, Mat]</code></a></span> 和 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Sink.html" title="akka.stream.javadsl.Sink"><code>Sink&lt;Message, Mat&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Sink.html" title="akka.stream.scaladsl.Sink"><code>Sink[Message, Mat]</code></a></span> 连接到 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow&lt;Message, Message, Mat&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow[Message, Message, Mat]</code></a></span> 。</p>
 <p>A WebSocket request starts with a regular HTTP request which contains an <code>Upgrade</code> header (and possibly other regular HTTP request properties), so in addition to the flow of messages there also is an initial response from the server, this is modelled with <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/ws/WebSocketUpgradeResponse.html" title="akka.http.javadsl.model.ws.WebSocketUpgradeResponse"><code>WebSocketUpgradeResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/ws/WebSocketUpgradeResponse.html" title="akka.http.scaladsl.model.ws.WebSocketUpgradeResponse"><code>WebSocketUpgradeResponse</code></a></span>.</p>
-<p>The methods of the WebSocket client API handle the upgrade to WebSocket on connection success and materializes the connected WebSocket stream. If the connection fails, for example with a <code>404 NotFound</code> error, this regular HTTP result can be found in <code>WebSocketUpgradeResponse.response</code></p><div class="callout note "><div class="callout-title">Note</div>
-<p>Make sure to read and understand the section about <a href="#half-closed-client-websockets">Half-Closed WebSockets</a> as the behavior when using WebSockets for one-way communication may not be what you would expect.</p></div>
+<p>WebSocket 请求以包含 <code>Upgrade</code> 头域（可能还有其它常规 HTTP 请求属性）的常规 HTTP 请求开始， 因此除了消息流外，还有来自服务器的初始响应：@apidoc[WebSocketUpgradeResponse] 。</p>
+<p>The methods of the WebSocket client API handle the upgrade to WebSocket on connection success and materializes the connected WebSocket stream. If the connection fails, for example with a <code>404 NotFound</code> error, this regular HTTP result can be found in <code>WebSocketUpgradeResponse.response</code></p>
+<p>WebSocket 客户端 API 的方法在连接成功时处理升级到 WebSocket，并具体化已连接的 WebSocket 流。如果连接失败，例如 <code>404 NotFound</code> 错误， 这个常规 HTTP 结果可以在 <code>WebSocketUpgradeResponse.response</code> 中找到。</p><div class="callout note "><div class="callout-title">Note</div>
+<p>Make sure to read and understand the section about <a href="#half-closed-client-websockets">Half-Closed WebSockets</a> as the behavior when using WebSockets for one-way communication may not be what you would expect.</p>
+<p>确保阅读并理解关于 <a href="#half-closed-client-websockets">半-关闭 WebSockets</a> 行为，当使用 WebSocket 进行单向通信时，可能不是你期望的那样。</p></div>
 <h2><a href="#message" name="message" class="anchor"><span class="anchor-link"></span></a>Message</h2>
+<p><strong>消息</strong></p>
 <p>Messages sent and received over a WebSocket can be either <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/ws/TextMessage.html" title="akka.http.javadsl.model.ws.TextMessage"><code>TextMessage</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/ws/TextMessage.html" title="akka.http.scaladsl.model.ws.TextMessage"><code>TextMessage</code></a></span> s or <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/ws/BinaryMessage.html" title="akka.http.javadsl.model.ws.BinaryMessage"><code>BinaryMessage</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/ws/BinaryMessage.html" title="akka.http.scaladsl.model.ws.BinaryMessage"><code>BinaryMessage</code></a></span> s and each of those has two subtypes <code>Strict</code> (all data in one chunk) or <code>Streamed</code>. In typical applications messages will be <code>Strict</code> as WebSockets are usually deployed to communicate using small messages not stream data, the protocol does however allow this (by not marking the first fragment as final, as described in <a href="https://tools.ietf.org/html/rfc6455#section-5.2">RFC 6455 section 5.2</a>).</p>
+<p>在 WebSocket 上面发送和接收消息可以是 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/ws/TextMessage.html" title="akka.http.javadsl.model.ws.TextMessage"><code>TextMessage</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/ws/TextMessage.html" title="akka.http.scaladsl.model.ws.TextMessage"><code>TextMessage</code></a></span> 或 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/ws/BinaryMessage.html" title="akka.http.javadsl.model.ws.BinaryMessage"><code>BinaryMessage</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/ws/BinaryMessage.html" title="akka.http.scaladsl.model.ws.BinaryMessage"><code>BinaryMessage</code></a></span> ，并且每个都有两种子类型：<code>Strict</code> （所有数据在一个块里）或 <code>Streamd</code>。在典型应用程序中消息是 <code>Strict</code> 的，因为 WebSocket 通常部署为使用小消息而不是流数据进行通信， 但是协议允许这样做（通过不标记第一个片段为最终的，如 <a href="https://tools.ietf.org/html/rfc6455#section-5.2">RFC 6455，5.2 节</a> 所述）。</p>
 <p>The strict text is available from <span class="group-scala"><code>TextMessage.Strict</code></span><span class="group-java"><code>TextMessage.getStrictText</code></span> and strict binary data from <span class="group-scala"><code>BinaryMessage.Strict</code></span><span class="group-java"><code>BinaryMessage.getStrictData</code></span>.</p>
+<p>严格文本从 <span class="group-scala"><code>TextMessage.Strict</code></span><span class="group-java"><code>TextMessage.getStrictText</code></span> 获得，严格二进制数据从 <span class="group-scala"><code>BinaryMessage.Strict</code></span><span class="group-java"><code>BinaryMessage.getStrictData</code></span> 获得。</p>
 <p>For streamed messages <span class="group-scala"><code>BinaryMessage.Streamed</code></span><span class="group-java"><code>BinaryMessage.getStreamedData</code></span> and <span class="group-scala"><code>TextMessage.Streamed</code></span><span class="group-java"><code>TextMessage.getStreamedText</code></span> will be used. In these cases the data is provided as a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;ByteString, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[ByteString, _]</code></a></span> for binary and <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;String, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[String, _]</code></a></span> for text messages.</p>
+<p>对于流消息，使用 <span class="group-scala"><code>BinaryMessage.Streamed</code></span><span class="group-java"><code>BinaryMessage.getStreamedData</code></span> 和 <span class="group-scala"><code>TextMessage.Streamed</code></span><span class="group-java"><code>TextMessage.getStreamedText</code></span> 。 在这样情况中，数据被提供为 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;ByteString, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[ByteString, _]</code></a></span> （二进制消息）及 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;String, ?&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[String, _]</code></a></span> （文本消息）。</p>
 <h2><a href="#singlewebsocketrequest" name="singlewebsocketrequest" class="anchor"><span class="anchor-link"></span></a>singleWebSocketRequest</h2>
 <p><code>singleWebSocketRequest</code> takes a <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/ws/WebSocketRequest.html" title="akka.http.javadsl.model.ws.WebSocketRequest"><code>WebSocketRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/ws/WebSocketRequest.html" title="akka.http.scaladsl.model.ws.WebSocketRequest"><code>WebSocketRequest</code></a></span> and a flow it will connect to the source and sink of the WebSocket connection. It will trigger the request right away and returns a tuple containing the <span class="group-scala"><code>Future[WebSocketUpgradeResponse]</code></span><span class="group-java"><code>CompletionStage&lt;WebSocketUpgradeResponse&gt;</code></span> and the materialized value from the flow passed to the method.</p>
+<p><code>signleWebSocketRequest</code> 接受一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/ws/WebSocketRequest.html" title="akka.http.javadsl.model.ws.WebSocketRequest"><code>WebSocketRequest</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/ws/WebSocketRequest.html" title="akka.http.scaladsl.model.ws.WebSocketRequest"><code>WebSocketRequest</code></a></span> 和一个连接到 WebSocket 连接的 Source 和 Sink 的 flow。 立刻触发请求并且返回一个元组，其中包含 <span class="group-scala"><code>Future[WebSocketUpgradeResponse]</code></span><span class="group-java"><code>CompletionStage&lt;WebSocketUpgradeResponse&gt;</code></span> 和传递给方法的 flow 的具体化值。</p>
 <p>The future will succeed when the WebSocket connection has been established or the server returned a regular HTTP response, or fail if the connection fails with an exception.</p>
+<p>future 将在 WebSocket 连接已建立或服务器返回常规 HTTP 响应时成功，或者如果连接因异常而失败。</p>
 <p>Simple example sending a message and printing any incoming message:</p>
+<p>发送消息和打印任何传入消息的简单示例：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L14-L66" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L14-L66" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.{ Done, NotUsed }
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
@@ -415,7 +428,7 @@ object SingleWebSocketRequest {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L40-L87" target="_blank" title="Go to snippet source"></a><code class="language-java">ActorSystem system = ActorSystem.create();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L40-L87" target="_blank" title="Go to snippet source"></a><code class="language-java">ActorSystem system = ActorSystem.create();
 Materializer materializer = ActorMaterializer.create(system);
 Http http = Http.get(system);
 
@@ -465,10 +478,11 @@ closed.thenAccept(done -&gt; System.out.println(&quot;Connection closed&quot;));
 </code></pre></dd>
 </dl>
 <p>The websocket request may also include additional headers, like in this example, HTTP Basic Auth:</p>
+<p>WebSocket 请求也可能包含额外的头域，像这个例子，HTTP 基本认证：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L178-L184" target="_blank" title="Go to snippet source"></a><code class="language-scala">val (upgradeResponse, _) =
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L178-L184" target="_blank" title="Go to snippet source"></a><code class="language-scala">val (upgradeResponse, _) =
   Http().singleWebSocketRequest(
     WebSocketRequest(
       &quot;ws://example.com:8080/some/path&quot;,
@@ -477,7 +491,7 @@ closed.thenAccept(done -&gt; System.out.println(&quot;Connection closed&quot;));
     flow)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L180-L184" target="_blank" title="Go to snippet source"></a><code class="language-java">http.singleWebSocketRequest(
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L180-L184" target="_blank" title="Go to snippet source"></a><code class="language-java">http.singleWebSocketRequest(
   WebSocketRequest.create(&quot;ws://example.com:8080/some/path&quot;)
     .addHeader(Authorization.basic(&quot;johan&quot;, &quot;correcthorsebatterystaple&quot;)),
   flow,
@@ -485,13 +499,17 @@ closed.thenAccept(done -&gt; System.out.println(&quot;Connection closed&quot;));
 </dl>
 <h2><a href="#websocketclientflow" name="websocketclientflow" class="anchor"><span class="anchor-link"></span></a>webSocketClientFlow</h2>
 <p><code>webSocketClientFlow</code> takes a request, and returns a <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow&lt;Message, Message, Future&lt;WebSocketUpgradeResponse&gt;&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow[Message, Message, Future[WebSocketUpgradeResponse]]</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow&lt;Message, Message, CompletionStage&lt;WebSocketUpgradeResponse&gt;&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow[Message, Message, CompletionStage[WebSocketUpgradeResponse]]</code></a></span></span>.</p>
-<p>The future that is materialized from the flow will succeed when the WebSocket connection has been established or the server returned a regular HTTP response, or fail if the connection fails with an exception.</p><div class="callout note "><div class="callout-title">Note</div>
-<p>The <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> that is returned by this method can only be materialized once. For each request a new flow must be acquired by calling the method again.</p></div>
+<p><code>webSocketClientFlow</code> 接受一个来请求，并返回一个 <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow&lt;Message, Message, Future&lt;WebSocketUpgradeResponse&gt;&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow[Message, Message, Future[WebSocketUpgradeResponse]]</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow&lt;Message, Message, CompletionStage&lt;WebSocketUpgradeResponse&gt;&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow[Message, Message, CompletionStage[WebSocketUpgradeResponse]]</code></a></span></span> 。</p>
+<p>The future that is materialized from the flow will succeed when the WebSocket connection has been established or the server returned a regular HTTP response, or fail if the connection fails with an exception.</p>
+<p>当 WebSocket 连接已建立，或服务器返回一个常规 HTTP 响应时，从 flow 具体化的 future 将成功。或如果连接因异常而失败时。</p><div class="callout note "><div class="callout-title">Note</div>
+<p>The <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> that is returned by this method can only be materialized once. For each request a new flow must be acquired by calling the method again.</p>
+<p>通过该方法返回的 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Flow.html" title="akka.stream.javadsl.Flow"><code>Flow</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Flow.html" title="akka.stream.scaladsl.Flow"><code>Flow</code></a></span> 只能被具体化一次。对于每个请求，必须通过再次调用方法来得到新的 flow。</p></div>
 <p>Simple example sending a message and printing any incoming message:</p>
+<p>发送消息和打印任何传入消息的简单示例：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L190-L244" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L190-L244" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.actor.ActorSystem
 import akka.Done
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
@@ -548,7 +566,7 @@ object WebSocketClientFlow {
 }</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L191-L240" target="_blank" title="Go to snippet source"></a><code class="language-java">ActorSystem system = ActorSystem.create();
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L191-L240" target="_blank" title="Go to snippet source"></a><code class="language-java">ActorSystem system = ActorSystem.create();
 Materializer materializer = ActorMaterializer.create(system);
 Http http = Http.get(system);
 
@@ -601,14 +619,18 @@ closed.thenAccept(done -&gt; System.out.println(&quot;Connection closed&quot;));
 </dl>
 <h2><a href="#websocketclientlayer" name="websocketclientlayer" class="anchor"><span class="anchor-link"></span></a>webSocketClientLayer</h2>
 <p>Just like the <a href="connection-level.html#http-client-layer">Stand-Alone HTTP Layer Usage</a> for regular HTTP requests, the WebSocket layer can be used fully detached from the underlying TCP interface. The same scenarios as described for regular HTTP requests apply here.</p>
+<p>就像常规 HTTP 请求的 <a href="connection-level.html#http-client-layer">独立的 HTTP 层使用方法</a> ，WebSocket 层可以从底层 TCP 接口完全分离。 这里适用于常规 HTTP 请求的相同场景。 </p>
 <p>The returned layer forms a <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/BidiFlow.html" title="akka.stream.javadsl.BidiFlow"><code>BidiFlow&lt;Message, SslTlsOutbound, SslTlsInbound, Message, Future&lt;WebSocketUpgradeResponse&gt;&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/BidiFlow.html" title="akka.stream.scaladsl.BidiFlow"><code>BidiFlow[Message, SslTlsOutbound, SslTlsInbound, Message, Future[WebSocketUpgradeResponse]]</code></a></span></span><span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/BidiFlow.html" title="akka.stream.javadsl.BidiFlow"><code>BidiFlow&lt;Message, SslTlsOutbound, SslTlsInbound, Message, CompletionStage&lt;WebSocketUpgradeResponse&gt;&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/BidiFlow.html" title="akka.stream.scaladsl.BidiFlow"><code>BidiFlow[Message, SslTlsOutbound, SslTlsInbound, Message, CompletionStage[WebSocketUpgradeResponse]]</code></a></span></span>.</p>
+<p>返回的层形成一个 <span class="group-scala"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/BidiFlow.html" title="akka.stream.javadsl.BidiFlow"><code>BidiFlow&lt;Message, SslTlsOutbound, SslTlsInbound, Message, Future&lt;WebSocketUpgradeResponse&gt;&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/BidiFlow.html" title="akka.stream.scaladsl.BidiFlow"><code>BidiFlow[Message, SslTlsOutbound, SslTlsInbound, Message, Future[WebSocketUpgradeResponse]]</code></a></span></span> <span class="group-java"><span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/BidiFlow.html" title="akka.stream.javadsl.BidiFlow"><code>BidiFlow&lt;Message, SslTlsOutbound, SslTlsInbound, Message, CompletionStage&lt;WebSocketUpgradeResponse&gt;&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/BidiFlow.html" title="akka.stream.scaladsl.BidiFlow"><code>BidiFlow[Message, SslTlsOutbound, SslTlsInbound, Message, CompletionStage[WebSocketUpgradeResponse]]</code></a></span></span> 。</p>
 <a id="half-closed-client-websockets"></a>
 <h2><a href="#half-closed-websockets" name="half-closed-websockets" class="anchor"><span class="anchor-link"></span></a>Half-Closed WebSockets</h2>
+<p><strong>半-关闭的 WebSocket</strong></p>
 <p>The Akka HTTP WebSocket API does not support half-closed connections which means that if either stream completes the entire connection is closed (after a &ldquo;Closing Handshake&rdquo; has been exchanged or a timeout of 3 seconds has passed). This may lead to unexpected behavior, for example if we are trying to only consume messages coming from the server, like this:</p>
+<p>Akka HTTP WebSocket API 不支持半-关闭连接，这意味着任何流完成则整个连接被关闭（在交换了“关闭握手”或3秒超时后）。 这可能导致异外的行为，例如，如果我们试图只消费来自服务器的消息，像这样：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L82-L93" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>// we may expect to be able to to just tail
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L82-L93" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>// we may expect to be able to to just tail
 // the server websocket output like this
 val flow: Flow[Message, Message, NotUsed] =
   Flow.fromSinkAndSource(
@@ -621,7 +643,7 @@ Http().singleWebSocketRequest(
 </code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L99-L111" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>// we may expect to be able to to just tail
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L99-L111" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>// we may expect to be able to to just tail
 // the server websocket output like this
 final Flow&lt;Message, Message, NotUsed&gt; flow =
   Flow.fromSinkAndSource(
@@ -635,10 +657,11 @@ http.singleWebSocketRequest(
 </code></pre></dd>
 </dl>
 <p>This will in fact quickly close the connection because of the <span class="group-scala"><code>Source.empty</code></span><span class="group-java"><code>Source.empty()</code></span> being completed immediately when the stream is materialized. To solve this you can make sure to not complete the outgoing source by using for example <span class="group-scala"><code>Source.maybe</code></span><span class="group-java"><code>Source.maybe()</code></span> like this:</p>
+<p>这事实上将很快关闭连接，因为当具体化流时， <span class="group-scala"><code>Source.empty</code></span><span class="group-java"><code>Source.empty()</code></span> 将立即完成。要解决这个问题， 你可以通过使用如 <span class="group-scala"><code>Source.maybe</code></span><span class="group-java"><code>Source.maybe()</code></span> （这样的 Source）来确保不完成传出源，像这样：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L110-L124" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>// using Source.maybe materializes into a promise
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L110-L124" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>// using Source.maybe materializes into a promise
 // which will allow us to complete the source later
 val flow: Flow[Message, Message, Promise[Option[Message]]] =
   Flow.fromSinkAndSourceMat(
@@ -654,7 +677,7 @@ val (upgradeResponse, promise) =
 promise.success(None)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L121-L137" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>// using Source.maybe materializes into a completable future
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L121-L137" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>// using Source.maybe materializes into a completable future
 // which will allow us to complete the source later
 final Flow&lt;Message, Message, CompletableFuture&lt;Optional&lt;Message&gt;&gt;&gt; flow =
   Flow.fromSinkAndSourceMat(
@@ -672,11 +695,13 @@ final Pair&lt;CompletionStage&lt;WebSocketUpgradeResponse&gt;, CompletableFuture
 pair.second().complete(Optional.empty());</code></pre></dd>
 </dl>
 <p>This will keep the outgoing source from completing, but without emitting any elements until the <span class="group-scala"><code>Promise</code></span><span class="group-java"><code>CompletableFuture</code></span> is manually completed which makes the <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source</code></a></span> complete and the connection to close.</p>
+<p>这将保持传出源处于正在完成状态，但直到 <span class="group-scala"><code>Promise</code></span><span class="group-java"><code>CompletableFuture</code></span> 被手动完成（使 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source</code></a></span> 完成并关闭连接）前不会发出任何元素。</p>
 <p>The same problem holds true if emitting a finite number of elements, as soon as the last element is reached the <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source</code></a></span> will close and cause the connection to close. To avoid that you can concatenate <span class="group-scala"><code>Source.maybe</code></span><span class="group-java"><code>Source.maybe()</code></span> to the finite stream:</p>
+<p>如果发出有限数量的元素相同问题也成立，一旦到达最后个元素， <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source</code></a></span> 就将关闭并导致连接关闭。要避免这种行为， 你可以将 <span class="group-scala"><code>Source.maybe</code></span><span class="group-java"><code>Source.maybe()</code></span> 连接到有限流：</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L141-L155" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>// using emit &quot;one&quot; and &quot;two&quot; and then keep the connection open
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/WebSocketClientExampleSpec.scala#L141-L155" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>// using emit &quot;one&quot; and &quot;two&quot; and then keep the connection open
 val flow: Flow[Message, Message, Promise[Option[Message]]] =
   Flow.fromSinkAndSourceMat(
     Sink.foreach[Message](println),
@@ -692,7 +717,7 @@ val (upgradeResponse, promise) =
 promise.success(None)</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L147-L166" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>// emit &quot;one&quot; and then &quot;two&quot; and then keep the source from completing
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/WebSocketClientExampleTest.java#L147-L166" target="_blank" title="Go to snippet source"></a><code class="language-java"><br/>// emit &quot;one&quot; and then &quot;two&quot; and then keep the source from completing
 final Source&lt;Message, CompletableFuture&lt;Optional&lt;Message&gt;&gt;&gt; source =
   Source.from(Arrays.&lt;Message&gt;asList(TextMessage.create(&quot;one&quot;), TextMessage.create(&quot;two&quot;)))
     .concatMat(Source.maybe(), Keep.right());
@@ -735,17 +760,46 @@ pair.second().complete(Optional.empty());</code></pre></dd>
     </tr>
   </tbody>
 </table>
+<p>在 WebSocket 中存在两种流的场景，以及可能的处理它们的方式：</p>
+<table>
+  <thead>
+    <tr>
+      <th>场景 </th>
+      <th>可能解决方案 </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>双向通信 </td>
+      <td><code>Flow.fromSinkAndSource</code> 或 <code>Flow.map</code> 用于请求-响应协议 </td>
+    </tr>
+    <tr>
+      <td>无限传入流，无传出 </td>
+      <td><span class="group-scala"><code>Flow.fromSinkAndSource(someSink, Source.maybe)</code></span><span class="group-java"><code>Flow.fromSinkAndSource(someSink, Source.maybe())</code></span> </td>
+    </tr>
+    <tr>
+      <td>无限传出流，无传入 </td>
+      <td><span class="group-scala"><code>Flow.fromSinkAndSource(Sink.ignore, yourSource)</code></span><span class="group-java"><code>Flow.fromSinkAndSource(Sink.ignore(), yourSource)</code></span></td>
+    </tr>
+  </tbody>
+</table>
 <a id="keep-alive-ping"></a>
 <h2><a href="#automatic-keep-alive-ping-support" name="automatic-keep-alive-ping-support" class="anchor"><span class="anchor-link"></span></a>Automatic keep-alive Ping support</h2>
+<p><strong>自动保持-存活 Ping 支持</strong></p>
 <p>Similar to the <a href="../server-side/websocket-support.html#keep-alive-ping">server-side kee-alive Ping support</a>, it is possible to configure the client-side to perform automatic keep-alive using Ping (or Pong) frames.</p>
+<p>类似于 <a href="../server-side/websocket-support.html#keep-alive-ping">服务器端保持存活 Ping 支持</a>，配置客户端使用 Ping（或 Pong）帧执行自动保持-存活是可能的。</p>
 <p>This is supported in a transparent way via configuration by setting the: <code>akka.http.client.websocket.periodic-keep-alive-max-idle = 1 second</code> to a specified max idle timeout. The keep alive triggers when no other messages are in-flight during the such configured period. Akka HTTP will then automatically send a <a href="https://tools.ietf.org/html/rfc6455#section-5.5.2"><code>Ping</code> frame</a> for each of such idle intervals.</p>
+<p>这个支持通过配置以透明的方式设置：<code>akka.http.client.websocket.periodic-keep-alive-max-idle = 1 second</code> 指定最大空闲超时。 当在此配置的超时期间没有其它消息活跃，则触发保持存活。Akka HTTP 将在每个空闲间隔自动发送一个 <a href="https://tools.ietf.org/html/rfc6455#section-5.5.2"><code>Ping</code> 帧</a> 。</p>
 <p>By default, the automatic keep-alive feature is disabled.</p>
+<p>默认，禁用自动保持-存活特性。</p>
 <h3><a href="#custom-keep-alive-data-payloads" name="custom-keep-alive-data-payloads" class="anchor"><span class="anchor-link"></span></a>Custom keep-alive data payloads</h3>
+<p><strong>定制保持-存活数据载荷</strong></p>
 <p>By default, pings do not carry any payload, as it is often enough to simply push <em>any</em> frame over the connection to ensure the connection stays healthy (or detect if it was severed), however you may configure them to carry a custom payload, to do this you can provide a function that will be asked to emit the payload for each of the ping messages generated:</p>
+<p>默认，ping 不携带任何载荷，因为这通常足以在连接上简单的推送 <em>任何</em> 帧来确保连接保持健康（或者检测连接是否断开）。 但是，你可以配置它携带一个自定义载花，为此你可以提供一个函数，要求该函数为生成的每个 ping 消息发出载荷。</p>
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala#L143-L162" target="_blank" title="Go to snippet source"></a><code class="language-scala">val defaultSettings = ClientConnectionSettings(system)
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/WebSocketExampleSpec.scala#L143-L162" target="_blank" title="Go to snippet source"></a><code class="language-scala">val defaultSettings = ClientConnectionSettings(system)
 
 val pingCounter = new AtomicInteger()
 val customWebsocketSettings =
@@ -767,7 +821,7 @@ Http().singleWebSocketRequest(
 )</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java#L145-L166" target="_blank" title="Go to snippet source"></a><code class="language-java">ClientConnectionSettings defaultSettings = ClientConnectionSettings.create(system);
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/WebSocketCoreExample.java#L145-L166" target="_blank" title="Go to snippet source"></a><code class="language-java">ClientConnectionSettings defaultSettings = ClientConnectionSettings.create(system);
 
 AtomicInteger pingCounter = new AtomicInteger();
 
@@ -791,14 +845,16 @@ http.singleWebSocketRequest(
 );</code></pre></dd>
 </dl>
 <h3><a href="#uni-directional-pong-keep-alive" name="uni-directional-pong-keep-alive" class="anchor"><span class="anchor-link"></span></a>Uni-directional Pong keep-alive</h3>
+<p><strong>单向 Pong 保持-存活</strong></p>
 <p>A Ping response will always be replied to by the client-side with an appropriate <code>Pong</code> reply, carrying the same payload. It is also possible to configure the keep-alive mechanism to send <code>Pong</code> frames instead of <code>Ping</code> frames, which enables an <a href="https://tools.ietf.org/html/rfc6455#section-5.5.3">uni-directional heartbeat</a> mechanism (in which case the client side will <em>not</em> reply to such heartbeat). You can configure this mode by setting: <code>akka.http.client.websocket.periodic-keep-alive-mode = pong</code>.</p>
+<p>客户端将始终使用一个合适的 <code>Pong</code> 回复一个 Ping 响应，并携带相同的载荷。 也可以通过配置保持-活跃机制发送 <code>Pong</code> 帧来替代 <code>Ping</code> 帧。 你可以配置这个模式：<code>akka.http.server.websocket.periodic-keep-alive-mode = pong</code> 来启用 <a href="https://tools.ietf.org/html/rfc6455#section-5.5.3">定向心跳</a> 机制 （在这种情况下，客户端将 <em>不</em> 回复此类心跳）。</p>
 </div>
 </article>
 <div class="row">
 <div class="small-12 column">
 <section class="nav-prev-next row">
 <div class="nav-prev small-6 column">
-<a href="../client-side/client-transport.html"><i class="icon-prev"></i> <span class="link-prev">Pluggable Client Transports / HTTP(S) proxy Support</span></a>
+<a href="../client-side/client-transport.html"><i class="icon-prev"></i> <span class="link-prev">可插拔的客户端传输 / HTTP(S) 代理支持</span></a>
 </div>
 <div class="nav-next small-6 column clearfix">
 <a class="float-right" href="../extensions.html">6. 扩展 <i class="icon-next"></i></a>
@@ -807,8 +863,7 @@ http.singleWebSocketRequest(
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/client-side/websocket-support.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/client-side/websocket-support.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

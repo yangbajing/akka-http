@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Unmarshalling/解组 &bull; Akka HTTP Chinese edition</title>
+<title>Unmarshalling/解组 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -289,7 +289,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -304,7 +304,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -360,7 +360,7 @@ Version 10.1.11
 <p>解码类型 <code>A</code> 实例到类型 <code>B</code> 实例由 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/unmarshalling/Unmarshaller.html" title="akka.http.javadsl.unmarshalling.Unmarshaller"><code>Unmarshaller&lt;A, B&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/unmarshalling/Unmarshaller.html" title="akka.http.scaladsl.unmarshalling.Unmarshaller"><code>Unmarshaller[A, B]</code></a></span> 执行。</p><div class="group-scala">
 <p>Akka HTTP also predefines a number of helpful aliases for the types of unmarshallers that you&rsquo;ll likely work with most:</p>
 <p>Akka HTTP 也为你可能用到的大多数解组也定义了一些有用的别名：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/unmarshalling/package.scala#L13-L19" target="_blank" title="Go to snippet source"></a><code class="language-scala">type FromEntityUnmarshaller[T] = Unmarshaller[HttpEntity, T]
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/unmarshalling/package.scala#L13-L19" target="_blank" title="Go to snippet source"></a><code class="language-scala">type FromEntityUnmarshaller[T] = Unmarshaller[HttpEntity, T]
 type FromMessageUnmarshaller[T] = Unmarshaller[HttpMessage, T]
 type FromResponseUnmarshaller[T] = Unmarshaller[HttpResponse, T]
 type FromRequestUnmarshaller[T] = Unmarshaller[HttpRequest, T]
@@ -422,7 +422,7 @@ type FromStrictFormFieldUnmarshaller[T] = Unmarshaller[StrictForm.Field, T]</cod
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/scala/akka/http/scaladsl/unmarshalling/Unmarshaller.scala#L49-L72" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/scala/akka/http/scaladsl/unmarshalling/Unmarshaller.scala#L49-L72" target="_blank" title="Go to snippet source"></a><code class="language-scala">/**
  * Creates an `Unmarshaller` from the given function.
  */
 def apply[A, B](f: ExecutionContext =&gt; A =&gt; Future[B]): Unmarshaller[A, B] =
@@ -448,7 +448,7 @@ def strict[A, B](f: A =&gt; B): Unmarshaller[A, B] = Unmarshaller(_ =&gt; a =&gt
 def firstOf[A, B](unmarshallers: Unmarshaller[A, B]*): Unmarshaller[A, B] = //...</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http/src/main/java/akka/http/javadsl/unmarshalling/Unmarshallers.java#L14-L28" target="_blank" title="Go to snippet source"></a><code class="language-java">&lt;A, B&gt; Unmarshaller&lt;A, B&gt; async(java.util.function.Function&lt;A, java.util.concurrent.CompletionStage&lt;B&gt;&gt; f);
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http/src/main/java/akka/http/javadsl/unmarshalling/Unmarshallers.java#L14-L28" target="_blank" title="Go to snippet source"></a><code class="language-java">&lt;A, B&gt; Unmarshaller&lt;A, B&gt; async(java.util.function.Function&lt;A, java.util.concurrent.CompletionStage&lt;B&gt;&gt; f);
 &lt;A, B&gt; Unmarshaller&lt;A, B&gt; sync(java.util.function.Function&lt;A, B&gt; f);
 &lt;A, B&gt; Unmarshaller&lt;A, B&gt; firstOf(Unmarshaller&lt;A, B&gt; u1, Unmarshaller&lt;A, B&gt; u2);
 &lt;A, B&gt; Unmarshaller&lt;A, B&gt; firstOf(Unmarshaller&lt;A, B&gt; u1, Unmarshaller&lt;A, B&gt; u2, Unmarshaller&lt;A, B&gt; u3);
@@ -491,7 +491,7 @@ def firstOf[A, B](unmarshallers: Unmarshaller[A, B]*): Unmarshaller[A, B] = //..
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/UnmarshalSpec.scala#L14-L27" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.unmarshalling.Unmarshal
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/UnmarshalSpec.scala#L14-L27" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.unmarshalling.Unmarshal
 import system.dispatcher // Optional ExecutionContext (default from Materializer)
 implicit val materializer: Materializer = ActorMaterializer()
 
@@ -507,7 +507,7 @@ val bool = Await.result(boolFuture, 1.second) // don&#39;t block in non-test cod
 bool shouldBe false</code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/UnmarshalTest.java#L16-L22" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.model.*;
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/UnmarshalTest.java#L16-L22" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.model.*;
 import akka.http.javadsl.unmarshalling.StringUnmarshallers;
 import akka.http.javadsl.unmarshalling.Unmarshaller;
 
@@ -539,8 +539,7 @@ assertEquals(bool, false);</code></pre></dd>
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/common/unmarshalling.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/common/unmarshalling.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

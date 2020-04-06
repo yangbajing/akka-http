@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Case Class 提取 &bull; Akka HTTP Chinese edition</title>
+<title>Case Class 提取 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -297,7 +297,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -312,7 +312,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -372,7 +372,7 @@ Version 10.1.11
 <p><strong>Case Class Extraction</strong></p>
 <p>The value extraction performed by <a href="directives/index.html">Directives</a> is a nice way of providing your route logic with interesting request properties, all with proper type-safety and error handling. However, in some case you might want even more. Consider this example:</p>
 <p>通过 <a href="directives/index.html">Directives</a> 执行的值提取是为你的路由逻辑提供为感兴趣的请求属性的一种好方法，所以这些属性都具有合适的类型-安全性和错误处理。 但是，有些情况下，你可能会想更多。举个例子：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L21-L30" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(red: Int, green: Int, blue: Int)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L21-L30" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(red: Int, green: Int, blue: Int)
 
 val route =
   path(&quot;color&quot;) {
@@ -385,7 +385,7 @@ val route =
 <p>这里，<code>parameters</code> 指令用于提取三个 <code>Int</code> 值，然后这三个值用于构造 <code>Color</code> case 类的实例。到目前为止还不错。 但是，如果我们想要处理的模型类不止有几个参数，那么捕获作为提取的参数并将其直接提供给模型类构造函数所带来的开销，可能你的路由定义有些混乱。</p>
 <p>If your model classes are case classes, as in our example, Akka HTTP supports an even shorter and more concise syntax. You can also write the example above like this:</p>
 <p>如果你的模型类是 case 类，在我们的例子中，Akka HTTP 支持一种更短且更简洁的语法。也可以像这样写上面的例子：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L37-L45" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(red: Int, green: Int, blue: Int)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L37-L45" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(red: Int, green: Int, blue: Int)
 
 val route =
   path(&quot;color&quot;) {
@@ -397,7 +397,7 @@ val route =
 <p>你可以使用 <code>as(...)</code> 调用为任何带有提取的指令添加后缀。通过简单的传递模型 case 类的伴身对象到 <code>as</code> 修改器方法，将底层指令转换为等效的指令， 该指令只提取模型类类型的一个值。注意，这里没有反射参与并且你的 case 类没有实现任何特定接口。唯一的要求是，附加的指令 <code>as</code> 调用生成正确的提取数量， 具有正确的类型和正确的顺序。</p>
 <p>If you&rsquo;d like to construct a case class instance from extractions produced by <em>several</em> directives you can first join the directives with the <code>&amp;</code> operator before using the <code>as</code> call:</p>
 <p>如果要从 <em>几个</em> 指令生成的提取构造 case 类实例，可以先使用 <code>&amp;</code> 操作符连接指令，再使用 <code>as</code> 调用：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L52-L59" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(name: String, red: Int, green: Int, blue: Int)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L52-L59" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(name: String, red: Int, green: Int, blue: Int)
 
 val route =
   (path(&quot;color&quot; / Segment) &amp; parameters(&#39;r.as[Int], &#39;g.as[Int], &#39;b.as[Int]))
@@ -416,7 +416,7 @@ val route =
 <p>在很多情况下，你的 Web 服务在实际使用输入参数以前需要根据某些逻辑验证它们。例如：在上面的例子中，可以限制所有颜色分量值必须在 0 到 255 之间。<br/>可以使用一些 <a href="directives/misc-directives/validate.html">validate</a> 指令完成这项工作，但是这将很快变得繁琐且难以阅读。</p>
 <p>If you use case class extraction you can put the verification logic into the constructor of your case class, where it should be:</p>
 <p>如果使用 case 类提供，可以将验证逻辑放入 case 类的构造器里，它应该在：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L65-L70" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(name: String, red: Int, green: Int, blue: Int) {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/server/CaseClassExtractionExamplesSpec.scala#L65-L70" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Color(name: String, red: Int, green: Int, blue: Int) {
   require(!name.isEmpty, &quot;color name must not be empty&quot;)
   require(0 &lt;= red &amp;&amp; red &lt;= 255, &quot;red color component must be between 0 and 255&quot;)
   require(0 &lt;= green &amp;&amp; green &lt;= 255, &quot;green color component must be between 0 and 255&quot;)
@@ -439,8 +439,7 @@ val route =
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/routing-dsl/case-class-extraction.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/routing-dsl/case-class-extraction.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

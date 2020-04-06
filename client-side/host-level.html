@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>主机级别客户端 API &bull; Akka HTTP Chinese edition</title>
+<title>主机级别客户端 API &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -271,8 +271,8 @@ Version 10.1.11
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">池溢出和最大打开请求数设置</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">客户端 HTTPS 支持</a></li>
-    <li><a href="../client-side/client-transport.html" class="page">Pluggable Client Transports / HTTP(S) proxy Support</a></li>
-    <li><a href="../client-side/websocket-support.html" class="page">Client-Side WebSocket Support</a></li>
+    <li><a href="../client-side/client-transport.html" class="page">可插拔的客户端传输 / HTTP(S) 代理支持</a></li>
+    <li><a href="../client-side/websocket-support.html" class="page">客户端 WebSocket 支持</a></li>
   </ul></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
   <li><a href="../technologies.html" class="page">7. 支持的技术</a></li>
@@ -287,7 +287,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -302,7 +302,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -325,8 +325,8 @@ Version 10.1.11
     <li><a href="../client-side/connection-level.html" class="page">连接级别客户端 API</a></li>
     <li><a href="../client-side/pool-overflow.html" class="page">池溢出和最大打开请求数设置</a></li>
     <li><a href="../client-side/client-https-support.html" class="page">客户端 HTTPS 支持</a></li>
-    <li><a href="../client-side/client-transport.html" class="page">Pluggable Client Transports / HTTP(S) proxy Support</a></li>
-    <li><a href="../client-side/websocket-support.html" class="page">Client-Side WebSocket Support</a></li>
+    <li><a href="../client-side/client-transport.html" class="page">可插拔的客户端传输 / HTTP(S) 代理支持</a></li>
+    <li><a href="../client-side/websocket-support.html" class="page">客户端 WebSocket 支持</a></li>
   </ul></li>
   <li><a href="../extensions.html" class="page">6. 扩展</a></li>
   <li><a href="../technologies.html" class="page">7. 支持的技术</a></li>
@@ -452,7 +452,7 @@ Version 10.1.11
 <p>要模仿请求级别 API，我们可以在池的前面放置一个显示队列，并且当这个显示队列溢出时我们自己决定要做什么。这个例子显示这是如何做的。 （谢谢 <a href="https://kazuhiro.github.io/scala/akka/akka-http/akka-streams/2016/01/31/connection-pooling-with-akka-http-and-source-queue.html">有关最被想法的 kazuhiro 的博客</a>）。</p>
 <p>You can tweak the <code>QueueSize</code> setting according to your memory constraints. In any case, you need to think about a strategy about what to do when requests fail because the queue overflowed (e.g. try again later or just fail).</p>
 <p>你可以根据内存限制调整 <code>QueueSize</code> 设置。在任何情况下，你需要思考一个策略，既当因为队列溢出而请求失败时（例如：稍候重试或只是失败）。 </p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L215-L254" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.util.{ Failure, Success }
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L215-L254" target="_blank" title="Go to snippet source"></a><code class="language-scala">import scala.util.{ Failure, Success }
 import scala.concurrent.{ Future, Promise }
 
 import akka.actor.ActorSystem
@@ -496,7 +496,7 @@ val responseFuture: Future[HttpResponse] = queueRequest(HttpRequest(uri = &quot;
 <p><strong>以流方式使用主机级别 API</strong></p>
 <p>Even better is it to use the streaming API directly. This will mostly prevent intermediate buffers as data can be generated &ldquo;on-the-fly&rdquo; while streaming the requests. You supply the requests as a stream, i.e. as a <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;(HttpRequest, ...)&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[(HttpRequest, ...)]</code></a></span>, and the pool will &ldquo;pull out&rdquo; single requests when capacity is available on one of the connections to the host.</p>
 <p>直接使用流式 API 甚至更好。这将主要防止中间缓冲区，因为数据可以在流请求时“动态”生成。以流的形式提供抗日请求，例如：作为 <span class="group-java"><a href="https://doc.akka.io/japi/akka/2.5.26/?akka/stream/javadsl/Source.html" title="akka.stream.javadsl.Source"><code>Source&lt;(HttpRequest, ...)&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka/2.5.26/akka/stream/scaladsl/Source.html" title="akka.stream.scaladsl.Source"><code>Source[(HttpRequest, ...)]</code></a></span> ， 当到主机的连接上容量可用时，池将“拉出”单个请求。</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L260-L322" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.nio.file.{ Path, Paths }
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/HttpClientExampleSpec.scala#L260-L322" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.nio.file.{ Path, Paths }
 
 import scala.util.{ Failure, Success }
 import scala.concurrent.Future
@@ -576,8 +576,7 @@ filesToUpload()
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/client-side/host-level.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/client-side/host-level.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">

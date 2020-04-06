@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>JSON 支持 &bull; Akka HTTP Chinese edition</title>
+<title>JSON 支持 &bull; Akka HTTP Unofficial Chinese</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Akka Http: Modern, fast, asynchronous, streaming-first HTTP server and client."/>
@@ -234,7 +234,7 @@ C18.354,14.614,14.613,18.354,10,18.354z" />
 <div id="overlay" class="overlay-nav" data-toggler="nav-open">
 <header class="nav-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -248,7 +248,7 @@ Version 10.1.11
 </header>
 <nav class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -286,7 +286,7 @@ Version 10.1.11
 <aside class="sticky-sidebar show-for-large">
 <header class="nav-header sticky-sidebar-header">
 <div class="nav-header-title">
-<h1><a href="../index.html">Akka HTTP Chinese edition</a></h1>
+<h1><a href="../index.html">Akka HTTP Unofficial Chinese</a></h1>
 </div>
 <div class="nav-header-version">
 Version 10.1.11
@@ -301,7 +301,7 @@ Version 10.1.11
 <nav class="site-nav sticky-sidebar-contents">
 <div class="nav-toc">
 <ul>
-  <li><a href="../security.html" class="page">! Security Announcements !</a></li>
+  <li><a href="../security.html" class="page">! 安全声明 !</a></li>
   <li><a href="../release-notes/index.html" class="page">0. Release Notes</a></li>
   <li><a href="../introduction.html" class="page">1. 导读</a></li>
   <li><a href="../usage.html" class="page">2. 使用</a></li>
@@ -359,7 +359,7 @@ Version 10.1.11
 &lt;/dependency&gt;</code></pre></dd></dl>
 <p>Use <code>akka.http.javadsl.marshallers.jackson.Jackson.unmarshaller(T.class)</code> to create an <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/unmarshalling/Unmarshaller.html" title="akka.http.javadsl.unmarshalling.Unmarshaller"><code>Unmarshaller&lt;HttpEntity,T&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/unmarshalling/Unmarshaller.html" title="akka.http.scaladsl.unmarshalling.Unmarshaller"><code>Unmarshaller[HttpEntity,T]</code></a></span> which expects the request body (HttpEntity) to be of type <code>application/json</code> and converts it to <code>T</code> using Jackson.</p>
 <p>使用 <code>akka.http.javadsl.marshallers.jackson.Jackson.unmarshaller(T.class)</code> 创建一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/unmarshalling/Unmarshaller.html" title="akka.http.javadsl.unmarshalling.Unmarshaller"><code>Unmarshaller&lt;HttpEntity,T&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/unmarshalling/Unmarshaller.html" title="akka.http.scaladsl.unmarshalling.Unmarshaller"><code>Unmarshaller[HttpEntity,T]</code></a></span> ， 它期望请求正文（HttpEntity）属于 <code>application/json</code> 类型并使用 Jackson 将其转换为 <code>T</code> 类型。</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java#L11-L28" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.marshallers.jackson.Jackson;
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java#L11-L28" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.model.StatusCodes;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -411,7 +411,7 @@ public static Route appRoute(final Map&lt;Integer, Pet&gt; pets) {
 }</code></pre>
 <p>Use <code>akka.http.javadsl.marshallers.jackson.Jackson.marshaller(T.class)</code> to create a <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller&lt;T,RequestEntity&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller[T,RequestEntity]</code></a></span> which can be used with <code>RequestContext.complete</code> or <code>RouteDirectives.complete</code> to convert a POJO to an HttpResponse.</p>
 <p>使用 <code>akka.http.javadsl.marshallers.jackson.Jackson.marshaller(T.class)</code> 创建一个 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/marshalling/Marshaller.html" title="akka.http.javadsl.marshalling.Marshaller"><code>Marshaller&lt;T,RequestEntity&gt;</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshalling/Marshaller.html" title="akka.http.scaladsl.marshalling.Marshaller"><code>Marshaller[T,RequestEntity]</code></a></span> ， 它可用于 <code>RequestContext.complete</code> 或 <code>RouteDirectives.complete</code> 转换一个 POJO 到 <span class="group-java"><a href="https://doc.akka.io/japi/akka-http/current/?akka/http/javadsl/model/HttpResponse.html" title="akka.http.javadsl.model.HttpResponse"><code>HttpResponse</code></a></span><span class="group-scala"><a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/model/HttpResponse.html" title="akka.http.scaladsl.model.HttpResponse"><code>HttpResponse</code></a></span> 。</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java#L11-L28" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.marshallers.jackson.Jackson;
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java#L11-L28" target="_blank" title="Go to snippet source"></a><code class="language-java">import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.model.StatusCodes;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -428,8 +428,8 @@ private static Route alternativeFuturePutPetHandler(Map&lt;Integer, Pet&gt; pets
   CompletableFuture&lt;Pet&gt; futurePet = CompletableFuture.supplyAsync(() -&gt; thePet);
     return completeOKWithFuture(futurePet, Jackson.&lt;Pet&gt;marshaller());
 }</code></pre>
-<p>Refer to <a href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java">this file</a> in the sources for the complete example.</p>
-<p>有关完整示例，请参考 <a href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java">这个文件</a> 。</p></div><div class="group-scala">
+<p>Refer to <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java">this file</a> in the sources for the complete example.</p>
+<p>有关完整示例，请参考 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/main/java/akka/http/javadsl/server/examples/petstore/PetStoreExample.java">这个文件</a> 。</p></div><div class="group-scala">
 <h2><a href="#spray-json-support" name="spray-json-support" class="anchor"><span class="anchor-link"></span></a>spray-json Support</h2>
 <p><strong>spray-json 支持</strong></p>
 <p>The <a href="https://doc.akka.io/api/akka-http/current/akka/http/scaladsl/marshallers/sprayjson/SprayJsonSupport.html" title="akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport"><code>SprayJsonSupport</code></a> trait provides a <code>FromEntityUnmarshaller[T]</code> and <code>ToEntityMarshaller[T]</code> for every type <code>T</code> that an implicit <code>spray.json.RootJsonReader</code> and/or <code>spray.json.RootJsonWriter</code> (respectively) is available for.</p>
@@ -449,7 +449,7 @@ private static Route alternativeFuturePutPetHandler(Map&lt;Integer, Pet&gt; pets
 <p>最后，如下面例子所示，直接从 <code>SprayJsonSupport</code> 导入 <code>FromEntityUnmarshaller[T]</code> 和 <code>ToEntityMarshaller[T]</code> 隐式转换， 或者将 <code>akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport</code> trait 混入你的 JSON 支持模块。</p>
 <p>Once you have done this (un)marshalling between JSON and your type <code>T</code> should work nicely and transparently.</p>
 <p>一旦完成了 JSON 和你的类型 <code>T</code> 之间的(解)编组功能，就可以很好地、透明的工作了。</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/SprayJsonExampleSpec.scala#L15-L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.server.Directives
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/SprayJsonExampleSpec.scala#L15-L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.server.Directives
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import spray.json._
 
@@ -492,7 +492,7 @@ class MyJsonService extends Directives with JsonSupport {
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/scala/akka/http/scaladsl/server/EntityStreamingSpec.scala#L99-L120" target="_blank" title="Go to snippet source"></a><code class="language-scala">import MyJsonProtocol._
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/scala/akka/http/scaladsl/server/EntityStreamingSpec.scala#L99-L120" target="_blank" title="Go to snippet source"></a><code class="language-scala">import MyJsonProtocol._
 import akka.http.scaladsl.unmarshalling._
 import akka.http.scaladsl.common.EntityStreamingSupport
 import akka.http.scaladsl.common.JsonEntityStreamingSupport
@@ -516,7 +516,7 @@ val source: Source[Tweet, Future[NotUsed]] =
 </code></pre></dd>
   <dt>Java</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/java/docs/http/javadsl/server/JsonStreamingExamplesTest.java#L136-L152" target="_blank" title="Go to snippet source"></a><code class="language-java">Unmarshaller&lt;ByteString, JavaTweet&gt; unmarshal = Jackson.byteStringUnmarshaller(JavaTweet.class);
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/java/docs/http/javadsl/server/JsonStreamingExamplesTest.java#L136-L152" target="_blank" title="Go to snippet source"></a><code class="language-java">Unmarshaller&lt;ByteString, JavaTweet&gt; unmarshal = Jackson.byteStringUnmarshaller(JavaTweet.class);
 JsonEntityStreamingSupport support = EntityStreamingSupport.json();
 
 // imagine receiving such response from a service:
@@ -539,7 +539,7 @@ Source&lt;JavaTweet, Object&gt; tweets =
 <dl>
   <dt>Scala</dt>
   <dd>
-  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-tests/src/test/scala/akka/http/scaladsl/server/EntityStreamingSpec.scala#L134-L152" target="_blank" title="Go to snippet source"></a><code class="language-scala">import MyJsonProtocol._
+  <pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-tests/src/test/scala/akka/http/scaladsl/server/EntityStreamingSpec.scala#L134-L152" target="_blank" title="Go to snippet source"></a><code class="language-scala">import MyJsonProtocol._
 import akka.http.scaladsl.unmarshalling._
 import akka.http.scaladsl.common.EntityStreamingSupport
 import akka.http.scaladsl.common.JsonEntityStreamingSupport
@@ -564,11 +564,11 @@ val value: Source[Tweet, Any] =
 <p><strong>美化输出</strong></p>
 <p>By default, spray-json marshals your types to compact printed JSON by implicit conversion using <code>CompactPrinter</code>, as defined in:</p>
 <p>默认，spray-json 把你的类型使用隐式转换 <code>CompactPrinter</code> 以紧凑格式输出 JSON，如下：</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/akka-http-marshallers-scala/akka-http-spray-json/src/main/scala/akka/http/scaladsl/marshallers/sprayjson/SprayJsonSupport.scala#L63-L64" target="_blank" title="Go to snippet source"></a><code class="language-scala">implicit def sprayJsonMarshallerConverter[T](writer: RootJsonWriter[T])(implicit printer: JsonPrinter = CompactPrinter): ToEntityMarshaller[T] =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/akka-http-marshallers-scala/akka-http-spray-json/src/main/scala/akka/http/scaladsl/marshallers/sprayjson/SprayJsonSupport.scala#L63-L64" target="_blank" title="Go to snippet source"></a><code class="language-scala">implicit def sprayJsonMarshallerConverter[T](writer: RootJsonWriter[T])(implicit printer: JsonPrinter = CompactPrinter): ToEntityMarshaller[T] =
   sprayJsonMarshaller[T](writer, printer)</code></pre>
 <p>Alternatively to marshal your types to pretty printed JSON, bring a <code>PrettyPrinter</code> in scope to perform implicit conversion.</p>
 <p>或者，将你的类型编组为美化的 JSON，在作用域内提供 <code>PrettyPrinter</code> 执行隐式转换。</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/test/scala/docs/http/scaladsl/SprayJsonPrettyMarshalSpec.scala#L15-L52" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/test/scala/docs/http/scaladsl/SprayJsonPrettyMarshalSpec.scala#L15-L52" target="_blank" title="Go to snippet source"></a><code class="language-scala">import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 import spray.json._
 
 // domain model
@@ -623,8 +623,7 @@ Get(&quot;/&quot;) ~&gt; service.route ~&gt; check {
 </div>
 </div>
 <div class="source-github row">
-Found an error in this documentation? The source code for this page can be found <a href="https://github.com/akka/akka-http/tree/v10.1.11/docs-zh/src/main/paradox/common/json-support.md">here</a>.
-Please feel free to edit and contribute a pull request.
+在此文档中发现错误？该页面的源代码可以在 <a href="https://github.com/yangbajing/akka-http/tree/zh-docs-10.1/docs-zh/src/main/paradox/common/json-support.md" target="_blank">这里</a> 找到。欢迎随时编辑并提交 Pull Request。
 </div>
 
 <footer class="page-footer row clearfix">
