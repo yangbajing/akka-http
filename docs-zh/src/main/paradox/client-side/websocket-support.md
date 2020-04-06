@@ -23,7 +23,7 @@ other regular HTTP request properties), so in addition to the flow of messages t
 from the server, this is modelled with @apidoc[WebSocketUpgradeResponse].
 
 WebSocket 请求以包含 `Upgrade` 头域（可能还有其它常规 HTTP 请求属性）的常规 HTTP 请求开始，
-因此除了消息流外，还有来自服务器的初始响应：@apidoc[WebSocketUpgradeResponse] 。
+因此除了消息流外，还有来自服务器的初始响应： @apidoc[WebSocketUpgradeResponse] 。
 
 The methods of the WebSocket client API handle the upgrade to WebSocket on connection success and materializes
 the connected WebSocket stream. If the connection fails, for example with a `404 NotFound` error, this regular
